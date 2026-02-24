@@ -1,0 +1,206 @@
+body {
+  width: 1920px;
+  padding: 231px 640px 284px 640px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  width: 640px;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  flex-shrink: 0;
+}
+
+.logo {
+  width: 396px;
+  height: 132px;
+}
+
+.label1 {
+  color: var(--Secondary-800, #1f2937);
+  font-family: Pretendard;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 26px;
+}
+
+.input-box input:focus {
+  outline: none;
+}
+
+/* input 감싸는 박스 */
+
+.input-box {
+  width: 640px; /* 두 박스 동일 */
+  height: 56px;
+  padding: 16px 24px;
+  background-color: #f3f4f6;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  position: relative; /* 기준점 */
+  width: 100%;
+  margin-top: 16px;
+  margin-bottom: 24px;
+}
+
+/* input */
+.input-box input {
+  flex: 1; /* 자동 공간 */
+  border: none;
+  outline: none;
+  background: transparent;
+  width: 100%;
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: var(--Secondary-400, #9ca3af);
+  /* pretendard/lg-16px-regular */
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 26px; /* 162.5% */
+}
+
+/* 눈 아이콘 */
+.eye-icon {
+  width: 20px;
+  cursor: pointer;
+}
+
+/* 포커스 시 바깥 박스 테두리 변경 */
+.input-box:focus-within {
+  border: 1px solid #3692ff;
+}
+
+/* 입력창 */
+
+.input-text-box {
+  background-color: #f3f4f6;
+  justify-content: space-between;
+  width: 640px;
+  height: 56px;
+  padding: 0 24px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f3f4f6;
+  display: flex;
+  align-items: center; /* 세로 중앙 */
+  box-sizing: border-box;
+}
+
+.input-text-box {
+  border: none;
+  outline: none;
+  background: transparent;
+  flex: 1; /* 🔥 자동으로 남은 공간 차지 */
+  font-size: 14px;
+}
+
+.eye-icon {
+  width: 20px;
+  cursor: pointer;
+}
+
+.login-btn {
+  display: flex;
+  width: 640px;
+  height: 56px;
+  padding: 16px 124px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 40px;
+  background: var(--Secondary-400, #9ca3af);
+  color: var(--Cool-Gray-100, #f3f4f6);
+  text-align: center;
+
+  /* pretendard/xl-20px-semibold */
+  font-family: Pretendard;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 32px; /* 160% */
+}
+
+.login-btn:hover {
+  background: var(--Primary-100, #3692ff);
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.social-login-box {
+  width: 100%;
+  padding: 16px 23px; /* 위아래 16, 좌우 23 */
+  background-color: #e6f0fa;
+  border-radius: 8px;
+  display: flex;
+  align-items: center; /* 세로 중앙 */
+}
+
+/* 왼쪽 텍스트 */
+.social-text {
+  color: var(--Secondary-800, #1f2937);
+
+  /* pretendard/lg-16px-medium */
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 26px; /* 162.5% */
+}
+
+/* 오른쪽 아이콘 영역 */
+.social-icons {
+  margin-left: auto; /* 자동으로 오른쪽 끝으로 밀기 */
+  display: flex;
+  gap: 12px;
+}
+
+/* 아이콘 */
+.social-icons img {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+
+/* 회원가입 */
+.signup {
+  color: var(--Secondary-800, #1f2937);
+
+  /* pretendard/md-14px-medium */
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px; /* 171.429% */
+}
+
+.signup a {
+  text-decoration: underline;
+  color: var(--Primary-100, #3692ff);
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-skip-ink: none;
+  text-decoration-thickness: auto;
+  text-underline-offset: auto;
+  text-underline-position: from-font;
+}
