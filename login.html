@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>판다마켓</title>
+    <link
+      rel="stylesheet"
+      as="style"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
+    />
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container" role="article">
+      <div class="login_box">
+        <div class="login_logo gap-15" onclick="location.href = 'index.html'">
+          <img src="img/판다 얼굴_big.png" alt="" />
+          <h1 class="font-ROKAF">판다마켓</h1>
+        </div>
+        <div class="form_area">
+          <form action="">
+            <label for="email">이메일</label>
+            <input
+              id="email"
+              name="email"
+              type="text"
+              placeholder="이메일을 입력해주세요"
+              required
+              autocomplete="off"
+            />
+            <label for="pass">비밀번호</label>
+            <div class="input_area">
+              <input
+                id="pass"
+                name="pass"
+                type="password"
+                placeholder="비밀번호를 입력해주세요"
+                required
+                autocomplete="off"
+              />
+              <img src="img/icon/btn_visibility_on_24px.png" alt="" />
+            </div>
+            <button id="submit_button" type="submit">로그인</button>
+          </form>
+        </div>
+        <div class="sns_login_area">
+          <div class="sns_login_description">간편 로그인하기</div>
+          <div class="sns_login_ul">
+            <ul>
+              <li>
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href="https://www.google.com/"
+                >
+                  <img src="img/icon/Component 2.png" alt="" />
+                </a>
+              </li>
+              <li>
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href="https://www.kakaocorp.com/page/"
+                >
+                  <img src="img/icon/facebook.png" alt="" />
+                  <img src="img/icon/99FE484C5C3451F218 1.png" alt="" />
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="login_box_footer">
+          <p>판다마켓이 처음이신가요?</p>
+          <a href="signup.html">회원가입</a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
