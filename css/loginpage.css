@@ -1,0 +1,118 @@
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.page_section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  width: 640px;
+  margin: 0 auto;
+}
+
+.login_section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.login_text {
+  font-family: "Pretendard";
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 26px;
+  gap: 16px;
+}
+
+.login_form_container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+}
+
+.input_form {
+  display: flex;
+  width: 640px;
+  height: 56px;
+  padding: 16px 24px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+
+  background-color: #f3f4f6;
+  border-radius: 12px;
+  border: 1px solid transparent;
+  box-sizing: border-box;
+  outline: none;
+}
+
+#login_btn button,
+#signup_btn button {
+  width: 640px;
+  height: 56px;
+  background-color: #9ca3af;
+  color: #ffffff;
+  border-radius: 40px;
+  border: none;
+  font-size: 20px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.simple_login {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 640px;
+  padding: 16px 23px;
+  background-color: #e6f2ff;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+.login_icons {
+  display: flex;
+  gap: 20px;
+}
+
+.create_user,
+.existing_user {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+}
+
+.create_user a,
+.existing_user a {
+  color: #3692ff;
+}
+
+input:focus {
+  outline: 1px solid #3692ff;
+}
+
+.input_form::placeholder {
+  color: var(--Secondary-400, #9ca3af);
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 26px;
+}
+
+.id_section,
+.password_section,
+.password_check_section,
+.nickname_section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  width: 100%;
+}
