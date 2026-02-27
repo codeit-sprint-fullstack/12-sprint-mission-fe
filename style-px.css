@@ -1,0 +1,189 @@
+* {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: inherit; /*부모 요소의 색을 따름. 이렇게 안하면 기본색인 파란색이 됨..*/
+  cursor: pointer; /*근데 기본값으로 되어있는듯?*/
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  border-bottom: 1px solid #dfdfdf;
+  height: 70px;
+
+  background-color: #ffffff;
+  padding: 8px 200px; /*이 패딩은 고정되어 있으므로, 화면 크기를 조정해도 변하지 않음.*/
+}
+
+.header .content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8.5px;
+}
+
+.login-button {
+  background-color: #3692ff;
+  border-width: 0;
+  border-radius: 8px;
+  width: 128px;
+  height: 48px;
+
+  color: #f3f4f6;
+  font-size: 1rem;
+  line-height: 1.625rem;
+  font-weight: 600;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.intro-section,
+.outro-section {
+  background-color: #cfe5ff;
+  height: 540px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.intro-section .content,
+.outro-section .content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 7px;
+}
+
+.intro-text-and-button {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.items-button {
+  background-color: #3692ff;
+  border-width: 0;
+  border-radius: 40px;
+  width: 357px;
+  height: 56px;
+
+  color: #f9fafb;
+  font-size: 20px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.big-text {
+  color: #374151;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 140%;
+}
+
+.main-section {
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 138px;
+}
+
+.main-section .content {
+  background-color: #fcfcfc;
+  width: 988px;
+  height: 444px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 64px;
+}
+
+.slogan {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.slogan-text-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.summation-text {
+  color: #3692ff;
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 700;
+}
+
+.description {
+  color: #374151;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 32px;
+}
+
+.outro-section .content {
+  display: flex;
+  gap: 69px;
+}
+
+.footer {
+  background-color: #111827;
+  padding: 32px 200px 108px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer .content {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.since-text {
+  color: #9ca3af;
+  font-size: 16px;
+  font-weight: 400;
+  flex-shrink: 0;
+}
+
+.privacy-and-faq {
+  color: #e5e7eb;
+  font-size: 16px;
+  font-weight: 400;
+
+  display: flex;
+  gap: 30px;
+  flex-shrink: 0;
+}
+
+.sns-images {
+  height: 18px; /*width는 내용물 크기에 맞춰 자동으로 설정되도록 함.*/
+  display: flex;
+  gap: 12px;
+}
