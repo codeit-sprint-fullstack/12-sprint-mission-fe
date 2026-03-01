@@ -14,59 +14,64 @@
     <link rel="stylesheet" href="./CSS/login.css" />
   </head>
   <body>
-    <!-- header -->
-    <header>
-      <a href="/index.html">
-        <img src="./images/logo.svg" />
-      </a>
-    </header>
-
-    <!-- form -->
-    <section>
-      <form action="/signup.html" method="POST">
-        <div>
-          <label for="email">이메일<br /></label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="이메일을 입력해주세요"
-            required
-          />
-        </div>
-
-        <div>
-          <ladel for="user-pw">비밀번호<br /></ladel>
-          <input
-            type="password"
-            id="user-pw"
-            name="userPassword"
-            placeholder="비밀번호를 입력해주세요"
-            required
-          />
-        </div>
-
-        <div>
-          <input type="submit" value="로그인" disabled />
-        </div>
-      </form>
-    </section>
-
-    <!-- bottom -->
-    <div class="bottom">
-      <div>
-        간편 로그인하기
-        <a href="#">
-          <img src="#" />
+    <div class="wrapper">
+      <!-- header -->
+      <header>
+        <a href="/index.html">
+          <img src="./images/logo_login.svg" />
         </a>
+      </header>
 
-        <a href="#">
-          <img src="#" />
-        </a>
-      </div>
-      <div>
-        판다마켓이 처음이신가요?
-        <a href="/signup.html">회원가입</a>
+      <!-- form -->
+      <section>
+        <form action="/signup.html" method="POST">
+          <div class="email">
+            <label for="email">이메일<br /></label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="이메일을 입력해주세요"
+              required
+            />
+          </div>
+
+          <div class="pw">
+            <ladel for="user-pw">비밀번호<br /></ladel>
+            <input
+              type="password"
+              id="user-pw"
+              name="userPassword"
+              placeholder="비밀번호를 입력해주세요"
+              required
+            />
+          </div>
+
+          <div class="btn_login">
+            <input type="submit" value="로그인" disabled />
+          </div>
+        </form>
+      </section>
+
+      <!-- bottom -->
+      <div class="bottom">
+        <div class="sns_login">
+          <p>간편 로그인하기</p>
+          <div class="sns_ic">
+            <a href="https://www.google.com/">
+              <img src="./images/ic_goole.svg" />
+            </a>
+
+            <a href="https://www.kakaocorp.com/page/">
+              <img src="./images/ic_kakao.png" />
+            </a>
+          </div>
+        </div>
+
+        <div class="signup_ask">
+          판다마켓이 처음이신가요?
+          <a class="signup_guide" href="/signup.html">회원가입</a>
+        </div>
       </div>
     </div>
   </body>

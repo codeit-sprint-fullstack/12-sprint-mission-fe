@@ -1,9 +1,13 @@
+a {
+  text-decoration: none;
+}
+
 .top {
   display: flex;
   justify-content: center;
-  border-bottom: 1px solid #DFDFDF;
-  background: #FFF;
-  
+  border-bottom: 1px solid #dfdfdf;
+  background: #fff;
+
   position: sticky;
   top: 0px;
   z-index: 1000;
@@ -18,7 +22,6 @@
   gap: 10px;
   /* border: 1px solid black; */
   cursor: pointer;
-
 }
 
 .login {
@@ -27,9 +30,9 @@
   justify-content: center;
   align-items: center;
   border-radius: 8px;
-  background: var(--Primary-100, #3692FF);
+  background: var(--Primary-100, #3692ff);
 
-  color: var(--Cool-Gray-100, #F3F4F6);
+  color: var(--Cool-Gray-100, #f3f4f6);
 
   /* pretendard/lg-16px-semibold */
   font-family: Pretendard;
@@ -41,12 +44,12 @@
 
   cursor: pointer;
 }
- 
+
 .hero {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #CFE5FF;
+  background: #cfe5ff;
   /* border: 1px solid black; */
 }
 
@@ -58,11 +61,7 @@
   padding: 200px 405px 0 405px;
   gap: 7px;
   /* border: 1px solid black; */
-  
-  
 }
-
-
 
 .hero_content {
   display: flex;
@@ -82,14 +81,13 @@
   cursor: pointer;
 }
 
-
 .go {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 16px 124px;
 
-  color: var(--Secondary-50, #F9FAFB);
+  color: var(--Secondary-50, #f9fafb);
   text-align: center;
   /* pretendard/xl-20px-semibold */
   font-family: "Pretendard";
@@ -97,23 +95,22 @@
   font-style: normal;
   font-weight: 600;
   line-height: 32px;
-  
+
   border-radius: 40px;
-  background: var(--brand-blue, #3692FF); 
+  background: var(--brand-blue, #3692ff);
 }
 
 .main {
   display: flex;
-  flex-direction:column;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  
-  
-  /* border: 1px solid black; */
 
+  /* border: 1px solid black; */
 }
 
-.set1, .set3 {
+.set1,
+.set3 {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -131,7 +128,8 @@
   /* border: 1px solid black; */
 }
 
-.frame1, .frame3 {
+.frame1,
+.frame3 {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -152,7 +150,7 @@
 }
 
 .keyword {
-  color: var(--Primary-100, #3692FF);
+  color: var(--Primary-100, #3692ff);
   /* pretendard/2lg-18px-bold */
   font-family: Pretendard;
   font-size: 18px;
@@ -180,23 +178,19 @@
   line-height: 32px; /* 133.333% */
 }
 
-
 .footer {
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  background: #CFE5FF;
+  background: #cfe5ff;
 
   padding: 143px 405px 0 405px;
-
 }
 
 .footer_container {
   display: flex;
   align-items: center;
   gap: 69px;
-  
-
 
   color: var(--Secondary-700, #374151);
   font-family: Pretendard;
@@ -206,8 +200,6 @@
   line-height: 140%; /* 56px */
   text-wrap: nowrap;
 }
-
-
 
 .bottom {
   display: flex;
@@ -219,8 +211,8 @@
   gap: 20px;
 }
 
-.t1{
-  color: var(--Secondary-400, #9CA3AF);
+.t1 {
+  color: var(--Secondary-400, #9ca3af);
   text-align: center;
   font-family: Pretendard;
   font-size: 16px;
@@ -229,23 +221,21 @@
   line-height: normal;
 }
 
-.t2{
+.t2 {
   display: flex;
   gap: 30px;
-  color: var(--Secondary-200, #E5E7EB);
+  color: var(--Secondary-200, #e5e7eb);
   text-align: center;
   font-family: Pretendard;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-
-
 }
 
-.landing{
+.landing {
   gap: 30px;
-  color: var(--Secondary-200, #E5E7EB);
+  color: var(--Secondary-200, #e5e7eb);
   text-align: center;
   font-family: Pretendard;
   font-size: 16px;
@@ -254,146 +244,144 @@
   line-height: normal;
 
   cursor: pointer;
-
 }
 
-.t3{
+.t3 {
   display: flex;
   /* flex-wrap: wrap; */
   gap: 10px;
   cursor: pointer;
-
 }
 
 /*========타블렛 다바이스용 (700~ )======*/
 @media (max-width: 1200px) {
-  .footer_container{
+  .footer_container {
     flex-direction: column;
     text-align: start;
-
-  } 
-  .top_container{
+  }
+  .top_container {
     padding: 1px 30px;
-    gap: 150px
+    gap: 150px;
   }
   .go {
     padding: 12px 50px;
   }
-  .login
-  {
+  .login {
     padding: 12px 30px;
     border-radius: 10px;
   }
-  .footer{
+  .footer {
     padding: 40px 70px 0 70px;
   }
-  .bottom{
+  .bottom {
     padding: 20px 50px;
   }
-  .hero_content{
+  .hero_content {
     gap: 10px;
-    padding: 10px  0;
-
+    padding: 10px 0;
   }
-  .hero_container{
+  .hero_container {
     flex-direction: column;
     justify-content: flex-end;
     align-items: center;
     gap: 10px;
     padding: 30px 150px 0px 150px;
   }
-  .set1, .set2, .set3 {
+  .set1,
+  .set2,
+  .set3 {
     flex-direction: row;
     text-align: center;
     white-space: nowrap;
     padding: 35px 50px;
-    gap: 60px
-
+    gap: 60px;
   }
-/* 40px 크기 */
-  .hero_content, .set_t, .footer_container {
+  /* 40px 크기 */
+  .hero_content,
+  .set_t,
+  .footer_container {
     font-size: 30px;
-    line-height: 115%
+    line-height: 115%;
   }
-/* 20px 크기*/
-  .login, .go, .set_t2{
+  /* 20px 크기*/
+  .login,
+  .go,
+  .set_t2 {
     font-size: 20px;
-    line-height: 30px; 
+    line-height: 30px;
   }
   .keyword {
     font-size: 15px;
-
   }
 
   img {
-  width: 100%;
-  max-width: 300px;
-  min-width: 200px;
-  height: auto;    /* 높이를 고정할 경우 */
+    width: 100%;
+    max-width: 300px;
+    min-width: 200px;
+    height: auto; /* 높이를 고정할 경우 */
   }
 }
 
-
 /*=============핸드폰 다바이스용 (345~ )===========*/
 @media (max-width: 700px) {
-  
-  .set1, .set2, .set3 {
+  .set1,
+  .set2,
+  .set3 {
     flex-direction: row;
     text-align: center;
     white-space: nowrap;
     padding: 35px 50px;
-    gap: 20px
-
-  }  
-  .login
-  {
+    gap: 20px;
+  }
+  .login {
     padding: 5px 10px;
     border-radius: 4px;
   }
   .go {
     padding: 6px 15px;
   }
-  .hero_container{
+  .hero_container {
     justify-content: flex-end;
     flex-direction: column;
     align-items: center;
     gap: 10px;
     padding: 10px 70px 0px 70px;
-   }
+  }
 
-  .footer_container{
+  .footer_container {
     flex-direction: column;
     text-align: center;
     gap: 25px;
-
-  } 
-/* 40px 크기 */
-  .hero_content, .set_t, .footer_container {
+  }
+  /* 40px 크기 */
+  .hero_content,
+  .set_t,
+  .footer_container {
     font-size: 13px;
-    line-height: 115%
+    line-height: 115%;
   }
-/* 20px 크기*/
-  .login, .go, .set_t2{
+  /* 20px 크기*/
+  .login,
+  .go,
+  .set_t2 {
     font-size: 8px;
-    line-height: 10px; 
+    line-height: 10px;
   }
-    .keyword, .t1, .landing {
+  .keyword,
+  .t1,
+  .landing {
     font-size: 8px;
-
   }
 
-  .top_container img{
-  width: 50px;
+  .top_container img {
+    width: 50px;
   }
-
-
-
 
   img {
-  width: 100%;
-  max-width: 200px;
-  min-width: 80px;
-  height: auto;    /* 높이를 고정할 경우 */
+    width: 100%;
+    max-width: 200px;
+    min-width: 80px;
+    height: auto; /* 높이를 고정할 경우 */
   }
 }
 
