@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>signup</title>
+    <link rel="stylesheet" href="./CSS/reset.css" />
+    <link
+      rel="stylesheet"
+      as="style"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
+    />
+    <link rel="stylesheet" href="./CSS/signup.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <!-- header -->
+      <header>
+        <a href="/index.html">
+          <img src="./images/logo_login.svg" />
+        </a>
+      </header>
+      <!-- form -->
+      <section>
+        <form action="#" method="POST">
+          <div class="email">
+            <label for="email">이메일<br /></label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="이메일을 입력해주세요"
+              required
+            />
+          </div>
+
+          <div class="username">
+            <label for="username">닉네임<br /></label>
+            <input
+              type="text"
+              id="username"
+              name="username"
+              placeholder="닉네임을 입력해주세요"
+              required
+            />
+          </div>
+
+          <div class="pwd">
+            <label for="pwd">비밀번호<br /></label>
+            <input
+              type="password"
+              id="pwd"
+              name="password"
+              placeholder="비밀번호를 입력해주세요"
+              required
+            />
+          </div>
+
+          <div class="pwd_check">
+            <label for="pwd_check">비밀번호 확인<br /></label>
+            <input
+              type="password"
+              id="pwd_check"
+              name="password_check"
+              placeholder="비밀번호를 다시 한 번 입력해주세요"
+              required
+            />
+          </div>
+
+          <div class="btn_signup">
+            <input type="submit" value="회원가입" disabled />
+          </div>
+        </form>
+      </section>
+
+      <!-- bottom -->
+      <div class="bottom">
+        <div class="sns_login">
+          <p>간편 로그인하기</p>
+          <div class="sns_ic">
+            <a href="https://www.google.com/">
+              <img src="./images/ic_goole.svg" />
+            </a>
+
+            <a href="https://www.kakaocorp.com/page/">
+              <img src="./images/ic_kakao.png" />
+            </a>
+          </div>
+        </div>
+
+        <div class="signup_ask">
+          이미 회원이신가요?
+          <a class="signup_guide" href="/login.html">로그인</a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
