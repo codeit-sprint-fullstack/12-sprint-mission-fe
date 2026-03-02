@@ -63,7 +63,7 @@ form {
   gap: 16px;
 }
 
-.member_login_box > lable {
+.member_login_box > label {
   font-size: 1.125rem;
   font-weight: 700;
   line-height: 144.444%;
