@@ -34,7 +34,7 @@ header {
 nav {
   display: flex;
   box-sizing: border-box;
-  padding: 0 200px;
+  padding: 0 12.5rem;
   align-items: center;
   justify-content: space-between;
   height: 70px;
@@ -90,7 +90,7 @@ nav {
   display: flex;
   flex-direction: column;
   gap: 32px;
-  padding-bottom: 60px;
+  padding-bottom: 3.75rem;
 }
 
 section > div > img {
@@ -141,7 +141,7 @@ section > div > img {
   display: flex;
   justify-content: center;
   box-sizing: border-box;
-  padding: 188px 344px;
+  padding: 11.75rem 21.5rem;
 }
 
 #item .hot_item,
@@ -159,7 +159,7 @@ section > div > img {
   display: flex;
   justify-content: center;
   box-sizing: border-box;
-  padding: 138px 342px;
+  padding: 8.625rem 21.375rem;
 }
 
 #search .name {
@@ -174,7 +174,7 @@ section > div > img {
   display: flex;
   justify-content: center;
   box-sizing: border-box;
-  padding: 138px 360px;
+  padding: 8.625rem 22.5rem;
 }
 
 #bottom {
@@ -194,7 +194,7 @@ section > div > img {
 }
 
 #bottom > div > p {
-  padding-bottom: 64px;
+  padding-bottom: 4rem;
 }
 
 footer {
@@ -206,7 +206,7 @@ footer {
 
 .footer_in {
   max-width: 100%;
-  padding: 32px 200px;
+  padding: 2rem 12.5rem;
   display: flex;
   justify-content: space-between;
   box-sizing: border-box;

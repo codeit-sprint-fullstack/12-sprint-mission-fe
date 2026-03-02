@@ -23,7 +23,7 @@ input:focus {
 }
 
 .login_box {
-  padding: 231px 640px 284px 640px;
+  padding: 14.4375rem 40rem 17.75rem;
 }
 
 form {
@@ -59,7 +59,7 @@ form {
 
 .member_login_box,
 .nickname,
-.pw_check > lable {
+.pw_check > label {
   font-size: 1.125rem;
   font-weight: 700;
   line-height: 144.444%;
@@ -79,7 +79,7 @@ form {
   background: var(--Cool-Gray-100);
   width: 640px;
   height: 56px;
-  padding: 16px 24px;
+  padding: 1rem 1.5rem;
   box-sizing: border-box;
   color: var(--Secondary-400);
   font-weight: 400;
@@ -136,7 +136,7 @@ form {
   display: flex;
   width: 640px;
   height: 74px;
-  padding: 16px 23px;
+  padding: 1rem 1.5rem;
   box-sizing: border-box;
   border-radius: 8px;
   background: #e6f2ff;
