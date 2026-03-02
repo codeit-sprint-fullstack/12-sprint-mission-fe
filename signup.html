@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>회원가입</title>
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="signup.css" />
+  </head>
+  <body>
+    <!-- logo -->
+    <div class="container">
+      <div class="logo">
+        <img src="logo.png" />
+      </div>
+      <!-- main -->
+
+      <section class="form-text">
+        <lable class="lable1">이메일</lable>
+        <div class="input-box">
+          <input type="email" placeholder="이메일을 입력해주세요" />
+        </div>
+
+        <lable class="lable1">닉네임</lable>
+        <div class="input-box">
+          <input type="email" placeholder="닉네임을 입력해주세요" />
+        </div>
+
+        <div class="for-text">
+          <lable class="lable1">비밀번호</lable>
+
+          <div class="input-box">
+            <input type="password" placeholder="비밀번호를 입력해주세요" />
+            <img src="eye.png" alt="비밀번호 보기" class="eye-icon" />
+          </div>
+        </div>
+
+        <div class="for-text">
+          <lable class="lable1">비밀번호 확인</lable>
+
+          <div class="input-box">
+            <input
+              type="password"
+              placeholder="비밀번호를 다시 한 번 입력해주세요"
+            />
+            <img src="eye.png" alt="비밀번호 보기" class="eye-icon" />
+          </div>
+        </div>
+
+        <button type="submit" class="login-btn">회원가입</button>
+      </section>
+
+      <div class="social-login-box">
+        <span class="social-text">간편 로그인하기</span>
+
+        <div class="social-icons">
+          <a href="https://www.google.com/">
+            <img src="google.png" alt="구글 로그인" />
+          </a>
+          <a href="https://www.kakaocorp.com/page/">
+            <img src="kakao.png" alt="카카오 로그인" />
+          </a>
+        </div>
+      </div>
+      <p class="signup">이미 회원이신가요? <a href="/login">로그인</a></p>
+    </div>
+  </body>
+</html>
