@@ -4,6 +4,17 @@
    ============================================================ */
 
 /* 모든 요소의 margin, padding 제거 + box-sizing으로 padding 포함한 너비 계산 */
+
+:root {
+  --Cool-Gray-100: #f3f4f6;
+  --Secondary-900: #111827;
+  --Secondary-800: #1f2937;
+  --Secondary-700: #374161;
+  --Secondary-400: #9ca3af;
+  --Secondary-200: #e5e7eb;
+  --Primary-100: #3692ff;
+}
+
 * {
   margin: 0;
   padding: 0;
