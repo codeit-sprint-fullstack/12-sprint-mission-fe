@@ -24,8 +24,10 @@ img {
 
 /* header */
 .header {
-    height: 4rem;
-    background: #fff;
+  height: var(--header-h);
+  background: var(--color-white);
+  position: sticky;
+  top: 0;
 }
 
 .header .inner {
