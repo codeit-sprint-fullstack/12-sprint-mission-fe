@@ -1,76 +1,86 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>판다마켓</title>
 
     <link rel="stylesheet" href="/reset/reset.css" />
-    <link rel="stylesheet" href="/css/login-signup.css">
+    <link rel="stylesheet" href="/css/login-signup.css" />
 
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-F83KH668GS"></script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-F83KH668GS"
+    ></script>
     <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-        gtag('config', 'G-F83KH668GS');
+      gtag("config", "G-F83KH668GS");
     </script>
-</head>
-<body>
-  <div class="page">
-  <main class="container">
+  </head>
+  <body>
+    <div class="page">
+      <main class="container">
+        <header>
+          <a href="/">
+            <img class="logo" src="/images/logo/logo.png" alt="판다마켓 로고" />
+          </a>
+        </header>
 
-    <header>
-      <a href="/">
-        <img class="logo" src="/images/logo.png" alt="판다마켓 로고">
-      </a>
-    </header>
+        <form class="form">
+          <div class="field">
+            <label class="label" for="email">이메일</label>
+            <input
+              id="email"
+              class="input"
+              type="email"
+              placeholder="이메일을 입력해 주세요"
+            />
+          </div>
 
-    <form class="form">
+          <div class="field">
+            <label class="label">비밀번호</label>
 
-      <div class="field">
-        <label class="label">이메일</label>
-        <input class="input" type="email" placeholder="이메일을 입력해 주세요">
-      </div>
+            <div class="pw">
+              <input class="pw__toggle" type="checkbox" id="loginPw" />
+              <input
+                class="input pw__input"
+                type="password"
+                placeholder="비밀번호를 입력해 주세요"
+              />
 
-      <div class="field">
-        <label class="label">비밀번호</label>
+              <label class="pw__eye" for="loginPw">
+                <img class="eye-open" src="/images/icons/eye.svg" />
+                <img class="eye-close" src="/images/icons/eye-off.svg" />
+              </label>
+            </div>
+          </div>
 
-        <div class="pw">
-          <input class="pw__toggle" type="checkbox" id="loginPw">
-          <input class="input pw__input" type="password" placeholder="비밀번호를 입력해 주세요">
+          <button class="login-btn">로그인</button>
+        </form>
 
-          <label class="pw__eye" for="loginPw">
-            <img class="eye-open" src="/images/eye.svg">
-            <img class="eye-close" src="/images/eye-off.svg">
-          </label>
-        </div>
-      </div>
+        <section class="social-box">
+          <span>간편 로그인하기</span>
+          <div class="social-icons">
+            <a href="https://www.google.com/" target="_blank">
+              <img src="/images/social/google.svg" />
+            </a>
+            <a href="https://www.kakaocorp.com/page/" target="_blank">
+              <img src="/images/social/kakao.svg" />
+            </a>
+          </div>
+        </section>
 
-      <button class="login-btn">로그인</button>
-
-    </form>
-
-    <section class="social-box">
-      <span>간편 로그인하기</span>
-      <div class="social-icons">
-        <a href="https://www.google.com/" target="_blank">
-          <img src="/images/google.svg">
-        </a>
-        <a href="https://www.kakaocorp.com/page/" target="_blank">
-          <img src="/images/kakao.svg">
-        </a>
-      </div>
-    </section>
-
-    <p class="bottom-text">
-      판다마켓이 처음이신가요?
-      <a href="/signup.html">회원가입</a>
-    </p>
-
-  </main>
-</div>
-</body>
+        <p class="bottom-text">
+          판다마켓이 처음이신가요?
+          <a href="/signup.html">회원가입</a>
+        </p>
+      </main>
+    </div>
+  </body>
 </html>
