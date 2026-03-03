@@ -1,153 +1,176 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=
-    , initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!--타이틀 작성-->
     <title>판다마켓</title>
 
     <!--CSS 시트 링크걸기-->
-    <link rel="reset" href="./reset/reset.css" />
-    <link rel="stylesheet" href="./css/main.css" />
-</head>
-<body>
+    <link rel="stylesheet" href="/reset/reset.css" />
+    <link rel="stylesheet" href="/css/main.css" />
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-F83KH668GS"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-F83KH668GS");
+    </script>
+  </head>
+  <body>
     <!--HEADER-->
     <header class="header">
-        <div class="inner">
-            <a href="/" class="logo">
-                <img src="/images/logo.png" alt="판다마켓 로고" />
-            </a>
-            <a href="login.html" class="login">로그인</a>
-        </div>
+      <div class="inner">
+        <a href="/" class="logo">
+          <img src="/images/logo/logo.png" alt="판다마켓 로고" />
+        </a>
+        <a href="login.html" class="login">로그인</a>
+      </div>
     </header>
 
     <!--HERO-->
     <section class="hero">
-        <div class="inner">
-            <div class="hero-text">
-                <h1>
-                    일상의 모든 물건을 <br />
-                    거래해 보세요
-                </h1>
-                <a href="items.html" class="hero-btn">
-                    구경하러가기
-                </a>
-            </div>
-    
-            <div class="hero-visual">
-                <img src="/images/home_top.png" alt="판다 캐릭터" />
-            </div>
+      <div class="inner">
+        <div class="hero-text">
+          <h1>
+            일상의 모든 물건을 <br />
+            거래해 보세요
+          </h1>
+          <a href="items.html" class="hero-btn"> 구경하러가기 </a>
         </div>
+
+        <div class="hero-visual">
+          <img src="/images/home/home_top.png" alt="판다 캐릭터" />
+        </div>
+      </div>
     </section>
 
     <!--section-->
     <section class="section hot-item">
-        <div class="section-inner">
-            <div class="section-visual">
-                <img src="/images/home_01.png" alt="인기 상품 이미지" />
-            </div>
-    
-            <div class="section-text">
-                <p class="section-title">Hot Item</p>
-                <h1>
-                    인기 상품을 <br />
-                    확인해 보세요
-                </h1>
-                <p class="section-desc">
-                    가장 HOT한 중고거래 물품을 <br />
-                    판다 마켓에서 확인해 보세요
-                </p>
-            </div>
+      <div class="section-inner">
+        <div class="section-visual">
+          <img src="/images/home/home_01.png" alt="인기 상품 이미지" />
         </div>
+
+        <div class="section-text">
+          <p class="section-title">Hot Item</p>
+          <h1>
+            인기 상품을 <br />
+            확인해 보세요
+          </h1>
+          <p class="section-desc">
+            가장 HOT한 중고거래 물품을 <br />
+            판다 마켓에서 확인해 보세요
+          </p>
+        </div>
+      </div>
     </section>
 
     <section class="section search">
-        <div class="section-inner">
-            <div class="section-text">
-                <p class="section-title">Search</p>
-                <h1>
-                    구매를 원하는 <br />
-                    상품을 검색하세요
-                </h1>
-                <p class="section-desc">
-                    구매하고 싶은 물품을 검색해서 <br />
-                    쉽게 찾아보세요
-                </p>
-            </div>
-    
-            <div class="section-visual">
-                <img src="/images/home_02.png" alt="상품 검색 이미지" />
-            </div>
+      <div class="section-inner">
+        <div class="section-text">
+          <p class="section-title">Search</p>
+          <h1>
+            구매를 원하는 <br />
+            상품을 검색하세요
+          </h1>
+          <p class="section-desc">
+            구매하고 싶은 물품을 검색해서 <br />
+            쉽게 찾아보세요
+          </p>
         </div>
+
+        <div class="section-visual">
+          <img src="/images/home/home_02.png" alt="상품 검색 이미지" />
+        </div>
+      </div>
     </section>
 
     <section class="section register">
-        <div class="section-inner">
-            <div class="section-visual">
-                <img src="/images/home_03.png" alt="판매 등록 이미지" />
-            </div>
-    
-            <div class="section-text">
-                <p class="section-title">Register</p>
-                <h1>
-                    판매를 원하는 <br />
-                    상품을 등록하세요
-                </h1>
-                <p class="section-desc">
-                    어떤 물건이든 판매하고 싶은 상품을 <br />
-                    쉽게 등록하세요
-                </p>
-            </div>
+      <div class="section-inner">
+        <div class="section-visual">
+          <img src="/images/home/home_03.png" alt="판매 등록 이미지" />
         </div>
+
+        <div class="section-text">
+          <p class="section-title">Register</p>
+          <h1>
+            판매를 원하는 <br />
+            상품을 등록하세요
+          </h1>
+          <p class="section-desc">
+            어떤 물건이든 판매하고 싶은 상품을 <br />
+            쉽게 등록하세요
+          </p>
+        </div>
+      </div>
     </section>
 
     <!--rectangle-->
     <section class="rectangle">
-        <div class="inner">
-            <div class="rectangle-text">
-                <h1>
-                    믿고 맡길 수 있는 <br />
-                    판다마켓 중고 거래
-                </h1>
-            </div>
-    
-            <div class="rectangle-visual">
-                <img src="/images/home_bottom.png" alt="판다 하단 이미지" />
-            </div>
+      <div class="inner">
+        <div class="rectangle-text">
+          <h1>
+            믿고 맡길 수 있는 <br />
+            판다마켓 중고 거래
+          </h1>
         </div>
+
+        <div class="rectangle-visual">
+          <img src="/images/home/home_bottom.png" alt="판다 하단 이미지" />
+        </div>
+      </div>
     </section>
 
     <!--footer-->
     <footer class="footer">
-        <div class="footer-inner">
-    
-            <p class="footer-copyright">
-                ©codeit - 2026
-            </p>
-    
-            <div class="footer-center">
-                <a href="privacy.html" class="footer-link">Privacy Policy</a>
-                <a href="faq.html" class="footer-link">FAQ</a>
-            </div>
-    
-            <div class="footer-right">
-                <a href="https://www.facebook.com/?locale=ko_KR" target="_blank">
-                    <img src="/images/ic_facebook.png" alt="facebook 아이콘" />
-                </a>
-                <a href="https://x.com/home" target="_blank">
-                    <img src="/images/ic_twitter.png" alt="twitter 아이콘" />
-                </a>
-                <a href="https://www.youtube.com/" target="_blank">
-                    <img src="/images/ic_youtube.png" alt="youtube 아이콘" />
-                </a>
-                <a href="https://www.instagram.com/" target="_blank">
-                    <img src="/images/ic_instagram.png" alt="instagram 아이콘" />
-                </a>
-            </div>
-    
-        </div>
-    </footer>
+      <div class="footer-inner">
+        <p class="footer-copyright">©codeit - 2026</p>
 
-</body>
+        <div class="footer-center">
+          <a href="privacy.html" class="footer-link">Privacy Policy</a>
+          <a href="faq.html" class="footer-link">FAQ</a>
+        </div>
+
+        <div class="footer-right">
+          <a
+            href="https://www.facebook.com/?locale=ko_KR"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="/images/social/ic_facebook.png" alt="facebook 아이콘" />
+          </a>
+          <a
+            href="https://x.com/home"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="/images/social/ic_twitter.png" alt="twitter 아이콘" />
+          </a>
+          <a
+            href="https://www.youtube.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="/images/social/ic_youtube.png" alt="youtube 아이콘" />
+          </a>
+          <a
+            href="https://www.instagram.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="/images/social/ic_instagram.png" alt="instagram 아이콘" />
+          </a>
+        </div>
+      </div>
+    </footer>
+  </body>
 </html>
