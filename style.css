@@ -8,6 +8,7 @@
 - 한 섹션(큰 단위)의 전체 요소 묶음의 클래스 선택자 명은 container라고 작성함. (오직..대부분.. flexbox로 배치를 위한 용도)
 
 */
+@import url(./color.css);
 
 /* 추가적인 reset css */
 /* -완전 중요- 
@@ -63,8 +64,8 @@ a {
   justify-content: center;
   align-items: center;
 
-  background-color: #3692ff;
-  color: #f3f4f6;
+  background-color: var(--primary-color-100);
+  color: var(--secondary-color-gray100);
   border-radius: 0.5rem;
   font-size: 1rem;
   font-weight: 600;
@@ -103,13 +104,13 @@ a {
 }
 
 .cta {
-  background-color: #3692ff;
+  background-color: var(--primary-color-100);
   border-width: 0;
   border-radius: 2.5rem;
   width: 22.3125rem;
   height: 3.5rem;
 
-  color: #f9fafb;
+  color: var(--secondary-color-gray50);
   font-size: 1.25rem;
 
   display: flex;
@@ -118,7 +119,7 @@ a {
 }
 
 .big-text {
-  color: #374151;
+  color: var(--secondary-color-gray700);
   font-size: 2.5rem;
   font-weight: 700;
   line-height: 140%;
@@ -165,14 +166,14 @@ html의 class명만 추가해주면 되니까 더 코드 작성량이 적어지�
 }
 
 .summation-text {
-  color: #3692ff;
+  color: var(--primary-color-100);
   font-size: 1.125rem;
   line-height: 1.625rem;
   font-weight: 700;
 }
 
 .description {
-  color: #374151;
+  color: var(--secondary-color-gray700);
   font-size: 1.5rem;
   font-weight: 500;
   line-height: 2rem;
@@ -185,7 +186,7 @@ html의 class명만 추가해주면 되니까 더 코드 작성량이 적어지�
 
 /* footer 스타일 */
 .footer {
-  background-color: #111827;
+  background-color: var(--secondary-color-gray900);
 
   height: 160px;
   padding: 32px 0;
@@ -202,14 +203,14 @@ html의 class명만 추가해주면 되니까 더 코드 작성량이 적어지�
 }
 
 .since-text {
-  color: #9ca3af;
+  color: var(--secondary-color-gray400);
   font-size: 1rem;
   font-weight: 400;
   flex-shrink: 0;
 }
 
 .privacy-and-faq {
-  color: #e5e7eb;
+  color: var(--secondary-color-gray200);
   font-size: 1rem;
   font-weight: 400;
 

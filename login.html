@@ -10,7 +10,7 @@
   <body>
     <main class="login-main">
       <div class="login-container">
-        <a class="login-logo-container" htrf="/">
+        <a class="login-logo-container" href="./">
           <img src="images/login/판다 얼굴.png" alt="판다 로고 얼굴" />
           <img src="images/login/판다마켓.png" alt="판다 로고 글씨" />
         </a>
@@ -29,13 +29,23 @@
               </div>
               <div class="password-container">
                 <label for="password">비밀번호</label>
-                <input
-                  type="password"
-                  id="password"
-                  name="password"
-                  placeholder="비밀번호를 입력해주세요"
-                  required
-                />
+                <div class="password-input-container">
+                  <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder="비밀번호를 입력해주세요"
+                    required
+                  />
+                  <img
+                    class="invisible-icon"
+                    src="images/login/btn_visibility_off_24px.png"
+                  />
+                  <img
+                    class="visible-icon"
+                    src="images/login/btn_visibility_on_24px.svg"
+                  />
+                </div>
               </div>
             </div>
 
