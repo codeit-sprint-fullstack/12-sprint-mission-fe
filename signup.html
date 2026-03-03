@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>login</title>
+    <title>signup</title>
     <link rel="stylesheet" href="reset.css" />
     <link rel="stylesheet" href="login-signup.css" />
   </head>
@@ -27,6 +27,16 @@
                   required
                 />
               </div>
+              <div class="nickname-container">
+                <label for="nickname">닉네임</label>
+                <input
+                  type="text"
+                  id="nickname"
+                  name="nickname"
+                  placeholder="닉네임을 입력해주세요"
+                  required
+                />
+              </div>
               <div class="password-container">
                 <label for="password">비밀번호</label>
                 <input
@@ -37,10 +47,20 @@
                   required
                 />
               </div>
+              <div class="password-check-container">
+                <label for="password-check">비밀번호</label>
+                <input
+                  type="password"
+                  id="password-check"
+                  name="password-check"
+                  placeholder="비밀번호를 다시 한 번 입력해주세요"
+                  required
+                />
+              </div>
             </div>
 
             <button class="login-button" type="submit">
-              <div class="login-text">로그인</div>
+              <div class="login-text">회원가입</div>
             </button>
           </form>
           <div class="easy-login">
@@ -71,8 +91,8 @@
           </div>
 
           <div class="ask-login-signup-container">
-            <span class="ask-text">판다마켓이 처음이신가요?</span>
-            <a class="login-signup-link" href="./signup.html">회원가입</a>
+            <span class="ask-text">이미 회원이신가요?</span>
+            <a class="login-signup-link" href="./login.html">로그인</a>
           </div>
         </div>
       </div>

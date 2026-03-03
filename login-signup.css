@@ -1,0 +1,209 @@
+* {
+  box-sizing: border-box;
+}
+
+.login-main {
+  background-color: #fcfcfc;
+
+  width: 100vw; /* 화면 가로 꽉 채움 */
+  height: 100vh; /* 화면 세로 꽉 채움 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+
+  max-width: 640px;
+  height: 618px;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 22.24px;
+}
+
+.content-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+
+  width: 100%;
+}
+.input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.email-container,
+.password-container,
+.nickname-container,
+.password-check-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.easy-login {
+  display: flex;
+  width: 640px;
+  height: 74px;
+  padding: 16px 23px;
+  flex-direction: column;
+  align-items: flex-center;
+  gap: 10px;
+
+  border-radius: 8px;
+  background: #e6f2ff;
+}
+.easy-login-container {
+  display: flex;
+  width: 594px;
+  height: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+.sns-img-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.ask-login-signup-container {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+}
+
+/*텍스트들*/
+.email-container label,
+.password-container label,
+.nickname-container label,
+.password-check-container label {
+  color: var(--Secondary-800, #1f2937);
+
+  /* pretendard/2lg-18px-bold */
+  font-family: Pretendard;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 26px; /* 144.444% */
+}
+
+.email-container input::placeholder,
+.password-container input::placeholder,
+.nickname-container input::placeholder,
+.password-check-container input::placeholder {
+  color: var(--Secondary-400, #9ca3af);
+
+  /* pretendard/lg-16px-regular */
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 26px; /* 162.5% */
+}
+
+.login-text {
+  color: var(--Cool-Gray-100, #f3f4f6);
+  text-align: center;
+
+  /* pretendard/xl-20px-semibold */
+  font-family: Pretendard;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 32px; /* 160% */
+}
+
+.easy-login-text {
+  color: var(--Secondary-800, #1f2937);
+
+  /* pretendard/lg-16px-medium */
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 26px; /* 162.5% */
+}
+.ask-text {
+  color: var(--Secondary-800, #1f2937);
+
+  /* pretendard/md-14px-medium */
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px; /* 171.429% */
+}
+.login-signup-link {
+  color: var(--Primary-100, #3692ff);
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-skip-ink: none;
+  text-decoration-thickness: auto;
+  text-underline-offset: auto;
+  text-underline-position: from-font;
+}
+
+/*폼 인풋 박스*/
+.email-container input,
+.password-container input,
+.nickname-container input,
+.password-check-container input {
+  display: flex;
+  width: 640px;
+  height: 56px;
+  padding: 16px 24px;
+  align-items: center;
+  gap: 10px;
+
+  border: none;
+  border-color: #3692ff;
+  border-radius: 12px;
+  background: var(--Cool-Gray-100, #f3f4f6);
+}
+
+.login-button {
+  display: flex;
+  width: 640px;
+  height: 56px;
+  padding: 16px 124px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  border: none;
+  border-radius: 40px;
+  background: var(--Secondary-400, #9ca3af);
+}
+
+.email-container input:focus,
+.password-container input:focus,
+.nickname-container input:focus,
+.password-check-container input:focus {
+  /*인풋에 커서가 들어왔을 때 수행할 것!*/
+  /*border와 outline의 차이 : outline은 단지 테두리를 줄 뿐이고, borders는 추가하면 두께만큼 박스 전체크기도 늘어난다!
+   박스 크기에 변형을 주면 안쪽 레이아웃도 약간 변형되길래, 나의 경우에는 outline이 걸맞다!*/
+  outline: 1px solid var(--brand-blue, #3692ff);
+  /* border: 1px solid var(--brand-blue, #3692ff); */
+}
