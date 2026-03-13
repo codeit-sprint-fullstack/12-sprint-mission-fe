@@ -39,34 +39,43 @@
 
         <fieldset class="form__field">
           <div>
-            <label for="mb_email">이메일</label>
-            <input type="text" name="email" id="mb_email" class="form__input" />
+            <label for="member-email">이메일</label>
+            <input
+              type="email"
+              name="email"
+              id="member-email"
+              class="form__input"
+              placeholder="이메일을 입력해주세요"
+            />
           </div>
           <div>
-            <label for="mb_nickname">닉네임</label>
+            <label for="member-nickname">닉네임</label>
             <input
               type="text"
               name="nickname"
-              id="mb_nickname"
+              id="member-nickname"
               class="form__input"
+              placeholder="닉네임을 입력해주세요"
             />
           </div>
           <div>
-            <label for="mb_password">비밀번호</label>
+            <label for="member-password">비밀번호</label>
             <input
               type="password"
               name="password"
-              id="mb_password"
+              id="member-password"
               class="form__input"
+              placeholder="비밀번호를 입력해주세요"
             />
           </div>
           <div>
-            <label for="mb_password_confirm">비밀번호 확인</label>
+            <label for="member-password_confirm">비밀번호 확인</label>
             <input
               type="password"
               name="password_confirm"
-              id="mb_password_confirm"
+              id="member-password_confirm"
               class="form__input"
+              placeholder="비밀번호를 다시 한 번 입력해주세요"
             />
           </div>
         </fieldset>
@@ -100,5 +109,33 @@
         <p>이미 회원이신가요? <a href="/login">로그인</a></p>
       </div>
     </div>
+
+    <script src="/static/js/validation.js"></script>
+    <script>
+      const inputEmail = document.getElementById("member-email");
+      const inputPassword = document.getElementById("member-password");
+      const btnSubmit = document.querySelector(".form__button--submit");
+
+      function checkFormValid() {
+        const emailOk =
+          inputEmail.value.trim() &&
+          !inputEmail.classList.contains("input--error");
+        const passwordOk =
+          inputPassword.value &&
+          !inputPassword.classList.contains("input--error");
+
+        btnSubmit.disabled = !(emailOk && passwordOk);
+      }
+
+      inputEmail.addEventListener("blur", () => {
+        validateEmail(inputEmail);
+        checkFormValid();
+      });
+
+      inputPassword.addEventListener("blur", () => {
+        validatePassword(inputPassword);
+        checkFormValid();
+      });
+    </script>
   </body>
 </html>

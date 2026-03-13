@@ -34,21 +34,28 @@
     <div class="form">
       <a href="/" class="big-logo"><span class="sr-only">메인이동</span></a>
 
-      <form action="" method="post">
+      <form action="" id="form-login" method="post">
         <h1 class="sr-only">판다마켓 로그인</h1>
 
         <fieldset class="form__field">
           <div>
-            <label for="mb_email">이메일</label>
-            <input type="text" name="email" id="mb_email" class="form__input" />
+            <label for="member-email">이메일</label>
+            <input
+              type="email"
+              name="email"
+              id="member-email"
+              class="form__input"
+              placeholder="이메일을 입력해주세요"
+            />
           </div>
           <div>
-            <label for="mb_password">비밀번호</label>
+            <label for="member-password">비밀번호</label>
             <input
               type="password"
               name="password"
-              id="mb_password"
+              id="member-password"
               class="form__input"
+              placeholder="비밀번호를 입력해주세요"
             />
           </div>
         </fieldset>
@@ -82,5 +89,40 @@
         <p>판다마켓이 처음이신가요? <a href="/signup">회원가입</a></p>
       </div>
     </div>
+
+    <script src="/static/js/validation.js"></script>
+    <script>
+      const loginForm = document.getElementById("form-login");
+      const inputEmail = document.getElementById("member-email");
+      const inputPassword = document.getElementById("member-password");
+      const btnSubmit = document.querySelector(".form__button--submit");
+
+      function checkFormValid() {
+        const emailOk =
+          inputEmail.value.trim() &&
+          !inputEmail.classList.contains("input--error");
+        const passwordOk =
+          inputPassword.value &&
+          !inputPassword.classList.contains("input--error");
+
+        btnSubmit.disabled = !(emailOk && passwordOk);
+      }
+
+      inputEmail.addEventListener("blur", () => {
+        validateEmail(inputEmail);
+        checkFormValid();
+      });
+
+      inputPassword.addEventListener("blur", () => {
+        validatePassword(inputPassword);
+        checkFormValid();
+      });
+
+      function handleSubmit(e) {
+        e.preventDefault();
+      }
+
+      loginForm.addEventListener("submit", handleSubmit);
+    </script>
   </body>
 </html>
