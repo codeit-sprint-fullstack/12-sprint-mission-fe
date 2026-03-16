@@ -1,16 +1,19 @@
-import { getProductList } from "./ProductService.js";
+import { getProductList, getProduct } from "./ProductService.js";
 
 async function test() {
   try {
-    const data = await getProductList({
+    const list = await getProductList({
       page: 1,
       pageSize: 10,
       keyword: "",
     });
 
-    console.log("상품 목록:", data);
+    console.log("상품 목록:", list);
+
+    const product = await getProduct(3035);
+    console.log("상품 상세:", product);
   } catch (err) {
-    console.error("상품 목록 조회 실패:", err.message);
+    console.error("API 요청 실패:", err.message);
   }
 }
 

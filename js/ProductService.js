@@ -20,3 +20,18 @@ export async function getProductList({
     throw err;
   }
 }
+
+export async function getProduct(id) {
+  try {
+    const res = await fetch(`${BASE_URL}/products/${id}`);
+
+    if (!res.ok) {
+      throw new Error(`HTTP Error: ${res.status}`);
+    }
+
+    return await res.json();
+  } catch (err) {
+    console.error("API 요청 실패:", err);
+    throw err;
+  }
+}
