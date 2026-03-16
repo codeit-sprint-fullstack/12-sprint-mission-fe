@@ -20,9 +20,9 @@ async function testProductList() {
   }
 }
 
-async function testProduct() {
+async function testProduct(id) {
   try {
-    const data = await getProduct(3036);
+    const data = await getProduct(id);
     console.log("상품 상세:", data);
   } catch (err) {
     console.error("상품 조회 실패:", err.message);
@@ -45,9 +45,9 @@ async function testCreateProduct() {
   }
 }
 
-async function testPatchProduct() {
+async function testPatchProduct(id) {
   try {
-    const data = await patchProduct(3036, {
+    const data = await patchProduct(id, {
       price: 12000,
     });
 
@@ -57,13 +57,13 @@ async function testPatchProduct() {
   }
 }
 
-async function testDeleteProduct() {
+async function testDeleteProduct(id) {
   try {
-    const data = await deleteProduct(3036);
+    const data = await deleteProduct(id);
     console.log("삭제된 상품 id:", data.id);
   } catch (err) {
     console.error("상품 삭제 실패:", err.message);
   }
 }
 
-testDeleteProduct();
+testDeleteProduct(3036);
