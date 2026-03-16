@@ -6,15 +6,15 @@
   --Secondary-700: #374151;
   --Secondary-900: #111827;
   --Primary-100: #3692ff;
+  --Cool-Gray-800: #1f2937;
 }
 
 body {
   background: #fcfcfc;
 }
 
-/* header */
 .header {
-  height: 70px;
+  height: 4.375rem;
 }
 
 .header__nav {
@@ -22,7 +22,7 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  height: 70px;
+  height: 4.375rem;
   background-color: #fff;
   border-bottom: 1px solid #dfdfdf;
   z-index: 1000;
@@ -35,29 +35,29 @@ body {
 
   width: 100%;
   max-width: 1920px;
-  height: 70px;
+  height: 4.375rem;
   margin: 0 auto;
-  padding: 0 200px;
+  padding: 0 12.5rem;
   box-sizing: border-box;
 }
 
 .header__logo {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 0.5rem;
   text-decoration: none;
 }
 
 .header__logo img {
   display: block;
-  width: 40px;
-  height: 40px;
+  width: 2.5rem;
+  height: 2.5rem;
 }
 
 .logo__title {
   color: var(--Primary-100);
   font-family: "ROKAF Sans", sans-serif;
-  font-size: 25.633px;
+  font-size: 1.625rem;
   font-weight: 700;
   line-height: 1;
 }
@@ -67,21 +67,20 @@ body {
   justify-content: center;
   align-items: center;
 
-  width: 128px;
-  height: 48px;
+  width: 8rem;
+  height: 3rem;
 
-  border-radius: 8px;
+  border-radius: 0.5rem;
   background: var(--Primary-100);
 
   color: #fff;
   text-decoration: none;
   font-family: Pretendard, sans-serif;
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 600;
-  line-height: 26px;
+  line-height: 1.625rem;
 }
 
-/* banner */
 .banner {
   width: 100%;
   background: #cfe5ff;
@@ -89,7 +88,7 @@ body {
 
 .banner--top .banner__inner {
   min-height: 540px;
-  padding-top: 70px; /* fixed header 보정 */
+  padding-top: 4.375rem;
 }
 
 .banner--bottom .banner__inner {
@@ -97,28 +96,28 @@ body {
 }
 
 .banner__inner {
-  width: min(100%, 1117px);
+  width: min(100%, 1120px);
   margin: 0 auto;
-  padding-left: 24px;
-  padding-right: 24px;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
   box-sizing: border-box;
 
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  gap: 7px;
+  gap: 0.5rem;
 }
 
 .banner__content {
   flex-shrink: 0;
-  padding-bottom: 60px;
+  padding-bottom: 5rem;
 }
 
 .banner__title {
-  margin: 0 0 32px;
+  margin: 0 0 2rem;
   color: var(--Secondary-700);
   font-family: Pretendard, sans-serif;
-  font-size: 40px;
+  font-size: 2.5rem;
   font-weight: 700;
   line-height: 1.4;
 }
@@ -128,18 +127,18 @@ body {
   justify-content: center;
   align-items: center;
 
-  height: 56px;
-  padding: 0 124px;
-  border-radius: 40px;
+  height: 3.5rem;
+  padding: 0 7.75rem;
+  border-radius: 2.5rem;
   background: var(--Primary-100);
 
   color: var(--Secondary-50);
   text-align: center;
   text-decoration: none;
   font-family: Pretendard, sans-serif;
-  font-size: 20px;
+  font-size: 1.25rem;
   font-weight: 600;
-  line-height: 32px;
+  line-height: 2rem;
 }
 
 .banner__image {
@@ -148,9 +147,8 @@ body {
   height: auto;
 }
 
-/* feature */
 .feature {
-  padding: 138px 24px;
+  padding: 8.625rem 1.5rem;
   background: #fff;
   box-sizing: border-box;
 }
@@ -161,7 +159,7 @@ body {
 
   display: flex;
   align-items: center;
-  gap: 64px;
+  gap: 4rem;
 }
 
 .feature__content {
@@ -178,19 +176,19 @@ body {
 }
 
 .feature__label {
-  margin: 0 0 12px;
+  margin: 0 0 0.75rem;
   color: var(--Primary-100);
   font-family: Pretendard, sans-serif;
-  font-size: 18px;
+  font-size: 1.25rem;
   font-weight: 700;
-  line-height: 26px;
+  line-height: 1.625rem;
 }
 
 .feature__title {
-  margin: 0 0 24px;
+  margin: 0 0 1.5rem;
   color: var(--Secondary-700);
   font-family: Pretendard, sans-serif;
-  font-size: 40px;
+  font-size: 2.5rem;
   font-weight: 700;
   line-height: 1.4;
   letter-spacing: 0.8px;
@@ -200,9 +198,9 @@ body {
   margin: 0;
   color: var(--Secondary-700);
   font-family: Pretendard, sans-serif;
-  font-size: 24px;
+  font-size: 1.4rem;
   font-weight: 500;
-  line-height: 32px;
+  line-height: 2rem;
 }
 
 .feature--reverse .feature__content {
@@ -217,9 +215,9 @@ body {
 .footer__inner {
   width: 100%;
   max-width: 1920px;
-  height: 100px;
+  height: 6.25rem;
   margin: 0 auto;
-  padding: 30px 200px 0;
+  padding: 1.875rem 12.5rem 0;
   box-sizing: border-box;
 
   display: flex;
@@ -233,7 +231,7 @@ body {
 
 .footer__links {
   display: flex;
-  gap: 30px;
+  gap: 1.875rem;
 }
 
 .footer__links a {
@@ -244,5 +242,5 @@ body {
 .footer__sns {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 1.25rem;
 }
