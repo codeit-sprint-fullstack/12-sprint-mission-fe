@@ -29,43 +29,30 @@ patchArticle(5588, { title: "바뀐 제목", content: "바뀐 내용" }).then((d
 
 deleteArticle(2990).then(() => console.log("글 삭제됨")); //게시글 삭제
 
-const ProductListGet = async () => {
-  const data = await getProductList(1, 10, "");
-  console.log("상품목록", data);
-};
+const main = async () => {
+  const productlist = await getProductList(1, 10, "");
+  console.log("상품목록", productlist);
 
-ProductListGet();
+  const product = await getProduct(2998);
+  console.log("상품", product);
 
-const ProductGet = async () => {
-  const data = await getProduct(2998);
-  console.log("상품", data);
-};
-
-ProductGet();
-
-const ProductCreate = async () => {
-  const data = await createProduct(
+  const created = await createProduct(
     "에어프라이어",
     "소형 가정용 에어프라이어",
     30000,
     ["전자제품"],
     ["https://example.com/..."],
   );
-  console.log("생성상품", data);
-};
+  console.log("생성상품", created);
 
-ProductCreate();
+  const updated = await patchProduct(2993, {
+    name: "드라이기",
+    price: 5000,
+  });
+  console.log("수정된 상품", updated);
 
-const ProductsPatch = async () => {
-  const data = await patchProduct(2993, { name: "드라이기", price: 5000 });
-  console.log("수정된 상품", data);
-};
-
-ProductsPatch();
-
-const ProductDelete = async () => {
   await deleteProduct(2997);
   console.log("상품 삭제됨");
 };
 
-ProductDelete();
+main();
