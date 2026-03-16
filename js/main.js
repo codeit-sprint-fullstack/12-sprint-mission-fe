@@ -1,4 +1,9 @@
-import { getProductList, getProduct, createProduct } from "./ProductService.js";
+import {
+  getProductList,
+  getProduct,
+  createProduct,
+  patchProduct,
+} from "./ProductService.js";
 
 async function testProductList() {
   try {
@@ -39,4 +44,16 @@ async function testCreateProduct() {
   }
 }
 
-testProduct();
+async function testPatchProduct() {
+  try {
+    const data = await patchProduct(3036, {
+      price: 12000,
+    });
+
+    console.log("상품 수정:", data);
+  } catch (err) {
+    console.error("상품 수정 실패:", err.message);
+  }
+}
+
+testPatchProduct();

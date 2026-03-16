@@ -60,3 +60,22 @@ export async function createProduct({
     throw err;
   }
 }
+
+export async function patchProduct(id, data) {
+  try {
+    const res = await fetch(`${BASE_URL}/products/${id}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    });
+
+    if (!res.ok) {
+      throw new Error(`HTTP Error: ${res.status}`);
+    }
+
+    return await res.json();
+  } catch (err) {
+    console.error("상품 수정 API 요청 실패:", err);
+    throw err;
+  }
+}
