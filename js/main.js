@@ -3,6 +3,7 @@ import {
   getProduct,
   createProduct,
   patchProduct,
+  deleteProduct,
 } from "./ProductService.js";
 
 async function testProductList() {
@@ -56,4 +57,13 @@ async function testPatchProduct() {
   }
 }
 
-testPatchProduct();
+async function testDeleteProduct() {
+  try {
+    const data = await deleteProduct(3036);
+    console.log("삭제된 상품 id:", data.id);
+  } catch (err) {
+    console.error("상품 삭제 실패:", err.message);
+  }
+}
+
+testDeleteProduct();
