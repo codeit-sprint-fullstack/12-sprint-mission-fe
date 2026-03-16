@@ -1,6 +1,6 @@
-import { getProductList, getProduct } from "./ProductService.js";
+import { getProductList, getProduct, createProduct } from "./ProductService.js";
 
-async function test() {
+async function testProductList() {
   try {
     const list = await getProductList({
       page: 1,
@@ -9,12 +9,34 @@ async function test() {
     });
 
     console.log("상품 목록:", list);
-
-    const product = await getProduct(3035);
-    console.log("상품 상세:", product);
   } catch (err) {
-    console.error("API 요청 실패:", err.message);
+    console.error("상품 목록 조회 실패:", err.message);
   }
 }
 
-test();
+async function testProduct() {
+  try {
+    const data = await getProduct(3036);
+    console.log("상품 상세:", data);
+  } catch (err) {
+    console.error("상품 조회 실패:", err.message);
+  }
+}
+
+async function testCreateProduct() {
+  try {
+    const data = await createProduct({
+      name: "테스트 상품",
+      description: "테스트 설명",
+      price: 10000,
+      tags: ["test"],
+      images: ["https://example.com/img.jpg"],
+    });
+
+    console.log("상품 생성:", data);
+  } catch (err) {
+    console.error("상품 생성 실패:", err.message);
+  }
+}
+
+testProduct();
