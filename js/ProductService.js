@@ -19,7 +19,7 @@ async function request(path, options = {}) {
   try {
     const res = await fetch(url, config);
 
-    const data = await res.json().catch(() => ({}));
+    const data = await res.json().catch(() => null);
 
     if (!res.ok) {
       const error = new Error(
@@ -51,11 +51,11 @@ export async function getProductList({
     pageSize,
     keyword,
   });
-  return await request(`?${params}`, { method: "GET" });
+  return request(`?${params}`, { method: "GET" });
 }
 
 export async function getProduct(id) {
-  return await request(`/${id}`, { method: "GET" });
+  return request(`/${id}`, { method: "GET" });
 }
 
 export async function createProduct({
@@ -65,21 +65,21 @@ export async function createProduct({
   tags,
   images,
 }) {
-  return await request("", {
+  return request("", {
     method: "POST",
     body: JSON.stringify({ name, description, price, tags, images }),
   });
 }
 
 export async function patchProduct(id, data) {
-  return await request(`/${id}`, {
+  return request(`/${id}`, {
     method: "PATCH",
     body: JSON.stringify(data),
   });
 }
 
 export async function deleteProduct(id) {
-  return await request(`/${id}`, {
+  return request(`/${id}`, {
     method: "DELETE",
   });
 }
