@@ -1,39 +1,57 @@
 const BASE_URL = "https://panda-market-api-crud.vercel.app";
 
+const RESOURCE = "/products";
+
+async function request(path, options = {}) {
+  const url = `${BASE_URL}${RESOURCE}${path}`;
+
+  const config = {
+    ...options,
+    headers: {
+      ...options.headers,
+    },
+  };
+
+  if (options.body && !config.headers["Content-Type"]) {
+    config.headers["Content-Type"] = "application/json";
+  }
+
+  try {
+    const res = await fetch(url, config);
+
+    const data = await res.json().catch(() => ({}));
+
+    if (!res.ok) {
+      const error = new Error(
+        `HTTP ${res.status} - ${data?.message || "Unknown error"}`,
+      );
+      error.status = res.status;
+      error.data = data;
+      throw error;
+    }
+
+    return data;
+  } catch (err) {
+    console.error(
+      `[Product API ERROR] ${options.method || "GET"} ${path}`,
+      err,
+    );
+
+    throw err;
+  }
+}
+
 export async function getProductList({
   page = 1,
   pageSize = 10,
   keyword = "",
 } = {}) {
-  try {
-    const res = await fetch(
-      `${BASE_URL}/products?page=${page}&pageSize=${pageSize}&keyword=${keyword}`,
-    );
-
-    if (!res.ok) {
-      throw new Error(`HTTP Error: ${res.status}`);
-    }
-
-    return await res.json();
-  } catch (err) {
-    console.error("상품 목록 조회 API 요청 실패:", err);
-    throw err;
-  }
+  const query = `page=${page}&pageSize=${pageSize}&keyword=${keyword}`;
+  return await request(`?${query}`, { method: "GET" });
 }
 
 export async function getProduct(id) {
-  try {
-    const res = await fetch(`${BASE_URL}/products/${id}`);
-
-    if (!res.ok) {
-      throw new Error(`HTTP Error: ${res.status}`);
-    }
-
-    return await res.json();
-  } catch (err) {
-    console.error("특정 상품 조회 API 요청 실패:", err);
-    throw err;
-  }
+  return await request(`/${id}`, { method: "GET" });
 }
 
 export async function createProduct({
@@ -43,56 +61,21 @@ export async function createProduct({
   tags,
   images,
 }) {
-  try {
-    const res = await fetch(`${BASE_URL}/products`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ name, description, price, tags, images }),
-    });
-
-    if (!res.ok) {
-      throw new Error(`HTTP Error: ${res.status}`);
-    }
-
-    return await res.json();
-  } catch (err) {
-    console.error("상품 생성 API 요청 실패:", err);
-    throw err;
-  }
+  return await request("", {
+    method: "POST",
+    body: JSON.stringify({ name, description, price, tags, images }),
+  });
 }
 
 export async function patchProduct(id, data) {
-  try {
-    const res = await fetch(`${BASE_URL}/products/${id}`, {
-      method: "PATCH",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
-    });
-
-    if (!res.ok) {
-      throw new Error(`HTTP Error: ${res.status}`);
-    }
-
-    return await res.json();
-  } catch (err) {
-    console.error("상품 수정 API 요청 실패:", err);
-    throw err;
-  }
+  return await request(`/${id}`, {
+    method: "PATCH",
+    body: JSON.stringify(data),
+  });
 }
 
 export async function deleteProduct(id) {
-  try {
-    const res = await fetch(`${BASE_URL}/products/${id}`, {
-      method: "DELETE",
-    });
-    w;
-    if (!res.ok) {
-      throw new Error(`HTTP Error: ${res.status}`);
-    }
-
-    return await res.json();
-  } catch (err) {
-    console.error("상품 삭제 API 요청 실패:", err);
-    throw err;
-  }
+  return await request(`/${id}`, {
+    method: "DELETE",
+  });
 }
