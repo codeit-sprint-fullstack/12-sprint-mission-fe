@@ -29,15 +29,9 @@ async function testProduct(id) {
   }
 }
 
-async function testCreateProduct() {
+async function testCreateProduct(productData) {
   try {
-    const data = await createProduct({
-      name: "테스트 상품",
-      description: "테스트 설명",
-      price: 10000,
-      tags: ["test"],
-      images: ["https://example.com/img.jpg"],
-    });
+    const data = await createProduct(productData);
 
     console.log("상품 생성:", data);
   } catch (err) {
@@ -45,11 +39,9 @@ async function testCreateProduct() {
   }
 }
 
-async function testPatchProduct(id) {
+async function testPatchProduct(id, updateData) {
   try {
-    const data = await patchProduct(id, {
-      price: 12000,
-    });
+    const data = await patchProduct(id, updateData);
 
     console.log("상품 수정:", data);
   } catch (err) {
@@ -66,4 +58,18 @@ async function testDeleteProduct(id) {
   }
 }
 
-testDeleteProduct(3036);
+testProductList();
+
+// testCreateProduct({
+//   name: "테스트 상품",
+//   description: "테스트 설명",
+//   price: 10000,
+//   tags: ["test"],
+//   images: ["https://example.com/img.jpg"],
+// });
+
+// testProduct(3062);
+
+// testPatchProduct(3062, { name: "새 상품" });
+
+// testDeleteProduct(3062);
