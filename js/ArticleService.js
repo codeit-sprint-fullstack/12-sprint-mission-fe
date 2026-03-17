@@ -10,6 +10,11 @@ export function getArticleList() {
     `${BASIC_URL}/?page=${page}&pageSize=${pageSize}&orderBy=${orderBy}&keyword=${keyword}`,
   )
     .then((response) => {
+      if (!response.ok) {
+        console.log(`HTTP Error ${response.status}`);
+        return;
+      }
+
       return response.json();
     })
     .catch((error) => console.error(error));
@@ -18,6 +23,11 @@ export function getArticleList() {
 export function getArticle(id) {
   fetch(`${BASIC_URL}/${id}`)
     .then((response) => {
+      if (!response.ok) {
+        console.log(`HTTP Error ${response.status}`);
+        return;
+      }
+
       return response.json();
     })
     .catch((error) => {
@@ -37,7 +47,18 @@ export function createArticle(title, content, image) {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(data),
-  });
+  })
+    .then((response) => {
+      if (!response.ok) {
+        console.log(`HTTP Error ${response.status}`);
+        return;
+      }
+
+      return response.json();
+    })
+    .catch((error) => {
+      console.log(error);
+    });
 }
 
 export function patchArticle(id, title, content, image) {
@@ -52,7 +73,18 @@ export function patchArticle(id, title, content, image) {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(data),
-  });
+  })
+    .then((response) => {
+      if (!response.ok) {
+        console.log(`HTTP Error ${response.status}`);
+        return;
+      }
+
+      return response.json();
+    })
+    .catch((error) => {
+      console.log(error);
+    });
 }
 
 export function deleteArticle(id) {
@@ -61,5 +93,16 @@ export function deleteArticle(id) {
     headers: {
       "Content-Type": "application/json",
     },
-  });
+  })
+    .then((response) => {
+      if (!response.ok) {
+        console.log(`HTTP Error ${response.status}`);
+        return;
+      }
+
+      return response.json();
+    })
+    .catch((error) => {
+      console.log(error);
+    });
 }

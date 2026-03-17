@@ -9,6 +9,12 @@ export async function getProductList() {
     const response = await fetch(
       `${BASIC_URL}/?page=${page}&pageSize=${pageSize}&orderBy=${orderBy}&keyword=${keyword}`,
     );
+
+    if (!response.ok) {
+      console.log(`HTTP Error ${response.status}`);
+      return;
+    }
+
     const list = await response.json();
     return list;
   } catch (error) {
@@ -19,6 +25,12 @@ export async function getProductList() {
 export async function getProduct(id) {
   try {
     const response = await fetch(`${BASIC_URL}/${id}`);
+
+    if (!response.ok) {
+      console.log(`HTTP Error ${response.status}`);
+      return;
+    }
+
     const result = await response.json();
     return result;
   } catch (error) {
@@ -35,14 +47,18 @@ export async function createProduct(name, description, price, tags, images) {
     images,
   };
   try {
-    await fetch(`${BASIC_URL}`, {
+    const response = await fetch(`${BASIC_URL}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(data),
     });
-    console.log(JSON.stringify(data));
+
+    if (!response.ok) {
+      console.log(`HTTP Error ${response.status}:`, result);
+      return;
+    }
   } catch (error) {
     console.log(error);
   }
@@ -57,24 +73,37 @@ export async function patchProduct(id, name, description, price, tags, images) {
     images,
   };
   try {
-    await fetch(`${BASIC_URL}/${id}`, {
+    const response = await fetch(`${BASIC_URL}/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(data),
     });
-    console.log(JSON.stringify(data));
+
+    if (!response.ok) {
+      console.log(`HTTP Error ${response.status}:`, result);
+      return;
+    }
   } catch (error) {
     console.log(error);
   }
 }
 
 export async function deleteProduct(id) {
-  await fetch(`${BASIC_URL}/${id}`, {
-    method: "DELETE",
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
+  try {
+    const response = await fetch(`${BASIC_URL}/${id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    if (!response.ok) {
+      console.log(`HTTP Error ${response.status}:`, result);
+      return;
+    }
+  } catch (error) {
+    console.log(error);
+  }
 }
