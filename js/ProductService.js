@@ -46,8 +46,12 @@ export async function getProductList({
   pageSize = 10,
   keyword = "",
 } = {}) {
-  const query = `page=${page}&pageSize=${pageSize}&keyword=${keyword}`;
-  return await request(`?${query}`, { method: "GET" });
+  const params = new URLSearchParams({
+    page,
+    pageSize,
+    keyword,
+  });
+  return await request(`?${params}`, { method: "GET" });
 }
 
 export async function getProduct(id) {
