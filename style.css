@@ -3,7 +3,6 @@
    License: none (public domain)
 */
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
-
 @font-face {
   font-family: "ROKAFSansMedium";
   src: url("https://cdn.jsdelivr.net/gh/woffz/a1@main/Airforce/ROKAFSansMedium.woff")
@@ -27,7 +26,6 @@
   --gray50: #f9fafb;
   --error: #f74747;
 }
-
 main {
   display: flex;
   flex-direction: column;
@@ -37,7 +35,6 @@ main {
 main#index section:not(:first-child):not(:last-child) {
   margin: auto;
 }
-
 header {
   width: 100%;
   position: sticky;
@@ -92,7 +89,6 @@ header {
 section {
   background-color: #fcfcfc;
 }
-
 section > .landing {
   width: 100%;
   margin: auto;
@@ -124,13 +120,11 @@ section > .landing {
   font-weight: 700;
   line-height: 1.5;
 }
-
 .comment {
   font-size: 1.5rem;
   font-weight: 500;
   line-height: 1.5;
 }
-
 .detail {
   display: flex;
   flex-direction: column;
@@ -156,7 +150,6 @@ section > .landing {
 .text-r {
   text-align: right;
 }
-
 footer {
   background: var(--gray900);
   display: flex;
@@ -171,7 +164,6 @@ footer a {
   text-decoration: none;
   color: var(--gray200);
 }
-
 footer ul {
   display: flex;
   justify-content: space-between;
@@ -188,11 +180,9 @@ footer ul {
 button {
   cursor: pointer;
 }
-
 div[onclick] {
   cursor: pointer;
 }
-
 .container {
   display: flex;
   justify-content: center;
