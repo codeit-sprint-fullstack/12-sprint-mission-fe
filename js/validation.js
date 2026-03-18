@@ -34,7 +34,8 @@ if (loginForm) {
     });
 
     if (!user || user.password !== passValue) {
-      alert("비밀번호가 일치하지 않습니다.");
+      //   alert("비밀번호가 일치하지 않습니다.");
+      showModal("비밀번호가 일치하지 않습니다.");
       pass.classList.add("input-error");
       return;
     }
@@ -55,7 +56,8 @@ if (signupForm) {
     });
 
     if (user) {
-      alert("사용 중인 이메일입니다");
+      //   alert("사용 중인 이메일입니다");
+      showModal("사용 중인 이메일입니다");
       email.classList.add("input-error");
       return;
     }
@@ -162,4 +164,30 @@ if (nick) {
 
 if (passCheck) {
   passCheck.addEventListener("input", checkForm);
+}
+
+const toggleIcons = document.querySelectorAll(".input-area img");
+
+toggleIcons.forEach((icon) => {
+  icon.addEventListener("click", function () {
+    const input = this.previousElementSibling;
+    if (input.type === "password") {
+      input.type = "text";
+    } else {
+      input.type = "password";
+    }
+  });
+});
+
+function showModal(message) {
+  const modal = document.getElementById("errorModal");
+  const modalMsg = document.getElementById("modalMessage");
+  const modalClose = document.getElementById("modalClose");
+
+  modalMsg.textContent = message;
+  modal.style.display = "flex";
+
+  modalClose.onclick = () => {
+    modal.style.display = "none";
+  };
 }

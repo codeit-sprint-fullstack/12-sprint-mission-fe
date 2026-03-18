@@ -335,3 +335,33 @@ div.input-area {
 .form-area input.input-error {
   border: 1px solid red;
 }
+
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 24px;
+  border-radius: 8px;
+  text-align: center;
+  min-width: 200px;
+  max-width: 90%;
+}
+
+p#modalMessage {
+  margin: 20px;
+}
+
+#modalClose {
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: none;
+  color: #000;
+}
