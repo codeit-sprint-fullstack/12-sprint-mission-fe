@@ -1,8 +1,6 @@
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
+/* http://meyerweb.com/eric/tools/css/reset/ v2.0 | 20110126 License: none (public domain) */
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
+
 @font-face {
   font-family: "ROKAFSansMedium";
   src: url("https://cdn.jsdelivr.net/gh/woffz/a1@main/Airforce/ROKAFSansMedium.woff")
@@ -25,7 +23,12 @@
   --gray100: #f3f4f6;
   --gray50: #f9fafb;
   --error: #f74747;
+  --pc-padding: 12.5rem;
+  --tablet-padding: 1.5rem;
+  --mobile-padding: 1rem;
+  --mobile-max-width: 25rem;
 }
+
 main {
   display: flex;
   flex-direction: column;
@@ -35,6 +38,7 @@ main {
 main#index section:not(:first-child):not(:last-child) {
   margin: auto;
 }
+
 header {
   width: 100%;
   position: sticky;
@@ -89,6 +93,7 @@ header {
 section {
   background-color: #fcfcfc;
 }
+
 section > .landing {
   width: 100%;
   margin: auto;
@@ -99,12 +104,12 @@ section > .landing {
 
 .landing {
   background-color: #cfe5ff;
-  height: 33.75rem;
+  height: auto;
 }
 
 .landing > img {
   width: 100%;
-  height: 33.75rem;
+  height: auto;
 }
 
 .card {
@@ -120,11 +125,13 @@ section > .landing {
   font-weight: 700;
   line-height: 1.5;
 }
+
 .comment {
   font-size: 1.5rem;
   font-weight: 500;
   line-height: 1.5;
 }
+
 .detail {
   display: flex;
   flex-direction: column;
@@ -150,6 +157,7 @@ section > .landing {
 .text-r {
   text-align: right;
 }
+
 footer {
   background: var(--gray900);
   display: flex;
@@ -164,6 +172,7 @@ footer a {
   text-decoration: none;
   color: var(--gray200);
 }
+
 footer ul {
   display: flex;
   justify-content: space-between;
@@ -180,9 +189,11 @@ footer ul {
 button {
   cursor: pointer;
 }
+
 div[onclick] {
   cursor: pointer;
 }
+
 .container {
   display: flex;
   justify-content: center;
@@ -364,4 +375,100 @@ p#modalMessage {
   border-radius: 8px;
   border: none;
   color: #000;
+}
+
+@media (max-width: 1199px) and (min-width: 744px) {
+  #GNB {
+    padding: 0.5625rem 1.5rem;
+  }
+
+  footer {
+    padding: 2rem 1.5rem;
+  }
+
+  main {
+    gap: 10rem;
+  }
+}
+
+@media (max-width: 743px) and (min-width: 375px) {
+  #GNB {
+    padding: 0.5625rem 1rem;
+  }
+
+  #logo {
+    font-size: 1.25rem;
+  }
+
+  .login_button {
+    width: 6rem;
+    height: 2.5rem;
+    font-size: 0.875rem;
+  }
+
+  main {
+    gap: 5rem;
+  }
+
+  section {
+    padding: 0 2rem;
+  }
+
+  .landing {
+    height: auto;
+    /* padding: 0 1rem; */
+  }
+
+  .landing > img {
+    width: 100%;
+    height: auto;
+  }
+
+  footer {
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem 1rem;
+    text-align: center;
+  }
+
+  footer ul {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .container {
+    padding: 0 1rem;
+  }
+
+  .login-box {
+    max-width: 400px;
+  }
+
+  #submit-button {
+    padding: 1rem;
+  }
+
+  .sns-login-area {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+  }
+}
+
+@media (max-width: 743px) {
+  .landing {
+    height: auto;
+  }
+
+  .landing > .card > img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .promotion > .card > img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
 }
