@@ -1,0 +1,220 @@
+:root{
+  /* palette -> css 변수 */
+  --bg: #FCFCFC;
+  --label: #222327;
+  --input-bg: #F3F4F6;
+  --placeholder: #9CA3AF;
+  --btn-bg: #9CA3AF;
+  --social-bg: #E6F2FF;
+  --brand-blue: #3692FF;
+
+  /* 포커스 테두리 색 */
+  --focus-border: #3692FF;
+}
+
+*{ box-sizing: border-box; }
+
+body{
+  margin:0;
+  background: var(--bg);
+  font-family: Pretendard, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans KR", Arial, sans-serif;
+  color: var(--label);
+}
+
+/* 화면 중앙 정렬 */
+.page{
+  min-height: 100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding: 40px 20px;
+  background: var(--bg);
+}
+
+.container{
+  width: 100%;
+  max-width: 396px;
+  display:flex;
+  flex-direction:column;
+}
+
+/* 로고 가운데 */
+header{
+  display:flex;
+  justify-content:center;
+  margin-bottom: 40px;
+}
+
+.logo{
+  height: 132px;
+  width: auto;
+  max-width: 100%;
+  display:block;
+}
+
+/* 필드 간격 */
+.field{ margin-bottom: 16px; }
+
+.label{
+  display:block;
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0 0 8px;
+  color: var(--label);
+}
+
+/* 입력창 */
+.input{
+  width: 100%;
+  height: 56px;             
+  padding: 16px 24px;       
+  border: none;             /* focus out: 테두리 없음 */
+  border-radius: 8px;
+  background: var(--input-bg);
+  outline: none;
+  font-size: 14px;
+}
+
+.input::placeholder{
+  color: var(--placeholder);
+}
+
+/* focus in: 테두리 */
+.input:focus{
+  border: 2px solid var(--focus-border);
+  background: #fff;
+}
+
+/* 비밀번호 + 눈 */
+.pw{
+  position: relative;
+}
+
+.pw__input{
+  padding-right: 56px; /* 아이콘 자리 */
+  -webkit-text-security: disc; /* 기본 가림 */
+}
+
+/* 체크박스 숨김 */
+.pw__toggle{
+  position:absolute;
+  width:1px; height:1px;
+  overflow:hidden;
+  clip: rect(0 0 0 0);
+  white-space:nowrap;
+}
+
+/* 눈 아이콘 버튼(label) */
+.pw__eye{
+  position:absolute;
+  right: 20px;             
+  top: 50%;
+  transform: translateY(-50%);
+  width: 28px;
+  height: 28px;
+  display:grid;
+  place-items:center;
+  cursor:pointer;
+}
+
+/* 두 아이콘 겹치기 */
+.pw__eye img{
+  position:absolute;
+  width: 20px;
+  height: 20px;
+  opacity: .7;
+}
+
+.pw__eye:hover img{ opacity: 1; }
+
+/* 기본 = eye-off 보이기 */
+.eye-open{ display:none; }
+.eye-close{ display:block; }
+
+/* 체크되면: 글자 보이기 + 아이콘 전환 */
+.pw__toggle:checked ~ .pw__input{
+  -webkit-text-security: none;
+}
+
+.pw__toggle:checked ~ .pw__eye .eye-open{
+  display:block;
+}
+.pw__toggle:checked ~ .pw__eye .eye-close{
+  display:none;
+}
+
+/* 버튼 */
+.login-btn{
+  width: 100%;
+  height: 56px;            
+  margin-top: 24px;
+  border: none;
+  border-radius: 40px;     
+  background: var(--btn-bg);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* 간편 로그인 */
+.social-box{
+  width: 100%;
+  height: 74px;            
+  margin-top: 16px;
+  padding: 16px 23px;      
+  border-radius: 8px;
+  background: var(--social-bg);
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.social-box > span{
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--label);
+}
+
+.social-icons{
+  display:flex;
+  align-items:center;
+  gap: 10px;
+}
+
+/* a를 원형 버튼처럼 */
+.social-icons a{
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  background:#fff;
+  display:grid;
+  place-items:center;
+  text-decoration:none;
+}
+
+.social-icons img{
+  width: 20px;
+  height: 20px;
+  display:block;
+}
+
+/* ✅ 하단 문구 */
+.bottom-text{
+  margin: 24px 0 0;
+  font-size: 14px;
+  line-height: 24px;
+  text-align:center;
+  color: var(--label);
+}
+
+.bottom-text a{
+  color: var(--brand-blue);
+  font-weight: 500;
+  text-decoration:none;
+}
+
+.bottom-text a:hover{
+  text-decoration: underline;
+}
