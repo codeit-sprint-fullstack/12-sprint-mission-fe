@@ -1,0 +1,24 @@
+{
+  "name": "12-sprint-mission-fe",
+  "version": "1.0.0",
+  "description": "> 중고물품을 자유롭게 거래하는 '판다마켓' 서비스의 프론트엔드 프로젝트입니다.<br/>\r > **Codeit Sprint FS 12기** | 작성자: 김나린",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/narin116/12-sprint-mission-fe.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/narin116/12-sprint-mission-fe/issues"
+  },
+  "homepage": "https://github.com/narin116/12-sprint-mission-fe#readme",
+  "dependencies": {
+    "json-server": "^1.0.0-beta.13"
+  }
+}

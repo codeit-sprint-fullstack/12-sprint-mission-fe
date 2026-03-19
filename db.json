@@ -1,0 +1,33 @@
+{
+  "products": [
+    {
+      "totalCount": 0,
+      "list": [
+        {
+          "createdAt": "2026-03-19T06:56:42.568Z",
+          "images": ["https://example.com/..."],
+          "tags": ["전자제품"],
+          "price": 0,
+          "description": "string",
+          "name": "상품 이름",
+          "id": 1
+        }
+      ]
+    }
+  ],
+  "articles": [
+    {
+      "totalCount": 0,
+      "list": [
+        {
+          "updatedAt": "2026-03-19T06:58:04.936Z",
+          "createdAt": "2026-03-19T06:58:04.936Z",
+          "image": "https://example.com/...",
+          "content": "게시글 내용입니다.",
+          "title": "게시글 제목입니다.",
+          "id": 1
+        }
+      ]
+    }
+  ]
+}
