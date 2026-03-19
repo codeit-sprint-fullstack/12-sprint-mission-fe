@@ -8,7 +8,7 @@ async function request(path, options = {}) {
   const config = {
     ...options,
     headers: {
-      ...options.headers,
+      ...(options.headers || {}),
     },
   };
 
