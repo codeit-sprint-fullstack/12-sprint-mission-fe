@@ -10,6 +10,7 @@ import {
   getArticle,
   createArticle,
   patchArticle,
+  deleteArticle,
 } from "./ArticleService.js";
 
 async function testProductList(params) {
@@ -117,7 +118,16 @@ async function testPatchArticle(id, updateData) {
   }
 }
 
-// testArticleList({ page: 1, pageSize: 10, keyword: "" });
+async function testDeleteArticle(id) {
+  try {
+    const data = await deleteArticle(id);
+    console.log("삭제된 글 id:", data.id);
+  } catch (err) {
+    console.error("글 삭제 실패:", err.message);
+  }
+}
+
+testArticleList({ page: 1, pageSize: 10, keyword: "" });
 // testArticle(5758);
 
 // testCreateArticle({
@@ -126,4 +136,6 @@ async function testPatchArticle(id, updateData) {
 //  image: "https://example.com/img.jpg",
 // });
 
-testPatchArticle(5758, { image: "https://picsum.photos/200/300" });
+// testPatchArticle(5758, { image: "https://picsum.photos/200/300" });
+
+// testDeleteArticle(5758);

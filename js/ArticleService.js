@@ -68,3 +68,9 @@ export function patchArticle(id, data) {
     body: JSON.stringify(data),
   });
 }
+
+export function deleteArticle(id) {
+  return request(`/${id}`, {
+    method: "DELETE",
+  });
+}
