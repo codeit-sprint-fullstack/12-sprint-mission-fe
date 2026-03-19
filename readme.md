@@ -22,29 +22,29 @@
 ## 📂 프로젝트 구조
 
 t2-sprint-mission/
-├── CSS/ # 스타일시트 폴더
-├── html/ # 서브 페이지 HTML 모음
-│ ├── faq.html # 자주 묻는 질문
-│ ├── items.html # 상품 목록/상세
-│ ├── login.html # 로그인
-│ ├── privacy.html # 개인정보처리방침
-│ └── signup.html # 회원가입
-├── images/ # 이미지 에셋 폴더
-├── js/ # 자바스크립트 소스 코드
-│ ├── api/ # API 통신 관련 로직
-│ │ ├── ArticleService.js # 게시글 관련 fetch 함수
-│ │ └── ProductService.js # 상품 관련 fetch 함수
-│ ├── ui/ # UI 렌더링 관련 로직
-│ │ └── render.js # 화면 그리기 담당
-│ ├── api.js # 공통 API 설정 (또는 엔트리)
-│ ├── main.js # 앱의 메인 실행 로직 (Entry Point)
-│ └── utils.js # 공통 유틸리티 함수
-├── node_modules/ # 외부 라이브러리 (json-server 등)
-├── db.json # 로컬 API용 데이터베이스 파일
-├── index.html # 메인 페이지 (홈)
-├── package-lock.json # 패키지 설치 고정 정보
-├── package.json # 프로젝트 정보 및 의존성 관리
-└── README.md # 프로젝트 설명 문서
+├── CSS/ # 스타일시트 폴더<br/>
+├── html/ # 서브 페이지 HTML 모음<br/>
+│ ├── faq.html # 자주 묻는 질문<br/>
+│ ├── items.html # 상품 목록/상세<br/>
+│ ├── login.html # 로그인<br/>
+│ ├── privacy.html # 개인정보처리방침<br/>
+│ └── signup.html # 회원가입<br/>
+├── images/ # 이미지 에셋 폴더<br/>
+├── js/ # 자바스크립트 소스 코드<br/>
+│ ├── api/ # API 통신 관련 로직<br/>
+│ │ ├── ArticleService.js # 게시글 관련 fetch 함수<br/>
+│ │ └── ProductService.js # 상품 관련 fetch 함수<br/>
+│ ├── ui/ # UI 렌더링 관련 로직<br/>
+│ │ └── render.js # 화면 그리기 담당<br/>
+│ ├── api.js # 공통 API 설정 (또는 엔트리)<br/>
+│ ├── main.js # 앱의 메인 실행 로직 (Entry Point)<br/>
+│ └── utils.js # 공통 유틸리티 함수<br/>
+├── node_modules/ # 외부 라이브러리 (json-server 등)<br/>
+├── db.json # 로컬 API용 데이터베이스 파일<br/>
+├── index.html # 메인 페이지 (홈)<br/>
+├── package-lock.json # 패키지 설치 고정 정보<br/>
+├── package.json # 프로젝트 정보 및 의존성 관리<br/>
+└── README.md # 프로젝트 설명 문서<br/>
 
 ### 체크리스트
 
