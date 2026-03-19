@@ -1,14 +1,51 @@
+:root {
+  /* =========================
+     root color 
+     (2026.03.03 add: 피드백 반영)
+  ========================== */
+  --Primary-100: #3692ff;
+  --brand-blue: #3692ff;
+
+  /* =========================
+     Secondary 
+     (2026.03.03 add: 피드백 반영)
+  ========================== */
+  --Secondary-900: #111827;
+  --Secondary-700: #374151;
+  --Secondary-200: #e5e7eb;
+  --Secondary-50: #f9fafb;
+
+  /* =========================
+     Cool Gray 
+     (2026.03.03 add: 피드백 반영)
+  ========================== */
+  --Cool-Gray-100: #f3f4f6;
+
+  /* =========================
+     Background 
+     (2026.03.03 add: 피드백 반영)
+  ========================== */
+  --bg-white: #ffffff;
+  --bg-light-blue: #cfe5ff;
+
+  /* =========================
+     Border 
+     (2026.03.03 add: 피드백 반영)
+  ========================== */
+  --border-light: #dfdfdf;
+}
+
 .container {
   width: 100%;
-  max-width: 1920px; /* 피그마 기준에 맞춰 조절 */
+  max-width: 192rem; /* 피그마 기준에 맞춰 조절 */
   margin: 0 auto;
-  padding: 0 200px;
+  padding: 0 20rem;
 }
 
 h2 {
-  color: var(--Secondary-700, #374151);
+  color: var(--Secondary-700);
   font-family: Pretendard;
-  font-size: 40px;
+  font-size: 4rem;
   font-style: normal;
   font-weight: 700;
   line-height: 140%; /* 56px */
@@ -20,25 +57,31 @@ nav
 .nav {
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px solid #dfdfdf;
-  background: #fff;
+  align-items: center;
+}
+
+.nav-bg {
+  display: flex;
+  justify-content: space-between;
   position: sticky;
   top: 0;
-  height: 70px;
+  height: 7rem;
   align-items: center;
+  background: var(--bg-white);
+  border-bottom: 1px solid var(--border-light);
 }
 
 .cta-btn {
   display: flex;
-  width: 128px;
-  height: 48px;
-  padding: 12px 23px;
+  width: 12.8rem;
+  height: 4.8rem;
+  padding: 1.2rem 2.3rem;
   justify-content: center;
   align-items: center;
-  gap: 10px;
-  border-radius: 8px;
-  background: var(--Primary-100, #3692ff);
-  color: var(--Cool-Gray-100, #f3f4f6);
+  gap: 1rem;
+  border-radius: 0.8rem;
+  background: var(--Primary-100);
+  color: var(--Cool-Gray-100);
 }
 
 /*======================================
@@ -48,37 +91,50 @@ hero
   display: flex;
   justify-content: center;
   align-items: end;
-  background: #cfe5ff;
-  height: 540px;
-  gap: 7px;
+  height: 54rem;
+  gap: 0.7rem;
+}
+
+/*2026.03.03 add : 반응형 추가*/
+.hero-bg {
+  width: 100%;
+  background: var(--bg-light-blue);
 }
 
 .hero-inner {
   display: flex;
-  padding-bottom: 60px;
+  padding-bottom: 6rem;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  height: 340px;
-  gap: 32px;
+  height: 34rem;
+  gap: 3.2rem;
 }
 
 .hero-img {
   align-self: end;
+  /*2026.03.03 add : 이미지 줄어들지 않게 수정함*/
+  flex-shrink: 0;
+  max-width: none;
 }
 
 .hero-btn {
   display: flex;
-  height: 56px;
-  padding: 16px 124px;
+  height: 5.6rem;
+  padding: 1.6rem 12.4rem;
   justify-content: center;
   align-items: center;
-  gap: 10px;
-  border-radius: 40px;
-  background: var(--brand-blue, #3692ff);
-  color: var(--Secondary-50, #f9fafb);
+  gap: 1rem;
+  border-radius: 4rem;
+  background: var(--brand-blue);
   text-align: center;
-  color: var(--Secondary-50, #f9fafb);
+
+  /*font*/
+  color: var(--Secondary-50);
+  font-family: Pretendard;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
 }
 
 /*======================================
@@ -87,40 +143,35 @@ Section
 .section {
   display: flex;
   justify-content: center;
-  display: flex;
-  width: 1920px;
-  padding: 138px 344px;
-  justify-content: center;
+  width: 100%;
+  padding: 13.8rem 0rem;
   align-items: center;
-  gap: 64px;
+  gap: 6.4rem;
 }
 
 .section-inner {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 12px;
+  gap: 1.2rem;
 }
 
 .section-top-text {
-  color: var(--Primary-100, #3692ff);
-  /* pretendard/2lg-18px-bold */
+  color: var(--Primary-100);
   font-family: Pretendard;
-  font-size: 18px;
+  font-size: 1.8rem;
   font-style: normal;
   font-weight: 700;
-  line-height: 26px;
+  line-height: 2.6rem;
 }
 
 .section-end-text {
-  color: var(--Secondary-700, #374151);
-
-  /* pretendard/2xl-24px-medium */
+  color: var(--Secondary-700);
   font-family: Pretendard;
-  font-size: 24px;
+  font-size: 2.4rem;
   font-style: normal;
   font-weight: 500;
-  line-height: 32px;
+  line-height: 3.2rem;
 }
 
 .section2 {
@@ -131,11 +182,16 @@ Bottom
 =======================================*/
 .bottom {
   display: flex;
-  height: 540px;
-  align-items: end;
   justify-content: center;
-  background: #cfe5ff;
-  margin-top: 100px;
+  align-items: end;
+  height: 54rem;
+  gap: 0.7rem;
+}
+
+/*2026.03.03 add : 반응형 추가*/
+.bottom-bg {
+  width: 100%;
+  background: var(--bg-light-blue);
 }
 
 .bottom-text {
@@ -144,6 +200,13 @@ Bottom
 
 .bottom-inner {
   display: flex;
+  justify-content: center;
+}
+
+.bottom-img {
+  /*2026.03.03 add : 이미지 줄어들지 않게 수정함*/
+  flex-shrink: 1;
+  max-width: none;
 }
 /*======================================
 Footer
@@ -151,13 +214,16 @@ Footer
 .footer {
   display: flex;
   justify-content: space-between;
-  width: 1920px;
-  height: 160px;
-  padding: 32px 200px;
-  gap: 10px;
-  background: var(--Secondary-900, #111827);
+  width: 100%;
+  height: 16rem;
+  padding: 3.2rem 0rem;
+  gap: 1rem;
+  background: var(--Secondary-900);
 }
-
+.footer-bg {
+  width: 100%;
+  background: var(--Secondary-900);
+}
 .footer-icon {
   display: flex;
   gap: 12px;
@@ -175,15 +241,23 @@ Footer
 }
 
 .footer-text {
-  color: var(--Secondary-200, #e5e7eb);
+  color: var(--Secondary-200);
   text-align: center;
   font-family: Pretendard;
-  font-size: 16px;
+  font-size: 1.6rem;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
 }
+
 .footer-text-middle {
   display: flex;
-  gap: 30px;
+  gap: 3rem;
 }
+
+/* =========================
+수정사항 
+2026.03.03 fix : 피드백 반영 텍스트 px -> rem으로 변경
+2026.03.03 add : 기본 요구사항 1920px 관련 수정함
+2026.03.03 fix : root에 색상 설정함
+  ========================== */

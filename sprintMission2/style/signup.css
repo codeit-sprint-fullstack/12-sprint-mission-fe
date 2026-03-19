@@ -1,3 +1,43 @@
+:root {
+  /* =========================
+     Primary
+     (2026.03.03 add: 피드백 반영)
+  ========================== */
+  --Primary-100: #3692ff;
+  --brand-blue: #3692ff;
+
+  /* =========================
+     Secondary (
+     (2026.03.03 add: 피드백 반영)
+  ========================== */
+  --Secondary-900: #111827;
+  --Secondary-800: #1f2937;
+  --Secondary-700: #374151;
+  --Secondary-400: #9ca3af;
+  --Secondary-200: #e5e7eb;
+  --Secondary-50: #f9fafb;
+
+  /* =========================
+     Cool Gray
+     (2026.03.03 add: 피드백 반영)
+  ========================== */
+  --Cool-Gray-100: #f3f4f6;
+
+  /* =========================
+     Background
+     (2026.03.03 add: 피드백 반영)
+  ========================== */
+  --bg-white: #ffffff;
+  --bg-light-blue: #cfe5ff;
+  --bg-soft-blue: #e6f2ff;
+
+  /* =========================
+     Border
+     (2026.03.03 add: 피드백 반영)
+  ========================== */
+  --border-light: #dfdfdf;
+}
+
 body {
   display: flex;
   width: 100%;
@@ -19,7 +59,7 @@ form {
 }
 
 .section {
-  color: var(--Secondary-800, #1f2937);
+  color: var(--Secondary-800);
   font-family: Pretendard;
   font-size: 18px;
   font-style: normal;
@@ -57,7 +97,7 @@ form {
   gap: 10px;
   border-radius: 12px;
   border: none;
-  background: var(--Cool-Gray-100, #f3f4f6);
+  background: var(--Cool-Gray-100);
   outline: none;
   min-width: 0;
 }
@@ -77,7 +117,7 @@ form {
 }
 
 .text-box:focus {
-  border: 1px solid var(--brand-blue, #3692ff);
+  border: 1px solid var(--brand-blue);
 }
 
 .signup-btn {
@@ -89,13 +129,13 @@ form {
   align-items: center;
   gap: 10px;
   border-radius: 40px;
-  background: var(--Secondary-400, #9ca3af);
+  background: var(--Secondary-400);
   color: #f3f4f6;
 }
 
 .signup-btn:hover {
   border-radius: 40px;
-  background: var(--Primary-100, #3692ff);
+  background: var(--Primary-100);
 }
 .sample-signup-box {
   display: flex;
@@ -104,7 +144,7 @@ form {
   justify-content: space-between;
   align-items: center;
   border-radius: 8px;
-  background: #e6f2ff;
+  background: var(--bg-soft-blue);
   padding: 23px;
 }
 
@@ -116,7 +156,7 @@ form {
 }
 
 .signup-text {
-  color: var(--Primary-100, #3692ff);
+  color: var(--Primary-100);
   font-family: Pretendard;
   font-size: 14px;
   font-style: normal;
@@ -137,7 +177,7 @@ form {
 }
 
 .sample-signup-text {
-  color: var(--Secondary-800, #1f2937);
+  color: var(--Secondary-800);
   font-family: Pretendard;
   font-size: 16px;
   font-style: normal;
@@ -146,7 +186,7 @@ form {
 }
 
 .signup-footer-text {
-  color: var(--Secondary-800, #1f2937);
+  color: var(--Secondary-800);
   font-family: Pretendard;
   font-size: 14px;
   font-style: normal;
