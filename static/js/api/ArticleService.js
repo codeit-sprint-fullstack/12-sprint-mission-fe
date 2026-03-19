@@ -1,6 +1,6 @@
 const API_URL = "https://panda-market-api-crud.vercel.app";
 
-export async function getArticleList(
+export function getArticleList(
   page = 1, // 불러올 페이지 default 1
   pageSize = 10, // 불러올 상품 수 default 10
   orderBy = "recent", // 불러올 정렬방식 default recent (최신순)
@@ -19,7 +19,7 @@ export async function getArticleList(
     .catch((err) => console.error(err));
 }
 
-export async function getArticle(id) {
+export function getArticle(id) {
   return fetch(`${API_URL}/articles/${id}`)
     .then((res) => {
       if (!res.ok) {
@@ -31,7 +31,7 @@ export async function getArticle(id) {
     .catch((err) => console.error(err));
 }
 
-export async function createArticle(article) {
+export function createArticle(article) {
   const { title, content, image } = article;
 
   return fetch(`${API_URL}/articles`, {
@@ -55,7 +55,7 @@ export async function createArticle(article) {
     .catch((err) => console.error(err));
 }
 
-export async function patchArticle(id, data) {
+export function patchArticle(id, data) {
   return fetch(`${API_URL}/articles/${id}`, {
     method: "PATCH",
     headers: {
@@ -73,7 +73,7 @@ export async function patchArticle(id, data) {
     .catch((err) => console.error(err));
 }
 
-export async function deleteArticle(id) {
+export function deleteArticle(id) {
   return fetch(`${API_URL}/articles/${id}`, {
     method: "DELETE",
   })
