@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>판다마켓 - 회원가입</title>
+    <link rel="stylesheet" href="login.css" />
+  </head>
+  <body>
+    <main class="login-container">
+      <div class="logo">
+        <a href="/">
+          <img src="로그인-이미지/logo.png" alt="판다마켓 로고" width="400px" />
+        </a>
+      </div>
+
+      <form class="login-form">
+        <div class="input-group">
+          <label for="email">이메일</label>
+          <input
+            type="email"
+            id="email"
+            placeholder="이메일을 입력해주세요"
+            required
+          />
+        </div>
+
+        <div class="input-group">
+          <label for="nickname">닉네임</label>
+          <input
+            type="text"
+            id="nickname"
+            placeholder="닉네임을 입력해주세요"
+            required
+          />
+        </div>
+
+        <div class="input-group">
+          <label for="password">비밀번호</label>
+          <div class="password-wrapper">
+            <input
+              type="password"
+              id="password"
+              placeholder="비밀번호를 입력해주세요"
+              required
+            />
+
+            <label for="toggle-check" class="toggle-check">
+              <img src="로그인-이미지/btn_visibility.png" />
+            </label>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label for="password-check">비밀번호 확인</label>
+          <div class="password-wrapper">
+            <input
+              type="password"
+              id="password-check"
+              placeholder="비밀번호를 다시 한 번 입력해주세요"
+              required
+            />
+
+            <label for="toggle-check" class="toggle-check">
+              <img src="로그인-이미지/btn_visibility.png" />
+            </label>
+          </div>
+        </div>
+
+        <button type="submit" class="login-button">회원가입</button>
+      </form>
+
+      <div class="form-footer">
+        <div class="form1">
+          <span class="simple-login">간편 로그인하기</span>
+          <span class="social-icons">
+            <a
+              href="https://www.google.com/"
+              target="_blank"
+              class="social-btn google"
+            >
+              <img src="로그인-이미지/google.png" height="22px" width="22px" />
+            </a>
+            <a
+              href="https://www.kakaocorp.com/page/"
+              target="_blank"
+              class="social-btn kakao"
+            >
+              <img
+                src="로그인-이미지/kakaotalk.png"
+                height="22px"
+                width="22px"
+              />
+            </a>
+          </span>
+        </div>
+        <p>이미 회원이신가요? <a class="foot-link" href="/login">로그인</a></p>
+      </div>
+    </main>
+  </body>
+</html>
