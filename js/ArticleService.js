@@ -42,15 +42,15 @@ function request(path, options = {}) {
     });
 }
 
-export async function getArticleList({
-  page = 1,
-  pageSize = 10,
-  keyword = "",
-} = {}) {
+export function getArticleList({ page = 1, pageSize = 10, keyword = "" } = {}) {
   const params = new URLSearchParams({
     page,
     pageSize,
     keyword,
   });
   return request(`?${params}`, { method: "GET" });
+}
+
+export async function getArticle(id) {
+  return request(`/${id}`, { method: "GET" });
 }

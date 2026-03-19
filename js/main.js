@@ -5,7 +5,7 @@ import {
   patchProduct,
   deleteProduct,
 } from "./ProductService.js";
-import { getArticleList } from "./ArticleService.js";
+import { getArticleList, getArticle } from "./ArticleService.js";
 
 async function testProductList(params) {
   try {
@@ -83,4 +83,14 @@ async function testArticleList(params) {
   }
 }
 
-testArticleList({ page: 1, pageSize: 10, keyword: "" });
+async function testArticle(id) {
+  try {
+    const data = await getArticle(id);
+    console.log("글 상세:", data);
+  } catch (err) {
+    console.error("글 조회 실패:", err.message);
+  }
+}
+
+// testArticleList({ page: 1, pageSize: 10, keyword: "" });
+testArticle(3069);
