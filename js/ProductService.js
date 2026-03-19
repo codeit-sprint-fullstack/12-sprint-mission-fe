@@ -1,4 +1,4 @@
-import { BASE_URL } from "./main";
+import BASE_URL from "./config.js";
 
 export const getProductList = async (page, pageSize, keyword) => {
   try {
@@ -14,7 +14,7 @@ export const getProductList = async (page, pageSize, keyword) => {
 
 export const getProduct = async (id) => {
   try {
-    const res = await fetch(`${BASE_URL}/${id}`);
+    const res = await fetch(`${BASE_URL}/products/${id}`);
     if (!res.ok) throw new Error(`Error: ${res.status}`);
     return res.json();
   } catch (error) {
@@ -24,7 +24,7 @@ export const getProduct = async (id) => {
 
 export const createProduct = async (name, description, price, tags, images) => {
   try {
-    const res = await fetch(BASE_URL, {
+    const res = await fetch(`${BASE_URL}/products`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -40,7 +40,7 @@ export const createProduct = async (name, description, price, tags, images) => {
 
 export const patchProduct = async (id, data) => {
   try {
-    const res = await fetch(`${BASE_URL}/${id}`, {
+    const res = await fetch(`${BASE_URL}/products/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -56,7 +56,7 @@ export const patchProduct = async (id, data) => {
 
 export const deleteProduct = async (id) => {
   try {
-    const res = await fetch(`${BASE_URL}/${id}`, {
+    const res = await fetch(`${BASE_URL}/products/${id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
