@@ -5,7 +5,12 @@ import {
   patchProduct,
   deleteProduct,
 } from "./ProductService.js";
-import { getArticleList, getArticle, createArticle } from "./ArticleService.js";
+import {
+  getArticleList,
+  getArticle,
+  createArticle,
+  patchArticle,
+} from "./ArticleService.js";
 
 async function testProductList(params) {
   try {
@@ -102,12 +107,23 @@ async function testCreateArticle(productData) {
   }
 }
 
-testArticleList({ page: 1, pageSize: 10, keyword: "" });
+async function testPatchArticle(id, updateData) {
+  try {
+    const data = await patchArticle(id, updateData);
 
-testArticle(5758);
+    console.log("글 수정:", data);
+  } catch (err) {
+    console.error("글 수정 실패:", err.message);
+  }
+}
 
-testCreateArticle({
-  title: "테스트 글",
-  content: "테스트 글 내용",
-  image: "https://example.com/img.jpg",
-});
+// testArticleList({ page: 1, pageSize: 10, keyword: "" });
+// testArticle(5758);
+
+// testCreateArticle({
+//  title: "테스트 글",
+//  content: "테스트 글 내용",
+//  image: "https://example.com/img.jpg",
+// });
+
+testPatchArticle(5758, { image: "https://picsum.photos/200/300" });

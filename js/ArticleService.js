@@ -61,3 +61,10 @@ export function createArticle({ title, content, image }) {
     body: JSON.stringify({ title, content, image }),
   });
 }
+
+export function patchArticle(id, data) {
+  return request(`/${id}`, {
+    method: "PATCH",
+    body: JSON.stringify(data),
+  });
+}
