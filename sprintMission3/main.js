@@ -39,11 +39,11 @@ console.log("getArticleList test =>", article);
 const createarticle = await createArticle(); //생성
 console.log("createArticle test =>", createarticle);
 
-const getarticle = await getArticle(createproduct.id); //특정 상품 상세 조회
+const getarticle = await getArticle(createarticle.id); //특정 상품 상세 조회
 console.log("getArticle test =>", getarticle);
 
-const updatearticle = await patchArticle(createproduct.id); //수정
+const updatearticle = await patchArticle(createarticle.id); //수정
 console.log("patchArticle test =>", updatearticle);
 
-const deletearticle = await deleteArticle(createproduct.id); //삭제
+const deletearticle = await deleteArticle(createarticle.id); //삭제
 console.log("deleteArticle test =>", deletearticle);
