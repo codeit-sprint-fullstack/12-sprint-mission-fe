@@ -1,3 +1,7 @@
+body {
+  font-family: "Pretendard", sans-serif;
+}
+
 main {
   display: flex;
   flex-direction: column;
@@ -13,7 +17,6 @@ main {
   margin: 40px;
 
   color: var(--brand-blue, #3692ff);
-  font-family: "ROKAF Sans";
   font-size: 66.344px;
   font-style: normal;
   font-weight: 700;
@@ -37,7 +40,6 @@ label {
   color: var(--Secondary-800, #1f2937);
 
   /* pretendard/2lg-18px-bold */
-  font-family: Pretendard;
   font-size: 18px;
   font-style: normal;
   font-weight: 700;
@@ -48,7 +50,6 @@ input {
   color: var(--Secondary-400, #9ca3af);
 
   /* pretendard/lg-16px-regular */
-  font-family: Pretendard;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
@@ -70,7 +71,6 @@ input {
   color: var(--Cool-Gray-800, #1f2937);
 
   /* text-base/font-normal */
-  font-family: Pretendard;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
@@ -103,7 +103,6 @@ button {
   text-align: center;
 
   /* pretendard/xl-20px-semibold */
-  font-family: Pretendard;
   font-size: 20px;
   font-style: normal;
   font-weight: 600;
@@ -162,7 +161,6 @@ button {
   color: var(--Secondary-800, #1f2937);
 
   /* pretendard/lg-16px-medium */
-  font-family: "Pretendard";
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
