@@ -51,6 +51,13 @@ export function getArticleList({ page = 1, pageSize = 10, keyword = "" } = {}) {
   return request(`?${params}`, { method: "GET" });
 }
 
-export async function getArticle(id) {
+export function getArticle(id) {
   return request(`/${id}`, { method: "GET" });
+}
+
+export function createArticle({ title, content, image }) {
+  return request("", {
+    method: "POST",
+    body: JSON.stringify({ title, content, image }),
+  });
 }

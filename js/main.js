@@ -5,7 +5,7 @@ import {
   patchProduct,
   deleteProduct,
 } from "./ProductService.js";
-import { getArticleList, getArticle } from "./ArticleService.js";
+import { getArticleList, getArticle, createArticle } from "./ArticleService.js";
 
 async function testProductList(params) {
   try {
@@ -77,9 +77,9 @@ async function testArticleList(params) {
   try {
     const list = await getArticleList(params);
 
-    console.log("상품 목록:", list);
+    console.log("글 목록:", list);
   } catch (err) {
-    console.error("상품 목록 조회 실패:", err.message);
+    console.error("글 목록 조회 실패:", err.message);
   }
 }
 
@@ -92,5 +92,22 @@ async function testArticle(id) {
   }
 }
 
-// testArticleList({ page: 1, pageSize: 10, keyword: "" });
-testArticle(3069);
+async function testCreateArticle(productData) {
+  try {
+    const data = await createArticle(productData);
+
+    console.log("글 작성:", data);
+  } catch (err) {
+    console.error("글 작성 실패:", err.message);
+  }
+}
+
+testArticleList({ page: 1, pageSize: 10, keyword: "" });
+
+testArticle(5758);
+
+testCreateArticle({
+  title: "테스트 글",
+  content: "테스트 글 내용",
+  image: "https://example.com/img.jpg",
+});
