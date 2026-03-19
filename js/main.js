@@ -5,6 +5,7 @@ import {
   patchProduct,
   deleteProduct,
 } from "./ProductService.js";
+import { getArticleList } from "./ArticleService.js";
 
 async function testProductList(params) {
   try {
@@ -54,8 +55,8 @@ async function testDeleteProduct(id) {
   }
 }
 
-testProductList({ page: 1, pageSize: 10, keyword: "" });
-testProductList();
+// testProductList({ page: 1, pageSize: 10, keyword: "" });
+// testProductList();
 
 // testCreateProduct({
 //   name: "테스트 상품",
@@ -70,3 +71,16 @@ testProductList();
 // testPatchProduct(3062, { name: "새 상품" });
 
 // testDeleteProduct(3062);
+
+/* Article */
+async function testArticleList(params) {
+  try {
+    const list = await getArticleList(params);
+
+    console.log("상품 목록:", list);
+  } catch (err) {
+    console.error("상품 목록 조회 실패:", err.message);
+  }
+}
+
+testArticleList({ page: 1, pageSize: 10, keyword: "" });
