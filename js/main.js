@@ -6,13 +6,9 @@ import {
   deleteProduct,
 } from "./ProductService.js";
 
-async function testProductList() {
+async function testProductList(params) {
   try {
-    const list = await getProductList({
-      page: 1,
-      pageSize: 10,
-      keyword: "",
-    });
+    const list = await getProductList(params);
 
     console.log("상품 목록:", list);
   } catch (err) {
@@ -58,6 +54,7 @@ async function testDeleteProduct(id) {
   }
 }
 
+testProductList({ page: 1, pageSize: 10, keyword: "" });
 testProductList();
 
 // testCreateProduct({
