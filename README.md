@@ -13,7 +13,7 @@
 
 # 프로젝트 개요
 
--판다마켓 스프린터1, 스프린터2 미션을 완료한다.
+-판다마켓 스프린터1, 스프린터2, 스프린터3 미션을 완료한다.
 
 ---
 
@@ -21,6 +21,7 @@
 
 - HTML5
 - CSS3
+- JS
 - Git
 - GitHub
 
@@ -29,16 +30,21 @@
 # 아키텍처 & 폴더 구조
 
 12-SPRINT-MISSION-FE
-│
-├── img
-├── index.css
+├── img/
+├── js/
+│ ├── ArticleService.js
+│ ├── ProductService.js
+│ └── main.js
+├── style/
+│ ├── auth.css
+│ ├── global.css
+│ └── home.css
 ├── index.html
-├── login.css
+├── faq.html
 ├── login.html
-├── README.md
-├── reset.css
-├── sign.css
-└── sign.html
+├── item.html
+├── privacy.html
+└── README.md
 
 ---
 
@@ -83,12 +89,16 @@
 
 # 구현하지 못한 부분
 
-- 비밀번호, 비밀번호 확인 input 요소 오른쪽에 비밀번호를 확인할 수 있는 눈 모양 아이콘을 추가
-- login페이지와 signup페이지의 로그인, 회원가입 버튼 cursor: pointer 설정을 못함
+### 스프린트 1,2
+
+비밀번호, 비밀번호 확인 input 요소 오른쪽에 비밀번호를 확인할 수 있는 눈 모양 아이콘을 추가
+login페이지와 signup페이지의 로그인, 회원가입 버튼 cursor: pointer 설정을 못함
 
 ---
 
 # 프로젝트 회고
+
+### 스프린트 1,2 회고록
 
 처음으로 혼자서 html과 css를 이용하여 페이지를 만든다는 것에 대해 막막했습니다.
 하지만 html과 css 배운 것을 이용하여 하나하나 만드는 것이 좋았습니다.
@@ -96,3 +106,8 @@ flex를 사용하는 것이 어려웠는데 이제는 어렵지 않게 사용 �
 아직까지 완벽하게 html과 css를 사용하지 못해서 구글링을 하면서 사용했습니다.
 하지만 구글링으로는 한계가 있어서 완벽하게 미션을 해결하지 못했습니다.
 좀 더 공부를 하여 다음번에는 미션을 완료하고 싶습니다.
+
+### 스프린트 3 회고록
+
+수업에서 배운 부분들을 적용하는 것이 많이 어려웠습니다.
+get, post, patch, delete 등등 아직까지 적용하는 것이 어렵습니다.
