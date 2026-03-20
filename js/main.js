@@ -21,7 +21,7 @@ function articleTest() {
     "iRum님의 테스트 게시글을 수정했습니다!",
     "https://picsum.photos/300",
   );
-  article.deleteArticle(5560);
+  article.deleteArticle(5750);
 }
 articleTest();
 
@@ -46,4 +46,4 @@ function productTest() {
   );
   product.deleteProduct(3064);
 }
-productTest();
+// productTest();
