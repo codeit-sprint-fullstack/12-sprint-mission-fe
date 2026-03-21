@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/auth.css" />
+    <title>회원가입 페이지</title>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-PB0XM30FJ8"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-PB0XM30FJ8");
+    </script>
+    <!-- google tag end point-->
+  </head>
+  <body>
+    <main class="auth">
+      <section class="auth__container">
+        <h1 class="auth__logo">
+          <a class="auth__logo-link" href="index.html">
+            <img class="auth__logo-image" src="imgs/logo.png" alt="판다마켓" />
+          </a>
+        </h1>
+
+        <form class="auth__form">
+          <div class="auth__field">
+            <label class="auth__label" for="email">이메일</label>
+            <input
+              class="auth__input"
+              id="email"
+              name="email"
+              type="email"
+              placeholder="이메일을 입력해주세요"
+            />
+          </div>
+
+          <div class="auth__field">
+            <label class="auth__label" for="nickname">닉네임</label>
+            <input
+              class="auth__input"
+              id="nickname"
+              name="nickname"
+              type="text"
+              placeholder="닉네임을 입력해주세요"
+            />
+          </div>
+
+          <div class="auth__field">
+            <label class="auth__label" for="password">비밀번호</label>
+            <div class="auth__input-wrap auth__input-wrap--password">
+              <input
+                class="auth__input"
+                id="password"
+                name="password"
+                type="password"
+                placeholder="비밀번호를 입력해주세요"
+              />
+              <button
+                class="auth__toggle"
+                type="button"
+                aria-label="비밀번호 보기"
+              >
+                <img src="imgs/btn_visibility_off_24px.svg" />
+              </button>
+            </div>
+          </div>
+
+          <div class="auth__field">
+            <label class="auth__label" for="password_check"
+              >비밀번호 확인</label
+            >
+            <div class="auth__input-wrap auth__input-wrap--password">
+              <input
+                class="auth__input"
+                id="password_check"
+                name="password_check"
+                type="password"
+                placeholder="비밀번호를 다시 한 번 입력해주세요"
+              />
+              <button
+                class="auth__toggle"
+                type="button"
+                aria-label="비밀번호 보기"
+              >
+                <img src="imgs/btn_visibility_off_24px.svg" />
+              </button>
+            </div>
+          </div>
+
+          <button class="auth__submit" type="submit">회원가입</button>
+        </form>
+
+        <section class="auth__social" aria-label="간편 로그인">
+          <p class="auth__social-text">간편 로그인하기</p>
+
+          <div class="auth__social-icons">
+            <a
+              class="auth__social-link"
+              href="https://www.google.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img src="imgs/login_img/ic_google_login.png" alt="구글 로그인" />
+            </a>
+
+            <a
+              class="auth__social-link"
+              href="https://www.kakaocorp.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="imgs/login_img/ic_kakao_login.png"
+                alt="카카오 로그인"
+              />
+            </a>
+          </div>
+        </section>
+
+        <p class="auth__switch">
+          이미 회원이신가요?
+          <a class="auth__switch-link" href="login.html">로그인</a>
+        </p>
+      </section>
+    </main>
+  </body>
+</html>

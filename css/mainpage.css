@@ -1,0 +1,246 @@
+:root {
+  --Secondary-50: #f9fafb;
+  --Secondary-100: #f3f4f6;
+  --Secondary-200: #e5e7eb;
+  --Secondary-400: #9ca3af;
+  --Secondary-700: #374151;
+  --Secondary-900: #111827;
+  --Primary-100: #3692ff;
+  --Cool-Gray-800: #1f2937;
+}
+
+body {
+  background: #fcfcfc;
+}
+
+.header {
+  height: 4.375rem;
+}
+
+.header__nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4.375rem;
+  background-color: #fff;
+  border-bottom: 1px solid #dfdfdf;
+  z-index: 1000;
+}
+
+.header__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 100%;
+  max-width: 1920px;
+  height: 4.375rem;
+  margin: 0 auto;
+  padding: 0 12.5rem;
+  box-sizing: border-box;
+}
+
+.header__logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+}
+
+.header__logo img {
+  display: block;
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.logo__title {
+  color: var(--Primary-100);
+  font-family: "ROKAF Sans", sans-serif;
+  font-size: 1.625rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.header__login {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 8rem;
+  height: 3rem;
+
+  border-radius: 0.5rem;
+  background: var(--Primary-100);
+
+  color: #fff;
+  text-decoration: none;
+  font-family: Pretendard, sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.625rem;
+}
+
+.banner {
+  width: 100%;
+  background: #cfe5ff;
+}
+
+.banner--top .banner__inner {
+  min-height: 540px;
+  padding-top: 4.375rem;
+}
+
+.banner--bottom .banner__inner {
+  min-height: 540px;
+}
+
+.banner__inner {
+  width: min(100%, 1120px);
+  margin: 0 auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  box-sizing: border-box;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 0.5rem;
+}
+
+.banner__content {
+  flex-shrink: 0;
+  padding-bottom: 5rem;
+}
+
+.banner__title {
+  margin: 0 0 2rem;
+  color: var(--Secondary-700);
+  font-family: Pretendard, sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.banner__btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 3.5rem;
+  padding: 0 7.75rem;
+  border-radius: 2.5rem;
+  background: var(--Primary-100);
+
+  color: var(--Secondary-50);
+  text-align: center;
+  text-decoration: none;
+  font-family: Pretendard, sans-serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 2rem;
+}
+
+.banner__image {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.feature {
+  padding: 8.625rem 1.5rem;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+.feature__inner {
+  width: min(100%, 988px);
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+}
+
+.feature__content {
+  flex: 1;
+  min-width: 0;
+}
+
+.feature__image {
+  display: block;
+  width: 588px;
+  max-width: 100%;
+  height: auto;
+  flex-shrink: 0;
+}
+
+.feature__label {
+  margin: 0 0 0.75rem;
+  color: var(--Primary-100);
+  font-family: Pretendard, sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.625rem;
+}
+
+.feature__title {
+  margin: 0 0 1.5rem;
+  color: var(--Secondary-700);
+  font-family: Pretendard, sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 0.8px;
+}
+
+.feature__desc {
+  margin: 0;
+  color: var(--Secondary-700);
+  font-family: Pretendard, sans-serif;
+  font-size: 1.4rem;
+  font-weight: 500;
+  line-height: 2rem;
+}
+
+.feature--reverse .feature__content {
+  text-align: right;
+}
+
+.footer {
+  width: 100%;
+  background-color: #111827;
+}
+
+.footer__inner {
+  width: 100%;
+  max-width: 1920px;
+  height: 6.25rem;
+  margin: 0 auto;
+  padding: 1.875rem 12.5rem 0;
+  box-sizing: border-box;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.footer__copyright {
+  color: #9ca3af;
+}
+
+.footer__links {
+  display: flex;
+  gap: 1.875rem;
+}
+
+.footer__links a {
+  color: #e5e7eb;
+  text-decoration: none;
+}
+
+.footer__sns {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
