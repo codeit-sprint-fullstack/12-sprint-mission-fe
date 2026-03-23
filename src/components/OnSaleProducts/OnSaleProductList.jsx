@@ -1,5 +1,5 @@
 import React from "react";
-import { ProductCard } from "../common/ProductCard";
+import { ProductCard } from "../common/ProductCard/ProductCard";
 import styles from "./OnSaleProductList.module.css";
 
 export const OnSaleProductList = ({ products }) => {

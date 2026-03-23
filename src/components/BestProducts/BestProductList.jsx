@@ -1,5 +1,5 @@
 import React from "react";
-import { ProductCard } from "../common/ProductCard";
+import { ProductCard } from "../common/ProductCard/ProductCard";
 import styles from "./BestProductList.module.css";
 
 export const BestProductList = ({ products }) => {

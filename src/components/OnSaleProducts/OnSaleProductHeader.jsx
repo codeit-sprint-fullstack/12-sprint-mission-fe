@@ -1,5 +1,5 @@
 import React from "react";
-import { SearchInput } from "../common/SearchInput";
+import { SearchInput } from "../common/SearchInput/SearchInput";
 import { SortSelect } from "../common/SortSelect";
 import styles from "./OnSaleProductHeader.module.css";
 
