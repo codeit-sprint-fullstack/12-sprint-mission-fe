@@ -1,5 +1,5 @@
 .productList {
-  display: flex;
-  align-items: flex-start;
-  gap: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 2.5rem 1.5rem;
 }
