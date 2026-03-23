@@ -3,7 +3,7 @@ import { request } from "./client";
 export async function getProducts({
   page = 1,
   pageSize = 10,
-  orderBy = "",
+  orderBy = "recent",
   keyword = "",
 } = {}) {
   return request("", {
