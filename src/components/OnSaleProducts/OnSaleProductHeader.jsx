@@ -3,7 +3,7 @@ import { SearchInput } from "../common/SearchInput";
 import { SortSelect } from "../common/SortSelect";
 import styles from "./OnSaleProductHeader.module.css";
 
-export const OnSaleProductHeader = () => {
+export const OnSaleProductHeader = ({ value, onChange }) => {
   return (
     <div className={styles.container}>
       <h2 className={`${styles.title} text-xl-bold`}>판매 중인 상품</h2>
@@ -13,7 +13,7 @@ export const OnSaleProductHeader = () => {
         <a className={`btn-base text-lg-semibold ${styles.btn}`} href="/">
           상품 등록하기
         </a>
-        <SortSelect />
+        <SortSelect value={value} onChange={onChange} />
       </div>
     </div>
   );

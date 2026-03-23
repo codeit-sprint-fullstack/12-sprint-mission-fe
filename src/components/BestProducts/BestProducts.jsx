@@ -10,7 +10,6 @@ export const BestProducts = () => {
     const fetchProducts = async () => {
       try {
         const data = await getProducts({ pageSize: 4, orderBy: "favorite" });
-        console.log(data);
         setProducts(data.list);
       } catch (error) {
         console.error(error.message);

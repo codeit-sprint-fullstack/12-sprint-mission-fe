@@ -6,24 +6,25 @@ import { OnSaleProductList } from "./OnSaleProductList";
 import { PageNation } from "../common/PageNation";
 
 export const OnSaleProducts = () => {
+  const [sortBy, setSortBy] = useState("recent");
   const [products, setProducts] = useState([]);
 
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const data = await getProducts();
-        setProducts(data.list);
-      } catch (error) {
-        console.log(error.message);
-      }
-    };
+  const fetchProducts = async (params) => {
+    try {
+      const data = await getProducts(params);
+      setProducts(data.list);
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
 
-    fetchProducts();
-  }, []);
+  useEffect(() => {
+    fetchProducts({ orderBy: sortBy });
+  }, [sortBy]);
 
   return (
     <section className={styles.section}>
-      <OnSaleProductHeader />
+      <OnSaleProductHeader value={sortBy} onChange={setSortBy} />
       <OnSaleProductList products={products} />
       <PageNation />
     </section>
