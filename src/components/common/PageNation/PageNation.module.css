@@ -10,12 +10,12 @@
   width: 2.5rem;
   height: 2.5rem;
   border-radius: 50%;
+  border: 1px solid var(--secondary-200);
+  background-color: var(--white);
 }
 
 .pageBtn {
-  border: 1px solid var(--secondary-200);
   color: var(--secondary-800);
-  background-color: var(--white);
 }
 
 .pageBtn:disabled {
@@ -24,12 +24,10 @@
 }
 
 .link {
-  color: var(--white);
-  background-color: #2f80ed;
+  color: var(--secondary-500);
 }
 
-.link:disabled {
-  border: 1px solid var(--secondary-200);
-  color: var(--secondary-500);
-  background-color: var(--white);
+.currentPage {
+  color: var(--white);
+  background-color: #2f80ed;
 }

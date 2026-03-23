@@ -6,15 +6,21 @@ import { OnSaleProductHeader } from "./OnSaleProductHeader";
 import { OnSaleProductList } from "./OnSaleProductList";
 
 export const OnSaleProducts = () => {
+  const [products, setProducts] = useState([]);
+
   const [sortBy, setSortBy] = useState("recent");
   const [keyword, setKeyword] = useState("");
-  const [products, setProducts] = useState([]);
+  const [page, setPage] = useState(1);
+  const [totalCount, setTotalCount] = useState(0);
+
+  const totalPages = Math.ceil(totalCount / 10);
 
   useEffect(() => {
     const fetchProducts = async (params) => {
       try {
         const data = await getProducts(params);
         setProducts(data.list);
+        setTotalCount(data.totalCount);
       } catch (error) {
         console.log(error.message);
       }
@@ -23,8 +29,9 @@ export const OnSaleProducts = () => {
     fetchProducts({
       orderBy: sortBy,
       keyword,
+      page,
     });
-  }, [sortBy, keyword]);
+  }, [sortBy, keyword, page]);
 
   return (
     <section className={styles.section}>
@@ -35,7 +42,7 @@ export const OnSaleProducts = () => {
         onSortChange={setSortBy}
       />
       <OnSaleProductList products={products} />
-      <PageNation />
+      <PageNation page={page} onPageChange={setPage} totalPages={totalPages} />
     </section>
   );
 };

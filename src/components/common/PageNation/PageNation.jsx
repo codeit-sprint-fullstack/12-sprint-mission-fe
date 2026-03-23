@@ -1,13 +1,17 @@
 import React from "react";
 import styles from "./PageNation.module.css";
 
-export const PageNation = () => {
+export const PageNation = ({ page, onPageChange, totalPages }) => {
+  const GROUP_SIZE = 5;
+  const startPage = Math.floor((page - 1) / GROUP_SIZE) * GROUP_SIZE + 1;
+  const endPage = Math.min(startPage + GROUP_SIZE - 1, totalPages);
+
   return (
     <div className={styles.pageNation}>
       <button
         className={`${styles.circle} ${styles.pageBtn} ${styles.prev}`}
-        href="#"
-        disabled
+        disabled={page === 1}
+        onClick={() => onPageChange(page - 1)}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -26,25 +30,23 @@ export const PageNation = () => {
         </svg>
       </button>
 
-      <a className={`${styles.circle} ${styles.link}`} href="#">
-        1
-      </a>
-      <a className={`${styles.circle} ${styles.link}`} href="#">
-        2
-      </a>
-      <a className={`${styles.circle} ${styles.link}`} href="#">
-        3
-      </a>
-      <a className={`${styles.circle} ${styles.link}`} href="#">
-        4
-      </a>
-      <a className={`${styles.circle} ${styles.link}`} href="#">
-        5
-      </a>
+      {Array.from(
+        { length: endPage - startPage + 1 },
+        (_, i) => startPage + i,
+      ).map((num) => (
+        <button
+          key={num}
+          className={`${styles.circle} ${page === num ? styles.currentPage : styles.link}`}
+          onClick={() => onPageChange(num)}
+        >
+          {num}
+        </button>
+      ))}
 
       <button
         className={`${styles.circle} ${styles.pageBtn} ${styles.next}`}
-        href="#"
+        disabled={page === totalPages}
+        onClick={() => onPageChange(page + 1)}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
