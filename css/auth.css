@@ -1,0 +1,205 @@
+.auth {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #ffffff;
+  padding: 40px 16px;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 640px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.brand {
+  margin-bottom: 40px;
+}
+
+.brand img {
+  width: 200px;
+}
+
+.auth-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px; /* 각 필드 사이의 간격 */
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.input-wrap {
+  position: relative;
+  width: 100%;
+}
+
+.input {
+  width: 100%;
+  padding: 16px 20px;
+  background-color: #f3f4f6;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: all 0.2s;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #3692ff;
+  background-color: #ffffff;
+}
+
+.input.error {
+  border-color: #ff4747 !important;
+}
+
+.error-msg {
+  color: #ff4747;
+  font-size: 12px;
+  margin-top: 4px;
+  min-height: 18px; /* 메시지가 없을 때도 높이 유지하여 레이아웃 흔들림 방지 */
+}
+
+.eye {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+.eye i {
+  font-size: 20px;
+  color: #9ca3af;
+}
+
+.submit {
+  display: flex;
+  width: 100%;
+  padding: 16px 0;
+  justify-content: center;
+  align-items: center;
+  border-radius: 40px; /* 피그마의 둥근 버튼 디자인 */
+  background: #9ca3af; /* 비활성화 기본색 */
+  border: none;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: not-allowed;
+  margin-top: 16px;
+  transition: background-color 0.2s;
+}
+
+.submit:not(:disabled) {
+  background: #3692ff;
+  cursor: pointer;
+}
+
+.sns-row {
+  display: flex;
+  width: 100%;
+  height: 74px;
+  padding: 0 32px;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 8px;
+  background: #e6f2ff; /* 피그마 지정 배경색 */
+  margin-top: 40px;
+}
+
+.sns-text {
+  font-size: 14px;
+  color: #4b5563;
+}
+
+.sns-icons {
+  display: flex;
+  gap: 16px;
+}
+
+.sns-icons .sns i {
+  font-size: 28px;
+  color: #374151;
+}
+
+/* SNS 아이콘이 이미지일 경우 대비 */
+.sns-icons .sns img {
+  width: 42px;
+  height: 42px;
+}
+
+.switch {
+  margin-top: 24px;
+  font-size: 14px;
+  color: #1f2937;
+}
+
+.switch-link {
+  color: #3692ff;
+  text-decoration: none;
+  font-weight: 600;
+  margin-left: 8px;
+}
+
+.switch-link:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 743px) {
+  .auth-card {
+    max-width: 100%;
+  }
+
+  .brand img {
+    width: 150px;
+  }
+
+  .sns-row {
+    height: auto;
+    padding: 24px;
+    flex-direction: column;
+    gap: 16px;
+  }
+}
+
+.google-circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 42px;
+  height: 42px;
+
+  background-color: #ffffff;
+  border: 1px solid #f9fafb;
+  border-radius: 50%;
+
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.google-logo {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+}

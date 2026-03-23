@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>판다마켓</title>
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="auth.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+  </head>
+  <body>
+    <main class="auth">
+      <section class="auth-card" aria-label="회원가입">
+        <a class="brand" href="./index.html">
+          <img src="./images/panda_icon.png" alt="판다마켓 로고" />
+        </a>
+
+        <form class="auth-form" action="#" method="post">
+          <label class="field">
+            <span class="label">이메일</span>
+            <input
+              class="input"
+              type="email"
+              name="email"
+              placeholder="이메일을 입력해 주세요"
+            />
+          </label>
+
+          <label class="field">
+            <span class="label">닉네임</span>
+            <input
+              class="input"
+              type="text"
+              name="nickname"
+              placeholder="닉네임을 입력해 주세요"
+            />
+          </label>
+
+          <label class="field">
+            <span class="label">비밀번호</span>
+            <div class="input-wrap">
+              <input
+                class="input"
+                type="password"
+                name="password"
+                placeholder="비밀번호를 입력해 주세요"
+              />
+              <button class="eye" type="button" aria-label="비밀번호 보기">
+                <i class="fa-regular fa-eye-slash"></i>
+              </button>
+            </div>
+          </label>
+
+          <label class="field">
+            <span class="label">비밀번호 확인</span>
+            <div class="input-wrap">
+              <input
+                class="input"
+                type="password"
+                name="passwordConfirm"
+                placeholder="비밀번호를 다시 입력해 주세요"
+              />
+              <button class="eye" type="button" aria-label="비밀번호 확인 보기">
+                <i class="fa-regular fa-eye-slash"></i>
+              </button>
+            </div>
+          </label>
+
+          <button class="submit" type="submit" disabled>회원가입</button>
+        </form>
+
+        <div class="sns-row" aria-label="간편 로그인">
+          <span class="sns-text">간편 로그인하기</span>
+          <div class="sns-icons">
+            <div class="google-circle">
+              <img
+                src="../images/google.png"
+                alt="Google"
+                class="google-logo"
+              />
+            </div>
+            <a
+              class="sns"
+              href="https://www.kakaocorp.com/page/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Kakao"
+            >
+              <img src="카카오" alt="" />
+            </a>
+          </div>
+        </div>
+
+        <p class="switch">
+          이미 계정이 있으신가요?
+          <a class="switch-link" href="./login.html">로그인</a>
+        </p>
+      </section>
+    </main>
+  </body>
+</html>

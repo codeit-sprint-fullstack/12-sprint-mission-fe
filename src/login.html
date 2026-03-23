@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>판다마켓 - 로그인</title>
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/auth.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+  </head>
+  <body>
+    <main class="auth">
+      <section class="auth-card" aria-label="로그인">
+        <a class="brand" href="./index.html">
+          <img src="./images/panda_icon.png" alt="판다마켓 로고" />
+        </a>
+
+        <form class="auth-form" action="#" method="post" novalidate>
+          <label class="field">
+            <span class="label">이메일</span>
+            <input
+              class="input"
+              type="email"
+              name="email"
+              placeholder="이메일을 입력해 주세요"
+            />
+            <p class="error-msg"></p>
+          </label>
+
+          <label class="field">
+            <span class="label">비밀번호</span>
+            <div class="input-wrap">
+              <input
+                class="input"
+                type="password"
+                name="password"
+                placeholder="비밀번호를 입력해 주세요"
+              />
+              <button class="eye" type="button" aria-label="비밀번호 보기">
+                <i class="fa-regular fa-eye-slash"></i>
+              </button>
+            </div>
+            <p class="error-msg"></p>
+          </label>
+
+          <button class="submit" type="submit" disabled>로그인</button>
+        </form>
+
+        <div class="sns-row" aria-label="간편 로그인">
+          <span class="sns-text">간편 로그인하기</span>
+          <div class="sns-icons">
+            <a
+              class="sns google"
+              href="https://www.google.com"
+              target="_blank"
+              aria-label="Google"
+            >
+              <div class="google-circle">
+                <img
+                  src="../images/google.png"
+                  alt="Google"
+                  class="google-logo"
+                />
+              </div>
+            </a>
+
+            <a class="sns" href="..." target="_blank">
+              <img
+                src="../images/kakao.svg"
+                alt="카카오 로그인"
+                class="sns-icon"
+              />
+            </a>
+          </div>
+        </div>
+
+        <p class="switch">
+          판다마켓이 처음이신가요?
+          <a class="switch-link" href="./signup.html">회원가입</a>
+        </p>
+      </section>
+    </main>
+
+    <script type="module" src="../src/js/auth.js"></script>
+  </body>
+</html>
