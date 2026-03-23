@@ -1,4 +1,4 @@
-const BASE_URL = "https://panda-market-api-crud.vercel.app";
+import { BASE_URL } from "./config.js";
 
 const RESOURCE = "/products";
 

@@ -98,9 +98,9 @@ async function testArticle(id) {
   }
 }
 
-async function testCreateArticle(productData) {
+async function testCreateArticle(articleData) {
   try {
-    const data = await createArticle(productData);
+    const data = await createArticle(articleData);
 
     console.log("글 작성:", data);
   } catch (err) {
