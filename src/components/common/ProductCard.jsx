@@ -17,7 +17,9 @@ export const ProductCard = ({ size, item }) => {
       <div className={styles.content}>
         <h3 className={`text-md-medium`}>{item.name}</h3>
 
-        <strong className={`text-lg-bold`}>{item.price}원</strong>
+        <strong className={`text-lg-bold`}>
+          {item.price.toLocaleString("ko-KR")}원
+        </strong>
 
         <div className={styles.meta}>
           <img className={styles.heartIcon} src={heart} alt="좋아요" />
