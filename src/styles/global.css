@@ -110,3 +110,12 @@ body {
 .btn-base:disabled {
   background-color: var(--secondary-400);
 }
+
+/* =======================================================
+   LAYOUT / CONTAINER
+   ======================================================= */
+.container {
+  width: 100%;
+  max-width: 120rem;
+  margin: 0 auto;
+}
