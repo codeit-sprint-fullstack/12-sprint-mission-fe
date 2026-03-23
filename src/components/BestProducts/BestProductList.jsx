@@ -1,12 +1,12 @@
 import React from "react";
-import { BestProductCard } from "./BestProductCard";
+import { ProductCard } from "../common/ProductCard";
 import styles from "./BestProductList.module.css";
 
 export const BestProductList = ({ products }) => {
   return (
     <ul className={styles.productList}>
       {products.map((item) => (
-        <BestProductCard key={item.id} item={item} />
+        <ProductCard key={item.id} item={item} />
       ))}
     </ul>
   );

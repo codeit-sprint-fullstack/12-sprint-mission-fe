@@ -1,10 +1,10 @@
 import React from "react";
 import heart from "./ic_heart.svg";
-import styles from "./BestProductCard.module.css";
+import styles from "./ProductCard.module.css";
 
-export const BestProductCard = ({ item }) => {
+export const ProductCard = ({ item }) => {
   return (
-    <li>
+    <li className={styles.card}>
       <img className={styles.thumbnail} src={item.images[0]} alt={item.name} />
 
       <div className={styles.content}>
