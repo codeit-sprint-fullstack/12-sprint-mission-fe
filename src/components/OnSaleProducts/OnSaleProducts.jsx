@@ -3,6 +3,7 @@ import styles from "./OnSaleProducts.module.css";
 import { getProducts } from "../../api/productsApi";
 import { OnSaleProductHeader } from "./OnSaleProductHeader";
 import { OnSaleProductList } from "./OnSaleProductList";
+import { PageNation } from "../common/PageNation";
 
 export const OnSaleProducts = () => {
   const [products, setProducts] = useState([]);
@@ -24,6 +25,7 @@ export const OnSaleProducts = () => {
     <section className={styles.section}>
       <OnSaleProductHeader />
       <OnSaleProductList products={products} />
+      <PageNation />
     </section>
   );
 };

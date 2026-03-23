@@ -1,0 +1,35 @@
+.pageNation {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+}
+
+.pageBtn {
+  border: 1px solid var(--secondary-200);
+  color: var(--secondary-800);
+  background-color: var(--white);
+}
+
+.pageBtn:disabled {
+  color: var(--secondary-400);
+  cursor: not-allowed;
+}
+
+.link {
+  color: var(--white);
+  background-color: #2f80ed;
+}
+
+.link:disabled {
+  border: 1px solid var(--secondary-200);
+  color: var(--secondary-500);
+  background-color: var(--white);
+}
