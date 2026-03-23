@@ -1,0 +1,33 @@
+.searchBox {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input {
+  display: flex;
+  gap: 0.625rem;
+  width: 20.3125rem;
+  height: 2.625rem;
+  padding-left: 2.75rem;
+  padding-right: 1.25rem;
+
+  border-radius: 0.75rem;
+  background: var(--secondary-100);
+}
+
+.icon {
+  position: absolute;
+  left: 1rem;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.input::placeholder {
+  color: var(--secondary-400);
+}
+
+.input:focus {
+  border: 1px solid var(--primary-100, #3692ff);
+  color: var(--secondary-800);
+}
