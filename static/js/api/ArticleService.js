@@ -12,7 +12,7 @@ export function getArticleList(
     .then((res) => {
       if (!res.ok) {
         console.error(`에러발생: ${res.status} ${res.statusText}`);
-        return;
+        throw new Error(`${res.status}`);
       }
       return res.json();
     })
@@ -24,7 +24,7 @@ export function getArticle(id) {
     .then((res) => {
       if (!res.ok) {
         console.error(`에러발생: ${res.status} ${res.statusText}`);
-        return;
+        throw new Error(`${res.status}`);
       }
       return res.json();
     })
@@ -48,7 +48,7 @@ export function createArticle(article) {
     .then((res) => {
       if (!res.ok) {
         console.error(`에러발생: ${res.status} ${res.statusText}`);
-        return;
+        throw new Error(`${res.status}`);
       }
       return res.json();
     })
@@ -66,7 +66,7 @@ export function patchArticle(id, data) {
     .then((res) => {
       if (!res.ok) {
         console.error(`에러발생: ${res.status} ${res.statusText}`);
-        return;
+        throw new Error(`${res.status}`);
       }
       return res.json();
     })
@@ -80,7 +80,7 @@ export function deleteArticle(id) {
     .then((res) => {
       if (!res.ok) {
         console.error(`에러발생: ${res.status} ${res.statusText}`);
-        return;
+        throw new Error(`${res.status}`);
       }
       return res.json();
     })

@@ -10,6 +10,10 @@ export async function getProductList(
     const res = await fetch(
       `${API_URL}/products?page=${page}&pageSize=${pageSize}&orderBy=${orderBy}${keyword ? "&keyword=" + keyword : ""}`,
     );
+    if (!res.ok) {
+      console.error(`에러발생: ${res.status} ${res.statusText}`);
+      throw new Error(`${res.status}`);
+    }
     const products = await res.json();
 
     return products;
@@ -21,6 +25,10 @@ export async function getProductList(
 export async function getProduct(pid) {
   try {
     const res = await fetch(`${API_URL}/products/${pid}`);
+    if (!res.ok) {
+      console.error(`에러발생: ${res.status} ${res.statusText}`);
+      throw new Error(`${res.status}`);
+    }
     const product = await res.json();
 
     return product;
@@ -46,6 +54,10 @@ export async function createProduct(product) {
         images,
       }),
     });
+    if (!res.ok) {
+      console.error(`에러발생: ${res.status} ${res.statusText}`);
+      throw new Error(`${res.status}`);
+    }
     const createdProduct = await res.json();
 
     return createdProduct;
@@ -63,6 +75,10 @@ export async function patchProduct(pid, data) {
       },
       body: JSON.stringify(data),
     });
+    if (!res.ok) {
+      console.error(`에러발생: ${res.status} ${res.statusText}`);
+      throw new Error(`${res.status}`);
+    }
     const patchedProduct = await res.json();
 
     return patchedProduct;
@@ -76,6 +92,10 @@ export async function deleteProduct(pid) {
     const res = await fetch(`${API_URL}/products/${pid}`, {
       method: "DELETE",
     });
+    if (!res.ok) {
+      console.error(`에러발생: ${res.status} ${res.statusText}`);
+      throw new Error(`${res.status}`);
+    }
     const deletedProduct = await res.json();
 
     return deletedProduct;
