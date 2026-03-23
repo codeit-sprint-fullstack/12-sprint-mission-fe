@@ -56,8 +56,10 @@ export async function createProduct(name, description, price, tags, images) {
     });
 
     if (!response.ok) {
-      console.log(`HTTP Error ${response.status}:`, result);
-      return;
+      const errorData = await response.json().catch(() => null);
+      throw new Error(
+        `HTTP Error ${response.status}: ${errorData?.message || ""}`,
+      );
     }
   } catch (error) {
     console.log(error);
@@ -82,8 +84,10 @@ export async function patchProduct(id, name, description, price, tags, images) {
     });
 
     if (!response.ok) {
-      console.log(`HTTP Error ${response.status}:`, result);
-      return;
+      const errorData = await response.json().catch(() => null);
+      throw new Error(
+        `HTTP Error ${response.status}: ${errorData?.message || ""}`,
+      );
     }
   } catch (error) {
     console.log(error);
@@ -100,8 +104,10 @@ export async function deleteProduct(id) {
     });
 
     if (!response.ok) {
-      console.log(`HTTP Error ${response.status}:`, result);
-      return;
+      const errorData = await response.json().catch(() => null);
+      throw new Error(
+        `HTTP Error ${response.status}: ${errorData?.message || ""}`,
+      );
     }
   } catch (error) {
     console.log(error);
