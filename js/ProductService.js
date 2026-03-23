@@ -12,8 +12,12 @@ async function request(path, options = {}) {
     },
   };
 
-  if (options.body && !config.headers["Content-Type"]) {
-    config.headers["Content-Type"] = "application/json";
+  if (options.body && typeof options.body === "object") {
+    config.body = JSON.stringify(options.body);
+
+    if (!!config.headers["Content-Type"]) {
+      config.headers["Content-Type"] = "application/json";
+    }
   }
 
   try {
