@@ -7,6 +7,7 @@ import { PageNation } from "../common/PageNation";
 
 export const OnSaleProducts = () => {
   const [sortBy, setSortBy] = useState("recent");
+  const [keyword, setKeyword] = useState("");
   const [products, setProducts] = useState([]);
 
   const fetchProducts = async (params) => {
@@ -19,12 +20,20 @@ export const OnSaleProducts = () => {
   };
 
   useEffect(() => {
-    fetchProducts({ orderBy: sortBy });
-  }, [sortBy]);
+    fetchProducts({
+      orderBy: sortBy,
+      keyword,
+    });
+  }, [sortBy, keyword]);
 
   return (
     <section className={styles.section}>
-      <OnSaleProductHeader value={sortBy} onChange={setSortBy} />
+      <OnSaleProductHeader
+        keyword={keyword}
+        onKeywordChange={setKeyword}
+        sortBy={sortBy}
+        onSortChange={setSortBy}
+      />
       <OnSaleProductList products={products} />
       <PageNation />
     </section>

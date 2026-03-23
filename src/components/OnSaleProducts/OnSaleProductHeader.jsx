@@ -3,17 +3,22 @@ import { SearchInput } from "../common/SearchInput";
 import { SortSelect } from "../common/SortSelect";
 import styles from "./OnSaleProductHeader.module.css";
 
-export const OnSaleProductHeader = ({ value, onChange }) => {
+export const OnSaleProductHeader = ({
+  keyword,
+  onKeywordChange,
+  sortBy,
+  onSortChange,
+}) => {
   return (
     <div className={styles.container}>
       <h2 className={`${styles.title} text-xl-bold`}>판매 중인 상품</h2>
 
       <div className={styles.controls}>
-        <SearchInput />
+        <SearchInput value={keyword} onChange={onKeywordChange} />
         <a className={`btn-base text-lg-semibold ${styles.btn}`} href="/">
           상품 등록하기
         </a>
-        <SortSelect value={value} onChange={onChange} />
+        <SortSelect value={sortBy} onChange={onSortChange} />
       </div>
     </div>
   );
