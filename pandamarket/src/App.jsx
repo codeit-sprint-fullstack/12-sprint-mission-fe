@@ -63,7 +63,7 @@ const App = () => {
                       value={keyword}
                       onChange={handleChangeKeyword}
                     />
-                    <span>검색할 상품을 입력해주세요</span>
+                    {keyword ? <></> : <span>검색할 상품을 입력해주세요</span>}
                   </label>
                   <a
                     href=""
@@ -108,13 +108,14 @@ const App = () => {
                 </div>
               </header>
 
-              <ul id="products">
+              <ul className="product__list">
                 {products.length ? (
                   products.map((product) => {
                     return (
                       <li key={product.id} className="product__item">
                         <div className="item--thumb">
-                          {product.images.length > 0 ? (
+                          {product.images.length > 0 &&
+                          !product.images[0].includes("...") ? (
                             <img src={product.images[0]} />
                           ) : (
                             <span>No Image</span>
@@ -133,7 +134,10 @@ const App = () => {
                     );
                   })
                 ) : (
-                  <li>등록된 상품이 없습니다.</li>
+                  <li className="empty-list">
+                    {keyword ? `'${keyword}'로 검색` : "등록"}된 상품이
+                    없습니다.
+                  </li>
                 )}
               </ul>
             </div>
