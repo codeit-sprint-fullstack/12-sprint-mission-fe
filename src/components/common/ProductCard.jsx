@@ -3,12 +3,16 @@ import heart from "./ic-heart.svg";
 import defaultImg from "./default-img.svg";
 import styles from "./ProductCard.module.css";
 
-export const ProductCard = ({ item }) => {
+export const ProductCard = ({ size, item }) => {
   const thumbnailUrl = item.images[0] || defaultImg;
 
   return (
     <li className={styles.card}>
-      <img className={styles.thumbnail} src={thumbnailUrl} alt={item.name} />
+      <img
+        className={`${styles.thumbnail} ${styles[size]}`}
+        src={thumbnailUrl}
+        alt={item.name}
+      />
 
       <div className={styles.content}>
         <h3 className={`text-md-medium`}>{item.name}</h3>

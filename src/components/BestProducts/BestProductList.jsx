@@ -6,7 +6,7 @@ export const BestProductList = ({ products }) => {
   return (
     <ul className={styles.productList}>
       {products.map((item) => (
-        <ProductCard key={item.id} item={item} />
+        <ProductCard key={item.id} item={item} size="md" />
       ))}
     </ul>
   );

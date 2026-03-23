@@ -6,9 +6,38 @@
 }
 
 .thumbnail {
+  display: block;
+}
+
+/* 공통 이미지 스타일 */
+.thumbnail {
+  display: block;
+}
+
+/* 인기 상품 (Card_best) */
+.md {
   width: 17.625rem;
   height: 17.625rem;
   border-radius: 1.03675rem;
+}
+
+.lg {
+  width: 21.4375rem;
+  height: 21.4375rem;
+  border-radius: 1.261rem;
+}
+
+/* 일반 상품 (Card_general) */
+.pc {
+  width: 13.72113rem;
+  height: 13.72113rem;
+  border-radius: 0.80713rem;
+}
+
+.mobile {
+  width: 10.4305rem;
+  height: 10.4305rem;
+  border-radius: 0.61356rem;
 }
 
 .count {
