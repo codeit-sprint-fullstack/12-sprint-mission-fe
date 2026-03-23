@@ -3,10 +3,10 @@ import React from "react";
 const Footer = () => {
   return (
     <footer id="footer">
-      <div class="inner">
-        <p class="copyright">&copy;codeit - 2026</p>
+      <div className="inner">
+        <p className="copyright">&copy;codeit - 2026</p>
 
-        <ul class="cs-menu">
+        <ul className="cs-menu">
           <li>
             <a href="/privacy">Privacy Policy</a>
           </li>
@@ -15,15 +15,15 @@ const Footer = () => {
           </li>
         </ul>
 
-        <ul class="sns-list">
+        <ul className="sns-list">
           <li>
             <a
               href="https://www.facebook.com"
               target="_blank"
               title="페이스북 바로가기(새창)"
-              class="facebook"
+              className="facebook"
             >
-              <span class="sr-only">페이스북</span>
+              <span className="sr-only">페이스북</span>
             </a>
           </li>
           <li>
@@ -31,9 +31,9 @@ const Footer = () => {
               href="https://www.x.com"
               target="_blank"
               title="트위터 바로가기(새창)"
-              class="twitter"
+              className="twitter"
             >
-              <span class="sr-only">트위터</span>
+              <span className="sr-only">트위터</span>
             </a>
           </li>
           <li>
@@ -41,9 +41,9 @@ const Footer = () => {
               href="https://www.youtube.com"
               target="_blank"
               title="유튜브 바로가기(새창)"
-              class="youtube"
+              className="youtube"
             >
-              <span class="sr-only">유튜브</span>
+              <span className="sr-only">유튜브</span>
             </a>
           </li>
           <li>
@@ -51,9 +51,9 @@ const Footer = () => {
               href="https://www.instagram.com"
               target="_blank"
               title="인스타그램 바로가기(새창)"
-              class="instagram"
+              className="instagram"
             >
-              <span class="sr-only">인스타그램</span>
+              <span className="sr-only">인스타그램</span>
             </a>
           </li>
         </ul>

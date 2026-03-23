@@ -116,13 +116,13 @@ body {
 }
 
 .btn-sm {
-  width: 128px;
-  padding-block: 0.75rem;
+  min-width: 88px;
+  padding-block: 0.5rem;
   padding-inline: 1.4375rem;
   border-radius: 8px;
 }
 .btn-lg {
-  width: 357px;
+  min-width: 357px;
   padding-block: 1rem;
   padding-inline: 1.4375rem;
   border-radius: 5em;
@@ -148,6 +148,11 @@ body {
 .inner {
   padding-inline: var(--gap-200);
 }
+.contents {
+  width: calc(100%, 1248px);
+  padding-inline: 24px;
+  margin-inline: auto;
+}
 
 /**
  * Header *
@@ -168,6 +173,12 @@ body {
   align-items: center;
 }
 
+#header .inner > div:has(#gnb) {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
 #logo {
   width: 150px;
   height: 51px;
@@ -182,6 +193,18 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+#gnb ul {
+  display: flex;
+  align-items: center;
+}
+
+#gnb ul a {
+  padding: 21px 15px;
+  font-weight: 700;
+  font-size: var(--text-2lg);
+  color: var(--secondary-600);
 }
 
 /**
@@ -251,6 +274,117 @@ body {
   background-size: 26px 24px;
 }
 
+/** 
+ * products
+*/
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.section-header h2 {
+  font-weight: 700;
+  font-size: var(--text-xl);
+  line-height: 1.6;
+}
+
+.list-control-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.search-keyword {
+  position: relative;
+}
+.search-keyword input {
+  min-width: 325px;
+  height: 42px;
+  padding-inline: 1em;
+  background: none;
+  border: 0;
+  background-color: var(--secondary-100);
+  border-radius: 12px;
+}
+.search-keyword span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  position: absolute;
+  top: 50%;
+  left: 1em;
+  font-size: 1rem;
+  color: var(--secondary-400);
+  line-height: 1.62;
+  translate: 0 -50%;
+  cursor: text;
+}
+.search-keyword span::before {
+  content: "";
+  width: 1.5em;
+  background-image: url("./assets/images/ic_search.png");
+  background-image: url("./assets/images/ic_search.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  aspect-ratio: 1;
+}
+
+.sorting-ui {
+  position: relative;
+}
+
+.sorting-ui .current-sort {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 130px;
+  padding: 0.5em 1.25em;
+  background-color: white;
+  border: 1px solid var(--secondary-200);
+  border-radius: 12px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.sorting-ui .current-sort::after {
+  content: "";
+  border-style: solid;
+  border-color: var(--secondary-800) transparent transparent transparent;
+  border-width: 7px 7px 0 7px;
+}
+.sorting-ui .current-sort.open::after {
+  border-color: transparent transparent var(--secondary-800) transparent;
+  border-width: 0 7px 7px 7px;
+}
+
+.sorting-ui .sort-list {
+  overflow: hidden;
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  width: 100%;
+  border: 1px solid var(--secondary-200);
+  border-radius: 12px;
+}
+
+.sorting-ui .sort-list li:not(:first-child) {
+  border-top: 1px solid var(--secondary-200);
+}
+
+.sorting-ui .sort-list button {
+  display: block;
+  width: 100%;
+  padding-block: 0.5em;
+  background-color: white;
+  border: 0;
+  font-size: 1rem;
+  text-align: center;
+  cursor: pointer;
+}
+
 #products {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -265,11 +399,15 @@ body {
   border-radius: 16px;
   aspect-ratio: 1;
 }
+.item--thumb:has(span) {
+  border: 1px solid var(--secondary-200);
+}
 
 .item--thumb img {
   display: block;
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
 }
 
 .product__item .item--info {
@@ -287,6 +425,31 @@ body {
   margin-top: 6px;
   font-weight: 700;
   font-size: var(--text-lg);
-  color: var(--secondary-600);
+  color: var(--secondary-800);
   line-height: 1.62;
+}
+
+.item--favorites {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 6px;
+  background: none;
+  border: 0;
+  font-weight: 500;
+  font-size: var(--text-xs);
+  color: var(--secondary-600);
+  cursor: pointer;
+}
+
+.item--favorites::before {
+  content: "";
+  display: block;
+  width: 1.33em;
+  background-image: url("./assets/images/ic_heart_line.png");
+  background-image: url("./assets/images/ic_heart_line.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  aspect-ratio: 1;
 }
