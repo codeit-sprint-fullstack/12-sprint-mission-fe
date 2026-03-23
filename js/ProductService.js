@@ -16,14 +16,15 @@ async function request(path, options = {}) {
 
     return res.data;
   } catch (err) {
-    const errorData = err.response?.data;
-    const status = err.response?.status;
+    const { status, data } = err.response || {};
 
     const customError = new Error(
-      errorData?.message || err.message || "Unknown error",
+      data?.message || err.message || "Unknown error",
     );
+
     customError.status = status;
-    customError.data = errorData;
+    customError.data = data;
+
     throw customError;
   }
 }
