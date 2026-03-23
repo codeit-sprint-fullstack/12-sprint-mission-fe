@@ -1,12 +1,12 @@
 const BASIC_URL = "https://panda-market-api-crud.vercel.app/articles";
 
-export function getArticleList() {
-  const page = 1;
-  const pageSize = 1;
-  const orderBy = "recent";
-  const keyword = "";
-
-  fetch(
+export function getArticleList({
+  page = 1,
+  pageSize = 10,
+  keyword = "",
+  orderBy = "recent",
+} = {}) {
+  return fetch(
     `${BASIC_URL}/?page=${page}&pageSize=${pageSize}&orderBy=${orderBy}&keyword=${keyword}`,
   )
     .then((response) => {
@@ -21,7 +21,7 @@ export function getArticleList() {
 }
 
 export function getArticle(id) {
-  fetch(`${BASIC_URL}/${id}`)
+  return fetch(`${BASIC_URL}/${id}`)
     .then((response) => {
       if (!response.ok) {
         console.log(`HTTP Error ${response.status}`);
@@ -41,7 +41,7 @@ export function createArticle(title, content, image) {
     content,
     image,
   };
-  fetch(`${BASIC_URL}`, {
+  return fetch(`${BASIC_URL}`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -67,7 +67,7 @@ export function patchArticle(id, title, content, image) {
     content,
     image,
   };
-  fetch(`${BASIC_URL}/${id}`, {
+  return fetch(`${BASIC_URL}/${id}`, {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",
@@ -88,7 +88,7 @@ export function patchArticle(id, title, content, image) {
 }
 
 export function deleteArticle(id) {
-  fetch(`${BASIC_URL}/${id}`, {
+  return fetch(`${BASIC_URL}/${id}`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
