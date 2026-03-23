@@ -1,5 +1,5 @@
 import React from "react";
-import heart from "./ic_heart.svg";
+import heart from "./ic-heart.svg";
 import defaultImg from "./default-img.svg";
 import styles from "./ProductCard.module.css";
 
