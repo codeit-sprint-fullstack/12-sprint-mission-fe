@@ -1,10 +1,10 @@
 const BASIC_URL = "https://panda-market-api-crud.vercel.app/products";
 
-export async function getProductList() {
-  const page = 1;
-  const pageSize = 10;
-  const orderBy = "recent";
-  const keyword = "";
+export async function getProductList({
+  page = 1,
+  pageSize = 10,
+  keyword = "",
+} = {}) {
   try {
     const response = await fetch(
       `${BASIC_URL}/?page=${page}&pageSize=${pageSize}&orderBy=${orderBy}&keyword=${keyword}`,
