@@ -61,22 +61,25 @@ async function testDeleteProduct(id) {
   }
 }
 
-// testProductList({ page: 1, pageSize: 10, keyword: "" });
-// testProductList();
+async function runProductTests() {
+  await testProductList({ page: 1, pageSize: 5, keyword: "" });
 
-// testCreateProduct({
-//   name: "테스트 상품",
-//   description: "테스트 설명",
-//   price: 10000,
-//   tags: ["test"],
-//   images: ["https://example.com/img.jpg"],
-// });
+  await testCreateProduct({
+    name: "테스트 상품",
+    description: "테스트 설명",
+    price: 10000,
+    tags: ["test"],
+    images: ["https://example.com/img.jpg"],
+  });
 
-// testProduct(3062);
+  await testProduct(3254);
 
-// testPatchProduct(3062, { name: "새 상품" });
+  await testPatchProduct(3254, { name: "새 상품" });
 
-// testDeleteProduct(3062);
+  await testDeleteProduct(3254);
+}
+
+runProductTests();
 
 /* Article */
 async function testArticleList(params) {
@@ -127,7 +130,7 @@ async function testDeleteArticle(id) {
   }
 }
 
-testArticleList({ page: 1, pageSize: 10, keyword: "" });
+// testArticleList({ page: 1, pageSize: 10, keyword: "" });
 // testArticle(5758);
 
 // testCreateArticle({
