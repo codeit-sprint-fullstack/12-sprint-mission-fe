@@ -1,0 +1,112 @@
+/* =======================================================
+   COMMON / RESET
+   ======================================================= */
+.sr-only {
+  position: absolute;
+  width: 0.0625rem;
+  height: 0.0625rem;
+  padding: 0;
+  margin: -0.0625rem;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+:root {
+  --primary-100: #3692ff;
+  --primary-200: #1967d6;
+  --primary-300: #1251aa;
+
+  --secondary-900: #111827;
+  --secondary-800: #1f2937;
+  --secondary-700: #374151;
+  --secondary-600: #4b5563;
+  --secondary-500: #6b7280;
+  --secondary-400: #9ca3af;
+  --secondary-200: #e5e7eb;
+  --secondary-100: #f3f4f6;
+  --white: #ffffff;
+
+  --error-red: #f74747;
+}
+
+html {
+  font-size: 100%;
+}
+
+body {
+  font-family: "Pretendard", sans-serif;
+  color: var(--secondary-700);
+  background-color: var(--white);
+}
+
+/* =======================================================
+   COMPONENTS / TYPOGRAPHY
+   ======================================================= */
+.text-2xl-medium {
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 2rem;
+}
+
+.text-xl-semibold {
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 2rem;
+}
+
+.text-2lg-bold {
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.625rem;
+}
+
+.text-lg-semibold {
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.625rem;
+}
+
+.text-lg-medium {
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.625rem;
+}
+
+.text-lg-regular {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.625rem;
+}
+
+.text-md-medium {
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.5rem;
+}
+
+/* =======================================================
+   COMPONENTS / BUTTONS
+   ======================================================= */
+.btn-base {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.625rem;
+  white-space: nowrap;
+  color: var(--secondary-100);
+  background-color: var(--primary-100);
+}
+
+.btn-base:hover {
+  background-color: var(--primary-200);
+}
+
+.btn-base:active {
+  background-color: var(--primary-300);
+}
+
+.btn-base:disabled {
+  background-color: var(--secondary-400);
+}
