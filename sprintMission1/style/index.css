@@ -84,6 +84,18 @@ nav
   color: var(--Cool-Gray-100);
 }
 
+.nav-tag {
+  display: flex;
+  width: 893px;
+  align-items: center;
+  gap: 24px;
+  flex-shrink: 0;
+
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 26px; /* 144.444% */
+}
 /*======================================
 hero
 =======================================*/
