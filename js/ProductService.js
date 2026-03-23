@@ -4,19 +4,19 @@ export async function getProductList({
   page = 1,
   pageSize = 10,
   keyword = "",
+  orderBy = "recent",
 } = {}) {
   try {
-    const response = await fetch(
-      `${BASIC_URL}/?page=${page}&pageSize=${pageSize}&orderBy=${orderBy}&keyword=${keyword}`,
-    );
+    const response = await axios.get(BASIC_URL, {
+      params: {
+        page,
+        pageSize,
+        orderBy,
+        keyword,
+      },
+    });
 
-    if (!response.ok) {
-      console.log(`HTTP Error ${response.status}`);
-      return;
-    }
-
-    const list = await response.json();
-    return list;
+    return response.data;
   } catch (error) {
     console.log(error);
   }
@@ -24,15 +24,8 @@ export async function getProductList({
 
 export async function getProduct(id) {
   try {
-    const response = await fetch(`${BASIC_URL}/${id}`);
-
-    if (!response.ok) {
-      console.log(`HTTP Error ${response.status}`);
-      return;
-    }
-
-    const result = await response.json();
-    return result;
+    const response = await axios.get(`${BASIC_URL}/${id}`);
+    return response.data;
   } catch (error) {
     console.log(error);
   }
@@ -47,20 +40,9 @@ export async function createProduct(name, description, price, tags, images) {
     images,
   };
   try {
-    const response = await fetch(`${BASIC_URL}`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    });
+    const response = await axios.post(BASIC_URL, data);
 
-    if (!response.ok) {
-      const errorData = await response.json().catch(() => null);
-      throw new Error(
-        `HTTP Error ${response.status}: ${errorData?.message || ""}`,
-      );
-    }
+    return response.data;
   } catch (error) {
     console.log(error);
   }
@@ -75,20 +57,9 @@ export async function patchProduct(id, name, description, price, tags, images) {
     images,
   };
   try {
-    const response = await fetch(`${BASIC_URL}/${id}`, {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    });
-
-    if (!response.ok) {
-      const errorData = await response.json().catch(() => null);
-      throw new Error(
-        `HTTP Error ${response.status}: ${errorData?.message || ""}`,
-      );
-    }
+    const response = await axios.patch(`${BASIC_URL}/${id}`, data);
+    console.log(response.data);
+    return response.data;
   } catch (error) {
     console.log(error);
   }
@@ -96,19 +67,8 @@ export async function patchProduct(id, name, description, price, tags, images) {
 
 export async function deleteProduct(id) {
   try {
-    const response = await fetch(`${BASIC_URL}/${id}`, {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-
-    if (!response.ok) {
-      const errorData = await response.json().catch(() => null);
-      throw new Error(
-        `HTTP Error ${response.status}: ${errorData?.message || ""}`,
-      );
-    }
+    const response = await axios.delete(`${BASIC_URL}/${id}`);
+    return response.data;
   } catch (error) {
     console.log(error);
   }

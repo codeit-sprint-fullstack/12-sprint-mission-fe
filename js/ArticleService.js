@@ -1,6 +1,11 @@
 const BASIC_URL = "https://panda-market-api-crud.vercel.app/articles";
 
-export function getArticleList({ page = 1, pageSize = 10, keyword = "" } = {}) {
+export function getArticleList({
+  page = 1,
+  pageSize = 10,
+  keyword = "",
+  orderBy = "recent",
+} = {}) {
   return fetch(
     `${BASIC_URL}/?page=${page}&pageSize=${pageSize}&orderBy=${orderBy}&keyword=${keyword}`,
   )

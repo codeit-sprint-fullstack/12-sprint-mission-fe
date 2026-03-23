@@ -37,7 +37,7 @@ getProduct(3035);
 // createProduct(name, description, price, tags, images);
 
 //patchProduct 임시 데이터
-// let id = 3052;
+// let id = 3291;
 // let name = "이어폰";
 // let description = "버즈+ fe";
 // let price = 120000;
@@ -45,4 +45,4 @@ getProduct(3035);
 // let images = ["https://example.com/..."];
 // patchProduct(id, name, description, price, tags, images);
 
-// deleteProduct(3052);
+// deleteProduct(3291);
