@@ -1,0 +1,13 @@
+import React from "react";
+import { ProductCard } from "../common/ProductCard";
+import styles from "./OnSaleProductList.module.css";
+
+export const OnSaleProductList = ({ products }) => {
+  return (
+    <ul className={styles.productList}>
+      {products.map((item) => (
+        <ProductCard key={item.id} item={item} />
+      ))}
+    </ul>
+  );
+};
