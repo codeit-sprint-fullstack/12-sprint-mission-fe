@@ -4,7 +4,7 @@ import {
   createArticle,
   patchArticle,
   deleteArticle,
-} from "./ArticleService.js";
+} from "../ArticleService.js";
 
 import {
   getProduct,
@@ -12,7 +12,7 @@ import {
   createProduct,
   patchProduct,
   deleteProduct,
-} from "./ProductService.js";
+} from "../ProductService.js";
 
 async function main() {
   try {
