@@ -1,14 +1,23 @@
 import React from "react";
+import heart from "./ic_heart.svg";
+import styles from "./BestProductCard.module.css";
 
 export const BestProductCard = ({ item }) => {
   return (
     <li>
-      <img src={item.images[0]} alt={item.name} />
+      <img className={styles.thumbnail} src={item.images[0]} alt={item.name} />
 
-      <strong>{item.name}</strong>
-      <span>{item.price}</span>
-      <div>
-        <span>{item.favoriteCount}</span>
+      <div className={styles.content}>
+        <h3 className={`text-md-medium`}>{item.name}</h3>
+
+        <strong className={`text-lg-bold`}>{item.price}원</strong>
+
+        <div className={styles.meta}>
+          <img className={styles.heartIcon} src={heart} alt="좋아요" />
+          <span className={`text-xs-medium ${styles.favoriteCount}`}>
+            {item.favoriteCount}
+          </span>
+        </div>
       </div>
     </li>
   );
