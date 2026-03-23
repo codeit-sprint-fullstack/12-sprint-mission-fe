@@ -21,8 +21,8 @@ export const BestProducts = () => {
   }, []);
 
   return (
-    <section>
-      <h2 className={`${styles.sectionTitle} text-xl-bold`}>베스트 상품</h2>
+    <section className={styles.section}>
+      <h2 className={`${styles.title} text-xl-bold`}>베스트 상품</h2>
       <BestProductList products={products} />
     </section>
   );
