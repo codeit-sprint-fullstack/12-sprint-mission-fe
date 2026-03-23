@@ -1,13 +1,13 @@
 import React from "react";
-import styles from "./PageNation.module.css";
+import styles from "./Pagination.module.css";
 
-export const PageNation = ({ page, onPageChange, totalPages }) => {
+export const Pagination = ({ page, onPageChange, totalPages }) => {
   const GROUP_SIZE = 5;
   const startPage = Math.floor((page - 1) / GROUP_SIZE) * GROUP_SIZE + 1;
   const endPage = Math.min(startPage + GROUP_SIZE - 1, totalPages);
 
   return (
-    <div className={styles.pageNation}>
+    <div className={styles.pagination}>
       <button
         className={`${styles.circle} ${styles.pageBtn} ${styles.prev}`}
         disabled={page === 1}

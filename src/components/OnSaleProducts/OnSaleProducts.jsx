@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styles from "./OnSaleProducts.module.css";
 import { getProducts } from "../../api/productsApi";
-import { PageNation } from "../common/PageNation/PageNation";
+import { Pagination } from "../common/Pagination/Pagination";
 import { OnSaleProductHeader } from "./OnSaleProductHeader";
 import { OnSaleProductList } from "./OnSaleProductList";
 
@@ -42,7 +42,7 @@ export const OnSaleProducts = () => {
         onSortChange={setSortBy}
       />
       <OnSaleProductList products={products} />
-      <PageNation page={page} onPageChange={setPage} totalPages={totalPages} />
+      <Pagination page={page} onPageChange={setPage} totalPages={totalPages} />
     </section>
   );
 };
