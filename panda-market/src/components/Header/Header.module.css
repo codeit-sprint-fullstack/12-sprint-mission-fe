@@ -1,0 +1,60 @@
+.head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  padding: 9px 200px;
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  gap: 10px;
+}
+
+.logoPanda {
+  width: 40px;
+  margin-top: 5.02px;
+}
+
+.logoName {
+  font-weight: 700;
+  font-size: 25.63px;
+  color: #3692ff;
+  white-space: nowrap;
+}
+
+.btn {
+  background-color: #3692ff;
+  color: white;
+  border: none;
+  cursor: pointer;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.btn:hover {
+  opacity: 0.8;
+}
+
+.btnLogin {
+  border-radius: 8px;
+  width: 128px;
+  height: 48px;
+  font-size: 16px;
+}
