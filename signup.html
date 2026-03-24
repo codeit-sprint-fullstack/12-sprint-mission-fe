@@ -1,74 +1,124 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>회원가입</title>
-    <link rel="stylesheet" href="signup.css" />
+    <title>판다마켓 - 회원가입</title>
+    <link rel="icon" href="images/logo/favicon.ico" />
+    <link
+      rel="stylesheet"
+      as="style"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
+    />
+    <link rel="stylesheet" href="styles/global.css" />
+    <link rel="stylesheet" href="styles/auth.css" />
   </head>
+
   <body>
-    <main class="sign-main1">
-      <!-- 판다마켓 제목 -->
-      <div class="sign-main2">
-        <div class="imggps">
-          <img src="img/판다 얼굴.png" alt="판다얼굴" class="imgsize1" />
-          <p class="padaname">판다마켓</p>
+    <main class="auth-container">
+      <div class="logo-home-button-wrapper">
+        <a href="/"
+          ><img src="images/logo/logo.svg" alt="판다마켓 홈" width="396"
+        /></a>
+      </div>
+
+      <form method="post">
+        <div class="input-item">
+          <label for="email">이메일</label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            placeholder="이메일을 입력해 주세요"
+          />
         </div>
-
-        <!-- 회원가입 폼 -->
-        <div class="signupmain">
-          <form action="/signup" method="POST" class="signupmain">
-            
-            <div class="entermain">
-              <label for="user-id" class="entername">이메일</label>
-              <input type="text" id="user-id" name="userId" placeholder="이메일을 입력해주세요"  class="enter"/>
-            </div>
-
-            <div class="entermain">
-              <label for="user-pw" class="entername">닉네임</label>
-              <input type="password" id="user-pw" name="userPassword" placeholder="닉네임을 입력해주세요"  class="enter"/>
-            </div>
-            
-            <div class="entermain">
-              <label for="user-id" class="entername">비밀번호</label>
-              <input type="text" id="user-id" name="userId" placeholder="비밀번호를 입력해주세요"  class="enter"/>
-            </div>
-
-            <div class="entermain">
-              <label for="user-pw" class="entername">비밀번호 확인</label>
-              <input type="password" id="user-pw" name="userPassword" placeholder="비밀번호를 다시 한 번 입력해주세요"  class="enter"/>
-            </div>
-
-            <button type="submit" class="signupbutton">회원가입</button>
-          </form>
-          
-           <!-- 간편 로그인 -->
-          <div class="gap">
-            <div class="simplelogin1">
-              <div class="simplelogin2">
-                <div class="simplelogin-name">간편 로그인하기</div>
-
-                <div class="sns-img">
-                  <a href=“https://www.google.com” target="_blank"
-                    ><img src="img/google.png" alt="구글" class="googleimg"
-                  /></a>
-                  <a href="https://www.kakaocorp.com" target="_blank"
-                    ><div class="kakaotalkback"><img src="img/kakaotalk.png" alt="카카오톡" class="kakaotalkimg"
-                  /></div></a>
-                </div>
-              </div>
-            </div>
-
-            <!-- 로그인 페이지로 가기 -->
-            <div class="login">
-              <div class="loginname">이미 회원이신가요?</div>
-              <a href="/login.html" target="_blank" class="loginlink">로그인</a>
-            </div>
+        <div class="input-item">
+          <label for="nickname">닉네임</label>
+          <input
+            id="nickname"
+            name="nickname"
+            type="text"
+            placeholder="닉네임을 입력해 주세요"
+          />
+        </div>
+        <div class="input-item">
+          <label for="password">비밀번호</label>
+          <div class="input-wrapper">
+            <input
+              id="password"
+              name="password"
+              type="password"
+              placeholder="비밀번호를 입력해 주세요"
+            />
+            <!-- [심화 요구사항] 비밀번호, 비밀번호 확인 input 요소 오른쪽에 비밀번호를 확인할 수 있는 눈 모양 아이콘을 추가합니다. -->
+            <button
+              type="button"
+              class="password-toggle-button"
+              aria-label="비밀번호 보기"
+            >
+              <img
+                src="images/icons/eye-invisible.svg"
+                alt="비밀번호 숨김 상태 아이콘"
+              />
+            </button>
           </div>
-
+        </div>
+        <div class="input-item">
+          <label for="passwordConfirmation">비밀번호 확인</label>
+          <div class="input-wrapper">
+            <input
+              id="passwordConfirmation"
+              name="passwordConfirmation"
+              type="password"
+              placeholder="비밀번호를 다시 한 번 입력해 주세요"
+            />
+            <button
+              type="button"
+              class="password-toggle-button"
+              aria-label="비밀번호 보기"
+            >
+              <img
+                src="images/icons/eye-invisible.svg"
+                alt="비밀번호 숨김 상태 아이콘"
+              />
+            </button>
+          </div>
         </div>
 
-        
+        <button type="submit" class="button pill-button full-width">
+          회원가입
+        </button>
+      </form>
+
+      <div class="social-login-container">
+        <h3>간편 로그인하기</h3>
+        <div class="social-login-buttons-container">
+          <a
+            href="https://www.google.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="구글 로그인"
+            ><img
+              src="images/social/google-logo.png"
+              alt="구글 로그인"
+              width="42"
+          /></a>
+          <a
+            href="https://www.kakaocorp.com/page/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="카카오톡 로그인"
+            ><img
+              src="images/social/kakao-logo.png"
+              alt="카카오톡 로그인"
+              width="42"
+          /></a>
+        </div>
+      </div>
+
+      <div class="auth-switch">
+        이미 회원이신가요? <a href="login.html">로그인</a>
       </div>
     </main>
   </body>
