@@ -1,0 +1,63 @@
+.base {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+}
+.info {
+  display: flex;
+  width: 217px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  flex-shrink: 0;
+}
+.article {
+  display: flex;
+  width: 220px;
+  height: 220px;
+  padding: 42px 52px;
+  align-items: center;
+  gap: 10px;
+
+  background: #f9fafb;
+}
+.text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+
+  color: #1f2937;
+  font-style: normal;
+}
+.name {
+  /* pretendard/md-14px-medium */
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 24px; /* 171.429% */
+}
+.prise {
+  /* pretendard/lg-16px-bold */
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 26px; /* 162.5% */
+}
+.heart {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  align-self: stretch;
+}
+.heartIc {
+  width: 16px;
+  height: 16px;
+}
+.heartCount {
+  color: #4b5563;
+
+  /* pretendard/xs-12px-medium */
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px; /* 150% */
+}

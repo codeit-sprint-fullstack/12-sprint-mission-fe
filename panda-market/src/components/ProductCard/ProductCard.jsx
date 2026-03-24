@@ -1,15 +1,23 @@
 import React from "react";
+import styles from "./ProductCard.module.css";
+import article from "../../assets/ProductCard/article.png";
+import heart from "../../assets/ProductCard/ic_heart.png";
 
 function ProductCard() {
   return (
     <>
-      <div>
-        <img>상품 사진</img>
-        <p>상품명</p>
-        <p>가격</p>
-        <div>
-          <img>좋아요</img>
-          <p>좋아요 수</p>
+      <div className={styles.base}>
+        <img className={styles.article} src={article} alt="article" />
+        {/* <img className={styles.article} src={image} alt={title} /> */}
+        <div className={styles.info}>
+          <div className={styles.text}>
+            <p className={styles.name}>{title}</p>
+            <p className={styles.prise}>{price}</p>
+          </div>
+          <div className={styles.heart}>
+            <img className={styles.heartIc} src={heart} alt="heart" />
+            <p className={styles.heartCount}>{heartCount}</p>
+          </div>
         </div>
       </div>
     </>

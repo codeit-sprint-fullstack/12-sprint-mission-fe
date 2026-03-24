@@ -13,6 +13,7 @@ function MarketPage() {
       <div>
         <BestProducts />
         <ProductList />
+        <ProductCard />
       </div>
       <Footer />
     </>
@@ -20,4 +21,3 @@ function MarketPage() {
 }
 
 export default MarketPage;
-0;
