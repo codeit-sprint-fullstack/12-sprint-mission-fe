@@ -6,7 +6,7 @@ export const OnSaleProductList = ({ products }) => {
   return (
     <ul className={styles.productList}>
       {products.map((item) => (
-        <ProductCard key={item.id} item={item} size="pc" />
+        <ProductCard key={item.id} item={item} type="general" />
       ))}
     </ul>
   );
