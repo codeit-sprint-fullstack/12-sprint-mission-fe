@@ -142,7 +142,6 @@ function checkForm() {
     validatePassword() &&
     validatePassCheck() &&
     validateNick();
-
   submitBtn.disabled = !isValid;
 }
 
