@@ -1,12 +1,4 @@
-const BASE_URL = "https://panda-market-api-crud.vercel.app";
-
-function handleResponse(response) {
-  if (!response.ok) {
-    console.error(`Error: ${response.status}`);
-    throw new Error(response.statusText);
-  }
-  return response.json();
-}
+import { BASE_URL, handleResponse } from "./api.js";
 
 // 게시글 목록 조회
 export function getArticleList(page = 1, pageSize = 10, keyword = "") {
@@ -16,6 +8,7 @@ export function getArticleList(page = 1, pageSize = 10, keyword = "") {
     .then(handleResponse)
     .catch((error) => {
       console.error("getArticleList error:", error);
+      throw error;
     });
 }
 
@@ -25,6 +18,7 @@ export function getArticle(articleId) {
     .then(handleResponse)
     .catch((error) => {
       console.error("getArticle error:", error);
+      throw error;
     });
 }
 
@@ -44,6 +38,7 @@ export function createArticle(title, content, image) {
     .then(handleResponse)
     .catch((error) => {
       console.error("createArticle error:", error);
+      throw error;
     });
 }
 
@@ -63,6 +58,7 @@ export function patchArticle(articleId, title, content, image) {
     .then(handleResponse)
     .catch((error) => {
       console.error("patchArticle error:", error);
+      throw error;
     });
 }
 
@@ -74,5 +70,6 @@ export function deleteArticle(articleId) {
     .then(handleResponse)
     .catch((error) => {
       console.error("deleteArticle error:", error);
+      throw error;
     });
 }
