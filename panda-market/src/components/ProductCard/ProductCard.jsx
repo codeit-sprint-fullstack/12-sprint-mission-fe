@@ -3,7 +3,7 @@ import styles from "./ProductCard.module.css";
 import article from "../../assets/ProductCard/article.png";
 import heart from "../../assets/ProductCard/ic_heart.png";
 
-function ProductCard() {
+function ProductCard({ title, price, heartCount }) {
   return (
     <>
       <div className={styles.base}>
@@ -12,7 +12,7 @@ function ProductCard() {
         <div className={styles.info}>
           <div className={styles.text}>
             <p className={styles.name}>{title}</p>
-            <p className={styles.prise}>{price}</p>
+            <p className={styles.prise}>{price.toLocaleString()}원</p>
           </div>
           <div className={styles.heart}>
             <img className={styles.heartIc} src={heart} alt="heart" />

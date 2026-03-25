@@ -1,0 +1,8 @@
+.products {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  margin: 26px 360px 223px 360px;
+  gap: 40px;
+}

@@ -5,15 +5,15 @@ import BestProducts from "../../components/BestProducts/BestProducts";
 import ProductCard from "../../components/ProductCard/ProductCard";
 import ProductList from "../../components/ProductList/ProductList";
 import Pagination from "../../components/Pagination/Pagination";
+import styles from "./MarketPage.module.css";
 
 function MarketPage() {
   return (
     <>
       <Header />
-      <div>
+      <div className={styles.products}>
         <BestProducts />
         <ProductList />
-        <ProductCard />
       </div>
       <Footer />
     </>
