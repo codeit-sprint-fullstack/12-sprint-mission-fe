@@ -1,9 +1,15 @@
-<!doctype html>
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>판다마켓</title>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="판다마켓" />
+    <meta
+      property="og:description"
+      content="일상에서 모든 물건을 거래해보세요"
+    />
+    <meta property="og:locale" content="ko_KR" />
     <link
       rel="stylesheet"
       as="style"
@@ -12,25 +18,27 @@
     />
     <link rel="stylesheet" href="reset.css" />
     <link rel="stylesheet" href="style.css" />
+    <script src="js/validation.js" defer></script>
   </head>
   <body>
     <div class="container" role="article">
-      <div class="login_box">
-        <div class="login_logo gap-15" onclick="location.href = 'index.html'">
+      <div class="login-box">
+        <div class="login-logo gap-15" onclick="location.href = 'index.html'">
           <img src="img/판다 얼굴_big.png" alt="" />
           <h1 class="font-ROKAF">판다마켓</h1>
         </div>
-        <div class="form_area">
-          <form action="">
+        <div class="form-area">
+          <form id="signupForm" action="">
             <label for="email">이메일</label>
             <input
               id="email"
               name="email"
-              type="text"
+              type="email"
               placeholder="이메일을 입력해주세요"
               required
               autocomplete="off"
             />
+            <p id="emailError" class="error-message"></p>
             <label for="nick">닉네임</label>
             <input
               id="nick"
@@ -40,8 +48,9 @@
               required
               autocomplete="off"
             />
+            <p id="nickError" class="error-message"></p>
             <label for="pass">비밀번호</label>
-            <div class="input_area">
+            <div class="input-area">
               <input
                 id="pass"
                 name="pass"
@@ -52,8 +61,9 @@
               />
               <img src="img/icon/btn_visibility_on_24px.png" alt="" />
             </div>
+            <p id="passError" class="error-message"></p>
             <label for="passCheck">비밀번호 확인</label>
-            <div class="input_area">
+            <div class="input-area">
               <input
                 id="passCheck"
                 name="passCheck"
@@ -64,12 +74,13 @@
               />
               <img src="img/icon/btn_visibility_on_24px.png" alt="" />
             </div>
-            <button id="submit_button" type="submit">회원가입</button>
+            <p id="passCheckError" class="error-message"></p>
+            <button id="submit-button" type="submit">회원가입</button>
           </form>
         </div>
-        <div class="sns_login_area">
-          <div class="sns_login_description">간편 로그인하기</div>
-          <div class="sns_login_ul">
+        <div class="sns-login-area">
+          <div class="sns-login-description">간편 로그인하기</div>
+          <div class="sns-login-ul">
             <ul>
               <li>
                 <a href="https://www.google.com/">
@@ -85,9 +96,15 @@
             </ul>
           </div>
         </div>
-        <div class="login_box_footer">
+        <div class="login-box-footer">
           <p>이미 회원이신가요?</p>
           <a href="login.html">로그인</a>
+        </div>
+      </div>
+      <div id="errorModal" class="modal">
+        <div class="modal-content">
+          <p id="modalMessage"></p>
+          <button id="modalClose">확인</button>
         </div>
       </div>
     </div>

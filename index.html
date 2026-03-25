@@ -1,16 +1,24 @@
 <!doctype html>
-<html lang="en">
+
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="reset.css" />
     <link rel="stylesheet" href="style.css" />
     <title>판다마켓</title>
-    <!-- Google tag (gtag.js) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="판다마켓" />
+    <meta
+      property="og:description"
+      content="일상에서 모든 물건을 거래해보세요"
+    />
+    <meta property="og:locale" content="ko_KR" />
     <script
       async
       src="https://www.googletagmanager.com/gtag/js?id=G-B901Y1506K"
     ></script>
+    <script type="module" src="js/main.js"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag() {
@@ -24,7 +32,6 @@
   <body>
     <header>
       <nav id="GNB">
-        <!-- <img src="./img/판다 얼굴.png" alt="" /> -->
         <div id="logo" onclick="location.href = 'index.html'">판다마켓</div>
         <button class="login_button" onclick="location.href = 'login.html'">
           로그인

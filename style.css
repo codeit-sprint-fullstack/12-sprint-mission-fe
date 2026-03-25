@@ -1,7 +1,4 @@
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
+/* http://meyerweb.com/eric/tools/css/reset/ v2.0 | 20110126 License: none (public domain) */
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
 
 @font-face {
@@ -11,8 +8,6 @@
   font-weight: normal;
   font-style: Medium;
 }
-
-/* palette에 있는 color 값들을 css 변수로 등록해서 사용하기 */
 
 :root {
   --primary100: #3692ff;
@@ -28,12 +23,16 @@
   --gray100: #f3f4f6;
   --gray50: #f9fafb;
   --error: #f74747;
+  --pc-padding: 12.5rem;
+  --tablet-padding: 1.5rem;
+  --mobile-padding: 1rem;
+  --mobile-max-width: 25rem;
 }
 
 main {
   display: flex;
   flex-direction: column;
-  gap: 240px;
+  gap: 15rem;
 }
 
 main#index section:not(:first-child):not(:last-child) {
@@ -45,11 +44,11 @@ header {
   position: sticky;
   top: 0;
   z-index: 1000;
-  height: 70px;
+  height: 4.375rem;
   display: flex;
   align-items: center;
-  border-bottom: 1px solid #dfdfdf;
-  box-shadow: 1px 1px 10px;
+  border-bottom: 0.0625rem solid #dfdfdf;
+  box-shadow: 0.0625rem 0.0625rem 0.625rem;
   background-color: #fff;
 }
 
@@ -57,44 +56,38 @@ header {
   width: 100%;
   display: flex;
   justify-content: space-between;
-  padding: 9px 200px;
+  padding: 0.5625rem 12.5rem;
 }
 
-@media (min-width: 1920px) {
+@media (min-width: 120rem) {
   #GNB {
-    max-width: 1920px;
+    max-width: 120rem;
     margin: 0 auto;
   }
 }
 
-/* #GNB > button {
-  margin-right: 200px;
-} */
-
 #logo {
   display: flex;
   align-items: center;
-  /* margin-left: 200px; */
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--primary100);
-  gap: 5px;
+  gap: 0.3125rem;
 }
 
 #logo::before {
   content: url("./img/판다 얼굴.png");
-  width: 40px;
-  height: 40px;
+  width: 2.5rem;
+  height: 2.5rem;
 }
 
 .login_button {
-  /* padding: 12px 23px; */
   background-color: var(--primary100);
-  border-radius: 8px;
+  border-radius: 0.5rem;
   border: none;
   color: var(--gray100);
-  width: 128px;
-  height: 48px;
+  width: 8rem;
+  height: 3rem;
 }
 
 section {
@@ -107,17 +100,16 @@ section > .landing {
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  /* padding: 50px 0; */
 }
 
 .landing {
   background-color: #cfe5ff;
-  height: 540px;
+  height: auto;
 }
 
 .landing > img {
   width: 100%;
-  height: 540px;
+  height: auto;
 }
 
 .card {
@@ -125,7 +117,7 @@ section > .landing {
   align-items: center;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 60px;
+  gap: 3.75rem;
 }
 
 .title {
@@ -143,28 +135,24 @@ section > .landing {
 .detail {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 1.875rem;
 }
 
 #detail_button {
   background-color: var(--primary100);
   color: #fff;
-  border-radius: 40px;
-  padding: 16px 124px;
+  border-radius: 2.5rem;
+  padding: 1rem 7.75rem;
   font-size: 1rem;
   border: none;
 }
 
 .badge {
-  font-size: 18px;
+  font-size: 1.125rem;
   color: var(--primary100);
   font-weight: 700;
   line-height: 1.5;
 }
-
-/* .promotion {
-  margin: 50px auto;
-} */
 
 .text-r {
   text-align: right;
@@ -177,7 +165,7 @@ footer {
   justify-content: space-around;
   align-items: center;
   color: var(--gray400);
-  padding: 32px 100px;
+  padding: 2rem 12.5rem;
 }
 
 footer a {
@@ -191,11 +179,11 @@ footer ul {
 }
 
 .gap-30 {
-  gap: 30px;
+  gap: 1.875rem;
 }
 
 .gap-15 {
-  gap: 15px;
+  gap: 0.9375rem;
 }
 
 button {
@@ -210,11 +198,10 @@ div[onclick] {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* padding: 230px 640px; */
   height: 100vh;
 }
 
-.login_logo {
+.login-logo {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -223,27 +210,27 @@ div[onclick] {
   font-weight: 700;
 }
 
-.login_box {
+.login-box {
   width: 100%;
-  max-width: 640px;
+  max-width: 40rem;
 }
 
-.login_box img {
-  width: 60px;
-  height: 60px;
+.login-box img {
+  width: 3.75rem;
+  height: 3.75rem;
 }
 
 .font-ROKAF {
   font-family: "ROKAFSansMedium";
 }
 
-.form_area form {
+.form-area form {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 1.25rem;
 }
 
-.form_area label {
+.form-area label {
   font-family:
     "Pretendard Variable",
     Pretendard,
@@ -260,93 +247,228 @@ div[onclick] {
     "Segoe UI Emoji",
     "Segoe UI Symbol",
     sans-serif;
-
   font-weight: 700;
 }
 
-.form_area input {
+.form-area input {
   width: 100%;
-  padding: 16px 25px;
-  border-radius: 8px;
+  padding: 1rem 1.5625rem;
+  border-radius: 0.5rem;
   background-color: var(--gray100);
   border: none;
   box-sizing: border-box;
 }
 
-div.input_area {
+div.input-area {
   width: 100%;
   position: relative;
 }
 
-.input_area img {
+.input-area img {
   position: absolute;
   right: 5%;
   top: 50%;
-  width: 20px;
-  height: 20px;
+  width: 1.25rem;
+  height: 1.25rem;
   cursor: pointer;
   transform: translate(0, -50%);
 }
 
-.input_area img:hover {
+.input-area img:hover {
   filter: brightness(0.5);
 }
 
-.form_area input:focus {
-  outline: 1px solid var(--primary100);
+.form-area input:focus {
+  outline: 0.0625rem solid var(--primary100);
 }
 
-#submit_button {
+#submit-button {
   width: 100%;
-  border-radius: 40px;
+  border-radius: 2.5rem;
   border: none;
   background-color: var(--primary100);
   color: #fff;
-  padding: 16px 124px;
+  padding: 1rem 7.75rem;
 }
 
-#submit_button:hover {
+#submit-button:hover {
   background-color: var(--gray400);
 }
 
-.sns_login_area {
-  margin-top: 20px;
-  padding: 16px 23px;
+.sns-login-area {
+  margin-top: 1.25rem;
+  padding: 1rem 1.4375rem;
   background: #e6f2ff;
-  border-radius: 8px;
+  border-radius: 0.5rem;
   font-weight: 500;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.sns_login_ul ul {
+.sns-login-ul ul {
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 10px;
+  gap: 0.625rem;
 }
 
-.sns_login_ul ul li:nth-child(2) {
+.sns-login-ul ul li:nth-child(2) {
   position: relative;
 }
 
-.sns_login_ul ul li:nth-child(2) img:nth-child(2) {
+.sns-login-ul ul li:nth-child(2) img:nth-child(2) {
   position: absolute;
-  left: 5px;
-  top: 5px;
-  width: 20px;
-  height: 20px;
+  left: 0.3125rem;
+  top: 0.3125rem;
+  width: 1.25rem;
+  height: 1.25rem;
 }
 
-.sns_login_ul img {
-  width: 30px;
-  height: 30px;
+.sns-login-ul img {
+  width: 1.875rem;
+  height: 1.875rem;
 }
 
-.login_box_footer {
-  padding: 20px;
+.login-box-footer {
+  padding: 1.25rem;
   display: flex;
   justify-content: center;
-  gap: 5px;
+  gap: 0.3125rem;
+}
+
+.error-message {
+  color: red;
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+}
+
+.form-area input.input-error {
+  border: 1px solid red;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 24px;
+  border-radius: 8px;
+  text-align: center;
+  min-width: 200px;
+  max-width: 90%;
+}
+
+p#modalMessage {
+  margin: 20px;
+}
+
+#modalClose {
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: none;
+  color: #000;
+}
+
+@media (max-width: 1199px) and (min-width: 744px) {
+  #GNB {
+    padding: 0.5625rem 1.5rem;
+  }
+
+  footer {
+    padding: 2rem 1.5rem;
+  }
+
+  main {
+    gap: 10rem;
+  }
+}
+
+@media (max-width: 743px) and (min-width: 375px) {
+  #GNB {
+    padding: 0.5625rem 1rem;
+  }
+
+  #logo {
+    font-size: 1.25rem;
+  }
+
+  .login_button {
+    width: 6rem;
+    height: 2.5rem;
+    font-size: 0.875rem;
+  }
+
+  main {
+    gap: 5rem;
+  }
+
+  section {
+    padding: 0 2rem;
+  }
+
+  .landing {
+    height: auto;
+    /* padding: 0 1rem; */
+  }
+
+  .landing > img {
+    width: 100%;
+    height: auto;
+  }
+
+  footer {
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem 1rem;
+    text-align: center;
+  }
+
+  footer ul {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .container {
+    padding: 0 1rem;
+  }
+
+  .login-box {
+    max-width: 400px;
+  }
+
+  #submit-button {
+    padding: 1rem;
+  }
+
+  .sns-login-area {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+  }
+}
+
+@media (max-width: 743px) {
+  .landing {
+    height: auto;
+  }
+
+  .landing > .card > img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .promotion > .card > img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
 }
