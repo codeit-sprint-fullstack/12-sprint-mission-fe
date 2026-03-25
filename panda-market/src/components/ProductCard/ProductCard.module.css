@@ -2,11 +2,12 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  width: 100%;
   gap: 16px;
 }
 .info {
   display: flex;
-  width: 217px;
+  width: 100%;
   flex-direction: column;
   align-items: flex-start;
   gap: 6px;
@@ -14,13 +15,15 @@
 }
 .article {
   display: flex;
-  width: 220px;
-  height: 220px;
+  width: 100%;
   padding: 42px 52px;
   align-items: center;
+
   gap: 10px;
 
   background: #f9fafb;
+
+  box-sizing: border-box;
 }
 .text {
   display: flex;
@@ -51,7 +54,6 @@
 }
 .heartIc {
   width: 16px;
-  height: 16px;
 }
 .heartCount {
   color: #4b5563;
