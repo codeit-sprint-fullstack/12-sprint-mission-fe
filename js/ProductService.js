@@ -1,43 +1,31 @@
-const BASE_URL = "https://panda-market-api-crud.vercel.app";
+import { BASE_URL } from "./config.js";
+import axios from "axios";
 
 const RESOURCE = "/products";
 
 async function request(path, options = {}) {
-  const url = `${BASE_URL}${RESOURCE}${path}`;
-
-  const config = {
-    ...options,
-    headers: {
-      ...(options.headers || {}),
-    },
-  };
-
-  if (options.body && !config.headers["Content-Type"]) {
-    config.headers["Content-Type"] = "application/json";
-  }
-
   try {
-    const res = await fetch(url, config);
+    const res = await axios({
+      baseURL: BASE_URL,
+      url: `${RESOURCE}${path}`,
+      method: options.method || "GET",
+      data: options.body,
+      params: options.params,
+      headers: options.headers || {},
+    });
 
-    const data = await res.json().catch(() => null);
-
-    if (!res.ok) {
-      const error = new Error(
-        `HTTP ${res.status} - ${data?.message || "Unknown error"}`,
-      );
-      error.status = res.status;
-      error.data = data;
-      throw error;
-    }
-
-    return data;
+    return res.data;
   } catch (err) {
-    console.error(
-      `[Product API ERROR] ${options.method || "GET"} ${path}`,
-      err,
+    const { status, data } = err.response || {};
+
+    const customError = new Error(
+      data?.message || err.message || "Unknown error",
     );
 
-    throw err;
+    customError.status = status;
+    customError.data = data;
+
+    throw customError;
   }
 }
 
@@ -46,12 +34,10 @@ export async function getProductList({
   pageSize = 10,
   keyword = "",
 } = {}) {
-  const params = new URLSearchParams({
-    page,
-    pageSize,
-    keyword,
+  return request("", {
+    method: "GET",
+    params: { page, pageSize, keyword },
   });
-  return request(`?${params}`, { method: "GET" });
 }
 
 export async function getProduct(id) {
@@ -67,14 +53,14 @@ export async function createProduct({
 }) {
   return request("", {
     method: "POST",
-    body: JSON.stringify({ name, description, price, tags, images }),
+    body: { name, description, price, tags, images },
   });
 }
 
 export async function patchProduct(id, data) {
   return request(`/${id}`, {
     method: "PATCH",
-    body: JSON.stringify(data),
+    body: data,
   });
 }
 
