@@ -6,10 +6,12 @@ function BestProducts() {
     <>
       <section>
         <h2>베스트 상품</h2>
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
+        <div>
+          <ProductCard />
+          <ProductCard />
+          <ProductCard />
+          <ProductCard />
+        </div>
       </section>
     </>
   );

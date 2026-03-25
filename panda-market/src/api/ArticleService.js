@@ -10,10 +10,8 @@ export function getArticleList(page, pageSize, keyword) {
       }
       return res.json();
     })
-    .then(function (data) {
-      return data;
-    })
     .catch(function (err) {
+      console.error(err);
       throw err;
     });
 }
@@ -26,10 +24,8 @@ export function getArticle(articleId) {
       }
       return res.json();
     })
-    .then(function (data) {
-      return data;
-    })
     .catch(function (err) {
+      console.error(err);
       throw err;
     });
 }
@@ -52,10 +48,8 @@ export function createArticle(title, content, image) {
       }
       return res.json();
     })
-    .then(function (data) {
-      return data;
-    })
     .catch(function (err) {
+      console.error(err);
       throw err;
     });
 }
@@ -78,10 +72,8 @@ export function patchArticle(articleId, title, content, image) {
       }
       return res.json();
     })
-    .then(function (data) {
-      return data;
-    })
     .catch(function (err) {
+      console.error(err);
       throw err;
     });
 }
@@ -96,10 +88,8 @@ export function deleteArticle(articleId) {
       }
       return res;
     })
-    .then(function (data) {
-      return data;
-    })
     .catch(function (err) {
+      console.error(err);
       throw err;
     });
 }
