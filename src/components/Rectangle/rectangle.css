@@ -1,0 +1,27 @@
+.rectangle {
+  background: var(--color-primary-light);
+  padding: var(--pad-rect-top) 0 0;
+}
+
+.rectangle .inner {
+  width: min(var(--container-max), 100%);
+  margin: 0 auto;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+}
+
+.rectangle-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0;
+}
+
+.rectangle-visual {
+  max-width: var(--hero-visual-max);
+  align-self: flex-end;
+  margin: 0;
+}

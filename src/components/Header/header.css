@@ -1,0 +1,67 @@
+.header {
+  width: 100%;
+  height: var(--header-h);
+  background: #fff;
+  border-bottom: 1px solid #dfdfdf;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header .inner {
+  width: 100%;
+  max-width: var(--container-max);
+  padding: 0 var(--pad-x-xl);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* 왼쪽 정렬 그룹 */
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  height: 100%;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.logo img {
+  width: auto;
+  max-width: var(--logo-max);
+  display: block;
+  margin-top: 40px;
+}
+
+.nav ul {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #4b5563;
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+
+.login {
+  padding: 0.75rem 1.4375rem;
+  border-radius: var(--radius-sm);
+  background: var(--color-primary);
+  color: var(--color-white);
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+}

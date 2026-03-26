@@ -1,0 +1,42 @@
+.hero {
+  background: var(--color-primary-light);
+  height: 33.75rem;
+}
+
+.hero .inner {
+  height: 100%;
+  padding: 0 var(--pad-hero-x);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5rem;
+}
+
+.hero-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.hero-text h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.hero-btn {
+  max-width: 18rem;
+  padding: 1rem 0;
+  border-radius: var(--radius-lg);
+  background: var(--color-primary);
+  color: var(--color-white);
+  font-size: 1.25rem;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+}
+
+.hero-visual {
+  align-self: flex-end;
+  max-width: var(--hero-visual-max);
+}
