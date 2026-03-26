@@ -10,9 +10,10 @@ export function getArticelList(page, pageSize, keyword) {
         `${BASE_URL}/articles?page=${page}&pageSize=${pageSize}&keyword=${keyword}`,
       )
         .then((response) => response.json())
-        .then((articleList) =>
-          console.log("1. 게시글 목록 조회 => ", articleList),
-        )
+        .then((articleList) => {
+          console.log("1. 게시글 목록 조회 => ", articleList);
+          return articleList;
+        })
         .catch((error) => console.error(error));
 }
 
@@ -20,7 +21,10 @@ export function getArticelList(page, pageSize, keyword) {
 export function getArticle(id) {
   fetch(`${BASE_URL}/articles/${id}`)
     .then((response) => response.json())
-    .then((article) => console.log("2. 게시글 상세 조회 => ", article))
+    .then((article) => {
+      console.log("2. 게시글 상세 조회 => ", article);
+      return article;
+    })
     .catch((error) => console.error(error));
 }
 
@@ -40,7 +44,10 @@ export function createArticle(title, content, image) {
     body: JSON.stringify(newArticle),
   })
     .then((response) => response.json())
-    .then((createdArticle) => console.log("3. 게시글 작성 => ", createdArticle))
+    .then((createdArticle) => {
+      console.log("3. 게시글 작성 => ", createdArticle);
+      return createdArticle;
+    })
     .catch((error) => console.error(error));
 }
 
@@ -60,7 +67,10 @@ export function patchArticle(id, title, content, image) {
     body: JSON.stringify(updatedArticle),
   })
     .then((response) => response.json())
-    .then((patchedArticle) => console.log("4. 게시글 수정 => ", patchedArticle))
+    .then((patchedArticle) => {
+      console.log("4. 게시글 수정 => ", patchedArticle);
+      return patchedArticle;
+    })
     .catch((error) => console.error(error));
 }
 
@@ -70,7 +80,10 @@ export function deleteArticle(id) {
     method: "DELETE",
   })
     .then((response) => response.json())
-    .then((deletedArticle) => console.log("5. 게시글 삭제 => ", deletedArticle))
+    .then((deletedArticle) => {
+      console.log("5. 게시글 삭제 => ", deletedArticle);
+      return deletedArticle;
+    })
     .catch((error) => console.error(error));
 }
 
