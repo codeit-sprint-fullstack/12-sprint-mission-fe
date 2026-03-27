@@ -8,6 +8,7 @@ import ProductList from "./components/ProductList";
 import SearchForm from "./components/SearchForm";
 import Pagination from "./components/Pagination";
 import Sorting from "./components/Sorting";
+import ProductWrap from "./components/ProductWrap.jsx";
 
 const App = () => {
   const [products, setProducts] = useState([]);
@@ -63,59 +64,49 @@ const App = () => {
 
       <main id="wrapper">
         <div id="container">
-          <section className="section">
-            <div className="contents">
-              <header className="section-header">
-                <h2>베스트 상품</h2>
-              </header>
+          <ProductWrap title="베스트 상품">
+            <ProductList lists={bestProducts} type="best" />
+          </ProductWrap>
 
-              <ProductList lists={bestProducts} type="best" />
-            </div>
-          </section>
+          <ProductWrap
+            title="판매 중인 상품"
+            header={
+              <>
+                <SearchForm
+                  keyword={keyword}
+                  onChangeKeyword={handleChangeKeyword}
+                />
 
-          <section className="section">
-            <div className="contents">
-              <header className="section-header">
-                <h2>판매 중인 상품</h2>
+                <a
+                  href=""
+                  onClick={(e) => {
+                    e.preventDefault();
+                    alert("준비중입니다");
+                    return false;
+                  }}
+                  className="btn-primary btn-sm"
+                >
+                  상품 등록하기
+                </a>
 
-                <div className="list-control-bar">
-                  <SearchForm
-                    keyword={keyword}
-                    onChangeKeyword={handleChangeKeyword}
-                  />
-
-                  <a
-                    href=""
-                    onClick={(e) => {
-                      e.preventDefault();
-                      alert("준비중입니다");
-                      return false;
-                    }}
-                    className="btn-primary btn-sm"
-                  >
-                    상품 등록하기
-                  </a>
-
-                  <Sorting
-                    sorting={sorting}
-                    isSortOpen={isSortOpen}
-                    onToggle={handleToggleSortList}
-                    onSorting={handleChangeSorting}
-                  />
-                </div>
-              </header>
-
-              <ProductList lists={products} type="total" />
-
-              <Pagination
-                page={page}
-                totalPages={totalPages}
-                onPrev={handlePrevPage}
-                onNext={handleNextPage}
-                onChangePage={setPage}
-              />
-            </div>
-          </section>
+                <Sorting
+                  sorting={sorting}
+                  isSortOpen={isSortOpen}
+                  onToggle={handleToggleSortList}
+                  onSorting={handleChangeSorting}
+                />
+              </>
+            }
+          >
+            <ProductList lists={products} type="total" />
+            <Pagination
+              page={page}
+              totalPages={totalPages}
+              onPrev={handlePrevPage}
+              onNext={handleNextPage}
+              onChangePage={setPage}
+            />
+          </ProductWrap>
         </div>
       </main>
 
