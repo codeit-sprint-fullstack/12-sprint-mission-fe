@@ -8,7 +8,7 @@ import instagramIcon from "./ic-instagram.svg";
 export const Footer = () => {
   return (
     <footer className={styles.footer}>
-      <div className={`${styles.container} ${styles.inner}`}>
+      <div className={`${styles.inner}`}>
         <span className={styles.copyright}> ©codeit - 2024 </span>
 
         <nav>

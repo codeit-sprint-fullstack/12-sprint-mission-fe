@@ -6,7 +6,9 @@
 .inner {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  width: 100%;
+  max-width: 120rem;
+  margin: 0 auto;
   padding: 2rem 12.5rem;
   text-align: center;
   font-size: 1rem;
@@ -30,4 +32,24 @@
 .socials {
   display: flex;
   gap: 0.75rem;
+}
+
+@media (max-width: 1199px) {
+  .inner {
+    padding: 2rem 1.5rem;
+  }
+}
+
+@media (max-width: 743px) {
+  .inner {
+    padding: 2rem 1rem;
+    flex-wrap: wrap;
+  }
+
+  .copyright {
+    order: 1;
+    width: 100%;
+    margin-top: 1.5rem;
+    text-align: left;
+  }
 }
