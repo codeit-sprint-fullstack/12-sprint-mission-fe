@@ -8,27 +8,57 @@ import "./css/Item.css";
 const Item = () => {
   const [products, setProducts] = useState([]);
   const [bestProducts, setBestProducts] = useState([]);
+  const [totalPages, setTotalPages] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
 
-  const fetchProducts = async () => {
+  const [currentPage, setCurrentPage] = useState(1);
+  const [keyword, setKeyword] = useState("");
+  const [orderBy, setOrderBy] = useState("recent");
+
+  const loadProducts = async (page) => {
     try {
       setIsLoading(true);
+
       const bestData = await getProductList(1, 4, "", "favorite");
       setBestProducts(bestData.list || []);
 
-      const data = await getProductList(1, 10, "", "recent");
+      const data = await getProductList(page, 10, keyword, orderBy);
       setProducts(data.list || []);
-    } catch (error) {
-      console.error("데이터 로딩 실패:", error);
+
+      const totalCount = data.totalCount || 0;
+      setTotalPages(Math.ceil(totalCount / 10) || 1);
+    } catch (err) {
+      console.error("데이터 로딩 실패:", err);
     } finally {
       setIsLoading(false);
     }
   };
 
+  const WINDOW_SIZE = 5;
+
+  const currentGroup = Math.ceil(currentPage / WINDOW_SIZE);
+  const startPageNumber = (currentGroup - 1) * WINDOW_SIZE + 1;
+
+  const pages = Array.from(
+    { length: WINDOW_SIZE },
+    (_, i) => startPageNumber + i
+  ).filter((p) => p <= totalPages);
+
+  const handleSearch = (e) => {
+    setKeyword(e.target.value);
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      setCurrentPage(1);
+      loadProducts(1);
+    }
+  };
+
   useEffect(() => {
     document.title = "판다마켓 | 상품페이지";
-    fetchProducts();
-  }, []);
+    loadProducts(currentPage);
+  }, [currentPage, orderBy]);
 
   return (
     <main className="market">
@@ -85,8 +115,11 @@ const Item = () => {
                 />
                 <input
                   type="text"
+                  placeholder="검색어를 입력해주세요"
+                  value={keyword}
+                  onChange={handleSearch}
+                  onKeyDown={handleKeyDown}
                   className="product-controls__search-input"
-                  placeholder="검색할 상품을 입력해주세요"
                 />
               </div>
               <div className="product-controls__actions">
@@ -133,6 +166,34 @@ const Item = () => {
                 </div>
               </div>
             ))}
+          </div>
+
+          <div className="pagination">
+            <button
+              className="arrow"
+              disabled={currentPage === 1}
+              onClick={() => setCurrentPage(currentPage - 1)}
+            >
+              &lt;
+            </button>
+
+            {pages.map((page) => (
+              <button
+                key={page}
+                className={page === currentPage ? "active" : ""}
+                onClick={() => setCurrentPage(page)}
+              >
+                {page}
+              </button>
+            ))}
+
+            <button
+              className="arrow"
+              disabled={currentPage === totalPages}
+              onClick={() => setCurrentPage(currentPage + 1)}
+            >
+              &gt;
+            </button>
           </div>
         </section>
       </div>
