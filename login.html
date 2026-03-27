@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>판다마켓 로그인페이지</title>
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="login">
+      <div class="login-img">
+        <a href="/">
+          <img src="./img/Group 19@2x.png" alt="로고이미지" />
+        </a>
+      </div>
+
+      <form class="login-idpw" id="login-form" novalidate>
+        <div class="form-group">
+          <label class="login-idpw-text" for="login-email">이메일</label>
+          <input
+            id="login-email"
+            class="login-idpw-button login-input"
+            type="text"
+            placeholder="이메일을 입력해주세요"
+            autocomplete="email"
+          />
+          <p class="input-error-message"></p>
+        </div>
+
+        <div class="form-group password-group">
+          <label class="login-idpw-text" for="login-password">비밀번호</label>
+          <div class="password-input-wrap">
+            <input
+              id="login-password"
+              class="login-idpw-button login-input"
+              type="password"
+              placeholder="비밀번호를 입력해주세요"
+              autocomplete="current-password"
+            />
+            <button
+              type="button"
+              class="toggle-password"
+              aria-label="비밀번호 표시/숨기기"
+              data-target="login-password"
+            >
+              <img src="./img/pwicon.png" alt="비밀번호 보기" />
+            </button>
+          </div>
+          <p class="input-error-message"></p>
+        </div>
+
+        <button class="login-b" id="login-submit" type="submit" disabled>
+          <span class="login-b-text">로그인</span>
+        </button>
+
+        <div class="ez-login">
+          <div>
+            <p>간편 로그인하기</p>
+          </div>
+
+          <div class="ez-link">
+            <a
+              href="https://google.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                class="ez-link-img"
+                src="./img/google.png"
+                alt="구글이미지"
+              />
+            </a>
+            <a
+              href="https://kakaocorp.com/page/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                class="ez-link-img"
+                src="./img/kakao.png"
+                alt="카카오이미지"
+              />
+            </a>
+          </div>
+        </div>
+
+        <div class="login-footer">
+          <p class="login-footer-text">판다마켓이 처음이신가요?</p>
+          <a class="login-footer-a" href="/signup.html">회원가입</a>
+        </div>
+      </form>
+    </div>
+
+    <div class="modal-overlay hidden" id="modal-overlay">
+      <div class="modal">
+        <p class="modal-message" id="modal-message"></p>
+        <button type="button" class="modal-button" id="modal-close-button">
+          확인
+        </button>
+      </div>
+    </div>
+
+    <script type="module" src="./js/login.js"></script>
+  </body>
+</html>
