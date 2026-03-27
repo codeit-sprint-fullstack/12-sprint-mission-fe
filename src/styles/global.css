@@ -1,5 +1,5 @@
 /* =======================================================
-   COMMON / RESET
+    COMMON / RESET
    ======================================================= */
 .sr-only {
   position: absolute;
@@ -42,7 +42,7 @@ body {
 }
 
 /* =======================================================
-   COMPONENTS / TYPOGRAPHY
+    COMPONENTS / TYPOGRAPHY
    ======================================================= */
 .text-2xl-medium {
   font-size: 1.5rem;
@@ -105,7 +105,7 @@ body {
 }
 
 /* =======================================================
-   COMPONENTS / BUTTONS
+    COMPONENTS / BUTTONS
    ======================================================= */
 .btn-base {
   display: inline-flex;
@@ -130,10 +130,19 @@ body {
 }
 
 /* =======================================================
-   LAYOUT / CONTAINER
+    UTILITIES / RESPONSIVE
    ======================================================= */
-.container {
-  width: 100%;
-  max-width: 120rem;
-  margin: 0 auto;
+
+.show-mobile {
+  display: none;
+}
+
+@media (max-width: 743px) {
+  .show-mobile {
+    display: block;
+  }
+
+  .hide-mobile {
+    display: none;
+  }
 }
