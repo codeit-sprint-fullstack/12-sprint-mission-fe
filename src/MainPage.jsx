@@ -3,6 +3,8 @@ import "./css/App.css";
 import * as imgAssets from "./imgs/imgController.js";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import MainHeader from "./headers/MainHeader.jsx";
+import Footer from "./footers/Footer.jsx";
 
 const MainPage = () => {
   useEffect(() => {
@@ -10,20 +12,7 @@ const MainPage = () => {
   }, []);
   return (
     <>
-      <header className="header">
-        <nav className="header__nav">
-          <div className="header__container">
-            <a href="/" className="header__logo">
-              <img src={imgAssets.pandaIcon} alt="판다마켓 로고" />
-              <span className="logo__title">판다마켓</span>
-            </a>
-            <Link to="/login" className="header__login">
-              로그인
-            </Link>
-          </div>
-        </nav>
-      </header>
-
+      <MainHeader />
       <main>
         <section className="banner banner--top">
           <div className="banner__inner">
@@ -34,9 +23,9 @@ const MainPage = () => {
                 거래해 보세요
               </h2>
 
-              <a href="./items.html" className="banner__btn">
-                구경하러 가기{" "}
-              </a>
+              <Link to="Item" className="banner__btn">
+                구경하러 가기
+              </Link>
             </div>
             <img
               src={imgAssets.pandaHomeTop}
@@ -137,42 +126,8 @@ const MainPage = () => {
             />
           </div>
         </section>
+        <Footer />
       </main>
-      <footer className="footer">
-        <div className="footer__inner">
-          <p className="footer__copyright">©codeit - 2024</p>
-          <div className="footer__links">
-            <a href="./privacy.html">Privacy Policy</a>
-            <a href="./faq.html">FAQ</a>
-          </div>
-          <div className="footer__sns">
-            <a
-              href="https://www.facebook.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img src={imgAssets.ic_facebook} alt="페이스북 아이콘" />
-            </a>
-            <a href="https://x.com/" target="_blank" rel="noopener noreferrer">
-              <img src={imgAssets.ic_twitter} alt="엑스 아이콘" />
-            </a>
-            <a
-              href="https://www.youtube.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img src={imgAssets.ic_youtube} alt="유튜브 아이콘" />
-            </a>
-            <a
-              href="https://www.instagram.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img src={imgAssets.ic_instagram} alt="인스타그램 아이콘" />
-            </a>
-          </div>
-        </div>
-      </footer>
     </>
   );
 };
