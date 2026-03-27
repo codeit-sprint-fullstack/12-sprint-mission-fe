@@ -21,7 +21,22 @@ a {
   margin: 0 auto;
 }
 
+.header-inner {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
 .header-logo {
+  cursor: pointer;
+}
+
+.nav-button {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 26px;
+  letter-spacing: 0%;
+  color: #4b5563;
   cursor: pointer;
 }
 
