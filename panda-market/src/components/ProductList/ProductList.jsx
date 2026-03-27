@@ -4,7 +4,7 @@ import styles from "./ProductList.module.css";
 import arrow from "../../assets/ProductList/ic_arrow_down.png";
 import search from "../../assets/ProductList/ic_search.png";
 
-function ProductList() {
+function ProductList({ products }) {
   return (
     <>
       <section className={styles.ProductList}>
@@ -32,16 +32,15 @@ function ProductList() {
           </div>
         </div>
         <div className={styles.listGrid}>
-          <ProductCard title="로봇 청소기" price={1500000} heartCount={240} />
-          <ProductCard title="로봇 청소기" price={1500000} heartCount={240} />
-          <ProductCard title="로봇 청소기" price={1500000} heartCount={240} />
-          <ProductCard title="로봇 청소기" price={1500000} heartCount={240} />
-          <ProductCard title="로봇 청소기" price={1500000} heartCount={240} />
-          <ProductCard title="로봇 청소기" price={1500000} heartCount={240} />
-          <ProductCard title="로봇 청소기" price={1500000} heartCount={240} />
-          <ProductCard title="로봇 청소기" price={1500000} heartCount={240} />
-          <ProductCard title="로봇 청소기" price={1500000} heartCount={240} />
-          <ProductCard title="로봇 청소기" price={1500000} heartCount={240} />
+          {products.map((product) => (
+            <ProductCard
+              key={product.id}
+              title={product.name}
+              price={product.price}
+              heartCount={product.heartCount}
+              image={product.images?.[0]}
+            />
+          ))}
         </div>
       </section>
     </>
