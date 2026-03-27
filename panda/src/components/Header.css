@@ -1,0 +1,25 @@
+.header {
+  width: 100%;
+  position: static;
+  top: 0;
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo {
+  background: url("../assets/images/logo/logo.svg") no-repeat;
+  display: block;
+  height: 51px;
+}
+
+@media (min-width: 744px) and (max-width: 1199px) {
+}
+@media (min-width: 375px) and (max-width: 743px) {
+  .logo {
+    background: url("../assets/images/logo/logo.png") no-repeat;
+    height: 40px;
+  }
+}
