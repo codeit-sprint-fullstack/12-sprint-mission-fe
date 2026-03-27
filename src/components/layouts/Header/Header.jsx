@@ -5,7 +5,7 @@ import logo from "./logo-sm.svg";
 export const Header = () => {
   return (
     <header className={styles.header}>
-      <div className={`container ${styles.inner}`}>
+      <div className={`${styles.inner}`}>
         <div className={`${styles.brandArea}`}>
           <h1>
             <a href="/">

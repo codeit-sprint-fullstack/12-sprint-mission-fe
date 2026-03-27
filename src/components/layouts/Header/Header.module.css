@@ -12,7 +12,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
+  max-width: 120rem;
   height: 100%;
+  margin: 0 auto;
   padding: 0 12.5rem;
 }
 
@@ -38,4 +41,16 @@
 .loginBtn {
   padding: 0.75rem 1.4375rem;
   border-radius: 0.5rem;
+}
+
+@media (max-width: 1199px) {
+  .inner {
+    padding: 0 1.5rem;
+  }
+}
+
+@media (max-width: 743px) {
+  .inner {
+    padding: 0 1rem;
+  }
 }
