@@ -16,9 +16,9 @@ function Pagination() {
             <path
               d="M9.5 4.66669L6 8.16669L9.5 11.6667"
               stroke="#4B5563"
-              stroke-width="1.8"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="1.8"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
           </svg>
         </button>
@@ -38,9 +38,9 @@ function Pagination() {
             <path
               d="M6 4.66656L9.5 8.16656L6 11.6666"
               stroke="#4B5563"
-              stroke-width="1.8"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="1.8"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
           </svg>
         </button>
