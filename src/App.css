@@ -144,7 +144,7 @@ body {
 }
 #container {
   padding-top: 26px;
-  padding-bottom: 138px;
+  padding-bottom: 135px;
 }
 .section:not(:first-child) {
   margin-top: 40px;
@@ -214,6 +214,7 @@ body {
   width: 100%;
   padding-block: 9.5px;
   background-color: white;
+  border-bottom: 1px solid #dfdfdf;
   z-index: 999;
 }
 
@@ -414,8 +415,8 @@ body {
   overflow: hidden;
   position: absolute;
   top: calc(100% + 8px);
-  left: 0;
-  width: 100%;
+  right: 0;
+  width: max(100%, 130px);
   border: 1px solid var(--secondary-200);
   border-radius: 12px;
 }
@@ -517,6 +518,14 @@ body {
   text-align: center;
 }
 
+@media all and (max-width: 1600px) {
+  .inner {
+    width: min(100%, 1248px);
+    padding-inline: 24px;
+    margin-inline: auto;
+  }
+}
+
 @media all and (max-width: 1024px) {
   .product__list {
     grid-template-columns: repeat(3, 1fr);
@@ -528,6 +537,100 @@ body {
 }
 
 @media all and (max-width: 768px) {
+  .contents,
+  .inner {
+    padding-inline: 16px;
+  }
+
+  #header .inner > div:has(#gnb) {
+    gap: 8px;
+  }
+
+  #logo {
+    width: 81px;
+    height: 40px;
+  }
+  #logo a {
+    background-image: url("./assets/images/logo_typo.png");
+    background-image: url("./assets/images/logo_typo.svg");
+  }
+
+  #gnb ul {
+    gap: 8px;
+  }
+
+  #gnb ul a {
+    padding-inline: 0;
+    font-size: 1rem;
+  }
+
+  #footer {
+    height: auto;
+    padding-bottom: 4rem;
+  }
+
+  #footer .inner {
+    flex-wrap: wrap;
+  }
+
+  #footer .copyright {
+    order: 3;
+    width: 100%;
+    margin-top: 24px;
+  }
+
+  #footer .cs-menu {
+    order: 1;
+  }
+
+  #footer .sns-list {
+    order: 2;
+  }
+
+  .section-header {
+    display: block;
+  }
+
+  .list-control-bar {
+    gap: 14px;
+    position: relative;
+    margin-top: 8px;
+  }
+
+  .search-keyword {
+    flex: 1;
+  }
+
+  .search-keyword input {
+    width: 100%;
+    min-width: auto;
+  }
+
+  .list-control-bar .btn-primary {
+    position: absolute;
+    bottom: calc(100% + 8px);
+    right: 45px;
+  }
+
+  .sort-list {
+    flex-shrink: 0;
+  }
+
+  .sorting-ui .current-sort {
+    width: 42px;
+    height: 42px;
+    background-image: url("./assets/images/ic_sort.png");
+    background-image: url("./assets/images/ic_sort.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 57%;
+  }
+
+  .sorting-ui .current-sort span,
+  .sorting-ui .current-sort::after {
+    display: none;
+  }
+
   .product__list {
     grid-template-columns: repeat(2, 1fr);
     gap: 32px 8px;

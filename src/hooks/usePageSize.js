@@ -9,16 +9,16 @@ const usePageSize = (type) => {
   //   const [pageSize, setPageSize] = useState(PAGE_SIZE[type].desktop);
   const [pageSize, setPageSize] = useState(() => {
     // 초기값 재설정
-    if (window.innerWidth < 768) return PAGE_SIZE[type].mobile;
-    if (window.innerWidth < 1024) return PAGE_SIZE[type].tablet;
+    if (window.innerWidth < 769) return PAGE_SIZE[type].mobile;
+    if (window.innerWidth < 1025) return PAGE_SIZE[type].tablet;
     return PAGE_SIZE[type].desktop;
   });
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth < 768) {
+      if (window.innerWidth < 769) {
         setPageSize(PAGE_SIZE[type].mobile);
-      } else if (window.innerWidth < 1024) {
+      } else if (window.innerWidth < 1025) {
         setPageSize(PAGE_SIZE[type].tablet);
       } else {
         setPageSize(PAGE_SIZE[type].desktop);
