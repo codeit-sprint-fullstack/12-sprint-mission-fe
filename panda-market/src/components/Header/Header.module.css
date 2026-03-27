@@ -58,13 +58,7 @@
   justify-content: center;
   white-space: nowrap;
   flex-shrink: 0;
-}
 
-.btn:hover {
-  opacity: 0.8;
-}
-
-.btnLogin {
   border-radius: 8px;
   width: 128px;
   height: 48px;

@@ -6,6 +6,18 @@ body {
   min-width: 1200px;
 }
 
+input,
+textarea {
+  font-family: "Pretendard", sans-serif;
+}
+button,
+select {
+  cursor: pointer;
+  font-family: "Pretendard", sans-serif;
+}
+button:hover {
+  opacity: 0.8;
+}
 a {
   text-decoration: none;
   cursor: pointer;

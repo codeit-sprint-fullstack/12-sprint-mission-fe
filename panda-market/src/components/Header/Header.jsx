@@ -19,7 +19,7 @@ function Header() {
           </a>
         </div>
       </div>
-      <a href="/" className={`${styles.btn} ${styles.btnLogin}`}>
+      <a href="/" className={styles.btn}>
         로그인
       </a>
     </header>

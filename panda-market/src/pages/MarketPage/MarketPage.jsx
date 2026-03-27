@@ -11,9 +11,12 @@ function MarketPage() {
   return (
     <>
       <Header />
-      <div className={styles.products}>
-        <BestProducts />
-        <ProductList />
+      <div className={styles.contentsWrap}>
+        <div className={styles.productsWrap}>
+          <BestProducts />
+          <ProductList />
+        </div>
+        <Pagination />
       </div>
       <Footer />
     </>
