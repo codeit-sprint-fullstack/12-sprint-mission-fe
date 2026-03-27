@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./Header.module.css";
 import logo from "./logo-sm.svg";
+import logoTypo from "./logo-typo.svg";
 
 export const Header = () => {
   return (
@@ -9,7 +10,8 @@ export const Header = () => {
         <div className={`${styles.brandArea}`}>
           <h1>
             <a href="/">
-              <img src={logo} alt="판다마켓" />
+              <img src={logo} alt="판다마켓" className={`hide-mobile`} />
+              <img src={logoTypo} alt="판다마켓" className={`show-mobile`} />
             </a>
           </h1>
 

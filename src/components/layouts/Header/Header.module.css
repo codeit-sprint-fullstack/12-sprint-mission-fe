@@ -36,6 +36,7 @@
   padding: 1.3125rem 0.9375rem;
   line-height: 1;
   cursor: pointer;
+  color: var(--secondary-600);
 }
 
 .loginBtn {
@@ -52,5 +53,18 @@
 @media (max-width: 743px) {
   .inner {
     padding: 0 1rem;
+  }
+
+  .brandArea {
+    gap: 0.5rem;
+  }
+
+  .menu {
+    gap: 0.5rem;
+  }
+
+  .menuItem {
+    padding: 0;
+    font-size: 1rem;
   }
 }
