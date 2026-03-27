@@ -12,32 +12,20 @@
 /* 공통 이미지 스타일 */
 .thumbnail {
   display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
 }
 
 /* 인기 상품 (Card_best) */
-.md {
-  width: 17.625rem;
-  height: 17.625rem;
+.best {
+  max-width: 17.625rem;
   border-radius: 1.03675rem;
 }
 
-.lg {
-  width: 21.4375rem;
-  height: 21.4375rem;
-  border-radius: 1.261rem;
-}
-
 /* 일반 상품 (Card_general) */
-.pc {
-  width: 13.72113rem;
-  height: 13.72113rem;
+.general {
+  max-width: 13.7211rem;
   border-radius: 0.80713rem;
-}
-
-.mobile {
-  width: 10.4305rem;
-  height: 10.4305rem;
-  border-radius: 0.61356rem;
 }
 
 .count {
@@ -62,4 +50,23 @@
 
 .favoriteCount {
   color: var(--secondary-600);
+}
+
+@media (max-width: 1199px) {
+  .best {
+    max-width: 21.4375rem;
+    border-radius: 1.261rem;
+  }
+}
+
+@media (max-width: 743px) {
+  .best {
+    max-width: 21.4375rem;
+    border-radius: 1.261rem;
+  }
+
+  .general {
+    max-width: 10.4305rem;
+    border-radius: 0.61356rem;
+  }
 }
