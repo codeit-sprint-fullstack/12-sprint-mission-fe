@@ -38,3 +38,15 @@
   display: flex;
   gap: 4px;
 }
+
+@media (max-width: 744px) {
+  .best-product-img {
+    width: 343px;
+    height: 343px;
+    border-radius: 19.46px;
+  }
+  .best-container {
+    display: flex;
+    gap: 5px;
+  }
+}

@@ -11,10 +11,10 @@ const Market = () => {
       <Header />
       <main className="main-container">
         <section className="best-prodct">
-          <BestProduct page={1} pageSize={4} orderBy="favorite" />
+          <BestProduct page={1} orderBy="favorite" />
         </section>
         <section className="sale-prodct">
-          <SaleProduct page={1} pageSize={10} orderBy="recent" />
+          <SaleProduct page={1} orderBy="recent" />
         </section>
       </main>
       <Footer />

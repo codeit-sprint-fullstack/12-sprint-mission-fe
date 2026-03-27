@@ -4,12 +4,13 @@ import "./SaleProduct.css";
 import { Link } from "react-router-dom";
 import search from "../assets/img/search.png";
 
-const SaleProduct = ({ pageSize }) => {
+const SaleProduct = () => {
   const [product, setProduct] = useState([]);
   const [totalCount, setTotalCount] = useState(0);
   const [page, setPage] = useState(1);
   const [orderBy, setOrderBy] = useState("recent");
   const [keyword, setKeyword] = useState("");
+  const [pageSize, setPageSize] = useState(window.innerWidth <= 744 ? 6 : 10);
 
   async function getProduct() {
     try {
@@ -26,8 +27,20 @@ const SaleProduct = ({ pageSize }) => {
   }
 
   useEffect(() => {
+    function handleResize() {
+      setPageSize(window.innerWidth <= 744 ? 6 : 10);
+    }
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  useEffect(() => {
     getProduct();
-  }, [page, orderBy, keyword]);
+  }, [page, orderBy, keyword, pageSize]);
 
   const totalPages = Math.ceil(totalCount / pageSize);
 

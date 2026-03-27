@@ -25,3 +25,9 @@
   line-height: 32px;
   letter-spacing: 0%;
 }
+
+@media (max-width: 744px) {
+  .main-container {
+    margin-top: 80px;
+  }
+}
