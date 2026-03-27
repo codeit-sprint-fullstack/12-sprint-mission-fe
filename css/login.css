@@ -1,3 +1,21 @@
+:root {
+  /* Primary */
+  --color-primary-50: #eaf3ff;
+  --color-primary-100: #cfe3ff;
+  --color-primary-500: #3692ff;
+  --color-primary-700: #1f6fe0;
+
+  /* Gray */
+  --color-gray-50: #f9fafb;
+  --color-gray-200: #e5e7eb;
+  --color-gray-500: #6b7280;
+  --color-gray-900: #111827;
+
+  /* Semantic */
+  --color-success: #22c55e;
+  --color-error: #ef4444;
+}
+
 .body {
   background-color: #fcfcfc;
   height: 100%;
@@ -39,11 +57,11 @@
 
 .panda {
   width: 103px;
-  heigt: auto;
+  height: auto;
 }
 
 .pandaLogo {
-  color: var(--brand-blue, #3692ff);
+  color: var(--color-primary-500); /*팔레트 활용*/
   font-family: "ROKAF Sans";
   font-size: 66.344px;
   font-weight: 800;

@@ -11,7 +11,7 @@
 }
 
 html {
-  font-size: 16px; /* rem 단위의 기준이 됨 */
+  font-size: 100%; /* rem 단위의 기준이 됨 */
 }
 
 body {
