@@ -1,40 +1,40 @@
-.container {
+.best-container {
   display: flex;
   gap: 24px;
 }
 
-.product-container {
+.best-product-container {
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
 
-.product-img {
+.best-product-img {
   width: 282px;
   height: 282px;
   border-radius: 16px;
 }
 
-.product-detail {
+.best-product-detail {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-.detail-title {
+.best-detail-title {
   font-weight: 500;
   font-size: 14px;
   line-height: 24px;
   letter-spacing: 0%;
 }
 
-.detail-price {
+.best-detail-price {
   font-weight: 700;
   line-height: 26px;
   letter-spacing: 0%;
 }
 
-.love-it {
+.best-love-it {
   display: flex;
   gap: 4px;
 }

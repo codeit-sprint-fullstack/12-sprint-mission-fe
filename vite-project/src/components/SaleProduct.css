@@ -1,0 +1,152 @@
+button {
+  border: none;
+  background-color: none;
+}
+
+.sale-container {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.sale-product-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.sale-product-img {
+  width: 221px;
+  height: 221px;
+  border-radius: 16px;
+}
+
+.sale-product-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sale-detail-title {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: 0%;
+}
+
+.sale-detail-price {
+  font-weight: 700;
+  line-height: 26px;
+  letter-spacing: 0%;
+}
+
+.sale-love-it {
+  display: flex;
+  gap: 4px;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+  margin-top: 50px;
+}
+
+.pagination-button {
+  width: 40px;
+  height: 40px;
+  border-radius: 40px;
+  background-color: white;
+  border: 1px solid #e5e7eb;
+
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 26px;
+  color: #6b7280;
+}
+
+.pagination-button.active {
+  width: 40px;
+  height: 40px;
+  border-radius: 40px;
+  background-color: #2f80ed;
+
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 26px;
+  color: white;
+}
+
+input {
+  border: none;
+  outline: none;
+  background: none;
+}
+
+input::placeholder {
+  color: #9ca3af;
+}
+
+.title-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.filter-container {
+  display: flex;
+}
+
+.form {
+  display: flex;
+  gap: 12px;
+}
+
+.form-wipper {
+  position: relative;
+  background-color: #f3f4f6;
+  padding: 9px 20px 9px 17px;
+  gap: 10px;
+  width: 325px;
+  height: 42px;
+  border-radius: 12px;
+  align-items: center;
+  display: flex;
+  box-sizing: border-box;
+}
+
+.search-icon {
+  width: 24px;
+  height: 24px;
+  position: static;
+  right: 20px;
+  top: 50%;
+}
+
+.form-button {
+  display: flex;
+  align-items: center;
+  background-color: #3692ff;
+  width: 133px;
+  height: 42px;
+  border-radius: 8px;
+  padding: 12px 23px 12px 23px;
+  gap: 10px;
+
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 26px;
+  letter-spacing: 0%;
+  color: white;
+  justify-content: center;
+  box-sizing: border-box;
+  white-space: nowrap;
+}
+
+.sort {
+  width: 130px;
+  height: 42px;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  padding: 12px 20px 12px 20px;
+  gap: 10px;
+}
