@@ -1,7 +1,3 @@
-import React from "react";
-import SearchForm from "./SearchForm";
-import Sorting from "./Sorting";
-
 const ProductList = ({ lists, type }) => {
   return (
     <ul className={`product__list ${type}`}>

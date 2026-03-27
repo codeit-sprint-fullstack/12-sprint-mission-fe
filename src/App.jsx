@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
+import { getProductList } from "./api/products.js";
+import usePageSize from "./hooks/usePageSize.js";
 import "./App.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import { getProductList } from "./api/products";
 import ProductList from "./components/ProductList";
+import SearchForm from "./components/SearchForm";
 import Pagination from "./components/Pagination";
-import usePageSize from "./hooks/usePageSize";
 import Sorting from "./components/Sorting";
 
 const App = () => {
@@ -16,22 +17,23 @@ const App = () => {
   const [sorting, setSorting] = useState("recent");
   const [isSortOpen, setIsSortOpen] = useState(false);
   const [keyword, setKeyword] = useState("");
-  const totalPageSize = usePageSize("total");
-  const bestPageSize = usePageSize("best");
+  const totalLimit = usePageSize("total");
+  const bestLimit = usePageSize("best");
+  const totalPages = Math.ceil(totalCount / totalLimit);
 
-  // console.log("total p s => ", totalPageSize, "/// best p s => ", bestPageSize);
+  // console.log("total p s => ", totalLimit, "/// best p s => ", bestLimit);
 
   useEffect(() => {
     const fetchProducts = async () => {
-      const data = await getProductList(page, totalPageSize, sorting, keyword);
-      const best = await getProductList(1, bestPageSize, "favorite");
+      const data = await getProductList(page, totalLimit, sorting, keyword);
+      const best = await getProductList(1, bestLimit, "favorite");
       setProducts(data.list);
       setBestProducts(best.list);
       setTotalCount(data.totalCount);
     };
 
     fetchProducts();
-  }, [page, sorting, keyword, totalPageSize, bestPageSize]);
+  }, [page, sorting, keyword, totalLimit, bestLimit]);
 
   const handleToggleSortList = () => {
     setIsSortOpen((prev) => !prev);
@@ -39,6 +41,7 @@ const App = () => {
 
   const handleChangeKeyword = (e) => {
     setKeyword(e.target.value);
+    setPage(1);
   };
 
   const handleChangeSorting = (sort) => {
@@ -46,10 +49,12 @@ const App = () => {
     setIsSortOpen((prev) => !prev);
   };
 
-  const handleClickPage = (target) => {
-    if (target === "prev" && page > 1) setPage((prev) => prev - 1);
-    if (target === "next" && page < Math.ceil(totalCount / totalPageSize) - 1)
-      setPage((prev) => prev + 1);
+  const handlePrevPage = () => {
+    setPage((prev) => prev - 1);
+  };
+
+  const handleNextPage = () => {
+    setPage((prev) => prev + 1);
   };
 
   return (
@@ -74,15 +79,11 @@ const App = () => {
                 <h2>판매 중인 상품</h2>
 
                 <div className="list-control-bar">
-                  <label htmlFor="searchKeyword" className="search-keyword">
-                    <input
-                      type="text"
-                      id="searchKeyword"
-                      value={keyword}
-                      onChange={handleChangeKeyword}
-                    />
-                    {keyword ? <></> : <span>검색할 상품을 입력해주세요</span>}
-                  </label>
+                  <SearchForm
+                    keyword={keyword}
+                    onChangeKeyword={handleChangeKeyword}
+                  />
+
                   <a
                     href=""
                     onClick={(e) => {
@@ -106,66 +107,13 @@ const App = () => {
 
               <ProductList lists={products} type="total" />
 
-              <div className="pagination">
-                <button
-                  onClick={() => {
-                    handleClickPage("prev");
-                  }}
-                  className="btn-page btn-prev"
-                >
-                  <span className="sr-only">이전</span>
-                </button>
-
-                <button
-                  onClick={() => {
-                    setPage(1);
-                  }}
-                  className={`btn-page ${page === 1 ? "current" : ""}`}
-                >
-                  1
-                </button>
-                <button
-                  onClick={() => {
-                    setPage(2);
-                  }}
-                  className={`btn-page ${page === 2 ? "current" : ""}`}
-                >
-                  2
-                </button>
-                <button
-                  onClick={() => {
-                    setPage(3);
-                  }}
-                  className={`btn-page ${page === 3 ? "current" : ""}`}
-                >
-                  3
-                </button>
-                <button
-                  onClick={() => {
-                    setPage(4);
-                  }}
-                  className={`btn-page ${page === 4 ? "current" : ""}`}
-                >
-                  4
-                </button>
-                <button
-                  onClick={() => {
-                    setPage(5);
-                  }}
-                  className={`btn-page ${page === 5 ? "current" : ""}`}
-                >
-                  5
-                </button>
-
-                <button
-                  onClick={() => {
-                    handleClickPage("next");
-                  }}
-                  className="btn-page btn-next"
-                >
-                  <span className="sr-only">다음</span>
-                </button>
-              </div>
+              <Pagination
+                page={page}
+                totalPages={totalPages}
+                onPrev={handlePrevPage}
+                onNext={handleNextPage}
+                onChangePage={setPage}
+              />
             </div>
           </section>
         </div>

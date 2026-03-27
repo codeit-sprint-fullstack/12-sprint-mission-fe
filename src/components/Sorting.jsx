@@ -1,5 +1,3 @@
-import React from "react";
-
 const Sorting = ({ sorting, isSortOpen, onToggle, onSorting }) => {
   return (
     <div className="sorting-ui">
