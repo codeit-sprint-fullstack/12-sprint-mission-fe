@@ -47,8 +47,6 @@
   border-radius: 12px;
   background: #f3f4f6;
 
-  box-sizing: border-box;
-
   color: #9ca3af;
 
   /* pretendard/lg-16px-regular */
@@ -103,7 +101,6 @@
   appearance: none;
 
   outline: none;
-  box-sizing: border-box;
 }
 .arrow {
   position: absolute;

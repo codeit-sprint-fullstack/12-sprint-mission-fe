@@ -3,11 +3,21 @@ body {
   font-family: "Pretendard", sans-serif;
   color: #374151;
   font-weight: 500;
-  font-size: 24px;
   min-width: 1200px;
 }
 
 a {
   text-decoration: none;
   cursor: pointer;
+  color: inherit;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "ROKAF Sans";
+  src: url("/fonts/ROKAFSansBold.woff2") format("woff2");
+  font-weight: 700;
 }

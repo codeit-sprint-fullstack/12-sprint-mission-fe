@@ -22,8 +22,6 @@
   gap: 10px;
 
   background: #f9fafb;
-
-  box-sizing: border-box;
 }
 .text {
   display: flex;

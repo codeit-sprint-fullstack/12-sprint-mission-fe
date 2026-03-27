@@ -13,28 +13,40 @@
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.flexCenter {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.navWrap {
+  display: inline-flex;
+  gap: 24px;
 }
 
 .logo {
-  gap: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
 }
 
 .logoPanda {
+  display: block;
   width: 40px;
-  margin-top: 5.02px;
 }
 
 .logoName {
   font-weight: 700;
   font-size: 25.63px;
+  line-height: 1;
   color: #3692ff;
-  white-space: nowrap;
+  font-family: "ROKAF Sans";
+
+  margin-top: 1px;
 }
 
+.navLink {
+  display: flex;
+  padding: 21px 15px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
 .btn {
   background-color: #3692ff;
   color: white;
