@@ -1,0 +1,45 @@
+.footer {
+  width: 100%;
+}
+
+.footer-nav {
+  background-color: #111827;
+  width: 100%;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  height: 10rem;
+  padding: 2rem 12.5rem 2rem 12.5rem;
+  gap: 0.625rem;
+  box-sizing: border-box;
+}
+
+.text-codeit-2024 {
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 100%;
+  color: #9ca3af;
+  font-family: Pretendard, sans-serif;
+}
+
+.footer-policy {
+  display: flex;
+  color: #e5e7eb;
+  gap: 1.875rem;
+  font-family: Pretendard, sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 100%;
+}
+
+.icons {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.icon {
+  width: 1.25rem;
+  height: 1.25rem;
+}
