@@ -1,0 +1,18 @@
+.main-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.best-prodct {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.sub-title {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 32px;
+  letter-spacing: 0%;
+}

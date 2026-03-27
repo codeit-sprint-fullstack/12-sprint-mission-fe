@@ -1,0 +1,40 @@
+.container {
+  display: flex;
+  gap: 24px;
+}
+
+.product-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.product-img {
+  width: 282px;
+  height: 282px;
+  border-radius: 16px;
+}
+
+.product-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.detail-title {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: 0%;
+}
+
+.detail-price {
+  font-weight: 700;
+  line-height: 26px;
+  letter-spacing: 0%;
+}
+
+.love-it {
+  display: flex;
+  gap: 4px;
+}
