@@ -1,0 +1,255 @@
+/* 모든 크기 단위가 rem으로 작성된 css 파일*/
+
+/*
+파일 설명
+
+기본적으로 요소의 배치는 모두 flexbox를 이용하여 배치됨.
+- 1개 요소의 경우에도 flexbox를 사용하여 배치함.
+- 한 섹션(큰 단위)의 전체 요소 묶음의 클래스 선택자 명은 container라고 작성함. (오직..대부분.. flexbox로 배치를 위한 용도)
+
+*/
+@import url(./color.css);
+
+/* 추가적인 reset css */
+/* -완전 중요- 
+  box-sizing은 상속되지 않는 속성이기 때문에, body태그 등 다른 태그 안에 넣는다고 해서자식태그들에 적용되지 않음.
+  따라서 전체 선택자인 *을 사용해야 한다!!!!!!!!!*/
+* {
+  box-sizing: border-box;
+  font-family: "Pretendard", Arial, sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: inherit; /*부모 요소의 색을 따름. 이렇게 안하면 기본색인 파란색이 됨..*/
+  cursor: pointer; /*근데 기본값으로 되어있는듯?*/
+}
+
+/* gnb 스타일 */
+.gnb {
+  /*layout*/
+  position: sticky;
+  top: 0;
+  height: 70px;
+  z-index: 1000;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+  /*style*/
+  border-bottom: 1px solid #dfdfdf;
+  background-color: #ffffff;
+}
+
+.gnb .container {
+  /*layout*/
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 9px 200px; /*이 패딩은 고정되어 있으므로, 화면 크기를 조정해도 변하지 않음.*/
+  /* width: 100%; 이거 해줘야 함!!아니면 로고,로그인버튼을 합친 콘텐츠 넓이가 얘의 넓이로 고정되어 버린다. 부모가 flex를 했으니 자식은 100%로 넓이를 차지해줘야함. */
+  /*이렇게 해주어야 1920보다 작아질때 어쩌고*/
+  max-width: 100%;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5313rem;
+}
+
+.nav-options .option {
+  padding: 21px 15px;
+
+  color: var(--secondary-color-gray600);
+  text-align: center;
+
+  /* pretendard/2lg-18px-bold */
+  font-family: Pretendard;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 26px; /* 144.444% */
+}
+
+.login-button {
+  width: 8rem;
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: var(--primary-color-100);
+  color: var(--secondary-color-gray100);
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.625rem;
+}
+
+/* main 스타일 */
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.intro-section,
+.outro-section {
+  background-color: #cfe5ff;
+  height: 33.75rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.intro-section .container,
+.outro-section .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.4375rem;
+}
+
+.intro-text-and-button {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.cta {
+  background-color: var(--primary-color-100);
+  border-width: 0;
+  border-radius: 2.5rem;
+  width: 22.3125rem;
+  height: 3.5rem;
+
+  color: var(--secondary-color-gray50);
+  font-size: 1.25rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.big-text {
+  color: var(--secondary-color-gray700);
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 140%;
+}
+
+.main-section {
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8.625rem;
+}
+
+/*section2에 직접 접근해서 할 수도 있지만..
+이렇게 하는 게 css에서 클래스명을 작성하기가 더 간단하기도 하고,
+나중에 우측정렬을 원하는 요소가 더 생겼을 때, 
+html의 class명만 추가해주면 되니까 더 코드 작성량이 적어지지 않을까? 라고 생각.
+(원하는 요소에 모두 text-align-right라고 적는 것보다)*/
+.text-align-right {
+  text-align: right;
+}
+
+.main-section .container {
+  background-color: #fcfcfc;
+  width: 63.125rem; /*피그마에선 988이었으나.. description 글자랑 비율이 안맞아서 1010px로 고침*/
+  height: 27.75rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+}
+
+.slogan {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.slogan-text-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.summation-text {
+  color: var(--primary-color-100);
+  font-size: 1.125rem;
+  line-height: 1.625rem;
+  font-weight: 700;
+}
+
+.description {
+  color: var(--secondary-color-gray700);
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 2rem;
+}
+
+.outro-section .container {
+  display: flex;
+  gap: 4.3125rem;
+}
+
+/* footer 스타일 */
+.footer {
+  background-color: var(--secondary-color-gray900);
+
+  height: 160px;
+  padding: 32px 0;
+}
+
+.footer .container {
+  width: 100%;
+  height: 100%;
+  padding: 0 200px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.since-text {
+  color: var(--secondary-color-gray400);
+  font-size: 1rem;
+  font-weight: 400;
+  flex-shrink: 0;
+}
+
+.privacy-and-faq {
+  color: var(--secondary-color-gray200);
+  font-size: 1rem;
+  font-weight: 400;
+
+  display: flex;
+  gap: 1.875rem;
+  flex-shrink: 0;
+}
+
+.sns-images {
+  height: 1.125rem; /*width는 내용물 크기에 맞춰 자동으로 설정되도록 함.*/
+  display: flex;
+  gap: 0.75rem;
+}
+
+/*media query를 쓰자*/
+@media (min-width: 1920px) {
+  .gnb .container,
+  .footer .container {
+    max-width: 1920px;
+    margin: 0 auto; /*1920px보다 커졌을 때 가운데 정렬을 위해*/
+  }
+}
