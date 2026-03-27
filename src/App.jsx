@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { getProductList } from "./api/products";
 import ProductList from "./components/ProductList";
+import Pagination from "./components/Pagination";
 
 const App = () => {
   const [products, setProducts] = useState([]);
@@ -140,6 +141,8 @@ const App = () => {
                   </li>
                 )}
               </ul>
+
+              <Pagination />
             </div>
           </section>
         </div>
