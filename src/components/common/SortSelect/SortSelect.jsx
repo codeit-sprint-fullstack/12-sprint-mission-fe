@@ -1,5 +1,6 @@
 import React from "react";
 import arrowIcon from "./ic-arrow.svg";
+import sortIcon from "./ic-sort.svg";
 import styles from "./SortSelect.module.css";
 
 export const SortSelect = ({ value, onChange }) => {
@@ -17,8 +18,16 @@ export const SortSelect = ({ value, onChange }) => {
         <option value="recent">최신순</option>
         <option value="favorite">좋아요순</option>
       </select>
-
-      <img src={arrowIcon} className={styles.arrow} alt="" />
+      <img
+        src={arrowIcon}
+        className={`${styles.arrow} ${styles.arrowDesktop}`}
+        alt=""
+      />
+      <img
+        src={sortIcon}
+        className={`${styles.arrow} ${styles.arrowMobile}`}
+        alt=""
+      />{" "}
     </div>
   );
 };
