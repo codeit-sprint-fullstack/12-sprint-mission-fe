@@ -1,11 +1,38 @@
 import React from "react";
 import styles from "./Pagination.module.css";
 
-function Pagination() {
+function Pagination({ page, totalCount, pageSize, setPage }) {
+  const totalPages = Math.ceil(totalCount / pageSize);
+
+  const pageGroup = Math.ceil(page / 5);
+  const startPage = (pageGroup - 1) * 5 + 1;
+  const endPage = Math.min(startPage + 4, totalPages);
+
+  const pages = [];
+  for (let i = startPage; i <= endPage; i++) {
+    pages.push(i);
+  }
+
+  function handlePrev() {
+    if (page > 1) {
+      setPage(page - 1);
+    }
+  }
+
+  function handleNext() {
+    if (page < totalPages) {
+      setPage(page + 1);
+    }
+  }
+
   return (
     <>
       <div className={styles.btnWrap}>
-        <button className={styles.btn}>
+        <button
+          className={styles.btn}
+          onClick={handlePrev}
+          disabled={page === 1}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
@@ -22,12 +49,21 @@ function Pagination() {
             />
           </svg>
         </button>
-        <button className={`${styles.btn} ${styles.btnPage}`}>1</button>
-        <button className={styles.btn}>2</button>
-        <button className={styles.btn}>3</button>
-        <button className={styles.btn}>4</button>
-        <button className={styles.btn}>5</button>
-        <button className={styles.btn}>
+        {pages.map((pageNumber) => (
+          <button
+            key={pageNumber}
+            className={`${styles.btn} ${page === pageNumber ? styles.btnPage : ""}`}
+            onClick={() => setPage(pageNumber)}
+          >
+            {pageNumber}
+          </button>
+        ))}
+
+        <button
+          className={styles.btn}
+          onClick={handleNext}
+          disabled={page === totalPages}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"

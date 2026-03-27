@@ -57,7 +57,12 @@ function MarketPage() {
             setKeyword={setKeyword}
           />
         </div>
-        <Pagination page={page} totalCount={totalCount} setPage={setPage} />
+        <Pagination
+          page={page}
+          totalCount={totalCount}
+          setPage={setPage}
+          pageSize={pageSize}
+        />
       </div>
       <Footer />
     </>
