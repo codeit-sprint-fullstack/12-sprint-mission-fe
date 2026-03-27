@@ -31,3 +31,9 @@
   border: 1px solid var(--primary-100, #3692ff);
   color: var(--secondary-800);
 }
+
+@media (max-width: 1199px) {
+  .input {
+    width: 15.125rem;
+  }
+}
