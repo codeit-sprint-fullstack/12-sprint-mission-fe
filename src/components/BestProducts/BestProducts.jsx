@@ -2,22 +2,12 @@ import React, { useState, useEffect } from "react";
 import { BestProductList } from "./BestProductList";
 import styles from "./BestProducts.module.css";
 import { getProducts } from "../../api/productsApi";
-
-const getPageSize = () => {
-  if (window.innerWidth <= 743) return 1;
-  if (window.innerWidth <= 1199) return 2;
-  return 4;
-};
+import { usePageSize } from "../../hooks/usePageSize";
 
 export const BestProducts = () => {
   const [products, setProducts] = useState([]);
-  const [pageSize, setPageSize] = useState(getPageSize);
 
-  useEffect(() => {
-    const handleResize = () => setPageSize(getPageSize());
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+  const pageSize = usePageSize({ mobile: 1, tablet: 2, desktop: 4 });
 
   useEffect(() => {
     const fetchProducts = async () => {

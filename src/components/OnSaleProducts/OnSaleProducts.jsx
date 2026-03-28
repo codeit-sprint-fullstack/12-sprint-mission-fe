@@ -4,29 +4,18 @@ import { getProducts } from "../../api/productsApi";
 import { Pagination } from "../common/Pagination/Pagination";
 import { OnSaleProductHeader } from "./OnSaleProductHeader";
 import { OnSaleProductList } from "./OnSaleProductList";
-
-const getPageSize = () => {
-  if (window.innerWidth <= 743) return 4;
-  if (window.innerWidth <= 1199) return 6;
-  return 10;
-};
+import { usePageSize } from "../../hooks/usePageSize";
 
 export const OnSaleProducts = () => {
   const [products, setProducts] = useState([]);
-  const [pageSize, setPageSize] = useState(getPageSize);
 
   const [sortBy, setSortBy] = useState("recent");
   const [keyword, setKeyword] = useState("");
   const [page, setPage] = useState(1);
   const [totalCount, setTotalCount] = useState(0);
 
+  const pageSize = usePageSize({ mobile: 4, tablet: 6, desktop: 10 });
   const totalPages = Math.ceil(totalCount / 10);
-
-  useEffect(() => {
-    const handleResize = () => setPageSize(getPageSize());
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
 
   useEffect(() => {
     const fetchProducts = async (params) => {
