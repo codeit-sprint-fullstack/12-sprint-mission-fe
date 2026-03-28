@@ -17,7 +17,24 @@ function MarketPage() {
 
   useEffect(() => {
     setPage(1);
-  }, [orderBy, keyword]);
+  }, [orderBy, keyword, pageSize]);
+
+  useEffect(() => {
+    function updatePageSize() {
+      if (window.innerWidth <= 744) {
+        setPageSize(8);
+      } else if (window.innerWidth <= 1200) {
+        setPageSize(9);
+      } else {
+        setPageSize(10);
+      }
+    }
+
+    updatePageSize();
+    window.addEventListener("resize", updatePageSize);
+
+    return () => window.removeEventListener("resize", updatePageSize);
+  }, []);
 
   useEffect(() => {
     async function loadProducts() {
