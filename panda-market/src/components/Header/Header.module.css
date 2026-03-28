@@ -72,23 +72,17 @@
   height: 48px;
   font-size: 16px;
 }
-
 @media (max-width: 1200px) {
   .inner {
     padding: 9px 24px 0 24px;
   }
 
   .navWrap {
-    gap: 20px;
-  }
-
-  .nav {
     gap: 16px;
   }
 
   .logoPanda {
     width: 32px;
-    height: 32px;
   }
 
   .logoName {
@@ -109,34 +103,40 @@
 
 @media (max-width: 744px) {
   .inner {
-    padding: 9px 16px 0 16px;
+    padding: 8px 16px 0 16px;
   }
 
   .navWrap {
     gap: 12px;
   }
 
-  .nav {
-    gap: 8px;
+  .logo {
+    gap: 0;
   }
 
   .logoPanda {
-    width: 24px;
-    height: 24px;
+    display: none;
   }
 
   .logoName {
     font-size: 18px;
+    margin-top: 0;
+  }
+
+  .nav {
+    gap: 0;
   }
 
   .navLink {
     padding: 12px 6px;
     font-size: 12px;
+    white-space: nowrap;
   }
 
   .btn {
-    width: 72px;
-    height: 36px;
-    font-size: 14px;
+    width: 60px;
+    height: 32px;
+    font-size: 12px;
+    border-radius: 6px;
   }
 }
