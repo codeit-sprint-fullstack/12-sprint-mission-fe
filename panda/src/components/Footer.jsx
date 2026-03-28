@@ -4,13 +4,14 @@ import Facebook from "../assets/images/social/facebook-logo.svg";
 import Twitter from "../assets/images/social/twitter-logo.svg";
 import Youtube from "../assets/images/social/youtube-logo.svg";
 import Instagram from "../assets/images/social/instagram-logo.svg";
+import "./Footer.css";
 
 const Footer = () => {
   return (
-    <footer>
-      <div>
-        <p>©codeit - 2026</p>
-        <ul>
+    <footer className="footer">
+      <div className="footer-inner">
+        <p className="copyright">©codeit - 2026</p>
+        <ul className="footer-center">
           <li>
             <Link to="/privacy">Privacy Policy</Link>
           </li>
@@ -18,7 +19,7 @@ const Footer = () => {
             <Link to="/faq">FAQ</Link>
           </li>
         </ul>
-        <ul>
+        <ul className="footer-left">
           <li>
             <Link
               to="https://facebook.com"
