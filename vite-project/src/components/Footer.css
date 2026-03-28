@@ -55,5 +55,18 @@
 @media (max-width: 375px) {
   .footer-content {
     padding: 2rem 16px 2rem 16px;
+    gap: 24px;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .footer-content-top {
+    display: flex;
+    gap: 68px;
+  }
+
+  .footer-policy {
+    gap: 30px;
+    white-space: nowrap;
   }
 }

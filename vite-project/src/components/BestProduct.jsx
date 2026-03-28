@@ -5,7 +5,9 @@ import "./BestProduct.css";
 const BestProduct = ({ page, orderBy }) => {
   const [product, setProduct] = useState([]);
 
-  const [pageSize, setPageSize] = useState(window.innerWidth <= 744 ? 2 : 4);
+  const [pageSize, setPageSize] = useState(
+    window.innerWidth <= 375 ? 1 : window.innerWidth <= 744 ? 2 : 4,
+  );
   async function getProduct() {
     try {
       const res = await fetch(
@@ -20,7 +22,9 @@ const BestProduct = ({ page, orderBy }) => {
 
   useEffect(() => {
     function handleResize() {
-      setPageSize(window.innerWidth <= 744 ? 2 : 4);
+      setPageSize(
+        window.innerWidth <= 375 ? 1 : window.innerWidth <= 744 ? 6 : 10,
+      );
     }
 
     window.addEventListener("resize", handleResize);

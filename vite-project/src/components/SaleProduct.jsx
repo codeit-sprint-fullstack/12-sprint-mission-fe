@@ -3,6 +3,7 @@ import heart from "../assets/img/heart.png";
 import "./SaleProduct.css";
 import { Link } from "react-router-dom";
 import search from "../assets/img/search.png";
+import btn_sort from "../assets/img/btn_sort.png";
 
 const SaleProduct = () => {
   const [product, setProduct] = useState([]);
@@ -10,8 +11,9 @@ const SaleProduct = () => {
   const [page, setPage] = useState(1);
   const [orderBy, setOrderBy] = useState("recent");
   const [keyword, setKeyword] = useState("");
-  const [pageSize, setPageSize] = useState(window.innerWidth <= 744 ? 6 : 10);
-
+  const [pageSize, setPageSize] = useState(
+    window.innerWidth <= 375 ? 4 : window.innerWidth <= 744 ? 6 : 10,
+  );
   async function getProduct() {
     try {
       const res = await fetch(
@@ -27,18 +29,6 @@ const SaleProduct = () => {
   }
 
   useEffect(() => {
-    function handleResize() {
-      setPageSize(window.innerWidth <= 744 ? 6 : 10);
-    }
-
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
-
-  useEffect(() => {
     getProduct();
   }, [page, orderBy, keyword, pageSize]);
 
@@ -52,35 +42,87 @@ const SaleProduct = () => {
     (_, i) => startPage + i,
   );
 
+  const [layout, setLayout] = useState(window.innerWidth <= 375);
+
+  useEffect(() => {
+    function handleResize() {
+      setLayout(window.innerWidth <= 375);
+      setPageSize(
+        window.innerWidth <= 375 ? 4 : window.innerWidth <= 744 ? 6 : 10,
+      );
+    }
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
     <>
       <section className="title-container">
-        <p className="sub-title">판매 중인 상품</p>
-        <div className="filter-container">
-          <div className="form">
-            <div className="form-wipper">
-              <img className="search-icon" src={search} />
-              <input
-                placeholder="검색할 상품을 입력해주세요"
-                onChange={(e) => {
-                  setKeyword(e.target.value);
-                }}
-              />
+        {layout ? (
+          <div className="filter">
+            <div className="filter-top">
+              <p className="sub-title">판매 중인 상품</p>
+              <Link className="form-button">상품 등록하기</Link>
             </div>
-            <Link className="form-button">상품 등록하기</Link>
-            <select
-              className="sort"
-              value={orderBy}
-              onChange={(e) => {
-                setOrderBy(e.target.value);
-                setPage(1);
-              }}
-            >
-              <option value="recent">최신순</option>
-              <option value="favorite">좋아요순</option>
-            </select>
+            <div className="filter-container">
+              <div className="form">
+                <div className="form-wipper">
+                  <img className="search-icon" src={search} />
+                  <input
+                    placeholder="검색할 상품을 입력해주세요"
+                    onChange={(e) => {
+                      setKeyword(e.target.value);
+                    }}
+                  />
+                </div>
+                <select
+                  className="sort"
+                  value={orderBy}
+                  onChange={(e) => {
+                    setOrderBy(e.target.value);
+                    setPage(1);
+                  }}
+                >
+                  <option value="recent">최신순</option>
+                  <option value="favorite">좋아요순</option>
+                </select>
+              </div>
+            </div>
           </div>
-        </div>
+        ) : (
+          <>
+            <p className="sub-title">판매 중인 상품</p>
+            <div className="filter-container">
+              <div className="form">
+                <Link className="form-button">상품 등록하기</Link>
+                <div className="form-wipper">
+                  <img className="search-icon" src={search} />
+                  <input
+                    placeholder="검색할 상품을 입력해주세요"
+                    onChange={(e) => {
+                      setKeyword(e.target.value);
+                    }}
+                  />
+                </div>
+                <select
+                  className="sort"
+                  value={orderBy}
+                  onChange={(e) => {
+                    setOrderBy(e.target.value);
+                    setPage(1);
+                  }}
+                >
+                  <option value="recent">최신순</option>
+                  <option value="favorite">좋아요순</option>
+                </select>
+              </div>
+            </div>
+          </>
+        )}
       </section>
       <section className="sale-container">
         {product.map((t) => {

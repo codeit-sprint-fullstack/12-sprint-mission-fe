@@ -151,6 +151,7 @@ input::placeholder {
   padding: 12px 20px 12px 20px;
   gap: 10px;
 }
+
 @media (max-width: 744px) {
   .sale-container {
     grid-template-columns: repeat(3, 1fr);
@@ -158,5 +159,43 @@ input::placeholder {
   }
   .form-wipper {
     width: 242px;
+  }
+}
+
+@media (max-width: 375px) {
+  .filter {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .filter-top {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .sale-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+  .form-wipper {
+    width: 288px;
+  }
+
+  .sale-product-img {
+    width: 168px;
+    height: 168px;
+    border-radius: 12px;
+  }
+
+  .sort {
+    width: 80px;
+    height: 42 px;
+    border-radius: 12px;
+    padding: 9px;
+    gap: 10px;
+  }
+  .form-wipper {
+    width: 255px;
   }
 }
