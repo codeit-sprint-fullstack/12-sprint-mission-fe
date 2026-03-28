@@ -12,6 +12,9 @@ export const ProductCard = ({ type, item }) => {
         className={`${styles.thumbnail} ${styles[type]}`}
         src={thumbnailUrl}
         alt={item.name}
+        onError={(e) => {
+          e.target.src = defaultImg;
+        }}
       />
 
       <div className={styles.content}>
