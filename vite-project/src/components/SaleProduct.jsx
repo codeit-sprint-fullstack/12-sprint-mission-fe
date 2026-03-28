@@ -3,7 +3,6 @@ import heart from "../assets/img/heart.png";
 import "./SaleProduct.css";
 import { Link } from "react-router-dom";
 import search from "../assets/img/search.png";
-import btn_sort from "../assets/img/btn_sort.png";
 
 const SaleProduct = () => {
   const [product, setProduct] = useState([]);
@@ -11,9 +10,12 @@ const SaleProduct = () => {
   const [page, setPage] = useState(1);
   const [orderBy, setOrderBy] = useState("recent");
   const [keyword, setKeyword] = useState("");
-  const [pageSize, setPageSize] = useState(
-    window.innerWidth <= 375 ? 4 : window.innerWidth <= 744 ? 6 : 10,
-  );
+  // const [pageSize, setPageSize] = useState(
+  //   window.innerWidth <= 375 ? 4 : window.innerWidth <= 744 ? 6 : 10,
+  // );
+  const pageSize =
+    window.innerWidth <= 375 ? 4 : window.innerWidth <= 744 ? 6 : 10;
+
   async function getProduct() {
     try {
       const res = await fetch(
@@ -42,22 +44,7 @@ const SaleProduct = () => {
     (_, i) => startPage + i,
   );
 
-  const [layout, setLayout] = useState(window.innerWidth <= 375);
-
-  useEffect(() => {
-    function handleResize() {
-      setLayout(window.innerWidth <= 375);
-      setPageSize(
-        window.innerWidth <= 375 ? 4 : window.innerWidth <= 744 ? 6 : 10,
-      );
-    }
-
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
+  const layout = window.innerWidth <= 375;
 
   return (
     <>
