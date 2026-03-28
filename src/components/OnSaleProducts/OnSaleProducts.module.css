@@ -1,7 +1,17 @@
 .section {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 1.5rem;
-  margin-bottom: 2.69rem;
+  margin-bottom: 8.75rem;
+}
+
+@media (max-width: 1199px) {
+  .section {
+    margin-bottom: 10.31rem;
+  }
+}
+
+@media (max-width: 743px) {
+  .section {
+    margin-bottom: 8.44rem;
+  }
 }

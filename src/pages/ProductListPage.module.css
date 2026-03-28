@@ -4,5 +4,19 @@
   align-items: center;
   justify-content: center;
   gap: 2.5rem;
-  margin-top: 1.63rem;
+  padding-top: 1.63rem;
+}
+
+@media (max-width: 1199px) {
+  .container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (max-width: 743px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
 }
