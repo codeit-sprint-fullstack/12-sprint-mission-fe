@@ -1,13 +1,12 @@
 import axios from "axios";
 
 const BASE_URL = "https://panda-market-api.vercel.app";
-const RESOURCE = "/products";
 
-export async function request(path, options = {}) {
+export async function request(url, options = {}) {
   try {
     const res = await axios({
       baseURL: BASE_URL,
-      url: `${RESOURCE}${path}`,
+      url,
       method: options.method || "GET",
       data: options.body,
       params: options.params,
