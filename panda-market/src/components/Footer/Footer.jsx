@@ -8,7 +8,9 @@ import styles from "./Footer.module.css";
 function Footer() {
   return (
     <footer className={styles.etc}>
-      <p className={styles.codeit}>ⓒcodeit - 2024</p>
+      <div className={styles.codeit}>
+        <p>ⓒcodeit - 2024</p>
+      </div>
       <div className={styles.etcLink}>
         <a className={styles.etcText} href="/">
           Privacy Policy
