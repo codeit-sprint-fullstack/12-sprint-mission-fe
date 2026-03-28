@@ -15,7 +15,7 @@ export const OnSaleProducts = () => {
   const [totalCount, setTotalCount] = useState(0);
 
   const pageSize = usePageSize({ mobile: 4, tablet: 6, desktop: 10 });
-  const totalPages = Math.ceil(totalCount / 10);
+  const totalPages = Math.ceil(totalCount / pageSize);
 
   useEffect(() => {
     const fetchProducts = async (params) => {
