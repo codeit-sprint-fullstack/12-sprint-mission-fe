@@ -1,0 +1,39 @@
+.section {
+  margin-bottom: 40px;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 20px;
+}
+
+/* Desktop: 4열 */
+.grid {
+  display: grid;
+  gap: 20px 16px;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+/* Tablet: 2열 */
+@media (max-width: 1199px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile: 1열 */
+@media (max-width: 767px) {
+  .title {
+    font-size: 18px;
+  }
+  .grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+.error {
+  color: #ef4444;
+  font-size: 14px;
+}

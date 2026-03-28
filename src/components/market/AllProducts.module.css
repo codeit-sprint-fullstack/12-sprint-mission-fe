@@ -1,0 +1,134 @@
+.section {
+  margin-bottom: 64px;
+}
+
+/* ── 컨트롤 행 ── */
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #111827;
+  margin: 0;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.searchWrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  margin-left: auto;
+  flex: 0 0 auto;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 16px;
+  pointer-events: none;
+  flex-shrink: 0;
+}
+
+.searchInput {
+  width: 150%;
+  padding: 10px 16px 10px 48px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #374151;
+  background: #f9fafb;
+  transition:
+    border-color 0.15s,
+    background 0.15s;
+  box-sizing: border-box;
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: #3692ff;
+  background: #ffffff;
+}
+
+.searchInput::placeholder {
+  color: #9ca3af;
+}
+
+.addBtn {
+  padding: 10px 20px;
+  background: #3692ff;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: background 0.15s;
+}
+
+.addBtn:hover {
+  background: #1a7de6;
+}
+
+/* ── 상품 그리드 ── */
+/* Desktop: 5열 */
+.grid {
+  display: grid;
+  gap: 20px 16px;
+  grid-template-columns: repeat(5, 1fr);
+}
+
+/* Tablet: 3열 */
+@media (max-width: 1199px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Mobile: 2열 */
+@media (max-width: 767px) {
+  .controls {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .title {
+    font-size: 18px;
+  }
+
+  /* 모바일: 타이틀 | 등록버튼 한 줄, 검색+드롭다운 두번째 줄 */
+  .searchWrap {
+    order: 3;
+    flex-basis: calc(100% - 130px);
+  }
+
+  .addBtn {
+    margin-left: auto;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px 12px;
+  }
+}
+
+.error {
+  color: #ef4444;
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+.empty {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: #9ca3af;
+  font-size: 15px;
+  padding: 60px 0;
+}

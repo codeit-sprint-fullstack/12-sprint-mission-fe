@@ -1,0 +1,20 @@
+.main {
+  flex: 1;
+  padding: 40px 0 60px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+@media (max-width: 767px) {
+  .main {
+    padding: 24px 0 48px;
+  }
+
+  .container {
+    padding: 0 16px;
+  }
+}
