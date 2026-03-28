@@ -1,40 +1,25 @@
-import React, { useEffect, useState } from "react";
-import styles from "./OnSaleProducts.module.css";
-import { getProducts } from "../../api/productsApi";
+import React, { useState } from "react";
+import { usePageSize } from "../../hooks/usePageSize";
+import { useProducts } from "../../hooks/useProducts";
 import { Pagination } from "../common/Pagination/Pagination";
 import { OnSaleProductHeader } from "./OnSaleProductHeader";
 import { OnSaleProductList } from "./OnSaleProductList";
-import { usePageSize } from "../../hooks/usePageSize";
+import styles from "./OnSaleProducts.module.css";
 
 export const OnSaleProducts = () => {
-  const [products, setProducts] = useState([]);
-
   const [sortBy, setSortBy] = useState("recent");
   const [keyword, setKeyword] = useState("");
   const [page, setPage] = useState(1);
-  const [totalCount, setTotalCount] = useState(0);
 
   const pageSize = usePageSize({ mobile: 4, tablet: 6, desktop: 10 });
+  const { products, totalCount } = useProducts({
+    orderBy: sortBy,
+    keyword,
+    page,
+    pageSize,
+  });
+
   const totalPages = Math.ceil(totalCount / pageSize);
-
-  useEffect(() => {
-    const fetchProducts = async (params) => {
-      try {
-        const data = await getProducts(params);
-        setProducts(data.list);
-        setTotalCount(data.totalCount);
-      } catch (error) {
-        console.log(error.message);
-      }
-    };
-
-    fetchProducts({
-      orderBy: sortBy,
-      keyword,
-      page,
-      pageSize,
-    });
-  }, [sortBy, keyword, page, pageSize]);
 
   return (
     <section className={styles.section}>

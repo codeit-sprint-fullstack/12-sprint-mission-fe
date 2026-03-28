@@ -1,25 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
+import { usePageSize } from "../../hooks/usePageSize";
+import { useProducts } from "../../hooks/useProducts";
 import { BestProductList } from "./BestProductList";
 import styles from "./BestProducts.module.css";
-import { getProducts } from "../../api/productsApi";
-import { usePageSize } from "../../hooks/usePageSize";
 
 export const BestProducts = () => {
-  const [products, setProducts] = useState([]);
-
   const pageSize = usePageSize({ mobile: 1, tablet: 2, desktop: 4 });
-
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const data = await getProducts({ pageSize, orderBy: "favorite" });
-        setProducts(data.list);
-      } catch (error) {
-        console.error(error.message);
-      }
-    };
-    fetchProducts();
-  }, [pageSize]);
+  const { products } = useProducts({ pageSize, orderBy: "favorite" });
 
   return (
     <section className={styles.section}>
