@@ -6,6 +6,7 @@
 .footer-nav {
   background-color: #111827;
   width: 100%;
+  box-sizing: border-box;
 }
 
 .footer-content {
@@ -43,4 +44,16 @@
 .icon {
   width: 1.25rem;
   height: 1.25rem;
+}
+
+@media (max-width: 744px) {
+  .footer-content {
+    padding: 2rem 24px 2rem 24px;
+  }
+}
+
+@media (max-width: 375px) {
+  .footer-content {
+    padding: 2rem 16px 2rem 16px;
+  }
 }

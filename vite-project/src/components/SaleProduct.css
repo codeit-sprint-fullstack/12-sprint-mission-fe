@@ -7,13 +7,13 @@ button {
   display: grid;
   gap: 24px;
   grid-template-columns: repeat(5, 1fr);
+  justify-items: start;
 }
 
 .sale-product-container {
   display: flex;
   flex-direction: column;
   gap: 16px;
-  background-color: black;
 }
 
 .sale-product-img {
@@ -154,6 +154,9 @@ input::placeholder {
 @media (max-width: 744px) {
   .sale-container {
     grid-template-columns: repeat(3, 1fr);
-    gap: 0;
+    gap: 16px;
+  }
+  .form-wipper {
+    width: 242px;
   }
 }
