@@ -17,8 +17,8 @@ export const Header = () => {
 
           <nav>
             <ul className={styles.menu}>
-              <li className={`text-2lg-bold ${styles.menuItem}`}>자유게시판</li>
-              <li className={`text-2lg-bold ${styles.menuItem}`}>중고마켓</li>
+              <li className={`${styles.menuItem}`}>자유게시판</li>
+              <li className={`${styles.menuItem}`}>중고마켓</li>
             </ul>
           </nav>
         </div>
