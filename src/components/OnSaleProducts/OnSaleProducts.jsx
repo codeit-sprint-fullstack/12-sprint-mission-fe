@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { usePageSize } from "../../hooks/usePageSize";
 import { useProducts } from "../../hooks/useProducts";
 import { Pagination } from "../common/Pagination/Pagination";
+import { ProductCard } from "../common/ProductCard/ProductCard";
 import { OnSaleProductHeader } from "./OnSaleProductHeader";
-import { OnSaleProductList } from "./OnSaleProductList";
 import styles from "./OnSaleProducts.module.css";
 
 export const OnSaleProducts = () => {
@@ -29,7 +29,11 @@ export const OnSaleProducts = () => {
         sortBy={sortBy}
         onSortChange={setSortBy}
       />
-      <OnSaleProductList products={products} />
+      <ul className={styles.productList}>
+        {products.map((item) => (
+          <ProductCard key={item.id} item={item} type="general" />
+        ))}
+      </ul>
       <Pagination page={page} onPageChange={setPage} totalPages={totalPages} />
     </section>
   );

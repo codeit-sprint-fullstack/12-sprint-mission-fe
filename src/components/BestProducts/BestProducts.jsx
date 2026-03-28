@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { usePageSize } from "../../hooks/usePageSize";
 import { useProducts } from "../../hooks/useProducts";
-import { BestProductList } from "./BestProductList";
+import { ProductCard } from "../common/ProductCard/ProductCard";
 import styles from "./BestProducts.module.css";
 
 export const BestProducts = () => {
@@ -10,8 +10,12 @@ export const BestProducts = () => {
 
   return (
     <section className={styles.section}>
-      <h2 className={`${styles.title} text-xl-bold`}>베스트 상품</h2>
-      <BestProductList products={products} />
+      <h2 className={`text-xl-bold ${styles.title}`}>베스트 상품</h2>
+      <ul className={styles.productList}>
+        {products.map((item) => (
+          <ProductCard key={item.id} item={item} type="best" />
+        ))}
+      </ul>
     </section>
   );
 };
