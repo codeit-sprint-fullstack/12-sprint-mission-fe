@@ -123,16 +123,18 @@ const ProductList = () => {
           <button
             onClick={() => setPage((p) => Math.max(1, p - 1))}
             style={{
+              width: "40px",
+              height: "40px",
               border: "1px solid #E5E7EB",
               background: "#fff",
               padding: "8px 12px",
-              borderRadius: "8px",
+              borderRadius: "50%",
               cursor: "pointer",
             }}
           >
             &lt;
           </button>
-          {[1, 2, 3].map((num) => (
+          {[1, 2, 3, 4, 5].map((num) => (
             <button
               key={num}
               onClick={() => setPage(num)}
@@ -140,9 +142,9 @@ const ProductList = () => {
                 width: "40px",
                 height: "40px",
                 borderRadius: "50%",
-                border: "none",
+                border: "1px solid #E5E7EB",
                 cursor: "pointer",
-                backgroundColor: page === num ? "#3692FF" : "transparent",
+                backgroundColor: page === num ? "#3692FF" : "#fff",
                 color: page === num ? "#fff" : "#6B7280",
               }}
             >
@@ -152,10 +154,12 @@ const ProductList = () => {
           <button
             onClick={() => setPage((p) => p + 1)}
             style={{
+              width: "40px",
+              height: "40px",
               border: "1px solid #E5E7EB",
               background: "#fff",
               padding: "8px 12px",
-              borderRadius: "8px",
+              borderRadius: "50%",
               cursor: "pointer",
             }}
           >

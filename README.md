@@ -1,16 +1,71 @@
-# React + Vite
+# 스프린트 미션4
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 📌 프로젝트 소개
 
-Currently, two official plugins are available:
+리액트를 사용하여 페이지를 작성하라는 스프린트 요구사항을 반영하여 좋아요가 가장 많은 상품을 베스트 상품 섹션에, 전체 상품을 판매중인 상품 섹션에 나열한 페이지를 구성함
+나열된 전체 상품은 정렬 기능을 통해 좋아요 수 혹은 등록 순으로 순서를 변경하여 볼 수 있음
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🛠 사용 기술
 
-## React Compiler
+- HTML, CSS, React(jsx)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠 사용 협업툴
 
-## Expanding the ESLint configuration
+- Git, Github
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🚀 주요 기능
+
+# 1. App.jsx
+
+- 레이아웃(Layout.jsx), 베스트 상품(BestList.jsx), 판매 중인 상품(ProductList.jsx)을 Components 폴더 내에 분리하여 컴포넌트로 생성하고, App.jsx에는 컴포넌트들을 불러와 합쳐지도록 함
+- 각각 페이지에 시멘틱 태그 적용하여 SEO를 고려함
+
+# 2. Layout.jsx / App.css
+
+- 기존 판다 랜딩 페이지 내에서 만들었던 헤더와 푸터를 가져와서 대입함
+- 헤더와 푸터 사이 메인 부분에는 신규 작성할 섹션(베스트 상품,판매중 상품)이 대입될 수 있도록 변수 처리함
+- App.css에는 기존에 작성했던 css 내용을 기입함 (다른 jsx 파일은 인라인 스타일 적용)
+
+# 3. BestList.jsx
+
+- Fetch로 서버 데이터 get을 명령하고, useEffect Hook을 사용하여 딱 한 번만 호출되도록 함
+- useState Hook을 사용하여 서버에서 좋아요가 많은 상품 4개를 새 배열에 저장하고 출력함(주소 파라미터 활용)
+- 그리드 레이아웃 속성을 사용하여 4개의 상품 카드를 가로로 균등하게 배치함
+- 정사각형 비율로 이미지를 불러와 깔끔하게 정렬되도록 설정함
+
+# 4. ProductList.jsx
+
+- keyword(검색어), orderBy(정렬 상태), page(현재 페이지)를 useState Hook을 사용하여 관리함
+- useEffect 의존성 배열 칸에 page와 orderBy를 추가하여, 사용자가 페이지를 넘기거나 정렬 순서를 바꿀 때마다 조건에 맞는 fetchProducts 함수(상품 불러오기)가 실행되도록 구현함
+- 검색 시 결과 화면이 1페이지부터 로드되도록 onSubmit 이벤트에 setPage(1) 로직을 추가함
+- 그리드 레이아웃 속성을 사용하여 5개의 상품 카드를 가로로 균등하게 배치함
+- 페이지네이션을 구현하여 하단 숫자 버튼과 이전/다음(<, >) 버튼을 통해 page가 변경되도록 구현함
+- 현재 페이지 번호에 조건부 스타일링을 적용함
+
+## ✔셀프 체크리스트
+
+### 요구사항
+
+1. 기본 요구사항
+   [공통]
+   [ ] Github에 스프린트 미션 PR을 만들어 주세요.
+   [] React를 사용해 진행합니다.
+
+[중고마켓 페이지]
+[ ] PC, Tablet, Mobile 디자인에 해당하는 중고마켓 페이지를 만들어 주세요.
+
+[ ] 중고마켓 페이지 url path는 별도로 설정하지 않고, '/'에 보이도록 합니다.
+
+[ ] 상단 네비게이션 바, 푸터는 랜딩 페이지와 동일한 스타일과 규칙으로 만들어주세요.
+
+[ ] 상품 데이터는 https://panda-market-api.vercel.app/docs/에 명세된 GET 메소드 "/products" 를 활용해주세요.
+
+[ ] 상품 목록 페이지네이션 기능을 구현합니다.
+[ ] 드롭 다운으로 "최신 순" 또는 "좋아요 순"을 선택해서 정렬을 구현하세요.
+[ ] 상품 목록 검색 기능을 구현합니다.
+[ ] 베스트 상품 데이터는 https://panda-market-api.vercel.app/docs/에 명세된 GET 메소드 "/products"의 정렬 기준 favorite을 사용해주세요.
+
+2. 심화 요구사항
+
+[v] 커스텀 hook을 만들어 필요한 곳에 활용해 보세요.
+[x]] 중고 마켓의 카드 컴포넌트에 반응형에 따른 페이지 네이션 기능을 구현합니다.
