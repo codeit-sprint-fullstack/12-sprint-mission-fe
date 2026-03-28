@@ -1,0 +1,88 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  height: 70px;
+}
+
+.inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.logoText {
+  font-size: 20px;
+  font-weight: 800;
+  color: #3692ff;
+  letter-spacing: -0.5px;
+}
+
+.nav {
+  display: flex;
+  gap: 24px;
+  flex: 1;
+}
+
+.navLink {
+  font-size: 16px;
+  font-weight: 600;
+  color: #4b5563;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.navLink:hover {
+  color: #3692ff;
+}
+
+.loginBtn {
+  padding: 10px 24px;
+  background: #3692ff;
+  color: #ffffff;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background 0.15s;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.loginBtn:hover {
+  background: #1a7de6;
+}
+
+@media (max-width: 767px) {
+  .inner {
+    padding: 0 16px;
+    gap: 12px;
+  }
+  .logoText {
+    font-size: 17px;
+  }
+  .navLink {
+    font-size: 14px;
+  }
+  .nav {
+    gap: 16px;
+  }
+  .loginBtn {
+    padding: 8px 16px;
+    font-size: 13px;
+  }
+}
