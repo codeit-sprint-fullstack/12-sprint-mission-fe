@@ -1,0 +1,19 @@
+:root {
+  font-family: "Pretendard", sans-serif;
+  background-color: #ffffff;
+}
+
+body {
+  margin: 0;
+  display: block; /* Vite 기본 flex 제거 */
+}
+
+#root {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+
+a { text-decoration: none; color: inherit; }
