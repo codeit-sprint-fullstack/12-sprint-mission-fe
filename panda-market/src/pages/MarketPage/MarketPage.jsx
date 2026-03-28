@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import BestProducts from "../../components/BestProducts/BestProducts";
-import ProductCard from "../../components/ProductCard/ProductCard";
 import ProductList from "../../components/ProductList/ProductList";
 import Pagination from "../../components/Pagination/Pagination";
 import styles from "./MarketPage.module.css";
@@ -15,6 +14,10 @@ function MarketPage() {
   const [products, setProducts] = useState([]);
   const [totalCount, setTotalCount] = useState(0);
   const [bestProducts, setBestProducts] = useState([]);
+
+  useEffect(() => {
+    setPage(1);
+  }, [orderBy, keyword]);
 
   useEffect(() => {
     async function loadProducts() {

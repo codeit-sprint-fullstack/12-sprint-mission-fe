@@ -1,13 +1,19 @@
 .contentsWrap {
-  display: inline-flex;
+  display: flex;
   flex-direction: column;
   align-items: center;
-
-  margin: 26px 360px 223px 360px;
   gap: 43px;
+
+  width: 100%;
+  max-width: 1200px;
+  margin: 26px auto 223px;
+  padding: 0 24px;
+  box-sizing: border-box;
 }
+
 .productsWrap {
   display: flex;
   flex-direction: column;
   gap: 40px;
+  width: 100%;
 }

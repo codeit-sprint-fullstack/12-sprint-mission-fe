@@ -13,7 +13,7 @@ function BestProducts({ bestProducts }) {
               key={product.id}
               title={product.name}
               price={product.price}
-              heartCount={product.heartCount}
+              favoriteCount={product.favoriteCount}
               image={product.images?.[0]}
             />
           ))}

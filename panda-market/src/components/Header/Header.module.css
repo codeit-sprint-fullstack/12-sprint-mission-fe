@@ -1,22 +1,29 @@
 .head {
+  width: 100%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background: #fff;
+
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.inner {
   display: flex;
   justify-content: space-between;
   align-items: center;
 
-  position: sticky;
-  top: 0;
-  left: 0;
-  right: 0;
-
-  padding: 9px 200px;
-  z-index: 100;
-  background-color: white;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 9px 200px 0 200px;
 }
 
 .navWrap {
-  display: inline-flex;
+  display: flex;
+  align-items: center;
   gap: 24px;
+}
+
+.nav {
+  display: flex;
 }
 
 .logo {
@@ -37,7 +44,6 @@
   line-height: 1;
   color: #3692ff;
   font-family: "ROKAF Sans";
-
   margin-top: 1px;
 }
 
@@ -48,6 +54,7 @@
   align-items: center;
   gap: 10px;
 }
+
 .btn {
   background-color: #3692ff;
   color: white;
@@ -64,4 +71,72 @@
   width: 128px;
   height: 48px;
   font-size: 16px;
+}
+
+@media (max-width: 1200px) {
+  .inner {
+    padding: 9px 24px 0 24px;
+  }
+
+  .navWrap {
+    gap: 20px;
+  }
+
+  .nav {
+    gap: 16px;
+  }
+
+  .logoPanda {
+    width: 32px;
+    height: 32px;
+  }
+
+  .logoName {
+    font-size: 22px;
+  }
+
+  .navLink {
+    padding: 18px 10px;
+    font-size: 14px;
+  }
+
+  .btn {
+    width: 88px;
+    height: 42px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 744px) {
+  .inner {
+    padding: 9px 16px 0 16px;
+  }
+
+  .navWrap {
+    gap: 12px;
+  }
+
+  .nav {
+    gap: 8px;
+  }
+
+  .logoPanda {
+    width: 24px;
+    height: 24px;
+  }
+
+  .logoName {
+    font-size: 18px;
+  }
+
+  .navLink {
+    padding: 12px 6px;
+    font-size: 12px;
+  }
+
+  .btn {
+    width: 72px;
+    height: 36px;
+    font-size: 14px;
+  }
 }

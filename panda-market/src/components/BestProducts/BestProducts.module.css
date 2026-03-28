@@ -21,3 +21,15 @@
 
   width: 100%;
 }
+
+@media (max-width: 1199px) {
+  .bestGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 743px) {
+  .bestGrid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
