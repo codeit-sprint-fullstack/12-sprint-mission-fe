@@ -38,6 +38,7 @@ a {
   letter-spacing: 0%;
   color: #4b5563;
   cursor: pointer;
+  white-space: nowrap;
 }
 
 .header-navigation {
@@ -58,4 +59,17 @@ a {
   color: white;
   font-weight: 600;
   font-size: 1rem;
+  white-space: nowrap;
+}
+
+@media (max-width: 744px) {
+  .header {
+    padding: 0.5625rem 24px 0.5625rem 24px;
+  }
+}
+
+@media (max-width: 375px) {
+  .header {
+    padding: 0.5625rem 16px 0.5625rem 16px;
+  }
 }
