@@ -1,6 +1,6 @@
 import React from "react";
-import { SearchInput } from "../common/SearchInput/SearchInput";
-import { SortSelect } from "../common/SortSelect/SortSelect";
+import { SearchInput } from "../../components/common/SearchInput/SearchInput";
+import { SortSelect } from "../../components/common/SortSelect/SortSelect";
 import styles from "./OnSaleProductHeader.module.css";
 
 export const OnSaleProductHeader = ({

@@ -1,7 +1,7 @@
 import React from "react";
 import { usePageSize } from "../../hooks/usePageSize";
 import { useProducts } from "../../hooks/useProducts";
-import { ProductCard } from "../common/ProductCard/ProductCard";
+import { ProductCard } from "../../components/common/ProductCard/ProductCard";
 import styles from "./BestProducts.module.css";
 
 export const BestProducts = () => {

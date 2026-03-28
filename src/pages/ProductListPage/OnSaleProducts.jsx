@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { usePageSize } from "../../hooks/usePageSize";
 import { useProducts } from "../../hooks/useProducts";
-import { Pagination } from "../common/Pagination/Pagination";
-import { ProductCard } from "../common/ProductCard/ProductCard";
+import { Pagination } from "../../components/common/Pagination/Pagination";
+import { ProductCard } from "../../components/common/ProductCard/ProductCard";
 import { OnSaleProductHeader } from "./OnSaleProductHeader";
 import styles from "./OnSaleProducts.module.css";
 

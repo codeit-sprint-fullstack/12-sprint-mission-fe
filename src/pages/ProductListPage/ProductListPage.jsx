@@ -1,7 +1,7 @@
 import React from "react";
+import { BestProducts } from "./BestProducts";
+import { OnSaleProducts } from "./OnSaleProducts";
 import styles from "./ProductListPage.module.css";
-import { BestProducts } from "../components/BestProducts/BestProducts";
-import { OnSaleProducts } from "../components/OnSaleProducts/OnSaleProducts";
 
 export const ProductListPage = () => {
   return (
