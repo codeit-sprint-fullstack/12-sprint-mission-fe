@@ -21,7 +21,7 @@ export const OnSaleProductHeader = ({
       <div className={styles.controls}>
         <SearchInput value={keyword} onChange={onKeywordChange} />
         <a
-          className={`btn-base text-lg-semibold ${styles.btn} hide-mobile`}
+          className={`btn-base text-lg-semibold ${styles.registrationBtn} hide-mobile`}
           href="/"
         >
           상품 등록하기
