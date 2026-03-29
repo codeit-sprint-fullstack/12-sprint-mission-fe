@@ -204,6 +204,195 @@ html의 class명만 추가해주면 되니까 더 코드 작성량이 적어지�
   gap: 4.3125rem;
 }
 
+/*====all-products (가장 바깥)=====*/
+.all-products-container {
+  padding: 26px 360px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+/*=====Products=====*/
+.products-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+}
+.products {
+  display: grid;
+  grid-template-columns: repeat(5, 221px);
+  grid-template-rows: repeat(2, 317px);
+  column-gap: 24px;
+  row-gap: 40px;
+}
+/*======best products=====*/
+.best-products-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.best-products {
+  display: flex;
+  gap: 24px;
+}
+
+/*====Products Header====*/
+.products-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.title {
+  color: var(--secondary-color-gray900);
+
+  /* pretendard/xl-20px-bold */
+  font-family: Pretendard;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 32px; /* 160% */
+}
+.search-and-sort {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+.search {
+  width: 325px;
+  height: 42px;
+  padding: 9px 20px 9px 16px;
+  border: none;
+  border-radius: 12px;
+  background: var(--secondary-color-gray100);
+}
+.new-product-btn {
+  height: 42px;
+  padding: 12px 23px;
+
+  border-radius: 8px;
+  background: var(--primary-color-100);
+
+  color: var(--secondary-color-gray100);
+
+  /* pretendard/lg-16px-semibold */
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 26px; /* 162.5% */
+}
+.order-by-selector {
+  width: 130px;
+  height: 42px;
+  padding: 12px 20px;
+
+  border-radius: 12px;
+  border: 1px solid var(--Cool-Gray-200, #e5e7eb);
+  background: #fff;
+
+  color: var(--Secondary-800, #1f2937);
+}
+/*=====Product Card======*/
+.product-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+}
+.best-product-card {
+  height: 378px;
+  width: 282px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+}
+.product-img {
+  width: 221px;
+  height: 221px;
+  border-radius: 16px;
+}
+.best-product-img {
+  width: 282px;
+  height: 378px;
+  border-radius: 16px;
+}
+.product-card .description {
+  display: flex;
+  width: 217px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  flex-shrink: 0;
+}
+.product-card .description .title {
+  color: var(--secondary-color-gray800);
+
+  /* pretendard/md-14px-medium */
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px; /* 171.429% */
+}
+.product-card .description .price {
+  color: var(--secondary-color-gray800);
+
+  /* pretendard/lg-16px-bold */
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 26px; /* 162.5% */
+}
+.likes-container {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.likes-container .likes {
+  color: var(--secondary-color-gray600);
+
+  /* pretendard/xs-12px-medium */
+  font-family: Pretendard;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 18px; /* 150% */
+}
+
+/*=======Pagination=======*/
+.pagination {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 4px;
+}
+.page-btn {
+  width: 40px;
+  height: 40px;
+  padding: 12.5px;
+
+  border-radius: 40px;
+  border: 1px solid var(--Cool-Gray-200, #e5e7eb);
+  background: #fff;
+
+  color: var(--Cool-Gray-500, #6b7280);
+}
+.active-page-btn {
+  width: 40px;
+  height: 40px;
+  padding: 12.5px;
+
+  border-radius: 40px;
+  border: none;
+  background: #2f80ed;
+  color: var(--Secondary-100, #f9fafb);
+}
+
 /* footer 스타일 */
 .footer {
   background-color: var(--secondary-color-gray900);
