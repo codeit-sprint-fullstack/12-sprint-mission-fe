@@ -34,10 +34,9 @@
   justify-content: center;
   align-items: center;
   padding: 1.3125rem 0.9375rem;
-  line-height: 1;
-  font-size: 1.125rem;
-  font-weight: 700;
-  line-height: 1.625rem;
+  font-size: var(--font-size-2lg);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-lg);
   color: var(--secondary-600);
   cursor: pointer;
 }
@@ -68,6 +67,6 @@
 
   .menuItem {
     padding: 0;
-    font-size: 1rem;
+    font-size: var(--font-size-lg);
   }
 }
