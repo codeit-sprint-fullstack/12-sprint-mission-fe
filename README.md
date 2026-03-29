@@ -1,16 +1,26 @@
-# React + Vite
+# 🐼 판다마켓 (PandaMarket) Fe 프로젝트
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<img width="396" height="132" alt="pm_logo" src="https://github.com/user-attachments/assets/93bd1dc7-79d5-44ea-a827-80e3d1ff71ee" />
 
-Currently, two official plugins are available:
+### 판다마켓은 중고거래를 위한 커뮤니티 플랫폼입니다.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## ✨ 주요 구현 페이지 및 기능
 
-## React Compiler
+### 1. 직관적인 컴포넌트 구조
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- `GNB`(Global Navigation Bar), `UsedMarket`(메인 컨텐츠 영역), `Footer`로 구성된 깔끔한 레이아웃을 가집니다.
+- 메인 마켓 영역은 베스트 상품(`BestProducts`)과 판매 중인 상품(`SellingProducts`) 섹션으로 명확히 구분되어 렌더링됩니다.
 
-## Expanding the ESLint configuration
+### 2. Custom Hooks
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **`useProducts`**: 상품 목록 조회, 키워드 검색, 정렬(`orderBy`) 등의 상품 관련 비즈니스 상태와 로직을 전담합니다.
+- **`usePagination`**: 총 페이지 수를 기반으로 최대 5개 단위의 페이지 그룹을 계산하고 관리합니다.
+
+### 3. 반응형 레이아웃
+
+- `useWindowSize` 커스텀 훅을 통해 화면 너비를 감지하여 모바일(768px 미만), 태블릿(1280px 미만), 데스크탑 환경에 맞춘 UI를 제공합니다.
+- 디바이스 환경에 따라 페이지당 렌더링되는 상품 목록의 개수와 배열이 동적으로 변경됩니다 (모바일: 4개(2열), 태블릿: 6개(3열), 데스크탑: 10개).
+
+### 4. CSS
+
+- `GNB.module.css`, `Footer.module.css`, `UsedMarket.module.css`, `SkeletonUI.module.css`로 각 기능에 필요한 CSS들을 모듈화하여 깔끔하게 정리했습니다.
