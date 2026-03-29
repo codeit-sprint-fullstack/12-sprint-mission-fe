@@ -29,6 +29,25 @@
   --white: #ffffff;
 
   --error-red: #f74747;
+
+  --font-size-3xl: 2rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2lg: 1.125rem;
+  --font-size-lg: 1rem;
+  --font-size-md: 0.875rem;
+  --font-size-xs: 0.75rem;
+
+  --font-weight-bold: 700;
+  --font-weight-semibold: 600;
+  --font-weight-medium: 500;
+  --font-weight-regular: 400;
+
+  --line-height-3xl: 2.625rem;
+  --line-height-xl: 2rem;
+  --line-height-lg: 1.625rem;
+  --line-height-md: 1.5rem;
+  --line-height-xs: 1.125rem;
 }
 
 html {
@@ -44,64 +63,154 @@ body {
 /* =======================================================
     COMPONENTS / TYPOGRAPHY
    ======================================================= */
+.text-3xl-bold {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-3xl);
+}
+
+.text-3xl-semibold {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-3xl);
+}
+
+.text-2xl-bold {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-xl);
+}
+
+.text-2xl-semibold {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-xl);
+}
+
 .text-2xl-medium {
-  font-size: 1.5rem;
-  font-weight: 500;
-  line-height: 2rem;
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-xl);
+}
+
+.text-2xl-regular {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-xl);
 }
 
 .text-xl-bold {
-  font-size: 1.25rem;
-  font-weight: 700;
-  line-height: 2rem;
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-xl);
 }
 
 .text-xl-semibold {
-  font-size: 1.25rem;
-  font-weight: 600;
-  line-height: 2rem;
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-xl);
+}
+
+.text-xl-medium {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-xl);
+}
+
+.text-xl-regular {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-xl);
 }
 
 .text-2lg-bold {
-  font-size: 1.125rem;
-  font-weight: 700;
-  line-height: 1.625rem;
+  font-size: var(--font-size-2lg);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-lg);
+}
+
+.text-2lg-semibold {
+  font-size: var(--font-size-2lg);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-lg);
+}
+
+.text-2lg-medium {
+  font-size: var(--font-size-2lg);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-lg);
+}
+
+.text-2lg-regular {
+  font-size: var(--font-size-2lg);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-lg);
 }
 
 .text-lg-bold {
-  font-size: 1rem;
-  font-weight: 700;
-  line-height: 1.625rem;
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-lg);
 }
 
 .text-lg-semibold {
-  font-size: 1rem;
-  font-weight: 600;
-  line-height: 1.625rem;
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-lg);
 }
 
 .text-lg-medium {
-  font-size: 1rem;
-  font-weight: 500;
-  line-height: 1.625rem;
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-lg);
 }
 
 .text-lg-regular {
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.625rem;
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-lg);
+}
+
+.text-md-bold {
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-md);
+}
+
+.text-md-semibold {
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-md);
 }
 
 .text-md-medium {
-  font-size: 0.875rem;
-  font-weight: 500;
-  line-height: 1.5rem;
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-md);
+}
+
+.text-md-regular {
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-md);
+}
+
+.text-xs-semibold {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-xs);
 }
 
 .text-xs-medium {
-  font-size: 0.75rem;
-  font-weight: 500;
-  line-height: 1.5rem;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-xs);
+}
+
+.text-xs-regular {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-xs);
 }
 
 /* =======================================================
