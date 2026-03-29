@@ -1,0 +1,58 @@
+footer {
+  display: flex;
+  height: 10rem;
+  padding: 2rem 12.5rem;
+  justify-content: space-between;
+  gap: 0.625rem;
+  background: var(--Secondary-900);
+}
+
+.copylight {
+  color: var(--Secondary-400);
+  font-style: normal;
+  line-height: normal;
+}
+
+.info {
+  display: flex;
+  color: var(--Secondary-200);
+  font-style: normal;
+  line-height: normal;
+  gap: 1.875rem;
+}
+
+.info p {
+  cursor: pointer;
+}
+
+.snsLink {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.snsLink img {
+  width: 1.25rem;
+  height: 1.25rem;
+  flex-shrink: 0;
+}
+
+@media (max-width: 1279px) {
+  footer {
+    padding: 2rem 1.5rem;
+  }
+}
+
+@media (max-width: 767px) {
+  footer {
+    padding: 2rem 1rem;
+    position: relative;
+  }
+
+  .copylight {
+    margin-top: 2.6875rem;
+  }
+
+  .info {
+    position: absolute;
+  }
+}

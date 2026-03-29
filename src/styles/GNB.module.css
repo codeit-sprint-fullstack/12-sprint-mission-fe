@@ -1,0 +1,90 @@
+@import url("../App.css");
+
+.btn {
+  display: flex;
+  height: 2.625rem;
+  padding: 0.75rem 1.4375rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.625rem;
+  border-radius: 0.5rem;
+  background: var(--Primary-100);
+  border: 0;
+  font-family: Pretendard;
+  color: var(--Secondary-100);
+  flex-shrink: 0;
+
+  cursor: pointer;
+}
+
+.logo {
+  width: 9.5625rem;
+  height: 3.1875rem;
+  cursor: pointer;
+}
+
+nav {
+  border-bottom: 0.0625rem solid #dfdfdf;
+  background: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.gnbContainer {
+  display: flex;
+  margin: 0 12.5rem;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.gnbContainer > div {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.navList {
+  display: flex;
+  align-items: center;
+}
+
+.navList span {
+  padding: 1.3125rem 0.9375rem;
+  color: var(--Secondary-600);
+  cursor: pointer;
+}
+
+@media (max-width: 1279px) {
+  .gnbContainer {
+    margin: 0 1.5rem;
+  }
+
+  .gnbContainer > div {
+    gap: 1.25rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .gnbContainer {
+    margin: 0 1rem;
+  }
+  .gnbContainer > div {
+    gap: 0.5rem;
+  }
+
+  .navList span {
+    padding: 1.5625rem 0;
+  }
+
+  .navList {
+    gap: 0.5rem;
+  }
+
+  .logo {
+    width: 5.0625rem;
+    height: 2.5rem;
+    cursor: pointer;
+  }
+}
