@@ -4,7 +4,19 @@
 
 ### 판다마켓은 중고거래를 위한 커뮤니티 플랫폼입니다.
 
-## ✨ 주요 구현 페이지 및 기능
+## ✨ 페이지 스크린샷
+
+### 1. 데스크탑 ver
+<img width="1920" height="1683" alt="데스크탑" src="https://github.com/user-attachments/assets/9377001d-a389-4e9e-80b5-89ed3851d016" />
+
+### 2. 태블릿 ver
+<img width="897" height="1759" alt="태블릿" src="https://github.com/user-attachments/assets/279bc7fe-f794-4618-8b49-a541acba2308" />
+
+### 3. 모바일 ver
+<img width="500" height="1679" alt="모바일" src="https://github.com/user-attachments/assets/9ae21c1f-034c-41d6-9d63-687ed4164531" />
+
+
+## ✨ 주요 특징
 
 ### 1. 직관적인 컴포넌트 구조
 
