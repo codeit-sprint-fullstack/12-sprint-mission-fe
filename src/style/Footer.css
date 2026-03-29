@@ -1,0 +1,47 @@
+/*======================================
+Footer
+=======================================*/
+.footer {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 16rem;
+  padding: 3.2rem 0rem;
+  gap: 1rem;
+  background: var(--Secondary-900);
+}
+.footer-bg {
+  width: 100%;
+  background: var(--Secondary-900);
+  padding: 32px 200px;
+}
+.footer-icon {
+  display: flex;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.footer-icon a {
+  display: inline-flex;
+}
+
+.footer-icon img {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+
+.footer-text {
+  color: var(--Secondary-200);
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 1.6rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.footer-text-middle {
+  display: flex;
+  gap: 3rem;
+}
