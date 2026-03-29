@@ -3,7 +3,7 @@ import styles from "./Header.module.css";
 import logo from "./logo-sm.svg";
 import logoTypo from "./logo-typo.svg";
 
-export const Header = () => {
+export const Header = ({ variant = "default" }) => {
   return (
     <header className={styles.header}>
       <div className={`${styles.inner}`}>
@@ -15,12 +15,14 @@ export const Header = () => {
             </a>
           </h1>
 
-          <nav>
-            <ul className={styles.menu}>
-              <li className={`${styles.menuItem}`}>자유게시판</li>
-              <li className={`${styles.menuItem}`}>중고마켓</li>
-            </ul>
-          </nav>
+          {variant === "tab" && (
+            <nav>
+              <ul className={styles.menu}>
+                <li className={`${styles.menuItem}`}>자유게시판</li>
+                <li className={`${styles.menuItem}`}>중고마켓</li>
+              </ul>
+            </nav>
+          )}
         </div>
         <a
           className={`btn-base text-lg-semibold ${styles.loginBtn}`}

@@ -5,7 +5,7 @@ import { ProductListPage } from "./pages/ProductListPage/ProductListPage";
 function App() {
   return (
     <>
-      <Header />
+      <Header variant="tab" />
       <ProductListPage />
       <Footer />
     </>
