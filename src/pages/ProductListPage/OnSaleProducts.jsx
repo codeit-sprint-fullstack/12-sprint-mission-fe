@@ -21,13 +21,23 @@ export const OnSaleProducts = () => {
 
   const totalPages = Math.ceil(totalCount / pageSize);
 
+  const handleKeywordChange = (newKeyword) => {
+    setKeyword(newKeyword);
+    setPage(1);
+  };
+  
+  const handleSortChange = (newSort) => {
+    setSortBy(newSort);
+    setPage(1);
+  };
+  
   return (
     <section className={styles.section}>
       <OnSaleProductHeader
         keyword={keyword}
-        onKeywordChange={setKeyword}
+        onKeywordChange={handleKeywordChange}
         sortBy={sortBy}
-        onSortChange={setSortBy}
+        onSortChange={handleSortChange}
       />
       <ul className={styles.productList}>
         {products.map((item) => (
