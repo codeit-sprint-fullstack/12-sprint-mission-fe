@@ -34,9 +34,8 @@
     flex: 1;
   }
 
-  .btn {
+  .registrationBtn {
     margin-right: 2.8125rem;
-    line-height: 1 !important;
   }
 
   .controls {
