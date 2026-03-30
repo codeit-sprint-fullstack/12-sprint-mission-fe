@@ -1,5 +1,5 @@
 import React from "react";
-import "../style/Card_best.css";
+import "../../style/Card_best.css";
 
 const Card_best = ({
   image,
