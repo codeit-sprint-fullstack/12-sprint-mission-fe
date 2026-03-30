@@ -1,0 +1,703 @@
+{
+  "products": [
+    {
+      "id": 954,
+      "name": "반가워요",
+      "description": "프론트엔드 23기",
+      "price": 12000,
+      "tags": ["전자제품", "프론트엔드", "취업"],
+      "images": [
+        "https://img.freepik.com/free-photo/adorable-kitty-looking-like-it-want-hunt_23-2149167099.jpg?semt=ais_hybrid&w=740&q=80"
+      ],
+      "ownerId": 1848,
+      "favoriteCount": 3,
+      "createdAt": "2026-03-23T02:40:54.059Z",
+      "updatedAt": "2026-03-24T02:29:08.947Z"
+    },
+    {
+      "id": 953,
+      "name": "오늘도 여기까지",
+      "description": "3333",
+      "price": 333333,
+      "tags": ["33333"],
+      "images": [
+        "https://sprint-fe-project.s3.ap-northeast-2.amazonaws.com/Sprint_Mission/user/1823/1772679339025/mudo.jpeg"
+      ],
+      "ownerId": 1823,
+      "favoriteCount": 234,
+      "createdAt": "2026-03-05T02:55:39.410Z",
+      "updatedAt": "2026-03-05T02:55:39.410Z"
+    },
+    {
+      "id": 952,
+      "name": "테스트중입니다",
+      "description": "테스트중입니다테스트중입니다테스트중입니다",
+      "price": 11111111,
+      "tags": [],
+      "images": [],
+      "ownerId": 1844,
+      "favoriteCount": 11,
+      "createdAt": "2026-03-04T13:20:51.546Z",
+      "updatedAt": "2026-03-04T13:20:51.546Z"
+    },
+    {
+      "id": 951,
+      "name": "오늘은 여기까지 22",
+      "description": "2222",
+      "price": 22222,
+      "tags": ["2222"],
+      "images": [
+        "https://sprint-fe-project.s3.ap-northeast-2.amazonaws.com/Sprint_Mission/user/1823/1772591096586/mudo.jpeg"
+      ],
+      "ownerId": 1823,
+      "favoriteCount": 7865,
+      "createdAt": "2026-03-04T02:24:56.800Z",
+      "updatedAt": "2026-03-04T02:24:56.800Z"
+    },
+    {
+      "id": 950,
+      "name": "오늘은 여기까지",
+      "description": "그래도 될까요?",
+      "price": 10000,
+      "tags": ["무한도전", "꿀잼"],
+      "images": [
+        "https://sprint-fe-project.s3.ap-northeast-2.amazonaws.com/Sprint_Mission/user/1823/1772589872498/mudo.jpeg"
+      ],
+      "ownerId": 1823,
+      "favoriteCount": 345634,
+      "createdAt": "2026-03-04T02:04:32.662Z",
+      "updatedAt": "2026-03-04T02:04:32.662Z"
+    },
+    {
+      "id": 949,
+      "name": "등록테스트",
+      "description": "이미지 없을때",
+      "price": 11111,
+      "tags": ["ㅇㅇ"],
+      "images": [],
+      "ownerId": 1810,
+      "favoriteCount": 5460,
+      "createdAt": "2025-12-13T17:00:43.770Z",
+      "updatedAt": "2025-12-13T17:00:43.770Z"
+    },
+    {
+      "id": 948,
+      "name": "드디어 완성이다.",
+      "description": "이제 디자인까지",
+      "price": 123456789,
+      "tags": ["한다", "정리"],
+      "images": [
+        "https://sprint-fe-project.s3.ap-northeast-2.amazonaws.com/Sprint_Mission/user/1810/1765645160201/search-item.png"
+      ],
+      "ownerId": 1810,
+      "favoriteCount": 666,
+      "createdAt": "2025-12-13T16:59:20.343Z",
+      "updatedAt": "2025-12-13T16:59:20.343Z"
+    },
+    {
+      "id": 947,
+      "name": "12547",
+      "description": "34573547",
+      "price": 68568,
+      "tags": ["8"],
+      "images": [
+        "https://sprint-fe-project.s3.ap-northeast-2.amazonaws.com/Sprint_Mission/user/1810/1765645120440/hero-image2.png"
+      ],
+      "ownerId": 1810,
+      "favoriteCount": 7897,
+      "createdAt": "2025-12-13T16:58:40.587Z",
+      "updatedAt": "2025-12-13T16:58:40.587Z"
+    },
+    {
+      "id": 946,
+      "name": "로그인 회원가입 연동",
+      "description": "성공",
+      "price": 127001,
+      "tags": ["localhost"],
+      "images": [
+        "https://sprint-fe-project.s3.ap-northeast-2.amazonaws.com/Sprint_Mission/user/1810/1765644435824/hero-image2.png"
+      ],
+      "ownerId": 1810,
+      "favoriteCount": 11122,
+      "createdAt": "2025-12-13T16:47:28.407Z",
+      "updatedAt": "2025-12-13T16:47:28.407Z"
+    },
+    {
+      "id": 945,
+      "name": "야옹",
+      "description": "string",
+      "price": 21,
+      "tags": ["21기", "스프린트", "화이팅"],
+      "images": ["https://i.imgur.com/MnOsOOe.gif"],
+      "ownerId": 1403,
+      "favoriteCount": 52,
+      "createdAt": "2025-12-08T19:13:17.364Z",
+      "updatedAt": "2025-12-08T19:15:15.554Z"
+    },
+    {
+      "id": 944,
+      "name": "냥냥",
+      "description": "string",
+      "price": 21,
+      "tags": ["21기", "스프린트", "화이팅"],
+      "images": [
+        "https://no-cdn.shortpixel.ai/client/to_avif,q_lossy,ret_wait/https://shortpixel.com/blog/wp-content/uploads/2023/12/nyan-cat.gif"
+      ],
+      "ownerId": 1403,
+      "favoriteCount": 51,
+      "createdAt": "2025-12-08T19:08:09.361Z",
+      "updatedAt": "2025-12-08T19:14:49.312Z"
+    },
+    {
+      "id": 943,
+      "name": "고양이 마켓",
+      "description": "string",
+      "price": 21,
+      "tags": ["21기", "스프린트", "화이팅"],
+      "images": ["https://loremflickr.com/600/400"],
+      "ownerId": 1403,
+      "favoriteCount": 50,
+      "createdAt": "2025-12-08T19:07:09.451Z",
+      "updatedAt": "2025-12-08T19:13:53.451Z"
+    },
+    {
+      "id": 941,
+      "name": "새벽 코딩용 청축 키보드",
+      "description": "타건음으로 내가 일하고 있음을 온 동네에 알리세요. 층간소음 항의는 책임지지 않습니다.",
+      "price": 102400,
+      "tags": ["관종", "기계식", "타건감"],
+      "images": ["https://robohash.org/mechanical_kb?set=set3&size=300x300"],
+      "ownerId": 1403,
+      "favoriteCount": 70,
+      "createdAt": "2025-12-08T18:46:19.685Z",
+      "updatedAt": "2025-12-08T18:46:19.685Z"
+    },
+    {
+      "id": 940,
+      "name": "내 컴에선 됨 스티커",
+      "description": "QA팀의 공격을 99% 확률로 방어합니다. Docker 컨테이너에는 붙이지 마세요.",
+      "price": 12700,
+      "tags": ["방어기제", "로컬호스트", "책임전가"],
+      "images": [
+        "https://robohash.org/works_on_my_machine?set=set2&size=300x300"
+      ],
+      "ownerId": 1403,
+      "favoriteCount": 70,
+      "createdAt": "2025-12-08T18:46:19.628Z",
+      "updatedAt": "2025-12-08T18:46:19.628Z"
+    },
+    {
+      "id": 939,
+      "name": "금요일 배포 금지 부적",
+      "description": "금요일 오후 5시에 배포하려는 PM을 막아주는 부적. 주말 출근을 막아줍니다.",
+      "price": 50000,
+      "tags": ["미신", "서버다운", "워라밸지킴이"],
+      "images": ["https://robohash.org/deploy_talisman?set=set1&size=300x300"],
+      "ownerId": 1403,
+      "favoriteCount": 70,
+      "createdAt": "2025-12-08T18:46:19.628Z",
+      "updatedAt": "2025-12-08T18:46:19.628Z"
+    },
+    {
+      "id": 938,
+      "name": "체크 남방 개발자 교복",
+      "description": "판교 출근룩의 정석. 입는 순간 퍼포먼스가 20% 향상되는 마법의 체크무늬 셔츠.",
+      "price": 40300,
+      "tags": ["패션", "판교룩", "너드미"],
+      "images": ["https://robohash.org/check_shirt?set=set3&size=300x300"],
+      "ownerId": 1403,
+      "favoriteCount": 70,
+      "createdAt": "2025-12-08T18:46:19.596Z",
+      "updatedAt": "2025-12-08T18:46:19.596Z"
+    },
+    {
+      "id": 937,
+      "name": "스파게티 코드 밀키트",
+      "description": "유지보수가 불가능한 맛! 꼬일 대로 꼬인 면발이 레거시 코드의 깊은 맛을 재현합니다.",
+      "price": 99999,
+      "tags": ["레거시", "기술부채", "리팩토링필요"],
+      "images": ["https://robohash.org/spaghetti_code?set=set1&size=300x300"],
+      "ownerId": 1403,
+      "favoriteCount": 70,
+      "createdAt": "2025-12-08T18:46:19.578Z",
+      "updatedAt": "2025-12-08T18:46:19.578Z"
+    },
+    {
+      "id": 936,
+      "name": "깃 푸쉬 강제 실행 버튼",
+      "description": "충돌 났을 때 생각 없이 누르세요. --force 옵션이 기본 탑재된 물리 버튼입니다.",
+      "price": 77700,
+      "tags": ["위험", "퇴사각", "용자"],
+      "images": ["https://robohash.org/git_fire?set=set2&size=300x300"],
+      "ownerId": 1403,
+      "favoriteCount": 70,
+      "createdAt": "2025-12-08T18:46:19.563Z",
+      "updatedAt": "2025-12-08T18:46:19.563Z"
+    },
+    {
+      "id": 935,
+      "name": "거북목 교정 모니터암",
+      "description": "모니터 속으로 들어갈 기세인 당신을 위해. 인류의 진화 과정을 역행하지 마세요.",
+      "price": 33060,
+      "tags": ["건강", "척추요정", "생존템"],
+      "images": ["https://robohash.org/turtle_neck?set=set4&size=300x300"],
+      "ownerId": 1403,
+      "favoriteCount": 70,
+      "createdAt": "2025-12-08T18:46:19.562Z",
+      "updatedAt": "2025-12-08T18:46:19.562Z"
+    },
+    {
+      "id": 934,
+      "name": "버그 박멸 전설의 오리",
+      "description": "막힌 코드를 설명하면 해결책을 주는 러버덕입니다. 시니어 개발자보다 친절합니다.",
+      "price": 4040,
+      "tags": ["디버깅", "멘토링", "지능+1"],
+      "images": ["https://robohash.org/bug_duck?set=set1&size=300x300"],
+      "ownerId": 1403,
+      "favoriteCount": 70,
+      "createdAt": "2025-12-08T18:46:19.531Z",
+      "updatedAt": "2025-12-08T18:46:19.531Z"
+    },
+    {
+      "id": 933,
+      "name": "카페인 수혈 대용량 컵",
+      "description": "커피를 코드로 변환하는 장치입니다. while(alive) { drink(); } 무한 루프 가능.",
+      "price": 8080,
+      "tags": ["연료", "자바", "야근필수"],
+      "images": ["https://robohash.org/caffeine_cup?set=set4&size=300x300"],
+      "ownerId": 1403,
+      "favoriteCount": 70,
+      "createdAt": "2025-12-08T18:46:19.505Z",
+      "updatedAt": "2025-12-08T18:46:19.505Z"
+    },
+    {
+      "id": 932,
+      "name": "복붙 전용 컨트롤 키캡",
+      "description": "스택오버플로우의 지식을 내 코드로! C와 V 키만 닳아버린 당신을 위한 교체용 키캡.",
+      "price": 20000,
+      "tags": ["생산성", "스택오버플로우", "시니어필수"],
+      "images": ["https://robohash.org/ctrl_c_v?set=set2&size=300x300"],
+      "ownerId": 1403,
+      "favoriteCount": 12333333333,
+      "createdAt": "2025-12-08T18:46:19.505Z",
+      "updatedAt": "2025-12-08T18:46:19.505Z"
+    },
+    {
+      "id": 931,
+      "name": "꿀이 뚝뚝 해남 꿀고구마",
+      "description": "황토에서 자라 당도가 남다릅니다. 에어프라이어에 돌리기만 하면 겨울 간식 준비 끝!",
+      "price": 25900,
+      "tags": ["식품", "다이어트", "아이들간식"],
+      "images": ["https://robohash.org/sweetpotato?set=set1&size=300x300"],
+      "ownerId": 1403,
+      "favoriteCount": 124,
+      "createdAt": "2025-12-08T18:43:47.614Z",
+      "updatedAt": "2025-12-08T18:43:47.614Z"
+    },
+    {
+      "id": 930,
+      "name": "튼튼한 알루미늄 폰거치대",
+      "description": "태블릿도 거뜬하게 버티는 강력한 고정력. 360도 회전으로 원하는 각도를 자유롭게.",
+      "price": 11800,
+      "tags": ["모바일", "유튜브시청", "편의용품"],
+      "images": ["https://robohash.org/phonestand?set=set2&size=300x300"],
+      "ownerId": 1403,
+      "favoriteCount": 120,
+      "createdAt": "2025-12-08T18:43:47.584Z",
+      "updatedAt": "2025-12-08T18:43:47.584Z"
+    },
+    {
+      "id": 929,
+      "name": "물기 싹 규조토 욕실 발매트",
+      "description": "샤워 후 젖은 발을 1초 만에 보송하게! 세탁이 필요 없어 관리가 너무 편한 발매트.",
+      "price": 9900,
+      "tags": ["욕실용품", "자취필수템", "쾌적생활"],
+      "images": ["https://robohash.org/bathmat?set=set2&size=300x300"],
+      "ownerId": 1403,
+      "favoriteCount": 121,
+      "createdAt": "2025-12-08T18:43:47.581Z",
+      "updatedAt": "2025-12-08T18:43:47.581Z"
+    },
+    {
+      "id": 928,
+      "name": "스마트폰 터치 방한 장갑",
+      "description": "장갑 낀 채로 카톡 가능! 손끝 전도성 원단으로 보온과 편리함을 동시에 잡았습니다.",
+      "price": 9900,
+      "tags": ["가성비", "방한용품", "출퇴근필수"],
+      "images": ["https://robohash.org/gloves_touch?set=set3&size=300x300"],
+      "ownerId": 1403,
+      "favoriteCount": 6451,
+      "createdAt": "2025-12-08T18:43:47.567Z",
+      "updatedAt": "2025-12-08T18:43:47.567Z"
+    },
+    {
+      "id": 927,
+      "name": "통세척 간편 미니 가습기",
+      "description": "물병 꽂을 필요 없이 통째로 씻으세요. 사무실 책상 위 나만의 촉촉한 오아시스.",
+      "price": 34900,
+      "tags": ["생활가전", "건조함해결", "책상꾸미기"],
+      "images": ["https://robohash.org/humidifier_clean?set=set3&size=300x300"],
+      "ownerId": 1403,
+      "favoriteCount": 1211,
+      "createdAt": "2025-12-08T18:43:47.564Z",
+      "updatedAt": "2025-12-08T18:43:47.564Z"
+    },
+    {
+      "id": 926,
+      "name": "따뜻한 기모 오버핏 후드",
+      "description": "한겨울에도 끄떡없는 도톰한 기모 안감! 남녀공용 루즈핏으로 편안함을 더했습니다.",
+      "price": 29900,
+      "tags": ["패션", "겨울코디", "데일리룩"],
+      "images": ["https://robohash.org/hoodie_winter?set=set1&size=300x300"],
+      "ownerId": 1403,
+      "favoriteCount": 3211,
+      "createdAt": "2025-12-08T18:43:47.554Z",
+      "updatedAt": "2025-12-08T18:43:47.554Z"
+    },
+    {
+      "id": 925,
+      "name": "호텔향 실내 대용량 디퓨저",
+      "description": "내 방을 5성급 호텔 로비로 만들어주는 고급스러운 향기. 대용량이라 향기가 오래 지속돼요.",
+      "price": 19800,
+      "tags": ["인테리어", "집들이선물", "힐링"],
+      "images": ["https://robohash.org/diffuser_hotel?set=set4&size=300x300"],
+      "ownerId": 1403,
+      "favoriteCount": 124,
+      "createdAt": "2025-12-08T18:43:47.553Z",
+      "updatedAt": "2025-12-08T18:43:47.553Z"
+    },
+    {
+      "id": 923,
+      "name": "손목이 편한 무소음 마우스",
+      "description": "도서관에서도 눈치 안 보고 클릭! 인체공학적 디자인으로 손목 터널 증후군을 예방하세요.",
+      "price": 15900,
+      "tags": ["디지털", "재택근무", "사무용품"],
+      "images": ["https://robohash.org/mouse_silent?set=set2&size=300x300"],
+      "ownerId": 1403,
+      "favoriteCount": 121,
+      "createdAt": "2025-12-08T18:43:47.549Z",
+      "updatedAt": "2025-12-08T18:43:47.549Z"
+    },
+    {
+      "id": 922,
+      "name": "스마트폰 터치 방한 장갑",
+      "description": "장갑 낀 채로 카톡 가능! 손끝 전도성 원단으로 보온과 편리함을 동시에 잡았습니다.",
+      "price": 9900,
+      "tags": ["가성비", "방한용품", "출퇴근필수"],
+      "images": ["https://robohash.org/gloves_touch?set=set3&size=300x300"],
+      "ownerId": 1403,
+      "favoriteCount": 7550,
+      "createdAt": "2025-12-08T18:43:47.542Z",
+      "updatedAt": "2025-12-08T18:43:47.542Z"
+    },
+    {
+      "id": 921,
+      "name": "보들보들 캐시미어 머플러",
+      "description": "피부가 예민해도 걱정 없는 극강의 부드러움. 어떤 코트에도 찰떡같이 어울리는 기본템.",
+      "price": 18900,
+      "tags": ["겨울악세사리", "선물추천", "커플템"],
+      "images": ["https://robohash.org/muffler_soft?set=set4&size=300x300"],
+      "ownerId": 1403,
+      "favoriteCount": 40,
+      "createdAt": "2025-12-08T18:43:47.537Z",
+      "updatedAt": "2025-12-08T18:43:47.537Z"
+    },
+    {
+      "id": 920,
+      "name": "초경량 고속충전 보조배터리",
+      "description": "주머니에 쏙 들어가는 카드 사이즈. 작지만 강한 10000mAh 용량으로 하루 종일 든든하게.",
+      "price": 22900,
+      "tags": ["여행필수품", "얼리어답터", "휴대폰악세사리"],
+      "images": ["https://robohash.org/powerbank?set=set1&size=300x300"],
+      "ownerId": 1403,
+      "favoriteCount": 30,
+      "createdAt": "2025-12-08T18:43:47.493Z",
+      "updatedAt": "2025-12-08T18:43:47.493Z"
+    },
+    {
+      "id": 919,
+      "name": "호텔향 실내 대용량 디퓨저",
+      "description": "내 방을 5성급 호텔 로비로 만들어주는 고급스러운 향기. 대용량이라 향기가 오래 지속돼요.",
+      "price": 19800,
+      "tags": ["인테리어", "집들이선물", "힐링"],
+      "images": ["https://robohash.org/diffuser_hotel?set=set4&size=300x300"],
+      "ownerId": 1403,
+      "favoriteCount": 40,
+      "createdAt": "2025-12-08T18:43:47.293Z",
+      "updatedAt": "2025-12-08T18:43:47.293Z"
+    },
+    {
+      "id": 918,
+      "name": "튼튼한 알루미늄 폰거치대",
+      "description": "태블릿도 거뜬하게 버티는 강력한 고정력. 360도 회전으로 원하는 각도를 자유롭게.",
+      "price": 11800,
+      "tags": ["모바일", "유튜브시청", "편의용품"],
+      "images": ["https://robohash.org/phonestand?set=set2&size=300x300"],
+      "ownerId": 1403,
+      "favoriteCount": 5550,
+      "createdAt": "2025-12-08T18:43:47.215Z",
+      "updatedAt": "2025-12-08T18:43:47.215Z"
+    },
+    {
+      "id": 917,
+      "name": "손목이 편한 무소음 마우스",
+      "description": "도서관에서도 눈치 안 보고 클릭! 인체공학적 디자인으로 손목 터널 증후군을 예방하세요.",
+      "price": 15900,
+      "tags": ["디지털", "재택근무", "사무용품"],
+      "images": ["https://robohash.org/mouse_silent?set=set2&size=300x300"],
+      "ownerId": 1403,
+      "favoriteCount": 404,
+      "createdAt": "2025-12-08T18:43:47.221Z",
+      "updatedAt": "2025-12-08T18:43:47.221Z"
+    },
+    {
+      "id": 916,
+      "name": "물기 싹 규조토 욕실 발매트",
+      "description": "샤워 후 젖은 발을 1초 만에 보송하게! 세탁이 필요 없어 관리가 너무 편한 발매트.",
+      "price": 9900,
+      "tags": ["욕실용품", "자취필수템", "쾌적생활"],
+      "images": ["https://robohash.org/bathmat?set=set2&size=300x300"],
+      "ownerId": 1403,
+      "favoriteCount": 45,
+      "createdAt": "2025-12-08T18:43:45.593Z",
+      "updatedAt": "2025-12-08T18:43:45.593Z"
+    },
+    {
+      "id": 915,
+      "name": "따뜻한 기모 오버핏 후드",
+      "description": "한겨울에도 끄떡없는 도톰한 기모 안감! 남녀공용 루즈핏으로 편안함을 더했습니다.",
+      "price": 29900,
+      "tags": ["패션", "겨울코디", "데일리룩"],
+      "images": ["https://robohash.org/hoodie_winter?set=set1&size=300x300"],
+      "ownerId": 1403,
+      "favoriteCount": 7897,
+      "createdAt": "2025-12-08T18:43:45.189Z",
+      "updatedAt": "2025-12-08T18:43:45.189Z"
+    },
+    {
+      "id": 914,
+      "name": "초경량 고속충전 보조배터리",
+      "description": "주머니에 쏙 들어가는 카드 사이즈. 작지만 강한 10000mAh 용량으로 하루 종일 든든하게.",
+      "price": 22900,
+      "tags": ["여행필수품", "얼리어답터", "휴대폰악세사리"],
+      "images": ["https://robohash.org/powerbank?set=set1&size=300x300"],
+      "ownerId": 1403,
+      "favoriteCount": 78789,
+      "createdAt": "2025-12-08T18:43:45.152Z",
+      "updatedAt": "2025-12-08T18:43:45.152Z"
+    },
+    {
+      "id": 913,
+      "name": "통세척 간편 미니 가습기",
+      "description": "물병 꽂을 필요 없이 통째로 씻으세요. 사무실 책상 위 나만의 촉촉한 오아시스.",
+      "price": 34900,
+      "tags": ["생활가전", "건조함해결", "책상꾸미기"],
+      "images": ["https://robohash.org/humidifier_clean?set=set3&size=300x300"],
+      "ownerId": 1403,
+      "favoriteCount": 444,
+      "createdAt": "2025-12-08T18:43:45.093Z",
+      "updatedAt": "2025-12-08T18:43:45.093Z"
+    },
+    {
+      "id": 912,
+      "name": "꿀이 뚝뚝 해남 꿀고구마",
+      "description": "황토에서 자라 당도가 남다릅니다. 에어프라이어에 돌리기만 하면 겨울 간식 준비 끝!",
+      "price": 25900,
+      "tags": ["식품", "다이어트", "아이들간식"],
+      "images": ["https://robohash.org/sweetpotato?set=set1&size=300x300"],
+      "ownerId": 1403,
+      "favoriteCount": 45440,
+      "createdAt": "2025-12-08T18:43:45.090Z",
+      "updatedAt": "2025-12-08T18:43:45.090Z"
+    },
+    {
+      "id": 911,
+      "name": "엄",
+      "description": "...",
+      "price": 1,
+      "tags": ["21기", "스프린트", "화이팅"],
+      "images": [],
+      "ownerId": 1403,
+      "favoriteCount": 45545,
+      "createdAt": "2025-12-08T18:34:53.986Z",
+      "updatedAt": "2025-12-08T18:34:53.986Z"
+    },
+    {
+      "id": 910,
+      "name": "123",
+      "description": "125125",
+      "price": 123,
+      "tags": ["21기", "스프린트", "화이팅"],
+      "images": [
+        "https://sprint-fe-project.s3.ap-northeast-2.amazonaws.com/Sprint_Mission/user/1403/1765218804689/register-item.png"
+      ],
+      "ownerId": 1403,
+      "favoriteCount": 4555,
+      "createdAt": "2025-12-08T18:33:28.649Z",
+      "updatedAt": "2025-12-08T18:33:28.649Z"
+    },
+    {
+      "id": 909,
+      "name": "21기 모두 화이팅",
+      "description": "팀 프로젝트도 화이팅",
+      "price": 1,
+      "tags": ["21기", "스프린트", "화이팅"],
+      "images": [
+        "https://sprint-fe-project.s3.ap-northeast-2.amazonaws.com/Sprint_Mission/user/1403/1765218742569/hero-image2.png"
+      ],
+      "ownerId": 1403,
+      "favoriteCount": 544,
+      "createdAt": "2025-12-08T18:33:05.795Z",
+      "updatedAt": "2025-12-08T18:33:05.795Z"
+    },
+    {
+      "id": 908,
+      "name": "얍",
+      "description": "얍",
+      "price": 1,
+      "tags": ["21기", "스프린트", "화이팅"],
+      "images": [
+        "https://sprint-fe-project.s3.ap-northeast-2.amazonaws.com/Sprint_Mission/user/1403/1765218622848/register-item.png"
+      ],
+      "ownerId": 1403,
+      "favoriteCount": 78798,
+      "createdAt": "2025-12-08T18:30:30.395Z",
+      "updatedAt": "2025-12-08T18:30:30.395Z"
+    },
+    {
+      "id": 907,
+      "name": "제대로 이동할까?",
+      "description": "할 수 있을까",
+      "price": 2315,
+      "tags": ["21기", "스프린트", "화이팅"],
+      "images": [
+        "https://sprint-fe-project.s3.ap-northeast-2.amazonaws.com/Sprint_Mission/user/1403/1765218424898/hot-item.png",
+        "https://sprint-fe-project.s3.ap-northeast-2.amazonaws.com/Sprint_Mission/user/1403/1765218424898/search-item.png",
+        "https://sprint-fe-project.s3.ap-northeast-2.amazonaws.com/Sprint_Mission/user/1403/1765218424890/register-item.png",
+        "https://sprint-fe-project.s3.ap-northeast-2.amazonaws.com/Sprint_Mission/user/1403/1765218424916/hero-image2.png",
+        "https://sprint-fe-project.s3.ap-northeast-2.amazonaws.com/Sprint_Mission/user/1403/1765218425136/hero-image.png"
+      ],
+      "ownerId": 1403,
+      "favoriteCount": 30,
+      "createdAt": "2025-12-08T18:27:16.246Z",
+      "updatedAt": "2025-12-08T18:27:16.246Z"
+    },
+    {
+      "id": 906,
+      "name": "confirm 테스트..",
+      "description": "성공..?",
+      "price": 23015,
+      "tags": ["21기", "스프린트", "화이팅"],
+      "images": [
+        "https://sprint-fe-project.s3.ap-northeast-2.amazonaws.com/Sprint_Mission/user/1403/1765218323396/hero-image.png"
+      ],
+      "ownerId": 1403,
+      "favoriteCount": 432,
+      "createdAt": "2025-12-08T18:25:50.365Z",
+      "updatedAt": "2025-12-08T18:25:50.365Z"
+    },
+    {
+      "id": 905,
+      "name": "21기 등록하기...",
+      "description": "등록..?!",
+      "price": 21501259,
+      "tags": ["21기", "스프린트", "화이팅"],
+      "images": [
+        "https://sprint-fe-project.s3.ap-northeast-2.amazonaws.com/Sprint_Mission/user/1403/1765218246820/hot-item.png"
+      ],
+      "ownerId": 1403,
+      "favoriteCount": 42342,
+      "createdAt": "2025-12-08T18:24:19.766Z",
+      "updatedAt": "2025-12-08T18:24:19.766Z"
+    },
+    {
+      "id": 904,
+      "name": "상품 등록",
+      "description": "얍얍",
+      "price": 1,
+      "tags": ["21기", "스프린트", "화이팅"],
+      "images": [
+        "https://sprint-fe-project.s3.ap-northeast-2.amazonaws.com/Sprint_Mission/user/1403/1765218207758/hot-item.png",
+        "https://sprint-fe-project.s3.ap-northeast-2.amazonaws.com/Sprint_Mission/user/1403/1765218207784/register-item.png",
+        "https://sprint-fe-project.s3.ap-northeast-2.amazonaws.com/Sprint_Mission/user/1403/1765218207781/hero-image2.png"
+      ],
+      "ownerId": 1403,
+      "favoriteCount": 1234,
+      "createdAt": "2025-12-08T18:23:40.229Z",
+      "updatedAt": "2025-12-08T18:23:40.229Z"
+    },
+    {
+      "id": 903,
+      "name": "이미지 업로드 성공.",
+      "description": "성공",
+      "price": 1,
+      "tags": ["21기", "스프린트", "화이팅"],
+      "images": [
+        "https://sprint-fe-project.s3.ap-northeast-2.amazonaws.com/Sprint_Mission/user/1403/1765218077020/register-item.png",
+        "https://sprint-fe-project.s3.ap-northeast-2.amazonaws.com/Sprint_Mission/user/1403/1765218077101/hero-image.png",
+        "https://sprint-fe-project.s3.ap-northeast-2.amazonaws.com/Sprint_Mission/user/1403/1765218077040/search-item.png",
+        "https://sprint-fe-project.s3.ap-northeast-2.amazonaws.com/Sprint_Mission/user/1403/1765218077237/hot-item.png",
+        "https://sprint-fe-project.s3.ap-northeast-2.amazonaws.com/Sprint_Mission/user/1403/1765218078896/hero-image2.png"
+      ],
+      "ownerId": 1403,
+      "favoriteCount": 2341,
+      "createdAt": "2025-12-08T18:21:45.182Z",
+      "updatedAt": "2025-12-08T18:21:45.182Z"
+    },
+    {
+      "id": 902,
+      "name": "이미지 ss 성공.",
+      "description": "ss",
+      "price": 1,
+      "tags": ["21기", "스프린트", "화이팅"],
+      "images": [
+        "https://sprint-fe-project.s3.ap-northeast-2.amazonaws.com/Sprint_Mission/user/1403/1765218077020/register-item.png",
+        "https://sprint-fe-project.s3.ap-northeast-2.amazonaws.com/Sprint_Mission/user/1403/1765218077101/hero-image.png",
+        "https://sprint-fe-project.s3.ap-northeast-2.amazonaws.com/Sprint_Mission/user/1403/1765218077040/search-item.png",
+        "https://sprint-fe-project.s3.ap-northeast-2.amazonaws.com/Sprint_Mission/user/1403/1765218077237/hot-item.png",
+        "https://sprint-fe-project.s3.ap-northeast-2.amazonaws.com/Sprint_Mission/user/1403/1765218078896/hero-image2.png"
+      ],
+      "ownerId": 1403,
+      "favoriteCount": 5122,
+      "createdAt": "2025-12-08T18:21:45.182Z",
+      "updatedAt": "2025-12-08T18:21:45.182Z"
+    },
+    {
+      "id": 901,
+      "name": "이미지 ss 성공.",
+      "description": "ss",
+      "price": 1,
+      "tags": ["21기", "스프린트", "화이팅"],
+      "images": [
+        "https://sprint-fe-project.s3.ap-northeast-2.amazonaws.com/Sprint_Mission/user/1403/1765218077020/register-item.png",
+        "https://sprint-fe-project.s3.ap-northeast-2.amazonaws.com/Sprint_Mission/user/1403/1765218077101/hero-image.png",
+        "https://sprint-fe-project.s3.ap-northeast-2.amazonaws.com/Sprint_Mission/user/1403/1765218077040/search-item.png",
+        "https://sprint-fe-project.s3.ap-northeast-2.amazonaws.com/Sprint_Mission/user/1403/1765218077237/hot-item.png",
+        "https://sprint-fe-project.s3.ap-northeast-2.amazonaws.com/Sprint_Mission/user/1403/1765218078896/hero-image2.png"
+      ],
+      "ownerId": 1403,
+      "favoriteCount": 445,
+      "createdAt": "2025-12-08T18:21:45.182Z",
+      "updatedAt": "2025-12-08T18:21:45.182Z"
+    },
+    {
+      "id": 901,
+      "name": "이미지 ss 성공.",
+      "description": "ss",
+      "price": 1,
+      "tags": ["21기", "스프린트", "화이팅"],
+      "images": [
+        "https://sprint-fe-project.s3.ap-northeast-2.amazonaws.com/Sprint_Mission/user/1403/1765218077020/register-item.png",
+        "https://sprint-fe-project.s3.ap-northeast-2.amazonaws.com/Sprint_Mission/user/1403/1765218077101/hero-image.png",
+        "https://sprint-fe-project.s3.ap-northeast-2.amazonaws.com/Sprint_Mission/user/1403/1765218077040/search-item.png",
+        "https://sprint-fe-project.s3.ap-northeast-2.amazonaws.com/Sprint_Mission/user/1403/1765218077237/hot-item.png",
+        "https://sprint-fe-project.s3.ap-northeast-2.amazonaws.com/Sprint_Mission/user/1403/1765218078896/hero-image2.png"
+      ],
+      "ownerId": 1403,
+      "favoriteCount": 51522,
+      "createdAt": "2025-12-08T18:21:45.182Z",
+      "updatedAt": "2025-12-08T18:21:45.182Z"
+    }
+  ],
+  "totalCount": 50
+}
