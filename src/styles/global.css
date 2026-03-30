@@ -1,0 +1,257 @@
+/* =======================================================
+    COMMON / RESET
+   ======================================================= */
+.sr-only {
+  position: absolute;
+  width: 0.0625rem;
+  height: 0.0625rem;
+  padding: 0;
+  margin: -0.0625rem;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+:root {
+  --primary-100: #3692ff;
+  --primary-200: #1967d6;
+  --primary-300: #1251aa;
+
+  --secondary-900: #111827;
+  --secondary-800: #1f2937;
+  --secondary-700: #374151;
+  --secondary-600: #4b5563;
+  --secondary-500: #6b7280;
+  --secondary-400: #9ca3af;
+  --secondary-200: #e5e7eb;
+  --secondary-100: #f3f4f6;
+  --white: #ffffff;
+
+  --error-red: #f74747;
+
+  --font-size-3xl: 2rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2lg: 1.125rem;
+  --font-size-lg: 1rem;
+  --font-size-md: 0.875rem;
+  --font-size-xs: 0.75rem;
+
+  --font-weight-bold: 700;
+  --font-weight-semibold: 600;
+  --font-weight-medium: 500;
+  --font-weight-regular: 400;
+
+  --line-height-3xl: 2.625rem;
+  --line-height-xl: 2rem;
+  --line-height-lg: 1.625rem;
+  --line-height-md: 1.5rem;
+  --line-height-xs: 1.125rem;
+}
+
+html {
+  font-size: 100%;
+}
+
+body {
+  font-family: "Pretendard", sans-serif;
+  color: var(--secondary-700);
+  background-color: var(--white);
+}
+
+/* =======================================================
+    COMPONENTS / TYPOGRAPHY
+   ======================================================= */
+.text-3xl-bold {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-3xl);
+}
+
+.text-3xl-semibold {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-3xl);
+}
+
+.text-2xl-bold {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-xl);
+}
+
+.text-2xl-semibold {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-xl);
+}
+
+.text-2xl-medium {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-xl);
+}
+
+.text-2xl-regular {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-xl);
+}
+
+.text-xl-bold {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-xl);
+}
+
+.text-xl-semibold {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-xl);
+}
+
+.text-xl-medium {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-xl);
+}
+
+.text-xl-regular {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-xl);
+}
+
+.text-2lg-bold {
+  font-size: var(--font-size-2lg);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-lg);
+}
+
+.text-2lg-semibold {
+  font-size: var(--font-size-2lg);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-lg);
+}
+
+.text-2lg-medium {
+  font-size: var(--font-size-2lg);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-lg);
+}
+
+.text-2lg-regular {
+  font-size: var(--font-size-2lg);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-lg);
+}
+
+.text-lg-bold {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-lg);
+}
+
+.text-lg-semibold {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-lg);
+}
+
+.text-lg-medium {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-lg);
+}
+
+.text-lg-regular {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-lg);
+}
+
+.text-md-bold {
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-md);
+}
+
+.text-md-semibold {
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-md);
+}
+
+.text-md-medium {
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-md);
+}
+
+.text-md-regular {
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-md);
+}
+
+.text-xs-semibold {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-xs);
+}
+
+.text-xs-medium {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-xs);
+}
+
+.text-xs-regular {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-xs);
+}
+
+/* =======================================================
+    COMPONENTS / BUTTONS
+   ======================================================= */
+.btn-base {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.625rem;
+  white-space: nowrap;
+  color: var(--secondary-100);
+  background-color: var(--primary-100);
+}
+
+.btn-base:hover {
+  background-color: var(--primary-200);
+}
+
+.btn-base:active {
+  background-color: var(--primary-300);
+}
+
+.btn-base:disabled {
+  background-color: var(--secondary-400);
+}
+
+/* =======================================================
+    UTILITIES / RESPONSIVE
+   ======================================================= */
+
+.show-mobile {
+  display: none;
+}
+
+@media (max-width: 743px) {
+  .show-mobile {
+    display: block;
+  }
+
+  .hide-mobile {
+    display: none;
+  }
+}

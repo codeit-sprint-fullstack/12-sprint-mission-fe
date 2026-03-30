@@ -1,0 +1,28 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.title {
+  color: var(--secondary-900);
+}
+
+.productList {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+@media (max-width: 1199px) {
+  .productList {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 743px) {
+  .productList {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

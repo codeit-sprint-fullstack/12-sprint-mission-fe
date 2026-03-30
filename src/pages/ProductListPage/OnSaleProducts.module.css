@@ -1,0 +1,34 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 8.75rem;
+}
+
+.productList {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 2.5rem 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+@media (max-width: 1199px) {
+  .section {
+    margin-bottom: 10.31rem;
+  }
+
+  .productList {
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 1rem;
+  }
+}
+
+@media (max-width: 743px) {
+  .section {
+    margin-bottom: 8.44rem;
+  }
+
+  .productList {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem 0.5rem;
+  }
+}
