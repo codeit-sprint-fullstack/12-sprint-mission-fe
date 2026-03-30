@@ -10,6 +10,7 @@ export default function useProducts() {
 
   const [orderBy, setOrderBy] = useState("recent");
   const [keyword, setKeyword] = useState("");
+  const [debouncedKeyword, setDebouncedKeyword] = useState("");
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(10);
 
@@ -41,12 +42,29 @@ export default function useProducts() {
     fetchBest();
   }, []);
 
+  // keyword만 debounce 처리
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setDebouncedKeyword(keyword);
+      setPage(1); // 검색 바뀌면 페이지 초기화
+    }, 300);
+
+    return () => clearTimeout(timer);
+  }, [keyword]);
+
   // 전체 상품 fetch
   useEffect(() => {
     const fetchAll = async () => {
       setLoading(true);
+      setError(null); // 에러 초기화
+
       try {
-        const res = await getProductList({ page, pageSize, orderBy, keyword });
+        const res = await getProductList({
+          page,
+          pageSize,
+          orderBy,
+          keyword: debouncedKeyword,
+        });
         setProducts(res.list || []);
         setTotalCount(res.totalCount || 0);
       } catch (err) {
@@ -56,9 +74,8 @@ export default function useProducts() {
       }
     };
 
-    const debounce = setTimeout(fetchAll, 300);
-    return () => clearTimeout(debounce);
-  }, [page, pageSize, orderBy, keyword]);
+    fetchAll(); // 바로 실행 (debounce 없음)
+  }, [page, pageSize, orderBy, debouncedKeyword]);
 
   return {
     bestProducts,
