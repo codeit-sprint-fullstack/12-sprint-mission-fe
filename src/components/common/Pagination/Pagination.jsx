@@ -31,25 +31,26 @@ export const Pagination = ({ page, onPageChange, totalPages }) => {
         </svg>
       </button>
 
-      {Array.from(
-        { length: endPage - startPage + 1 },
-        (_, i) => startPage + i,
-      ).map((num) => {
-        const isCurrent = page === num;
+      <ul>
+        {Array.from(
+          { length: endPage - startPage + 1 },
+          (_, i) => startPage + i,
+        ).map((num) => {
+          const isCurrent = page === num;
 
-        return (
-          <li key={num} className={styles.pageItem}>
-            <button
-              key={num}
-              className={`${styles.circle} ${isCurrent ? styles.currentPage : styles.link}`}
-              onClick={() => onPageChange(num)}
-              aria-current={isCurrent ? "page" : undefined}
-            >
-              {num}
-            </button>
-          </li>
-        );
-      })}
+          return (
+            <li key={num} className={styles.pageItem}>
+              <button
+                className={`${styles.circle} ${isCurrent ? styles.currentPage : styles.link}`}
+                onClick={() => onPageChange(num)}
+                aria-current={isCurrent ? "page" : undefined}
+              >
+                {num}
+              </button>
+            </li>
+          );
+        })}
+      </ul>
 
       <button
         className={`${styles.circle} ${styles.pageBtn} ${styles.next}`}
