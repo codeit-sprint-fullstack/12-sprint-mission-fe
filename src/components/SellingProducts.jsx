@@ -6,6 +6,7 @@ import icArrowDown from "../assets/ic_arrow_down.png";
 
 import CardGeneral from "./CardGeneral";
 import Pagination from "./Pagination";
+import { Link } from "react-router-dom";
 
 const SellingProducts = ({
   products,
@@ -116,9 +117,11 @@ const SellingProducts = ({
                 alt="돋보기 아이콘"
                 className={styles.icSearch}
               />
-              <button className={`${styles.addProductBtn} text-lg semibold`}>
-                상품 등록하기
-              </button>
+              <Link to="/registration" style={{ textDecoration: "none" }}>
+                <button className={`${styles.addProductBtn} text-lg semibold`}>
+                  상품 등록하기
+                </button>
+              </Link>
 
               <div className={styles.sortDropdownContainer}>
                 <button

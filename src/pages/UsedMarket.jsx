@@ -1,7 +1,7 @@
 import React, { useMemo } from "react";
-import BestProducts from "./BestProducts";
+import BestProducts from "../components/BestProducts.jsx";
 import styles from "../styles/UsedMarket.module.css";
-import SellingProducts from "./SellingProducts";
+import SellingProducts from "../components/SellingProducts.jsx";
 import { usePagination } from "../hooks/usePagination.js";
 import { useProducts } from "../hooks/useProducts.js";
 
@@ -36,7 +36,7 @@ const UsedMarket = ({ isMobile, isTablet }) => {
   return (
     <main className={styles.usedMarketMain}>
       <div className={styles.wrapper}>
-        <BestProducts isMobile={isMobile} isTablet={isTablet} />
+        {/* <BestProducts isMobile={isMobile} isTablet={isTablet} /> */}
         <SellingProducts
           products={products}
           onSortToggle={handleSortToggle}
