@@ -1,6 +1,6 @@
 import React from "react";
-import Card_best from "./Card_best";
-import "../style/BestProductSection.css";
+import Card_best from "../Card/Card_best";
+import "../../style/BestProductSection.css";
 
 const BestProductSection = ({ products }) => {
   return (

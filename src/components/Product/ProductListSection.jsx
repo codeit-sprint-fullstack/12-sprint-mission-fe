@@ -1,7 +1,7 @@
 import React from "react";
-import Card_general from "./Card_general";
-import "../style/reset.css";
-import "../style/ProductListSection.css";
+import Card_general from "../Card/Card_general";
+import "../../style/reset.css";
+import "../../style/ProductListSection.css";
 
 const ProductListSection = ({
   products,

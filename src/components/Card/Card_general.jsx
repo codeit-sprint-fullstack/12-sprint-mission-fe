@@ -1,6 +1,6 @@
 import React from "react";
-import "../style/reset.css";
-import "../style/Card_general.css";
+import "../../style/reset.css";
+import "../../style/Card_general.css";
 
 const Card_general = ({
   image,

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import BestProductSection from "../components/BestProductSection";
-import ProductListSection from "../components/ProductListSection";
+import BestProductSection from "../components/Product/BestProductSection";
+import ProductListSection from "../components/Product/ProductListSection";
 import { getProductList } from "../api/ProductService";
 import Pagination from "../components/Pagination";
 
