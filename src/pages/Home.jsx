@@ -7,7 +7,7 @@ import styles from "../styles/Home.module.css";
 
 const Home = () => {
   return (
-    <main className="with-header">
+    <main>
       <section className={`${styles.banner} ${styles.hero}`}>
         <div className={styles.wrapper}>
           <h1>

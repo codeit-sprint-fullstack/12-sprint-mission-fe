@@ -18,10 +18,6 @@ h1 {
   display: inline;
 }
 
-.with-header {
-  margin-top: 70px;
-}
-
 .button {
   background-color: var(--Primary-100);
   color: #ffffff;
@@ -190,10 +186,6 @@ h1 {
     font-size: 18px;
     line-height: 21.6px;
     margin-top: 20px;
-  }
-
-  .with-header {
-    margin-top: 0;
   }
 }
 
