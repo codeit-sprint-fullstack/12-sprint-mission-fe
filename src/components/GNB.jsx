@@ -3,23 +3,43 @@ import pandaMarketLogo from "../assets/pandamarket.png";
 import pandaMarketLogoMobile from "../assets/pandamarket_mobile.png";
 import styles from "../styles/GNB.module.css";
 import "../App.css";
+import { Link, NavLink } from "react-router-dom";
 
 const GNB = ({ isMobile }) => {
   return (
     <nav>
       <div className={styles.gnbContainer}>
         <div>
-          <img
-            src={isMobile ? pandaMarketLogoMobile : pandaMarketLogo}
-            className={styles.logo}
-            alt="Pandamarket Logo"
-          />
+          <Link to="/">
+            <img
+              src={isMobile ? pandaMarketLogoMobile : pandaMarketLogo}
+              className={styles.logo}
+              alt="Pandamarket Logo"
+            />
+          </Link>
           <div
             className={`${styles.navList} ${isMobile ? "text-lg" : "text-2lg"} bold`}
           >
-            {/* 추후 NavLink 태그로 수정 */}
-            <span>자유게시판</span>
-            <span>중고마켓</span>
+            <NavLink
+              to="/community"
+              className={({ isActive }) =>
+                isActive
+                  ? `${styles.navLink} ${styles.active}`
+                  : `${styles.navLink}`
+              }
+            >
+              자유게시판
+            </NavLink>
+            <NavLink
+              to="/items"
+              className={({ isActive }) =>
+                isActive
+                  ? `${styles.navLink} ${styles.active}`
+                  : `${styles.navLink}`
+              }
+            >
+              중고마켓
+            </NavLink>
           </div>
         </div>
         <button className={`${styles.btn} text-lg semibold`}>로그인</button>
