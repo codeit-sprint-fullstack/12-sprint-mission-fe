@@ -34,7 +34,7 @@ const UsedMarket = ({ isMobile, isTablet }) => {
   const pageGroup = getPageGroup(totalPage);
 
   return (
-    <main>
+    <main className={styles.usedMarketMain}>
       <div className={styles.wrapper}>
         <BestProducts isMobile={isMobile} isTablet={isTablet} />
         <SellingProducts
