@@ -1,0 +1,33 @@
+.main-container {
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.best-prodct {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.sale-prodct {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.sub-title {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 32px;
+  letter-spacing: 0%;
+}
+
+@media (max-width: 744px) {
+  .main-container {
+    margin-top: 80px;
+  }
+}

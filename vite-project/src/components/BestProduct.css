@@ -1,0 +1,52 @@
+.best-container {
+  display: flex;
+  gap: 24px;
+}
+
+.best-product-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.best-product-img {
+  width: 282px;
+  height: 282px;
+  border-radius: 16px;
+}
+
+.best-product-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.best-detail-title {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: 0%;
+}
+
+.best-detail-price {
+  font-weight: 700;
+  line-height: 26px;
+  letter-spacing: 0%;
+}
+
+.best-love-it {
+  display: flex;
+  gap: 4px;
+}
+
+@media (max-width: 744px) {
+  .best-product-img {
+    width: 343px;
+    height: 343px;
+    border-radius: 19.46px;
+  }
+  .best-container {
+    display: flex;
+    gap: 5px;
+  }
+}
