@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useDebounce } from "../../hooks/useDebounce";
 import { usePageSize } from "../../hooks/usePageSize";
 import { useProducts } from "../../hooks/useProducts";
 import { Pagination } from "../../components/common/Pagination/Pagination";
@@ -12,9 +13,10 @@ export const OnSaleProducts = () => {
   const [page, setPage] = useState(1);
 
   const pageSize = usePageSize({ mobile: 4, tablet: 6, desktop: 10 });
+  const debouncedKeyword = useDebounce(keyword, 300);
   const { products, totalCount } = useProducts({
     orderBy: sortBy,
-    keyword,
+    keyword: debouncedKeyword,
     page,
     pageSize,
   });
@@ -25,12 +27,12 @@ export const OnSaleProducts = () => {
     setKeyword(newKeyword);
     setPage(1);
   };
-  
+
   const handleSortChange = (newSort) => {
     setSortBy(newSort);
     setPage(1);
   };
-  
+
   return (
     <section className={styles.section}>
       <OnSaleProductHeader
