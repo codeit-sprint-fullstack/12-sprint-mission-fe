@@ -15,20 +15,25 @@
   background-color: var(--white);
 }
 
-.pageBtn {
+.navButton {
   color: var(--secondary-800);
 }
 
-.pageBtn:disabled {
+.navButton:disabled {
   color: var(--secondary-400);
   cursor: not-allowed;
 }
 
-.link {
+.pageList {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.pageNumber {
   color: var(--secondary-500);
 }
 
-.currentPage {
+.current {
   color: var(--white);
   background-color: #2f80ed;
 }

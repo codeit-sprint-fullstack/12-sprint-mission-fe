@@ -9,7 +9,7 @@ export const Pagination = ({ page, onPageChange, totalPages }) => {
   return (
     <nav className={styles.pagination}>
       <button
-        className={`${styles.circle} ${styles.pageBtn} ${styles.prev}`}
+        className={`${styles.circle} ${styles.navButton}`}
         disabled={page === 1}
         onClick={() => onPageChange(page - 1)}
         aria-label="이전 페이지"
@@ -31,7 +31,7 @@ export const Pagination = ({ page, onPageChange, totalPages }) => {
         </svg>
       </button>
 
-      <ul>
+      <ul className={styles.pageList}>
         {Array.from(
           { length: endPage - startPage + 1 },
           (_, i) => startPage + i,
@@ -39,9 +39,9 @@ export const Pagination = ({ page, onPageChange, totalPages }) => {
           const isCurrent = page === num;
 
           return (
-            <li key={num} className={styles.pageItem}>
+            <li key={num}>
               <button
-                className={`${styles.circle} ${isCurrent ? styles.currentPage : styles.link}`}
+                className={`${styles.circle} ${isCurrent ? styles.current : styles.pageNumber}`}
                 onClick={() => onPageChange(num)}
                 aria-current={isCurrent ? "page" : undefined}
               >
@@ -53,7 +53,7 @@ export const Pagination = ({ page, onPageChange, totalPages }) => {
       </ul>
 
       <button
-        className={`${styles.circle} ${styles.pageBtn} ${styles.next}`}
+        className={`${styles.circle} ${styles.navButton}`}
         disabled={page === totalPages}
         onClick={() => onPageChange(page + 1)}
         aria-label="다음 페이지"
