@@ -4,6 +4,7 @@ import { usePageSize } from "../../hooks/usePageSize";
 import { useProducts } from "../../hooks/useProducts";
 import { Pagination } from "../../components/common/Pagination/Pagination";
 import { ProductCard } from "../../components/common/ProductCard/ProductCard";
+import { ProductCardSkeleton } from "../../components/common/ProductCard/ProductCardSkeleton";
 import { OnSaleProductHeader } from "./OnSaleProductHeader";
 import styles from "./OnSaleProducts.module.css";
 
@@ -14,7 +15,7 @@ export const OnSaleProducts = () => {
 
   const pageSize = usePageSize({ mobile: 4, tablet: 6, desktop: 10 });
   const debouncedKeyword = useDebounce(keyword, 300);
-  const { products, totalCount } = useProducts({
+  const { products, totalCount, isLoading } = useProducts({
     orderBy: sortBy,
     keyword: debouncedKeyword,
     page,
@@ -42,9 +43,13 @@ export const OnSaleProducts = () => {
         onSortChange={handleSortChange}
       />
       <ul className={styles.productList}>
-        {products.map((item) => (
-          <ProductCard key={item.id} item={item} type="general" />
-        ))}
+        {isLoading
+          ? Array.from({ length: pageSize }).map((_, i) => (
+              <ProductCardSkeleton key={i} type="general" />
+            ))
+          : products.map((item) => (
+              <ProductCard key={item.id} item={item} type="general" />
+            ))}
       </ul>
       <Pagination page={page} onPageChange={setPage} totalPages={totalPages} />
     </section>
