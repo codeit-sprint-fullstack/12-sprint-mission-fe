@@ -1,153 +1,79 @@
-🐼 판다마켓 (Pandamarket)
-
-일상의 모든 물건을 거래하는 중고 거래 플랫폼 랜딩 페이지
-HTML, CSS 기반 정적 웹 프로젝트
+🐼 판다마켓 (Pandamarket) - Sprint 3
+일상의 모든 물건을 거래하는 중고 거래 플랫폼의 Article 및 Product API 연동 프로젝트
 
 📌 프로젝트 소개
-
-판다마켓은 중고 물품을 쉽고 안전하게 거래할 수 있는 플랫폼을 목표로 제작된 웹 페이지입니다.
-HTML + CSS만으로 구현하였습니다.
+판다마켓 서비스의 핵심 데이터인 **게시글(Article)**과 상품(Product) 데이터를 관리하기 위해 외부 API와 통신하는 서비스 로직을 구현한 프로젝트입니다. 자바스크립트의 두 가지 주요 비동기 처리 방식인 Promise(.then)와 async/await을 모두 사용하여 설계되었습니다.
 
 🛠️ 기술 스택
+JavaScript (ES6+)
 
-HTML5
+Fetch API
 
-CSS3
-
-Netlify 
-
-Google Analytics 4 
+Node.js (테스트 환경)
 
 📂 프로젝트 구조
-pandamarket/
-├── index.html
-├── login.html
-├── signup.html
-├── items.html
-├── privacy.html
-├── faq.html
-├── css/
-│   ├── reset.css
-│   ├── style.css
-│   ├── login.css
-│   └── signup.css
-└── images/
-    ├── index/
-    ├── login/
-    └── signup/
+Plaintext
+sprint3/
+├── src/
+│ ├── api/
+│ │ ├── ArticleService.js # .then() / .catch() 기반 서비스
+│ │ └── ProductService.js # async / await 기반 서비스
+│ └── main.js # 서비스 실행 및 API 테스트
+├── package.json # 프로젝트 설정 및 의존성 관리
+└── README.md
+⚙️ 주요 기능 및 구현 방식
+1️⃣ Article Service (.then() 방식)
+명세서 요구사항에 따라 Promise 체이닝 방식을 사용하여 구현되었습니다.
 
-📄 페이지 구성
+목록 조회: page, pageSize, orderBy, keyword 쿼리 파라미터 적용
 
-1️⃣ 랜딩 페이지 (/)
+CRUD 구현: 상세 조회, 생성(POST), 수정(PATCH), 삭제(DELETE)
 
-GNB (로고, 로그인 버튼)
+에러 핸들링: .catch() 블록을 통해 네트워크 오류 및 상태 코드(2XX 아님) 예외 처리
 
-HERO 섹션
+2️⃣ Product Service (async/await 방식)
+가독성이 높은 현대적 비동기 문법을 사용하여 구현되었습니다.
 
-인기 상품 소개
+목록 조회: 정렬 기준(recent, favorite)을 포함한 상품 데이터 호출
 
-상품 검색 안내
+CRUD 구현: 상품 등록, 상세 정보 수신, 정보 업데이트, 상품 제거
 
-상품 등록 안내
+에러 핸들링: try-catch 문을 사용하여 비동기 로직의 안정성 확보
 
-Footer (Privacy / FAQ / SNS 링크)
+3️⃣ 공통 구현 포인트
+URLSearchParams: 복잡한 쿼리 스트링을 객체 기반으로 안전하게 생성
 
-2️⃣ 로그인 페이지 (/login)
+Request Headers: JSON 데이터 전송을 위한 Content-Type: application/json 명시
 
-이메일 입력
+Error Validation: response.ok를 체크하여 HTTP 에러 상태(4xx, 5xx)를 명시적으로 처리
 
-비밀번호 입력
+🎨 코드 예시
+[Product List 조회 - async/await]
+JavaScript
+export const getProductList = async (page = 1, pageSize = 10, orderBy = "recent", keyword = "") => {
+try {
+const params = new URLSearchParams({ page, pageSize, orderBy, keyword });
+const response = await fetch(`${BASE_URL}?${params.toString()}`);
 
-간편 로그인 (Google / Kakao)
+    if (!response.ok) throw new Error(`목록 조회 실패: ${response.status}`);
+    return await response.json();
 
-회원가입 이동 링크
-
-3️⃣ 회원가입 페이지 (/signup)
-
-이메일
-
-닉네임
-
-비밀번호
-
-비밀번호 확인
-
-간편 로그인
-
-🎨 CSS 설계 방식
-
-1️⃣ CSS 변수 활용
-
-Palette에 정의된 색상값을 :root에 CSS 변수로 등록하여 사용하였습니다.
-
-:root {
-  --primary: #3692ff;
-  --text: #111827;
-  --muted: #6b7280;
-  --input-bg: #f3f4f6;
-  --social-bg: #e6f2ff;
+} catch (error) {
+console.error(error.message);
 }
+};
+🚀 실행 방법
+프로젝트 폴더로 이동
 
-→ 유지보수성과 재사용성을 높이기 위한 설계입니다.
+Bash
+cd sprint3
+의존성 설치 (필요시)
 
-2️⃣ Flexbox 기반 레이아웃
+Bash
+npm install
+테스트 실행
 
-display: flex
-
-justify-content
-
-align-items
-
-gap
-
-을 활용하여 반응형에 유연한 구조를 설계하였습니다.
-
-3️⃣ 시맨틱 태그 사용
-
-<main>
-
-<section>
-
-<nav>
-
-<footer>
-
-를 사용하여 웹 접근성과 구조적 의미를 고려하였습니다.
-
-📊 Google Analytics 설정
-
-방문자 수 확인을 위해 **GA4 (Google Analytics 4)**를 연동하였습니다.
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q8XC4C0YZ1""></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-Q8XC4C0YZ1"');
-</script>
-
-실시간 보고서에서 방문자 확인 가능
-
-🚀 배포
-
-Netlify를 통해 배포 
-
-루트 경로(/)를 랜딩 페이지로 설정
-
-✨ 주요 구현 포인트
-
-UI 라이브러리 없이 순수 HTML/CSS로 구현
-
-CSS 변수로 색상 통합 관리
-
-버튼 및 링크에 cursor: pointer 적용
-
-간편 로그인 아이콘 정렬 개선
-
-shrink 방지 설계
-
-접근성을 고려한 aria-label 사용
-
+Bash
+npm start
 👩‍💻 제작자
-
 정민
