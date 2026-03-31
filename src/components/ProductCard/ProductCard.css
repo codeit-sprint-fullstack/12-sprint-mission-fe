@@ -1,0 +1,61 @@
+.product-card {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  transition: transform 0.2s;
+  width: 100%; /* 그리드에 맞게 가득 채움 */
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+.product-image-box {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background-color: #f0f0f0;
+  border-radius: 16px; /* 피그마의 둥근 모서리 */
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+
+.product-image-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.product-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.product-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: #374151;
+  line-height: 1.4;
+  height: 40px; /* 두 줄 고정 높이 */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.product-price {
+  font-size: 16px;
+  font-weight: 700;
+  color: #111827;
+  margin-top: 2px;
+}
+
+.product-footer {
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  color: #6b7280;
+}

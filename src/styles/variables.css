@@ -1,0 +1,61 @@
+:root {
+  /* Font */
+  --font-main: Pretendard, sans-serif;
+
+  /* Colors */
+  --color-primary: #3692ff;
+  --color-primary-light: #cfe5ff;
+  --color-text: #374151;
+  --color-white: #fff;
+  --color-black: #111827;
+  --color-gray-200: #e5e7eb;
+  --color-gray-400: #9ca3af;
+  --color-bg-card: #fcfcfc;
+
+  /* Shadow */
+  --shadow-sm: 0 20px 40px rgba(0, 0, 0, 0.04);
+
+  /* Radius */
+  --radius-sm: 0.5rem; /* 8px */
+  --radius-md: 0.75rem; /* 12px */
+  --radius-lg: 2.5rem; /* 40px */
+
+  /* Layout */
+  --header-h: 4rem;
+  --footer-h: 10rem;
+
+  /* Spacing */
+  --pad-x-xl: 12.5rem;
+  --pad-hero-x: 7.75rem;
+  --pad-rect-top: 10rem;
+
+  /* Sizing */
+  --logo-max: 9.5625rem;
+  --hero-visual-max: 46.625rem;
+  --container-max: 120rem;
+  --section-max: 60.7rem;
+}
+
+/* 기본설정 */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-main);
+  color: var(--color-text);
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* 공통 컨테이너 */
+.inner {
+  width: min(90%, var(--container-max));
+  margin: 0 auto;
+}
