@@ -161,6 +161,9 @@ h2 {
   background: var(--Secondary-100);
   position: relative;
 }
+.searchInput:focus {
+  outline: 0.0625rem solid var(--Primary-100);
+}
 
 .icSearch {
   position: absolute;

@@ -1,0 +1,93 @@
+.wrapper {
+  max-width: 1200px;
+  width: 100%;
+  margin: 20px auto;
+}
+.registrationContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.btnContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.registrationContainer h1,
+h2 {
+  color: var(--Secondary-800);
+}
+
+.addBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 42px;
+  border-radius: 8px;
+  border: 0;
+  padding: 12px 23px;
+  color: var(--Secondary-200);
+  background-color: var(--Secondary-400);
+  cursor: pointer;
+}
+
+.addBtn.active {
+  background-color: var(--Primary-100);
+}
+
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.inputContainer input,
+textarea {
+  display: flex;
+  align-items: start;
+  align-self: stretch;
+  /* width: 100%; */
+  padding: 16px 24px;
+  border-radius: 12px;
+  background: var(--Secondary-200);
+  border: 0;
+}
+
+.inputContainer input:focus {
+  outline: 0.0625rem solid var(--Primary-100);
+}
+
+.inputContainer textarea {
+  font-family: "Pretendard", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 26px; /* 162.5% */
+  resize: none;
+}
+
+.inputContainer textarea:focus {
+  outline: 0.0625rem solid var(--Primary-100);
+}
+
+.inputContainer section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.nameInput {
+  height: 56px;
+}
+
+.descriptionInput {
+  height: 282px;
+}
+
+.priceInput {
+}
+
+.tagInput {
+}
