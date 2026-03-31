@@ -12,6 +12,12 @@
   margin-bottom: 2.5rem;
 }
 
+.empty {
+  padding: 2rem;
+  text-align: center;
+  color: var(--secondary-600);
+}
+
 @media (max-width: 1199px) {
   .section {
     margin-bottom: 10.31rem;

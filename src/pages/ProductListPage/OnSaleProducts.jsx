@@ -24,6 +24,7 @@ export const OnSaleProducts = () => {
   });
 
   const totalPages = Math.ceil(totalCount / pageSize);
+  const isEmpty = !isLoading && !error && products.length === 0;
 
   const handleKeywordChange = (newKeyword) => {
     setKeyword(newKeyword);
@@ -45,6 +46,8 @@ export const OnSaleProducts = () => {
       />
       {error ? (
         <ErrorState error={error} onRetry={refetch} />
+      ) : isEmpty ? (
+        <div className={styles.empty}>검색 결과가 없습니다.</div>
       ) : (
         <ul className={styles.productList}>
           {isLoading
@@ -56,7 +59,7 @@ export const OnSaleProducts = () => {
               ))}
         </ul>
       )}
-      {!error && (
+      {!error && !isEmpty && (
         <Pagination
           page={page}
           onPageChange={setPage}
