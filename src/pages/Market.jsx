@@ -3,8 +3,7 @@ import BestProductSection from "../components/Product/BestProductSection";
 import ProductListSection from "../components/Product/ProductListSection";
 import { getProductList } from "../api/ProductService";
 import Pagination from "../components/Pagination";
-
-const PAGE_SIZE = 10;
+import useResponsivePageSize from "../hooks/useResponsivePageSize";
 
 const Market = () => {
   const [bestProducts, setBestProducts] = useState([]);
@@ -13,21 +12,22 @@ const Market = () => {
   const [totalCount, setTotalCount] = useState(0);
   const [sortOrder, setSortOrder] = useState("recent");
   const [searchTitle, setSearchTitle] = useState("");
+  const { bestPageSize, generalPageSize } = useResponsivePageSize();
 
   useEffect(() => {
     async function loadBestProducts() {
-      const result = await getProductList(1, 4, "", "favorite");
+      const result = await getProductList(1, bestPageSize, "", "favorite");
       setBestProducts(result.list);
     }
 
     loadBestProducts();
-  }, []);
+  }, [bestPageSize]);
 
   useEffect(() => {
     async function loadProducts() {
       const result = await getProductList(
         currPage,
-        PAGE_SIZE,
+        generalPageSize,
         searchTitle,
         sortOrder
       );
@@ -36,9 +36,13 @@ const Market = () => {
     }
 
     loadProducts();
-  }, [currPage, searchTitle, sortOrder]);
+  }, [currPage, generalPageSize, searchTitle, sortOrder]);
 
-  const totalPages = Math.ceil(totalCount / PAGE_SIZE);
+  useEffect(() => {
+    setCurrPage(1);
+  }, [generalPageSize]);
+
+  const totalPages = Math.ceil(totalCount / generalPageSize);
 
   return (
     <>
