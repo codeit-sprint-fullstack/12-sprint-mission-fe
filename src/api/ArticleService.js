@@ -1,19 +1,25 @@
-// src/api/ArticleService.js
-const BASE_URL = 'https://panda-market-api-crud.vercel.app/articles';
+import { API_ENDPOINTS } from "../config/index.js";
+import { request } from "./request.js";
+
+const BASE_URL = API_ENDPOINTS.articles;
 
 /**
  * 1. 게시글 목록 조회 (GET /articles)
  * 파라미터: page, pageSize, orderBy(recent/like), keyword
  */
-export const getArticleList = (page = 1, pageSize = 10, orderBy = 'recent', keyword = '') => {
-  const params = new URLSearchParams({ page, pageSize, orderBy, keyword });
-  
-  return fetch(`${BASE_URL}?${params.toString()}`)
-    .then((response) => {
-      if (!response.ok) throw new Error(`게시글 목록 조회 실패: ${response.status}`);
-      return response.json();
-    })
-    .catch((error) => console.error(error.message)); 
+export const getArticleList = (
+  page = 1,
+  pageSize = 10,
+  orderBy = "recent",
+  keyword = "",
+) => {
+  const params = new URLSearchParams({ page, pageSize, orderBy });
+
+  if (keyword) {
+    params.append("keyword", keyword);
+  }
+
+  return request(`${BASE_URL}?${params.toString()}`);
 };
 
 /**
@@ -21,56 +27,39 @@ export const getArticleList = (page = 1, pageSize = 10, orderBy = 'recent', keyw
  * Request body: image, content, title
  */
 export const createArticle = (articleData) => {
-  return fetch(BASE_URL, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+  return request(BASE_URL, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify(articleData),
-  })
-    .then((response) => {
-      if (!response.ok) throw new Error(`게시글 생성 실패: ${response.status}`);
-      return response.json();
-    })
-    .catch((error) => console.error(error.message));
+  });
 };
 
 /**
  * 3. 게시글 상세 조회 (GET /articles/{articleId})
  */
 export const getArticle = (articleId) => {
-  return fetch(`${BASE_URL}/${articleId}`)
-    .then((response) => {
-      if (!response.ok) throw new Error(`게시글 상세 조회 실패: ${response.status}`);
-      return response.json();
-    })
-    .catch((error) => console.error(error.message));
+  if (!articleId) {
+    throw new Error("articleId is required");
+  }
+  return request(`${BASE_URL}/${articleId}`);
 };
 
 /**
  * 4. 게시글 수정 (PATCH /articles/{articleId})
  */
 export const patchArticle = (articleId, updateData) => {
-  return fetch(`${BASE_URL}/${articleId}`, {
-    method: 'PATCH',
-    headers: { 'Content-Type': 'application/json' },
+  return request(`${BASE_URL}/${articleId}`, {
+    method: "PATCH",
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify(updateData),
-  })
-    .then((response) => {
-      if (!response.ok) throw new Error(`게시글 수정 실패: ${response.status}`);
-      return response.json();
-    })
-    .catch((error) => console.error(error.message));
+  });
 };
 
 /**
  * 5. 게시글 삭제 (DELETE /articles/{articleId})
  */
 export const deleteArticle = (articleId) => {
-  return fetch(`${BASE_URL}/${articleId}`, {
-    method: 'DELETE',
-  })
-    .then((response) => {
-      if (!response.ok) throw new Error(`게시글 삭제 실패: ${response.status}`);
-      return response.json();
-    })
-    .catch((error) => console.error(error.message));
+  return request(`${BASE_URL}/${articleId}`, {
+    method: "DELETE",
+  });
 };
