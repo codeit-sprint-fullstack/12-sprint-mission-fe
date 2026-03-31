@@ -10,10 +10,11 @@ const BestProductSection = ({ products }) => {
       </div>
       <div className="best-product-grid">
         {products.map((p) => (
+          // API 상품 데이터는 name 필드를 쓰므로 카드 제목도 같은 값을 넘겨줍니다.
           <Card_best
             key={p.id}
             image={p.images?.[0]}
-            title={p.title}
+            title={p.name}
             price={p.price}
             favoriteCount={p.favoriteCount}
           />
