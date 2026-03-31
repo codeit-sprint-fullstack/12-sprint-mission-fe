@@ -1,25 +1,27 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "../../style/Navbar.css";
 import "../../style/reset.css";
+import pandaMarketLogo from "../../assets/mainPage/pandamarket_logo.png";
 
 const Navbar = () => {
   return (
     <div className="nav-bg">
       <nav className="nav container">
         <div className="nav-tag">
-          <a href="index.html">
+          <Link to="/">
             <img
-              src="/sprintMission1/resource/main/pandamarket_logo.png"
+              src={pandaMarketLogo}
               className="nav-img"
               alt="판다마켓 로고"
             />
-          </a>
-          <p>자유게시판</p>
-          <p>중고마켓</p>
+          </Link>
+          <Link to="">자유게시판</Link>
+          <Link to="">중고마켓</Link>
         </div>
-        <a href="/sprintMission2/src/login/login.html">
-          <button className="cta-btn">로그인</button>
-        </a>
+        <Link to="/login" className="cta-btn">
+          로그인
+        </Link>
       </nav>
     </div>
   );

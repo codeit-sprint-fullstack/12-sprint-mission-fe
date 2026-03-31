@@ -4,6 +4,8 @@ import Navbar from "./components/Section/Navbar";
 import Market from "./pages/Market";
 import MainPage from "./pages/MainPage";
 import MainNavbar from "./components/Home/MainNavbar";
+import LoginPage from "./pages/LoginPage";
+import SignupPage from "./pages/SignupPage";
 
 function App() {
   return (
@@ -28,6 +30,8 @@ function App() {
           </>
         }
       />
+      <Route path="/login" element={<LoginPage />} />
+      <Route path="/signup" element={<SignupPage />} />
     </Routes>
   );
 }

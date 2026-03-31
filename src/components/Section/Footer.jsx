@@ -1,6 +1,11 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "../../style/reset.css";
 import "../../style/Footer.css";
+import facebookIcon from "../../assets/mainPage/ic_facebook.svg";
+import twitterIcon from "../../assets/mainPage/ic_twitter.svg";
+import youtubeIcon from "../../assets/mainPage/ic_youtube.svg";
+import instagramIcon from "../../assets/mainPage/ic_instagram.svg";
 
 const Footer = () => {
   return (
@@ -11,15 +16,12 @@ const Footer = () => {
         </div>
 
         <div className="footer-text-middle">
-          <a
-            href="/sprintMission1/src/main/privacy.html"
-            className="footer-text"
-          >
+          <Link to="/" className="footer-text">
             Privacy Policy
-          </a>
-          <a href="/sprintMission1/src/main/faq.html" className="footer-text">
+          </Link>
+          <Link to="/" className="footer-text">
             FAQ
-          </a>
+          </Link>
         </div>
 
         <div className="footer-icon">
@@ -28,37 +30,28 @@ const Footer = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img
-              src="/sprintMission1/resource/main/ic_facebook.svg"
-              alt="Facebook"
-            />
+            <img src={facebookIcon} alt="Facebook" />
           </a>
           <a
             href="https://x.com/?lang=ko"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="/sprintMission1/resource/main/ic_twitter.svg" alt="X" />
+            <img src={twitterIcon} alt="X" />
           </a>
           <a
             href="https://www.youtube.com/?hl=ko&gl=KR&app=desktop"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img
-              src="/sprintMission1/resource/main/ic_youtube.svg"
-              alt="YouTube"
-            />
+            <img src={youtubeIcon} alt="YouTube" />
           </a>
           <a
             href="https://www.instagram.com/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img
-              src="/sprintMission1/resource/main/ic_instagram.svg"
-              alt="Instagram"
-            />
+            <img src={instagramIcon} alt="Instagram" />
           </a>
         </div>
       </footer>
