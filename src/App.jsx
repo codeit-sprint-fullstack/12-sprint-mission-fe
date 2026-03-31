@@ -3,6 +3,7 @@ import Footer from "./components/Section/Footer";
 import Navbar from "./components/Section/Navbar";
 import Market from "./pages/Market";
 import MainPage from "./pages/MainPage";
+import MainNavbar from "./components/Home/MainNavbar";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         path="/"
         element={
           <>
+            <MainNavbar />
             <MainPage />
             <Footer />
           </>
