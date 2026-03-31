@@ -5,7 +5,7 @@ import { parseError } from "../utils/parseError";
 export const useProducts = ({ orderBy, keyword, page, pageSize }) => {
   const [products, setProducts] = useState([]);
   const [totalCount, setTotalCount] = useState(0);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
   const fetchProducts = useCallback(async () => {
