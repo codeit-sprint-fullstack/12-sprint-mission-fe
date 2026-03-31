@@ -16,7 +16,7 @@ export const OnSaleProducts = () => {
 
   const pageSize = usePageSize({ mobile: 4, tablet: 6, desktop: 10 });
   const debouncedKeyword = useDebounce(keyword, 300);
-  const { products, totalCount, isLoading, error } = useProducts({
+  const { products, totalCount, isLoading, error, refetch } = useProducts({
     orderBy: sortBy,
     keyword: debouncedKeyword,
     page,
@@ -44,7 +44,7 @@ export const OnSaleProducts = () => {
         onSortChange={handleSortChange}
       />
       {error ? (
-        <ErrorState error={error} />
+        <ErrorState error={error} onRetry={refetch} />
       ) : (
         <ul className={styles.productList}>
           {isLoading

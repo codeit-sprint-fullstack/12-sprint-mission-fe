@@ -6,7 +6,8 @@ export const ErrorState = ({ error, onRetry }) => {
   return (
     <div>
       <p>{error.message}</p>
-      {canRetry && <button onClick={onRetry}>다시 시도</button>}
+
+      {canRetry && <button onClick={onRetry}>다시 시도하기</button>}
     </div>
   );
 };

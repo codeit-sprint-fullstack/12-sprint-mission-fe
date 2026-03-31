@@ -8,7 +8,7 @@ import styles from "./BestProducts.module.css";
 
 export const BestProducts = () => {
   const pageSize = usePageSize({ mobile: 1, tablet: 2, desktop: 4 });
-  const { products, isLoading, error } = useProducts({
+  const { products, isLoading, error, refetch } = useProducts({
     pageSize,
     orderBy: "favorite",
   });
@@ -17,7 +17,7 @@ export const BestProducts = () => {
     <section className={styles.section}>
       <h2 className={`text-xl-bold ${styles.title}`}>베스트 상품</h2>
       {error ? (
-        <ErrorState error={error} />
+        <ErrorState error={error} onRetry={refetch} />
       ) : (
         <ul className={styles.productList}>
           {isLoading

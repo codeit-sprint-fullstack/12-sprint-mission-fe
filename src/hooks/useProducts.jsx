@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { getProducts } from "../api/productsApi";
 import { parseError } from "../utils/parseError";
 
@@ -8,24 +8,24 @@ export const useProducts = ({ orderBy, keyword, page, pageSize }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  useEffect(() => {
+  const fetchProducts = useCallback(async () => {
     setIsLoading(true);
     setError(null);
 
-    const fetchProducts = async () => {
-      try {
-        const data = await getProducts({ orderBy, keyword, page, pageSize });
-        setProducts(data.list);
-        setTotalCount(data.totalCount);
-      } catch (error) {
-        setError(parseError(error));
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    fetchProducts();
+    try {
+      const data = await getProducts({ orderBy, keyword, page, pageSize });
+      setProducts(data.list);
+      setTotalCount(data.totalCount);
+    } catch (err) {
+      setError(parseError(err));
+    } finally {
+      setIsLoading(false);
+    }
   }, [orderBy, keyword, page, pageSize]);
 
-  return { products, totalCount, isLoading, error };
+  useEffect(() => {
+    fetchProducts();
+  }, [fetchProducts]);
+
+  return { products, totalCount, isLoading, error, refetch: fetchProducts };
 };
