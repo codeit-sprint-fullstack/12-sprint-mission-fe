@@ -5,10 +5,14 @@
   justify-content: center;
   gap: 2.5rem;
   padding-top: 1.63rem;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 @media (max-width: 1199px) {
   .container {
+    max-width: 43.5rem;
     padding-left: 1.5rem;
     padding-right: 1.5rem;
   }
