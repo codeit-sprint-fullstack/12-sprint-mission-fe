@@ -1,32 +1,15 @@
-import { Route, Routes } from "react-router-dom";
-import Footer from "./components/Section/Footer";
-import Navbar from "./components/Section/Navbar";
-import Market from "./pages/Market";
-import MainPage from "./pages/MainPage";
+import { useState } from "react";
+import Footer from "../src/components/Section/Footer";
+import Navbar from "../src/components/Section/Navbar";
+import Market from "../src/pages/Market";
 
 function App() {
   return (
-    <Routes>
-      <Route
-        path="/"
-        element={
-          <>
-            <MainPage />
-            <Footer />
-          </>
-        }
-      />
-      <Route
-        path="/market"
-        element={
-          <>
-            <Navbar />
-            <Market />
-            <Footer />
-          </>
-        }
-      />
-    </Routes>
+    <div>
+      <Navbar />
+      <Market />
+      <Footer />
+    </div>
   );
 }
 
