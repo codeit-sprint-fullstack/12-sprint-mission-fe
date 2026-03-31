@@ -2,11 +2,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 2.5rem;
   padding-top: 1.63rem;
   width: 100%;
   max-width: 1200px;
+  min-height: calc(100vh - 4.375rem - 10rem);
   margin: 0 auto;
 }
 
