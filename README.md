@@ -1,0 +1,77 @@
+<h1 align="center">판다마켓</h1>
+
+# 📚 목차
+
+1. [프로젝트 개요](#-프로젝트-개요)
+2. [기술 스택](#-기술-스택)
+3. [아키텍처 & 폴더 구조](#-아키텍처--폴더-구조)
+4. [페이지별 상세 구현](#-페이지별-상세-구현)
+5. [구현하지 못한 부분](#-구현하지-못한-부분)
+6. [프로젝트 회고](#-프로젝트-회고)
+
+---
+
+# 프로젝트 개요
+
+-판다마켓 스프린터4 미션을 완료한다.
+
+---
+
+# 기술 스택
+
+- HTML5
+- CSS3
+- JS
+- npm (Node Package Manager) & Node.js
+- React
+- Git
+- GitHub
+
+---
+
+# 아키텍처 & 폴더 구조
+
+my-react-app
+┣ img/
+┣ node_modules
+┣ public
+┣ src
+┃ ┣ assets
+┃ ┃ ┣ hero.png
+┃ ┃ ┣ react.svg
+┃ ┃ ┗ vite.svg
+┃ ┣ App.css
+┃ ┣ App.jsx
+┃ ┣ index.css
+┃ ┗ main.jsx
+┣ gitignore
+┣ eslintconfig.js
+┣ index.html
+┣ package-lock.json
+┣ package.json
+┣ README.md
+┣ reset.css
+┗ vite.config.js
+
+---
+
+# 페이지별 상세 구현
+
+---
+
+# 구현하지 못한 부분
+
+### 스프린트 4
+
+페이지와 get을 연결해서 상품페이지를 만드는 것을 잘 몰라서 연결 하지 못했습니다.
+페이지를 완성하지 못했습니다.
+
+---
+
+# 프로젝트 회고
+
+### 스프린트 4 회고록
+
+배운 개념을 스프린트에 많이 적용하지 못했습니다.
+개념을 통해 적용하는 것이 부족하여 미션을 제시간에 완성 하지 못했습니다.
+좀 더 실습을 많이 하면서 다음 미션에는 잘 적용하여 완성하고 싶습니다.

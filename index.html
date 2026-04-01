@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>my-react-app</title>
+    <link rel="stylesheet" href="src/index.css" />
+    <link rel="stylesheet" href="reset.css" />
+  </head>
+  <body>
+    <!-- 네비바 부분 -->
+    <nav class="navbar">
+      <div class="nav">
+        <div>
+          <a href="/"><img src="img/logo.png" alt="판다마켓" class="logo" /></a>
+        </div>
+        <div>
+          <a href="/login.html" target="_blank">
+            <button class="login-btn">로그인</button>
+          </a>
+        </div>
+      </div>
+    </nav>
+    <!-- 메인 부분. -->
+    <main>
+      <!-- 베스트 상품 -->
+      <section>
+        <div>베스트 상품</div>
+      </section>
+      <!-- 판매 중인 상품 -->
+      <section>
+        <div>
+          <p>판매중인 상품</p>
+          <form>
+            <input
+              id="product"
+              name="email"
+              type="email"
+              placeholder="검색할 상품을 입력해주세요"
+            />
+            <button>상품 등록하기</button>
+          </form>
+        </div>
+      </section>
+    </main>
+    <!-- 푸터부분 -->
+    <footer>
+      <div class="footer1">
+        <div class="footer-container">
+          <div class="footer-left">©codeit - 2024</div>
+
+          <!-- FAQ -->
+          <div>
+            <ul class="footer-menu">
+              <li><a href="/privacy" target="_blank">Privacy Policy</a></li>
+              <li><a href="/faq" target="_blank">FAQ</a></li>
+            </ul>
+          </div>
+
+          <!-- sns -->
+          <div class="footer-sns">
+            <a href="https://facebook.com" target="_blank">
+              <img
+                src="img/ic_facebook.png"
+                alt="페이스북"
+                class="footer-img"
+              />
+            </a>
+            <a href="https://twitter.com" target="_blank"
+              ><img src="img/ic_twitter.png" alt="트위터" class="footer-img"
+            /></a>
+            <a href="https://youtube.com" target="_blank"
+              ><img src="img/ic_youtube.png" alt="유튜브" class="footer-img"
+            /></a>
+            <a href="https://instagram.com" target="_blank"
+              ><img
+                src="img/ic_instagram.png"
+                alt="인스타그램"
+                class="footer-img"
+            /></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
