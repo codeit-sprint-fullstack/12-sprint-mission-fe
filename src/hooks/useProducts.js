@@ -1,10 +1,9 @@
 import { useState, useEffect } from "react";
 
-export const useProducts = (page, pageSize, use) => {
+export const useProducts = (page, pageSize) => {
   const [products, setProducts] = useState([]);
-  const [orderBy, setOrderBy] = useState(
-    use === "best" ? "favorite" : "recent",
-  );
+  const [orderBy, setOrderBy] = useState("-createdAt");
+  // use === "best" ? "favorite" : "-createdAt",
   const [keyword, setKeyword] = useState("");
   const [totalPage, setTotalPage] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
@@ -14,7 +13,7 @@ export const useProducts = (page, pageSize, use) => {
     const getProducts = async () => {
       try {
         const res = await fetch(
-          `https://panda-market-api.vercel.app/products?page=${page}&pageSize=${pageSize}&orderBy=${orderBy}&keyword=${keyword}`,
+          `http://localhost:3000/api/products?page=${page}&pageSize=${pageSize}&orderBy=${orderBy}&keyword=${keyword}`,
         );
         const data = await res.json();
 
@@ -22,8 +21,7 @@ export const useProducts = (page, pageSize, use) => {
           throw new Error("데이터 로딩에 실패했습니다!");
         }
 
-        // 전체 페이지 수 계산
-        setTotalPage(Math.ceil(data.totalCount / pageSize));
+        setTotalPage(data.totalPages);
         setProducts(data.list);
       } catch (error) {
         console.error(error);

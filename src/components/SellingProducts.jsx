@@ -42,14 +42,14 @@ const SellingProducts = ({
       <div className={styles.sortList}>
         <option
           className={"text-lg regular"}
-          value="recent"
+          value="-createdAt"
           onClick={onSortToggle}
         >
           최신순
         </option>
         <option
           className={"text-lg regular"}
-          value="favorite"
+          value="-favoriteCount"
           onClick={onSortToggle}
         >
           좋아요순
@@ -128,7 +128,7 @@ const SellingProducts = ({
                   className={`${styles.sortBtn} text-lg regular`}
                   onClick={onDropdownToggle}
                 >
-                  {orderBy === "recent" ? "최신순" : "좋아요순"}
+                  {orderBy === "-createdAt" ? "최신순" : "좋아요순"}
                   <img src={icArrowDown} />
                 </button>
                 {isOpen ? sortDropdownList() : <></>}
@@ -147,12 +147,12 @@ const SellingProducts = ({
               {products.length === 0
                 ? noSearch()
                 : products.slice(0, listRow).map((item) => {
-                    return <CardGeneral product={item} key={item.id} />;
+                    return <CardGeneral product={item} key={item._id} />;
                   })}
             </ul>
             <ul className={styles.productsList}>
               {products.slice(listRow).map((item) => {
-                return <CardGeneral product={item} key={item.id} />;
+                return <CardGeneral product={item} key={item._id} />;
               })}
             </ul>
           </>

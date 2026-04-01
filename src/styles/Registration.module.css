@@ -49,9 +49,6 @@ h2 {
 
 .inputContainer input,
 textarea {
-  /* display: flex;
-  align-items: start;
-  align-self: stretch; */
   width: 100%;
   padding: 16px 24px;
   border-radius: 12px;
@@ -84,6 +81,28 @@ textarea {
 
 .descriptionInput {
   height: 282px;
+}
+
+.tagsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.tag {
+  display: flex;
+  height: 36px;
+  padding: 6px 12px 6px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 26px;
+  background: var(--Secondary-200);
+  color: var(--Secondary-800);
+}
+
+.tag > img {
+  cursor: pointer;
 }
 
 @media (max-width: 1279px) {
