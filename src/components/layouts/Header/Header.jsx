@@ -1,10 +1,15 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import styles from "./Header.module.css";
 import logo from "./logo-sm.svg";
 import logoTypo from "./logo-typo.svg";
 
-export const Header = ({ variant = "default" }) => {
+export const Header = () => {
+  const location = useLocation();
+
+  const isRoot = location.pathname === "/";
+  const variant = isRoot ? "default" : "tab";
+
   return (
     <header className={styles.header}>
       <div className={`${styles.inner}`}>
