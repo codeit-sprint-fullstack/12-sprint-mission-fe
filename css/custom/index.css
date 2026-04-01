@@ -50,6 +50,10 @@ body {
   background-color: #cfe5ff;
 }
 
+.hero-wrap.bottom {
+  margin-top: 135px;
+}
+
 .hero-container {
   display: flex;
   justify-content: center;
@@ -77,6 +81,10 @@ body {
   align-content: center;
 }
 
+.info-box.reverse {
+  flex-direction: row-reverse;
+}
+
 .info-box {
   width: 100%;
   max-width: 1030px;
@@ -86,6 +94,7 @@ body {
   align-items: center;
   background-color: #fcfcfc;
   margin: 0 auto;
+  gap: 64px;
 }
 
 .info-contents > p {
@@ -149,4 +158,116 @@ body {
 
 #ft-cs-link > ul > li > a {
   color: var(--Secondary-200);
+}
+
+/* table & mobile 공통 */
+@media (max-width: 1199px) {
+  .hero-container {
+    flex-direction: column;
+  }
+
+  .hero-info-box {
+    height: 100%;
+    padding: 84px 0;
+    width: 100%;
+    align-items: center;
+  }
+
+  .hero-info-box .info-title {
+    text-align: center;
+  }
+
+  .hero-wrap {
+    height: 100%;
+  }
+
+  .info-box-wrap {
+    height: 100%;
+  }
+
+  .info-box {
+    background-color: transparent;
+    height: 100%;
+  }
+
+  .info-box.reverse {
+    flex-direction: column;
+  }
+
+  .hero-wrap.bottom {
+    margin: 0;
+  }
+
+  .media-hide {
+    display: none;
+  }
+}
+
+@media (min-width: 744px) and (max-width: 1199px) {
+  .m-header-container {
+    padding: 0 24px;
+  }
+  .ft-wrap {
+    padding: 30px 24px;
+  }
+
+  .info-box {
+    padding: 24px;
+    flex-direction: column;
+  }
+
+  .info-title {
+    padding: 16px 0 24px 0;
+  }
+}
+
+@media (min-width: 375px) and (max-width: 743px) {
+  .m-header-container img {
+    content: url("/assets/imgs/logo/logo_typo.png");
+  }
+
+  .info-box {
+    padding: 16px;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .info-title {
+    font-size: 32px;
+  }
+
+  .info-text {
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  .info-s-title {
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  .m-header-container {
+    padding: 0 16px;
+  }
+
+  .ft-wrap {
+    padding: 16px;
+  }
+
+  .ft-wrap > p {
+    display: block;
+  }
+
+  .hero-container > img,
+  .info-box > img {
+    width: 100%;
+  }
+
+  .info-title {
+    padding: 8px 0 16px 0;
+  }
+
+  .info-contents {
+    width: 100%;
+  }
 }

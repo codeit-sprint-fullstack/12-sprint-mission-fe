@@ -11,12 +11,13 @@
 
 ##### 판다마켓 링크
 
-> https://pandamarket-fs-12-kny.netlify.app/<
+> https://pandamarket-fs-12-kny.netlify.app/
 
 ## 작업 디렉토리 구조 🏗️
 
 디렉토리 구조는 다음과 같습니다. (현 : 스프린트 1~2)
 
+```
 12-sprint-mission-fe
 ┣ assets
 ┃ ┗ imgs
@@ -26,11 +27,14 @@
 ┃ ┃ ┃ ┣ ic_instagram.svg
 ┃ ┃ ┃ ┣ ic_kakaotalk.svg
 ┃ ┃ ┃ ┣ ic_twitter.svg
-┃ ┃ ┃ ┣ ic_visibility.svg
+┃ ┃ ┃ ┣ ic_visibility_off.svg
+┃ ┃ ┃ ┣ ic_visibility_on.svg
 ┃ ┃ ┃ ┗ ic_youtube.svg
 ┃ ┃ ┣ logo
 ┃ ┃ ┃ ┣ logo.png
-┃ ┃ ┃ ┗ logo_lg.png
+┃ ┃ ┃ ┣ logo_login_l.png
+┃ ┃ ┃ ┣ logo_login_s.png
+┃ ┃ ┃ ┗ logo_typo.png
 ┃ ┃ ┣ Img_home_01.png
 ┃ ┃ ┣ Img_home_02.png
 ┃ ┃ ┣ Img_home_03.png
@@ -43,10 +47,22 @@
 ┃ ┗ custom
 ┃ ┃ ┣ index.css
 ┃ ┃ ┗ login.css
+┣ html
+┣ js
+┃ ┣ articleService.js
+┃ ┣ formCheck.js
+┃ ┣ login.js
+┃ ┣ main.js
+┃ ┣ modal.js
+┃ ┣ productService.js
+┃ ┗ signup.js
 ┣ faq.html
 ┣ index.html
 ┣ items.html
 ┣ login.html
+┣ package-lock.json
+┣ package.json
 ┣ privacy.html
 ┣ README.md
 ┗ signup.html
+```

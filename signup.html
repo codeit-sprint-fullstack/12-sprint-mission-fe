@@ -22,32 +22,37 @@
     <link rel="stylesheet" href="/css/common/reset.css" />
     <link rel="stylesheet" href="/css/common/pattern.css" />
     <link rel="stylesheet" href="/css/custom/login.css" />
+
+    <script src="/js/signup.js" type="module" defer></script>
   </head>
   <body>
     <div class="content">
-      <header>
+      <header class="login-header">
         <nav>
           <a href="/index.html"
-            ><img src="/assets/imgs/logo/logo_lg.png" alt="판다마켓 로고"
+            ><img src="/assets/imgs/logo/logo_login_l.png" alt="판다마켓 로고"
           /></a>
         </nav>
       </header>
 
       <main class="login-wrap">
-        <form class="login-form" action="submit" method="post">
-          <div class="login-input">
+        <form class="login-form" id="signup-form">
+          <div class="form-filed">
             <label for="login-id">이메일</label>
             <input
+              class="form-filed-control"
               type="text"
               name="id"
               id="login-id"
               placeholder="이메일을 입력해주세요"
               required
             />
+            <p class="form-velify"></p>
           </div>
-          <div class="login-input">
+          <div class="form-filed">
             <label for="login-nikname">닉네임</label>
             <input
+              class="form-filed-control"
               type="text"
               name="nikname"
               id="login-nikname"
@@ -55,40 +60,37 @@
               required
             />
           </div>
-          <div class="login-input">
+          <div class="form-filed">
             <label for="login-pw">비밀번호</label>
             <input
+              class="form-filed-control"
               type="password"
               name="pw"
               id="login-pw"
               placeholder="비밀번호를 입력해주세요"
               required
             />
-            <button class="pw-visibility">
-              <img
-                src="/assets/imgs/icons/ic_visibility.svg"
-                alt="비밀번호 가리기/보기"
-              />
-            </button>
+            <p class="form-velify"></p>
+            <p class="form-filed-action pw-visibility" id="pw-visibility"></p>
           </div>
-          <div class="login-input">
-            <label for="login-pw">비밀번호 확인</label>
+          <div class="form-filed">
+            <label for="login-pw-check">비밀번호 확인</label>
             <input
+              class="form-filed-control"
               type="password"
               name="pw"
-              id="login-pw"
+              id="login-pw-check"
               placeholder="비밀번호를 다시 한 번 입력해주세요"
               required
             />
-            <button class="pw-visibility">
-              <img
-                src="/assets/imgs/icons/ic_visibility.svg"
-                alt="비밀번호 가리기/보기"
-              />
-            </button>
+            <p class="form-velify"></p>
+            <p
+              class="form-filed-action pw-visibility"
+              id="pw-check-visibility"
+            ></p>
           </div>
+          <button class="btn btn-login deactive">회원가입</button>
         </form>
-        <button class="btn btn-login deactive">회원가입</button>
         <section class="login-s-box">
           <p>간편 로그인하기</p>
           <div class="login-s-btns">
@@ -117,6 +119,15 @@
           <a class="login-link" href="/login.html">로그인</a>
         </section>
       </main>
+    </div>
+    <!-- modal -->
+    <div class="modal-container" id="modal">
+      <div class="modal-box">
+        <p id="modal-msg"></p>
+        <div class="modal-btn-box">
+          <button class="btn btn-small" id="modal-btn">확인</button>
+        </div>
+      </div>
     </div>
   </body>
 </html>

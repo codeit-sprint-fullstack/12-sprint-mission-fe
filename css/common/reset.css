@@ -1,7 +1,9 @@
 @font-face {
   font-family: "Pretendard";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard.woff2")
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Regular.woff2")
     format("woff2");
+  font-weight: 400;
+  font-display: swap;
 }
 /* ============================================================
    Reset CSS
@@ -21,7 +23,7 @@ html {
 
 body {
   font-family:
-    Pretendard,
+    "Pretendard",
     -apple-system,
     BlinkMacSystemFont,
     "Segoe UI",

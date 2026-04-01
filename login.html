@@ -21,46 +21,47 @@
     <link rel="stylesheet" href="/css/common/reset.css" />
     <link rel="stylesheet" href="/css/common/pattern.css" />
     <link rel="stylesheet" href="/css/custom/login.css" />
+
+    <script src="/js/login.js" type="module" defer></script>
   </head>
   <body>
     <div class="content">
       <header class="login-header">
         <nav>
           <a href="/index.html"
-            ><img src="/assets/imgs/logo/logo_lg.png" alt="판다마켓 로고"
+            ><img src="/assets/imgs/logo/logo_login_l.png" alt="판다마켓 로고"
           /></a>
         </nav>
       </header>
       <main class="login-wrap">
-        <form class="login-form" action="submit" method="post">
-          <div class="login-input">
+        <form class="login-form" id="login-form">
+          <div class="form-filed">
             <label for="login-id">이메일</label>
             <input
+              class="form-filed-control"
               type="text"
               name="id"
               id="login-id"
               placeholder="이메일을 입력해주세요."
               required
             />
+            <p class="form-velify"></p>
           </div>
-          <div class="login-input">
+          <div class="form-filed">
             <label for="login-pw">비밀번호</label>
             <input
+              class="form-filed-control"
               type="password"
               name="pw"
               id="login-pw"
               placeholder="비밀번호를 입력해주세요."
               required
             />
-            <button class="pw-visibility">
-              <img
-                src="/assets/imgs/icons/ic_visibility.svg"
-                alt="비밀번호 가리기/보기"
-              />
-            </button>
+            <p class="form-velify"></p>
+            <p class="form-filed-action" id="pw-visibility"></p>
           </div>
+          <button class="btn btn-login deactive">로그인</button>
         </form>
-        <button class="btn btn-login deactive">로그인</button>
         <section class="login-s-box">
           <p>간편 로그인하기</p>
           <div class="login-s-btns">
@@ -89,6 +90,15 @@
           <a class="login-link" href="/signup.html">회원가입</a>
         </section>
       </main>
+    </div>
+    <!-- modal -->
+    <div class="modal-container" id="modal">
+      <div class="modal-box">
+        <p id="modal-msg"></p>
+        <div class="modal-btn-box">
+          <button class="btn btn-small" id="modal-btn">확인</button>
+        </div>
+      </div>
     </div>
   </body>
 </html>
