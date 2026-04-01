@@ -9,16 +9,24 @@ const Navbar = () => {
     <div className="nav-bg">
       <nav className="nav container">
         <div className="nav-tag">
-          <Link to="/">
+          <Link to="/" className="nav-logo-link">
             <img
               src={pandaMarketLogo}
               className="nav-img"
               alt="판다마켓 로고"
             />
           </Link>
-          <Link to="">자유게시판</Link>
-          <Link to="">중고마켓</Link>
+
+          <div className="nav-menu">
+            <Link to="" className="nav-menu-link">
+              자유게시판
+            </Link>
+            <Link to="/items" className="nav-menu-link">
+              중고마켓
+            </Link>
+          </div>
         </div>
+
         <Link to="/login" className="cta-btn">
           로그인
         </Link>
