@@ -8,6 +8,8 @@ import { useWindowSize } from "./hooks/useWindowSize";
 import UsedMarket from "./pages/UsedMarket";
 import Home from "./pages/Home";
 import Registration from "./pages/Registration";
+import Detail from "./pages/Detail";
+import ProductsLayout from "./layouts/ProductsLayout";
 
 const App = () => {
   const { windowWidth } = useWindowSize();
@@ -20,10 +22,13 @@ const App = () => {
       {/* <UsedMarket isMobile={isMobile} isTablet={isTablet} /> */}
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route
-          path="/items"
-          element={<UsedMarket isMobile={isMobile} isTablet={isTablet} />}
-        />
+        <Route path="/items" element={<ProductsLayout />}>
+          <Route
+            index
+            element={<UsedMarket isMobile={isMobile} isTablet={isTablet} />}
+          />
+          <Route path=":id" element={<Detail />} />
+        </Route>
         <Route path="/registration" element={<Registration />} />
       </Routes>
       <Footer />

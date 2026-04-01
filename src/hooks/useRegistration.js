@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const useRegistration = () => {
   const [name, setName] = useState("");
@@ -6,6 +7,8 @@ export const useRegistration = () => {
   const [price, setPrice] = useState("");
   const [tag, setTag] = useState("");
   const [tags, setTags] = useState([]);
+
+  const navigate = useNavigate();
 
   // 모든 input box가 입력되어야 버튼 활성화
   // (단, 태그는 tags에 목록이 있으면 input이 비어도 활성화)
@@ -90,11 +93,12 @@ export const useRegistration = () => {
       if (!res.ok) {
         throw new Error("상품 등록에 실패했습니다.");
       }
-      const data = await res.json();
+      const result = await res.json();
 
       initReg();
 
-      console.log("상품 등록 완료! => ", data);
+      console.log("상품 등록 완료! => ", result);
+      navigate(`/items/${result.data._id}`);
     } catch (error) {
       console.error(error);
     }
