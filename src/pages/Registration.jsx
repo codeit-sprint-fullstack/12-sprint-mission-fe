@@ -5,9 +5,12 @@ import { useRegistration } from "../hooks/useRegistration.js";
 
 const Registration = () => {
   const {
-    reg,
+    name,
+    description,
+    price,
     tag,
     tags,
+    isActive,
     handleOnChange,
     handleOnSubmit,
     handleKeyDown,
@@ -19,7 +22,15 @@ const Registration = () => {
       <form className={styles.registrationContainer} onSubmit={handleOnSubmit}>
         <div className={styles.btnContainer}>
           <h1 className="text-xl bold">상품 등록하기</h1>
-          <button type="submit" className={`${styles.addBtn} text-lg semibold`}>
+          <button
+            type="submit"
+            className={
+              isActive
+                ? `${styles.addBtn} ${styles.active} text-lg semibold`
+                : `${styles.addBtn} text-lg semibold`
+            }
+            disabled={!isActive}
+          >
             등록
           </button>
         </div>
@@ -31,7 +42,7 @@ const Registration = () => {
               className={`${styles.titleInput} text-lg regular`}
               placeholder="상품명을 입력해주세요"
               name="name"
-              value={reg.name}
+              value={name}
               onChange={handleOnChange}
             />
           </section>
@@ -42,7 +53,7 @@ const Registration = () => {
               className={`${styles.descriptionInput} text-lg regular`}
               placeholder="상품 소개를 입력해주세요"
               name="description"
-              value={reg.description}
+              value={description}
               onChange={handleOnChange}
             />
           </section>
@@ -53,7 +64,7 @@ const Registration = () => {
               className={`${styles.priceInput} text-lg regular`}
               placeholder="상품 가격을 입력해주세요"
               name="price"
-              value={reg.price}
+              value={price}
               onChange={handleOnChange}
             />
           </section>

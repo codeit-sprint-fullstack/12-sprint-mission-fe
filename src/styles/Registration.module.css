@@ -34,10 +34,10 @@ h2 {
   padding: 12px 23px;
   color: var(--Secondary-200);
   background-color: var(--Secondary-400);
-  cursor: pointer;
 }
 
 .addBtn.active {
+  cursor: pointer;
   background-color: var(--Primary-100);
 }
 
