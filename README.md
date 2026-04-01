@@ -12,6 +12,7 @@ https://pandamarket-fs-12-hs.netlify.app/
 
 - **Markup:** HTML
 - **Style:** CSS
+- **Script:** JavaScript
 
 ## ✨ 주요 구현 페이지 및 기능
 
@@ -46,10 +47,21 @@ https://pandamarket-fs-12-hs.netlify.app/
 - `variable.css`: 프로젝트 전반에서 공통으로 사용되는 테마 색상을 CSS 변수(`:root`)로 정의하였습니다.
 - **개별 페이지 스타일:** `index.css`, `login.css`, `signup.css` 파일을 통해 각 페이지 구조에 맞는 스타일을 독립적으로 적용했습니다.
 
+## 🎨 JavaScript
+
+JS 파일을 용도별로 분리하고 각자 모듈화해서 관리합니다
+
+- `main.js`: `article-service.js`와`product-service.js`를 `import`해서 사용하는 메인 자바스크립트입니다.
+- `article-service.js`, `product-service.js`: 게시글과 상품의 CRUD 기능을 각 자바스크립트 파일에 모듈화하여 필요한 곳에 사용하기 용이하게 했습니다.
+
 ## 📁 프로젝트 구조
 
 ```text
 📦 12-sprint-mission-fe
+ ┣ 📂 js
+ ┃ ┣ 📜 main.js
+ ┃ ┣ 📜 article-service.js
+ ┃ ┣ 📜 product-service.js
  ┣ 📂 css
  ┃ ┣ 📜 index.css
  ┃ ┣ 📜 login.css
@@ -61,5 +73,8 @@ https://pandamarket-fs-12-hs.netlify.app/
  ┣ 📜 index.html
  ┣ 📜 login.html
  ┣ 📜 signup.html
+ ┣ 📜 privacy.html
+ ┣ 📜 items.html
+ ┣ 📜 faq.html
  ┗ 📜 README.md
 ```
