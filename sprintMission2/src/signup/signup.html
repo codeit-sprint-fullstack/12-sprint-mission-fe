@@ -1,20 +1,34 @@
 <!doctype html>
-<html lang="en">
+<html lang="ko">
   <head>
+    <!-- Google tag (gtag.js) 2026.03.03 add: 피드백 반영 -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-GG8GXVLJ39"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-GG8GXVLJ39");
+    </script>
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/reset.css" />
     <link rel="stylesheet" href="/sprintMission2/style/signup.css" />
   </head>
   <body>
-    <a href="/sprintMission1/src/index.html"
-      ><img src="/sprintMission2/resource/logo.png"
-    /></a>
+    <a href="/index.html"><img src="/sprintMission2/resource/logo.png" /></a>
     <form>
       <div class="email">
         <p class="section">이메일</p>
+        <!--(2026.03.03 add: 피드백 반영 type=email로 수정)-->
         <input
-          type="text"
+          type="email"
           placeholder="이메일을 입력해주세요"
           class="text-box"
         />
@@ -55,7 +69,7 @@
           />
         </div>
       </div>
-      <a href="../index.html"><button class="signup-btn">회원가입</button></a>
+      <a href="/index.html"><button class="signup-btn">회원가입</button></a>
 
       <section class="sample-signup-box">
         <p class="sample-signup-text">간편 로그인하기</p>
