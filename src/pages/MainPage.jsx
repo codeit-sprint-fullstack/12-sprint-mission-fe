@@ -16,12 +16,16 @@ const MainPage = () => {
               <br />
               거래해 보세요
             </h2>
-            <Link to="/market" className="hero-btn">
+            <Link to="/items" className="hero-btn">
               구경하러 가기
             </Link>
           </div>
           <div>
-            <img src={heroImage} className="hero-img" alt="판다마켓 대표 상품" />
+            <img
+              src={heroImage}
+              className="hero-img"
+              alt="판다마켓 대표 상품"
+            />
           </div>
         </div>
       </section>
@@ -39,7 +43,11 @@ const MainPage = () => {
               </h2>
             </div>
             <div>
-              <img src={bottomImage} className="bottom-img" alt="중고 거래 안내" />
+              <img
+                src={bottomImage}
+                className="bottom-img"
+                alt="중고 거래 안내"
+              />
             </div>
           </div>
         </section>
