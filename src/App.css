@@ -1,0 +1,79 @@
+:root {
+  --Primary-100: #3692ff;
+  --Primary-200: #1967d6;
+  --Primary-300: #1251aa;
+
+  --Secondary-900: #111827;
+  --Secondary-800: #1f2937;
+  --Secondary-700: #374151;
+  --Secondary-600: #4b5563;
+  --Secondary-500: #6b7280;
+  --Secondary-400: #9ca3af;
+  --Secondary-300: #e5e7eb;
+  --Secondary-200: #f3f4f6;
+  --Secondary-100: #f9fafb;
+
+  --error-red: #f74747;
+}
+
+.text-3xl {
+  font-size: 32px;
+  line-height: 42px; /* 131.25% */
+}
+
+.text-2xl {
+  font-size: 24px;
+  line-height: 32px; /* 133.333% */
+}
+
+.text-xl {
+  font-size: 20px;
+  line-height: 32px; /* 160% */
+}
+
+.text-2lg {
+  font-size: 18px;
+  line-height: 26px; /* 144.444% */
+}
+
+.text-lg {
+  font-size: 16px;
+  line-height: 26px; /* 162.5% */
+}
+
+.text-md {
+  font-size: 14px;
+  line-height: 24px; /* 171.429% */
+}
+
+.text-sm {
+  font-size: 13px;
+  line-height: 22px; /* 169.231% */
+}
+
+.text-xs {
+  font-size: 12px;
+  line-height: 20px; /* 166.667% */
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.semibold {
+  font-weight: 600;
+}
+
+.medium {
+  font-weight: 500;
+}
+
+.regular {
+  font-weight: 400;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
