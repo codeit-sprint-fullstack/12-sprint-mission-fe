@@ -1,0 +1,49 @@
+import { Link } from "react-router-dom";
+import styles from "./Hero.module.css";
+import heroTop from "./hero-img-top.svg";
+import heroBottom from "./hero-img-bottom.svg";
+
+const heroImages = {
+  top: heroTop,
+  bottom: heroBottom,
+};
+
+export const Hero = ({ type, title }) => {
+  return (
+    <section className={`${styles.hero} ${styles[type]}`}>
+      <div className={`${styles.container} ${styles.heroWrapper}`}>
+        <div className={`${styles.heroInner} ${styles[type]}`}>
+          <div className={styles.heroContent}>
+            <h2 className={styles.title}>{title}</h2>
+            {type === "top" && (
+              <Link
+                to="/items"
+                className={`btn-base text-xl-semibold ${styles.ctaBtn}`}
+              >
+                구경하러 가기
+              </Link>
+            )}
+          </div>
+          <img
+            src={heroImages[type]}
+            className={styles.img}
+            alt=""
+            aria-hidden="true"
+          />
+        </div>
+      </div>
+    </section>
+  );
+};
+
+/*
+      <section id="hero" class="banner">
+        <div class="wrapper">
+          <h1>
+            일상의 모든 물건을<br />
+            거래해 보세요
+          </h1>
+          <a href="items.html" class="button pill-button">구경하러 가기</a>
+        </div>
+      </section>
+      */

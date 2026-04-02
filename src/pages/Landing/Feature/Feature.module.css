@@ -1,0 +1,129 @@
+:root {
+  --bg-hero: #cfe5ff;
+  --bg-feature: #fcfcfc;
+}
+
+.container {
+  width: 100%;
+  max-width: 120rem;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--secondary-700);
+  word-break: keep-all;
+}
+
+/* --- Feature Section --- */
+.feature {
+  padding: 8.625rem 0;
+  background-color: var(--white);
+}
+
+.featureInner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+  max-width: 61.75rem;
+  background-color: var(--bg-feature);
+}
+
+.reverse {
+  flex-direction: row-reverse;
+}
+
+.reverse .featureContent {
+  align-items: flex-end;
+  text-align: right;
+}
+
+.featureContent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 20.9375rem;
+}
+
+.featureBadge {
+  margin-bottom: 0.75rem;
+  color: var(--primary-100);
+}
+
+.featureTitle {
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.05rem;
+}
+
+.featureDescription {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-xl);
+  color: var(--secondary-700);
+}
+
+@media (max-width: 1199px) {
+  .feature {
+    padding: 0 1.5rem 0 1.5rem;
+  }
+
+  /* feaure */
+  .featureInner {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    gap: 1.5rem;
+  }
+
+  .img {
+    width: 100%;
+  }
+
+  .featureContent {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .featureBadge {
+    margin-bottom: 1rem;
+  }
+
+  .featureTitle {
+    text-align: left;
+    font-size: 2rem;
+    line-height: 2.625rem;
+    letter-spacing: 0;
+  }
+
+  .featureDescription {
+    font-size: var(--font-size-2lg);
+    line-height: var(--line-height-lg);
+  }
+}
+
+@media (max-width: 743px) {
+  .feature {
+    padding: 0 1rem 0 1rem;
+  }
+
+  .featureBadge {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .featureTitle {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+
+  .featureDescription {
+    font-size: 1.125rem;
+    line-height: 1.575rem;
+  }
+}
