@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useCallback } from "react";
-import { getProducts } from "../api/productsApi";
-import { parseError } from "../utils/parseError";
+import { getProducts } from "@/api/productsApi";
+import { parseError } from "@/utils/parseError";
 
 export const useProducts = ({ orderBy, keyword, page, pageSize }) => {
   const [products, setProducts] = useState([]);

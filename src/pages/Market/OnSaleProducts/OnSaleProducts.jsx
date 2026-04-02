@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { useDebounce } from "../../../hooks/useDebounce";
-import { usePageSize } from "../../../hooks/usePageSize";
-import { useProducts } from "../../../hooks/useProducts";
-import { ErrorState } from "../../../components/common/ErrorState";
-import { Pagination } from "../../../components/common/Pagination";
-import { ProductCard } from "../../../components/common/ProductCard";
-import { ProductCardSkeleton } from "../../../components/common/ProductCard/ProductCardSkeleton";
+import { useDebounce } from "@/hooks/useDebounce";
+import { usePageSize } from "@/hooks/usePageSize";
+import { useProducts } from "@/hooks/useProducts";
+import { ErrorState } from "@/components/common/ErrorState";
+import { Pagination } from "@/components/common/Pagination";
+import { ProductCard } from "@/components/common/ProductCard";
+import { ProductCardSkeleton } from "@/components/common/ProductCard/ProductCardSkeleton";
 import { OnSaleProductHeader } from "./OnSaleProductHeader";
 import styles from "./OnSaleProducts.module.css";
 

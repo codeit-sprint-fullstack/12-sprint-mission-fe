@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { SearchInput } from "../../../components/common/SearchInput";
-import { SortSelect } from "../../../components/common/SortSelect";
+import { SearchInput } from "@/components/common/SearchInput";
+import { SortSelect } from "@/components/common/SortSelect";
 import styles from "./OnSaleProductHeader.module.css";
 
 export const OnSaleProductHeader = ({
