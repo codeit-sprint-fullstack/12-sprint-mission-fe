@@ -8,6 +8,7 @@ export const Header = () => {
   const location = useLocation();
 
   const isRoot = location.pathname === "/";
+  const isMarket = location.pathname === "/items";
   const variant = isRoot ? "default" : "tab";
 
   return (
@@ -26,7 +27,11 @@ export const Header = () => {
               <ul className={styles.menu}>
                 <li className={`${styles.menuItem}`}>자유게시판</li>
                 <Link to="/items">
-                  <li className={`${styles.menuItem}`}>중고마켓</li>
+                  <li
+                    className={`${styles.menuItem} ${isMarket ? styles.active : ""}`}
+                  >
+                    중고마켓
+                  </li>
                 </Link>
               </ul>
             </nav>
