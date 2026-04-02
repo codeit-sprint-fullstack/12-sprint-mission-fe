@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>회원가입</title>
+    <link rel="stylesheet" href="signup.css" />
+
+    <link
+      rel="stylesheet"
+      as="style"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css"
+    />
+  </head>
+  <body>
+    <main>
+      <header class="header">
+        <a class="logo" href="index.html">
+          <img src="판다 얼굴.png" alt="판다마켓 로고" />
+          <div>판다마켓</div>
+        </a>
+      </header>
+      <section class="form">
+        <form>
+          <label for="email">이메일<br /></label>
+          <input
+            type="email"
+            placeholder="이메일을 입력해주세요"
+            id="email"
+            name="email"
+          />
+        </form>
+        <form>
+          <label for="nick">닉네임<br /></label>
+          <input
+            type="text"
+            placeholder="닉네임을 입력해주세요"
+            id="nick"
+            name="nick"
+          />
+        </form>
+        <form>
+          <label for="password">비밀번호<br /></label>
+          <input
+            type="password"
+            placeholder="비밀번호를 입력해주세요"
+            id="password"
+            name="password"
+          />
+        <form>
+          <label for="passwordConfirm">비밀번호 확인<br /></label>
+          <input
+            type="password"
+            placeholder="비밀번호를 다시 한 번 입력해주세요"
+            id="passwordConfirm"
+            name="passwordConfirm"
+          />
+        </form>
+        <button type="submit" disabled>회원가입</button>
+        <section class="simple-login-box">
+          <div class="simple-login">
+            <p>간편 로그인하기</p>
+            <div class="simple-ic">
+              <a href="https://www.google.com/">
+                <img
+                  class="simple-login-ic"
+                  src="ic-login-google.png"
+                  alt="google"
+              /></a>
+              <a href="https://www.kakaocorp.com/page/">
+                <img
+                  class="simple-login-ic"
+                  src="ic-login-kakao.png"
+                  alt="kakao"
+              /></a>
+            </div>
+          </div>
+        </section>
+      </section>
+      <footer>
+        <div class="login">
+          <p>이미 회원이신가요?</p>
+          <a href="login.html">로그인</a>
+        </div>
+      </footer>
+    </main>
+  </body>
+</html>

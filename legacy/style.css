@@ -1,0 +1,184 @@
+/* Base */
+body {
+  font-family: "Pretendard", sans-serif;
+  color: #374151;
+  font-weight: 500;
+  font-size: 24px;
+  min-width: 1200px;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+h2 {
+  font-size: 40px;
+  font-weight: 700;
+}
+
+/* Layout */
+.head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  padding: 9px 200px;
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  gap: 10px;
+}
+
+.in-home {
+  padding-top: 200px;
+  background-color: #cfe5ff;
+}
+
+.top-content {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.sec {
+  padding: 138px 0;
+  background-color: white;
+}
+
+.in-sec {
+  gap: 64px;
+  background-color: #fcfcfc;
+}
+
+.reverse {
+  flex-direction: row-reverse;
+  text-align: right;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+
+  gap: 12px;
+}
+
+.bottom {
+  margin-top: 138px;
+}
+
+.bottom-content {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+}
+
+.etc {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 32px 200px 108px 200px;
+
+  font-size: 16px;
+  font-weight: 400;
+
+  background-color: #111827;
+}
+
+.etc-link {
+  display: flex;
+  gap: 30px;
+}
+
+.etc-sns {
+  gap: 12px;
+}
+
+/* Components */
+
+.logo-panda {
+  width: 40px;
+  margin-top: 5.02px;
+}
+
+.logo-name {
+  font-weight: 700;
+  font-size: 25.63px;
+  color: #3692ff;
+  white-space: nowrap;
+}
+
+.img-sec {
+  width: 588px;
+}
+
+.btn {
+  background-color: #3692ff;
+  color: white;
+  border: none;
+  cursor: pointer;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.btn:hover {
+  opacity: 0.8;
+}
+
+.btn-login {
+  border-radius: 8px;
+  width: 128px;
+  height: 48px;
+  font-size: 16px;
+}
+
+.btn-home {
+  font-size: 20px;
+
+  height: 56px;
+  padding: 0 124px;
+  border-radius: 40px;
+  transition: opacity 0.3s;
+}
+
+.badge {
+  color: #3692ff;
+  font-size: 18px;
+}
+
+.sec-h2 {
+  margin: 0;
+}
+
+.img-wide {
+  width: 746px;
+}
+
+.codeit {
+  color: #9ca3af;
+}
+
+.etc-text {
+  color: #e5e7eb;
+}
+
+.sns-ic {
+  width: 20px;
+}

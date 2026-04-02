@@ -1,0 +1,35 @@
+.bestProducts {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  width: 100%;
+}
+.bestH2 {
+  color: #111827;
+
+  /* pretendard/xl-20px-bold */
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 32px; /* 160% */
+}
+.bestGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+
+  width: 100%;
+}
+
+@media (max-width: 1199px) {
+  .bestGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 743px) {
+  .bestGrid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

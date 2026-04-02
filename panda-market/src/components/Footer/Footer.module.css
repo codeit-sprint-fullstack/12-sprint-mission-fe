@@ -1,0 +1,63 @@
+.etc {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 32px 200px 108px 200px;
+
+  font-size: 16px;
+  font-weight: 400;
+
+  background-color: #111827;
+}
+
+.etcLink {
+  display: flex;
+  gap: 30px;
+}
+
+.etcSns {
+  display: flex;
+  gap: 12px;
+}
+
+.codeit {
+  color: #9ca3af;
+}
+
+.etcText {
+  color: #e5e7eb;
+}
+
+.snsIc {
+  width: 20px;
+}
+
+@media (max-width: 1200px) {
+  .etc {
+    padding: 32px 24px 80px 24px;
+  }
+}
+
+@media (max-width: 744px) {
+  .etc {
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 24px 16px 40px 16px;
+    font-size: 14px;
+  }
+  .codeit {
+    order: 3;
+    width: 100%;
+  }
+  .etcLink {
+    order: 1;
+    gap: 16px;
+  }
+  .etcSns {
+    order: 2;
+  }
+  .snsIc {
+    width: 18px;
+  }
+}
