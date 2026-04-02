@@ -1,47 +1,42 @@
 :root {
   --bg-hero: #cfe5ff;
-  --bg-feature: #fcfcfc;
 }
 
-.container {
-  width: 100%;
-  max-width: 120rem;
-  margin: 0 auto;
-}
-
-.title {
-  font-size: 2.5rem;
-  font-weight: 700;
-  line-height: 1.4;
-  color: var(--secondary-700);
-  word-break: keep-all;
-}
-
-/* --- Hero Section --- */
 .hero {
   height: 33.75rem;
   background-color: var(--bg-hero);
 }
 
-.heroWrapper {
+.wrapper {
   display: flex;
   justify-content: center;
   align-items: flex-end;
+  width: 100%;
   height: 100%;
+  max-width: 120rem;
+  margin: 0 auto;
 }
 
-.heroInner {
+.inner {
   display: flex;
   align-items: center;
 }
 
-.heroInner.bottom {
+.inner.bottom {
   gap: 4.3125rem;
 }
 
-.heroContent {
+.content {
   width: 22.3125rem;
   margin-bottom: 3.75rem;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: var(--font-weight-bold);
+  line-height: 3.5rem;
+  color: var(--secondary-700);
+  word-break: keep-all;
 }
 
 .ctaBtn {
@@ -49,6 +44,9 @@
   margin-top: 2rem;
   padding: 1rem 7.75rem;
   border-radius: 2.5rem;
+  font-size: var(--font-size-2lg);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-xl);
 }
 
 @media (max-width: 1199px) {
@@ -60,25 +58,25 @@
     height: 57.9375rem;
   }
 
-  .heroWrapper {
+  .wrapper {
     flex-direction: column;
     align-items: center;
     justify-content: flex-end;
   }
 
-  .heroInner {
+  .inner {
     flex-direction: column;
   }
 
-  .heroInner.top {
+  .inner.top {
     gap: 13.19rem;
   }
 
-  .heroInner.bottom {
+  .inner.bottom {
     gap: 13.56rem;
   }
 
-  .heroContent {
+  .content {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -92,8 +90,8 @@
 
   .ctaBtn {
     height: 3.5rem;
-    padding: 1rem 7.75rem;
     margin-top: 1.5rem;
+    padding: 1rem 7.75rem;
   }
 }
 
@@ -110,34 +108,36 @@
     overflow: hidden;
   }
 
-  .heroWrapper {
+  .wrapper {
     overflow: hidden;
   }
 
-  .heroInner.top {
+  .inner.top {
     gap: 8.25rem;
     padding-top: 3rem;
   }
 
-  .heroInner.bottom {
+  .inner.bottom {
     gap: 8.19rem;
     padding-top: 7.56rem;
   }
 
-  .heroContent {
+  .content {
     width: 15rem;
   }
 
   .title {
-    font-size: 2rem;
+    font-size: var(--font-size-3xl);
     line-height: 2.8rem;
   }
 
   .ctaBtn {
     width: 100%;
     height: 3rem;
-    padding: 0.75rem 4.4375rem;
     margin-top: 1.12rem;
+    padding: 0.75rem 4.4375rem;
+    font-size: var(--font-size-2lg);
+    line-height: var(--line-height-lg);
   }
 
   .img {

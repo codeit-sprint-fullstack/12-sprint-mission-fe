@@ -11,15 +11,12 @@ const heroImages = {
 export const Hero = ({ type, title }) => {
   return (
     <section className={`${styles.hero} ${styles[type]}`}>
-      <div className={`${styles.container} ${styles.heroWrapper}`}>
-        <div className={`${styles.heroInner} ${styles[type]}`}>
-          <div className={styles.heroContent}>
+      <div className={`${styles.wrapper}`}>
+        <div className={`${styles.inner} ${styles[type]}`}>
+          <div className={styles.content}>
             <h2 className={styles.title}>{title}</h2>
             {type === "top" && (
-              <Link
-                to="/items"
-                className={`btn-base text-xl-semibold ${styles.ctaBtn}`}
-              >
+              <Link to="/items" className={`btn-base ${styles.ctaBtn}`}>
                 구경하러 가기
               </Link>
             )}

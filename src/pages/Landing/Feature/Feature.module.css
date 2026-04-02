@@ -1,5 +1,4 @@
 :root {
-  --bg-hero: #cfe5ff;
   --bg-feature: #fcfcfc;
 }
 
@@ -9,21 +8,12 @@
   margin: 0 auto;
 }
 
-.title {
-  font-size: 2.5rem;
-  font-weight: 700;
-  line-height: 1.4;
-  color: var(--secondary-700);
-  word-break: keep-all;
-}
-
-/* --- Feature Section --- */
 .feature {
   padding: 8.625rem 0;
   background-color: var(--white);
 }
 
-.featureInner {
+.inner {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -36,29 +26,34 @@
   flex-direction: row-reverse;
 }
 
-.reverse .featureContent {
+.reverse .content {
   align-items: flex-end;
   text-align: right;
 }
 
-.featureContent {
+.content {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   width: 20.9375rem;
 }
 
-.featureBadge {
+.badge {
   margin-bottom: 0.75rem;
   color: var(--primary-100);
 }
 
-.featureTitle {
+.title {
   margin-bottom: 1.5rem;
+  font-size: 2.5rem;
+  font-weight: var(--font-weight-bold);
+  line-height: 3.5rem;
   letter-spacing: 0.05rem;
+  color: var(--secondary-700);
+  word-break: keep-all;
 }
 
-.featureDescription {
+.description {
   font-size: var(--font-size-2xl);
   font-weight: var(--font-weight-medium);
   line-height: var(--line-height-xl);
@@ -67,11 +62,10 @@
 
 @media (max-width: 1199px) {
   .feature {
-    padding: 0 1.5rem 0 1.5rem;
+    padding: 0 1.5rem;
   }
 
-  /* feaure */
-  .featureInner {
+  .inner {
     flex-direction: column;
     align-items: flex-start;
     width: 100%;
@@ -82,25 +76,25 @@
     width: 100%;
   }
 
-  .featureContent {
+  .content {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     width: 100%;
   }
 
-  .featureBadge {
+  .badge {
     margin-bottom: 1rem;
   }
 
-  .featureTitle {
+  .title {
     text-align: left;
-    font-size: 2rem;
-    line-height: 2.625rem;
+    font-size: var(--font-size-3xl);
+    line-height: var(--line-height-3xl);
     letter-spacing: 0;
   }
 
-  .featureDescription {
+  .description {
     font-size: var(--font-size-2lg);
     line-height: var(--line-height-lg);
   }
@@ -108,22 +102,21 @@
 
 @media (max-width: 743px) {
   .feature {
-    padding: 0 1rem 0 1rem;
+    padding: 0 1rem;
   }
 
-  .featureBadge {
-    font-size: 1rem;
+  .badge {
     margin-bottom: 0.5rem;
   }
 
-  .featureTitle {
+  .title {
     margin-bottom: 1rem;
-    font-size: 1.5rem;
-    line-height: 2rem;
+    font-size: var(--font-size-2xl);
+    line-height: var(--line-height-xl);
   }
 
-  .featureDescription {
-    font-size: 1.125rem;
+  .description {
+    font-size: var(--font-size-2lg);
     line-height: 1.575rem;
   }
 }

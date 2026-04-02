@@ -14,7 +14,7 @@ export const Feature = ({ badge, title, description, reverse = false }) => {
   return (
     <section className={styles.feature}>
       <div
-        className={`${styles.container} ${styles.featureInner} ${reverse ? styles.reverse : ""}`}
+        className={`${styles.container} ${styles.inner} ${reverse ? styles.reverse : ""}`}
       >
         <img
           className={styles.img}
@@ -22,12 +22,10 @@ export const Feature = ({ badge, title, description, reverse = false }) => {
           alt=""
           aria-hidden="true"
         />
-        <div className={styles.featureContent}>
-          <strong className={`text-2lg-bold ${styles.featureBadge}`}>
-            {badge}
-          </strong>
-          <h3 className={`${styles.title} ${styles.featureTitle}`}>{title}</h3>
-          <p className={styles.featureDescription}>{description}</p>
+        <div className={styles.content}>
+          <strong className={`text-2lg-bold ${styles.badge}`}>{badge}</strong>
+          <h3 className={`${styles.title}`}>{title}</h3>
+          <p className={styles.description}>{description}</p>
         </div>
       </div>
     </section>
