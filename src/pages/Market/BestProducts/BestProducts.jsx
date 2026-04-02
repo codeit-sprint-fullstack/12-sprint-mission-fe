@@ -1,9 +1,9 @@
 import React from "react";
-import { usePageSize } from "../../hooks/usePageSize";
-import { useProducts } from "../../hooks/useProducts";
-import { ErrorState } from "../../components/common/ErrorState/ErrorState";
-import { ProductCard } from "../../components/common/ProductCard/ProductCard";
-import { ProductCardSkeleton } from "../../components/common/ProductCard/ProductCardSkeleton";
+import { usePageSize } from "../../../hooks/usePageSize";
+import { useProducts } from "../../../hooks/useProducts";
+import { ErrorState } from "../../../components/common/ErrorState";
+import { ProductCard } from "../../../components/common/ProductCard";
+import { ProductCardSkeleton } from "../../../components/common/ProductCard/ProductCardSkeleton";
 import styles from "./BestProducts.module.css";
 
 export const BestProducts = () => {

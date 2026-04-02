@@ -1,6 +1,6 @@
 import React from "react";
-import { BestProducts } from "./BestProducts";
-import { OnSaleProducts } from "./OnSaleProducts";
+import { BestProducts } from "./BestProducts/BestProducts";
+import { OnSaleProducts } from "./OnSaleProducts/OnSaleProducts";
 import styles from "./Market.module.css";
 
 export const Market = () => {
