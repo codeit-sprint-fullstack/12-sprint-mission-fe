@@ -6,7 +6,7 @@
   gap: 2.5rem;
   padding-top: 1.63rem;
   width: 100%;
-  max-width: 1200px;
+  max-width: 75rem;
   min-height: calc(100vh - 4.375rem - 10rem);
   margin: 0 auto;
 }
