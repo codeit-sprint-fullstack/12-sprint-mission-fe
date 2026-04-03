@@ -19,5 +19,6 @@ export async function getProductList(
     return products;
   } catch (error) {
     console.error(error);
+    return { list: [], totalCount: 0 };
   }
 }

@@ -18,6 +18,7 @@ const App = () => {
   const [sorting, setSorting] = useState("recent");
   const [isSortOpen, setIsSortOpen] = useState(false);
   const [keyword, setKeyword] = useState("");
+  const [debouncedKeyword, setDebouncedKeyword] = useState("");
   const totalLimit = usePageSize("total");
   const bestLimit = usePageSize("best");
   const totalPages = Math.ceil(totalCount / totalLimit);
@@ -25,16 +26,39 @@ const App = () => {
   // console.log("total p s => ", totalLimit, "/// best p s => ", bestLimit);
 
   useEffect(() => {
-    const fetchProducts = async () => {
-      const data = await getProductList(page, totalLimit, sorting, keyword);
+    const timer = setTimeout(() => {
+      setDebouncedKeyword(keyword);
+    }, 300);
+
+    return () => clearTimeout(timer);
+  }, [keyword]);
+
+  /* 베스트 상품 목록 조회 */
+  useEffect(() => {
+    const fetchBest = async () => {
       const best = await getProductList(1, bestLimit, "favorite");
-      setProducts(data.list);
-      setBestProducts(best.list);
-      setTotalCount(data.totalCount);
+
+      setBestProducts(best.list ?? []);
+    };
+
+    fetchBest();
+  }, [bestLimit]);
+
+  /* 전체 상품 목록 조회 */
+  useEffect(() => {
+    const fetchProducts = async () => {
+      const data = await getProductList(
+        page,
+        totalLimit,
+        sorting,
+        debouncedKeyword,
+      );
+      setProducts(data.list ?? []);
+      setTotalCount(data.totalCount ?? 0);
     };
 
     fetchProducts();
-  }, [page, sorting, keyword, totalLimit, bestLimit]);
+  }, [page, sorting, debouncedKeyword, totalLimit]);
 
   const handleToggleSortList = () => {
     setIsSortOpen((prev) => !prev);

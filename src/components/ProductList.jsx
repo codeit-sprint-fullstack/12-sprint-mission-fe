@@ -6,7 +6,7 @@ const ProductList = ({ lists, type }) => {
           <li key={item.id} className="product__item">
             <div className="item--thumb">
               {item.images.length > 0 && !item.images[0].includes("...") ? (
-                <img src={item.images[0]} />
+                <img src={item.images[0]} alt={item.name} />
               ) : (
                 <span>No Image</span>
               )}

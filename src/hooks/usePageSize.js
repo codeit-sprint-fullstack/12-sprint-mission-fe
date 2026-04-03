@@ -27,6 +27,7 @@ const usePageSize = (type) => {
 
     handleResize();
     window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, [type]);
 
   return pageSize;
