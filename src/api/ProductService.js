@@ -3,7 +3,7 @@ const API_URL = "https://panda-market-api-crud.vercel.app";
 export async function getProductList(
   page = 1,
   pageSize = 10,
-  keyword = "fs12-sim-test-img", //꺠진 이미지가 너무 많아 임의데이터를 넣고 불러오기로 했습니다.
+  keyword,
   orderBy = "recent"
 ) {
   try {

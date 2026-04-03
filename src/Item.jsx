@@ -54,12 +54,30 @@ const Item = () => {
       loadProducts(1);
     }
   };
-
   useEffect(() => {
     document.title = "판다마켓 | 상품페이지";
     loadProducts(currentPage);
   }, [currentPage, orderBy]);
 
+  useEffect(() => {
+    const fetchBest = async () => {
+      const bestData = await getProductList(1, 4, "", "favorite");
+      setBestProducts(bestData.list ?? []);
+    };
+    fetchBest();
+  }, []);
+
+  useEffect(() => {
+    loadProducts(currentPage);
+  }, [currentPage, orderBy]);
+
+  useEffect(() => {
+    if (currentPage !== 1) {
+      setCurrentPage(1);
+    } else {
+      loadProducts(1);
+    }
+  }, [orderBy]);
   return (
     <main className="market">
       <ItemHeader />
@@ -126,7 +144,11 @@ const Item = () => {
                 <button className="product-controls__btn-add">
                   상품 등록하기
                 </button>
-                <select className="product-controls__select">
+                <select
+                  className="product-controls__select"
+                  value={orderBy}
+                  onChange={(e) => setOrderBy(e.target.value)}
+                >
                   <option value="recent">최신순</option>
                   <option value="favorite">좋아요순</option>
                 </select>
