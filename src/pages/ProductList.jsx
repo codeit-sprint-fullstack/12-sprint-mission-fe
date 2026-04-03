@@ -3,10 +3,11 @@ import { getProducts } from "../api/productApi";
 import ProductCard from "../components/ProductCard";
 import SearchIcon from "../components/SearchIcon";
 import Footer from "../components/Footer";
+import { useDebounce } from "../hooks/useDebounce";
 
 const ProductList = () => {
   const [products, setProducts] = useState([]);
-  const [bestProducts, setbestProducts] = useState([]);
+  const [bestProducts, setBestProducts] = useState([]);
   const [page, setPage] = useState(1);
   const [searchTitle, setSearchTitle] = useState("");
   const [orderBy, setOrderBy] = useState("recent");
@@ -26,13 +27,7 @@ const ProductList = () => {
   // 0번째 그룹의 마지막 페이지는 첫번째 페이지 + 9 즉 10페이지
   const endPage = Math.min(startPage + pageCount - 1, totalPage);
 
-  const fetchData = async () => {
-    const best = await getProducts(1, 4, "favorite");
-    const all = await getProducts(page, pageSize, orderBy, searchTitle);
-    setbestProducts(best.list || []);
-    setProducts(all.list || []);
-    setTotalCount(all.totalCount || 0);
-  };
+  const debouncedSearchTitle = useDebounce(searchTitle, 500);
 
   const handleSearchTitle = (e) => {
     setSearchTitle(e.target.value);
@@ -43,8 +38,26 @@ const ProductList = () => {
   };
 
   useEffect(() => {
+    setPage(1);
+  }, [debouncedSearchTitle]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const best = await getProducts(1, 4, "favorite");
+      const all = await getProducts(
+        page,
+        pageSize,
+        orderBy,
+        debouncedSearchTitle,
+      );
+
+      setBestProducts(best.list || []);
+      setProducts(all.list || []);
+      setTotalCount(all.totalCount || 0);
+    };
+
     fetchData();
-  }, [page, searchTitle, orderBy]);
+  }, [page, debouncedSearchTitle, orderBy]);
 
   useEffect(() => {
     const handleResize = () => {

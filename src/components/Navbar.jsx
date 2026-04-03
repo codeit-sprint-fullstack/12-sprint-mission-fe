@@ -11,10 +11,10 @@ const Navbar = () => {
           </Link>
           <ul>
             <li>
-              <Link>자유게시판</Link>
+              <Link to="#">자유게시판</Link>
             </li>
             <li>
-              <Link>중고마켓</Link>
+              <Link to="#">중고마켓</Link>
             </li>
           </ul>
         </div>

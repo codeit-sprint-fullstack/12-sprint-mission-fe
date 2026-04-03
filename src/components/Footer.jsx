@@ -6,7 +6,7 @@ const Footer = () => {
     <footer>
       <div>©codeit - 2026</div>
       <div>
-        <ul class="gap-30">
+        <ul className="gap-30">
           <li>
             <Link to="">Privacy Policy</Link>
           </li>
@@ -16,14 +16,17 @@ const Footer = () => {
         </ul>
       </div>
       <div>
-        <ul class="gap-15">
+        <ul className="gap-15">
           <li>
             <Link
               target="_blank"
               rel="noopener noreferrer"
               to="https://www.facebook.com/?locale=ko_KR"
             >
-              <img src="/src/img/icon/ic_facebook.png" alt="facebookIcon" />
+              <img
+                src="../public/img/icon/ic_facebook.png"
+                alt="facebookIcon"
+              />
             </Link>
           </li>
           <li>
@@ -32,7 +35,7 @@ const Footer = () => {
               rel="noopener noreferrer"
               to="https://x.com/?lang=ko"
             >
-              <img src="/src/img/icon/ic_twitter.png" alt="twitterIcon" />
+              <img src="../public/img/icon/ic_twitter.png" alt="twitterIcon" />
             </Link>
           </li>
           <li>
@@ -41,7 +44,7 @@ const Footer = () => {
               rel="noopener noreferrer"
               to="https://www.youtube.com/"
             >
-              <img src="/src/img/icon/ic_youtube.png" alt="youtubeIcon" />
+              <img src="../public/img/icon/ic_youtube.png" alt="youtubeIcon" />
             </Link>
           </li>
           <li>
@@ -50,7 +53,10 @@ const Footer = () => {
               rel="noopener noreferrer"
               to="https://www.instagram.com/"
             >
-              <img src="/src/img/icon/ic_instagram.png" alt="instagramIcon" />
+              <img
+                src="../public/img/icon/ic_instagram.png"
+                alt="instagramIcon"
+              />
             </Link>
           </li>
         </ul>

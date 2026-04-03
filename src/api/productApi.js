@@ -8,12 +8,17 @@ export const getProducts = async (
   keyword = "",
 ) => {
   try {
-    const query = new URLSearchParams({
+    const params = {
       page,
       pageSize,
       orderBy,
-      keyword,
-    });
+    };
+
+    if (keyword) {
+      params.keyword = keyword;
+    }
+
+    const query = new URLSearchParams(params);
 
     const res = await fetch(`${BASE_URL}/products?${query}`);
     if (!res.ok) {
