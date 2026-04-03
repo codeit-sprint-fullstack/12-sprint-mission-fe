@@ -3,7 +3,7 @@ const API_URL = "https://panda-market-api-crud.vercel.app";
 export async function getProductList(
   page = 1,
   pageSize = 10,
-  keyword,
+  keyword = "",
   orderBy = "recent"
 ) {
   try {
