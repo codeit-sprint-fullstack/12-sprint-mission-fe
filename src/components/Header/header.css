@@ -65,3 +65,13 @@
   font-weight: 600;
   text-decoration: none;
 }
+
+.nav-link {
+  color: #333;
+  text-decoration: none;
+}
+
+.nav-link.active {
+  color: #3692ff;
+  font-weight: 600;
+}

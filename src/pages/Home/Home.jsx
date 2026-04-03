@@ -1,83 +1,47 @@
 import Header from "../../components/Header/Header";
+import Hero from "../../components/Hero/Hero";
+import Section from "../../components/Section/Section";
+import Rectangle from "../../components/Rectangle/Rectangle";
 import Footer from "../../components/Footer/Footer";
-import ProductCard from "../../components/ProductCard/ProductCard";
-import useProducts from "../../hooks/useProducts";
-import Pagination from "../../components/Pagination/Pagination";
-import "./home.css";
+
+import img1 from "../../assets/images/home/home_01.png";
+import img2 from "../../assets/images/home/home_02.png";
+import img3 from "../../assets/images/home/home_03.png";
 
 function Home() {
-  const {
-    bestProducts,
-    products,
-    totalCount,
-    loading,
-    error,
-    orderBy,
-    setOrderBy,
-    keyword,
-    setKeyword,
-    page,
-    setPage,
-    pageSize,
-  } = useProducts();
-
   return (
-    <div className="home-container">
+    <>
       <Header />
+      <Hero />
 
-      <main className="home-main">
-        <section className="best-section">
-          <h2 className="section-title">베스트 상품</h2>
-          <div className="best-grid">
-            {bestProducts.map((item) => (
-              <ProductCard key={item.id} product={item} isBest={true} />
-            ))}
-          </div>
-        </section>
+      <Section
+        type="hot-item"
+        title="Hot Item"
+        heading={`인기 상품을 \n 확인해 보세요`}
+        desc={`가장 HOT한 중고거래 물품을 \n 판다 마켓에서 확인해 보세요`}
+        image={img1}
+      />
 
-        <section className="market-section">
-          <div className="market-header">
-            <h2 className="section-title">판매 중인 상품</h2>
-            <div className="controls">
-              <input
-                type="text"
-                placeholder="검색어를 입력하세요"
-                value={keyword}
-                onChange={(e) => setKeyword(e.target.value)}
-              />
-              <button className="add-product-btn">상품 등록하기</button>
+      <Section
+        type="search"
+        title="Search"
+        heading={`구매를 원하는 \n 상품을 검색하세요`}
+        desc={`구매하고 싶은 물품을 검색해서 \n 쉽게 찾아보세요`}
+        image={img2}
+      />
 
-              <select
-                value={orderBy}
-                onChange={(e) => setOrderBy(e.target.value)}
-              >
-                <option value="recent">최신순</option>
-                <option value="favorite">좋아요순</option>
-              </select>
-            </div>
-          </div>
+      <Section
+        type="register"
+        title="Register"
+        heading={`판매를 원하는 \n 상품을 등록하세요`}
+        desc={`어떤 물건이든 판매하고 싶은 상품을 \n 쉽게 등록하세요`}
+        image={img3}
+      />
 
-          {loading && <p>상품을 불러오는 중...</p>}
-          {error && <p>상품 불러오기 실패</p>}
-
-          <div className="product-grid">
-            {products.map((item) => (
-              <ProductCard key={item.id} product={item} />
-            ))}
-          </div>
-
-          <Pagination
-            page={page}
-            setPage={setPage}
-            totalCount={totalCount}
-            pageSize={pageSize}
-            maxButtons={5}
-          />
-        </section>
-      </main>
+      <Rectangle />
 
       <Footer />
-    </div>
+    </>
   );
 }
 
