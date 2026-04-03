@@ -1,0 +1,37 @@
+.field {
+  display: flex;
+  flex-direction: column;
+}
+
+.formControl {
+  display: flex;
+  align-items: center;
+  height: 3.5rem;
+  padding: 1rem 1.5rem;
+  margin-top: 1rem;
+  border-radius: 0.75rem;
+  color: var(--secondary-800);
+  background-color: var(--secondary-100);
+}
+
+.formControl::placeholder {
+  color: var(--secondary-400);
+}
+
+.formControl.error {
+  border: 1px solid var(--error-red);
+}
+
+.input:active {
+  border: 1px solid var(--primary-100);
+}
+
+.textarea {
+  height: 17.625rem;
+}
+
+.errorMsg {
+  margin-top: 0.5rem;
+  padding-left: 1rem;
+  color: var(--error-red, #f74747);
+}

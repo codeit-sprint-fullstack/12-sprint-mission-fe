@@ -1,4 +1,5 @@
 import React from "react";
+import { FormField } from "@/components/common/FormField";
 import deleteIcon from "./ic-x.svg";
 import styles from "./Registration.module.css";
 
@@ -19,73 +20,35 @@ export const Registration = () => {
           </div>
 
           <div className={styles.fields}>
-            <div className={styles.field}>
-              <label
-                htmlFor="productName"
-                className={`text-2lg-bold ${styles.label}`}
-              >
-                상품명
-              </label>
-              <input
-                type="text"
-                id="productName"
-                name="productName"
-                placeholder="상품명을 입력해주세요"
-                required
-                className={`${styles.formControl} ${styles.input}`}
-              />
-            </div>
+            <FormField
+              label="상품명"
+              id="productName"
+              name="productName"
+              placeholder="상품명을 입력해주세요"
+            />
 
-            <div className={styles.field}>
-              <label
-                htmlFor="productDesc"
-                className={`text-2lg-bold ${styles.label}`}
-              >
-                상품 소개
-              </label>
-              <textarea
-                type="text"
-                id="productDesc"
-                name="productDesc"
-                placeholder="상품 소개를 입력해주세요"
-                required
-                className={`${styles.formControl} ${styles.textarea}`}
-              />
-            </div>
+            <FormField
+              type="textarea"
+              label="상품 소개"
+              id="productDesc"
+              name="productDesc"
+              placeholder="상품 소개를 입력해주세요"
+            />
 
-            <div className={styles.field}>
-              <label
-                htmlFor="productPrice"
-                className={`text-2lg-bold ${styles.label}`}
-              >
-                판매가격
-              </label>
-              <input
-                type="number"
-                id="productPrice"
-                name="productPrice"
-                placeholder="판매 가격을 입력해주세요"
-                required
-                className={`${styles.formControl} ${styles.input}`}
-              />
-            </div>
+            <FormField
+              type="number"
+              label="판매가격"
+              id="productPrice"
+              name="productPrice"
+              placeholder="판매 가격을 입력해주세요"
+            />
 
-            <div className={styles.field}>
-              <label
-                htmlFor="productTags"
-                className={`text-2lg-bold ${styles.label}`}
-              >
-                태그
-              </label>
-              <input
-                type="text"
-                id="productTags"
-                name="productTags"
-                placeholder="태그를 입력해주세요"
-                required
-                className={`${styles.formControl} ${styles.input}`}
-              />
-            </div>
+            <FormField
+              label="태그"
+              id="productTags"
+              name="productTags"
+              placeholder="태그를 입력해주세요"
+            />
           </div>
 
           <div className={styles.tagList}>
