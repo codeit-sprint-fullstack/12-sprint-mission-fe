@@ -86,7 +86,7 @@ const Items = () => {
           상품을 불러오는 중...
         </p>
       ) : (
-        <ProductList lists={products} type="total" />
+        <ProductList lists={products} keyword={debouncedKeyword} type="total" />
       )}
 
       <Pagination

@@ -1,4 +1,4 @@
-const ProductList = ({ lists, type }) => {
+const ProductList = ({ lists, keyword, type }) => {
   return (
     <ul className={`product__list ${type}`}>
       {lists.length ? (
@@ -11,7 +11,9 @@ const ProductList = ({ lists, type }) => {
           </li>
         ))
       ) : (
-        <li className="empty-list">등록된 상품이 없습니다.</li>
+        <li className="empty-list">
+          {keyword ? `${keyword}(으)로 검색` : "등록"}된 상품이 없습니다.
+        </li>
       )}
     </ul>
   );
