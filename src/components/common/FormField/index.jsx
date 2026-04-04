@@ -6,10 +6,12 @@ export const FormField = ({
   label,
   id,
   name,
+  value,
   placeholder,
   required = true,
-  value,
+  autoComplete = "off",
   onChange,
+  onKeyDown,
   error,
 }) => {
   const isTextarea = type === "textarea";
@@ -24,8 +26,11 @@ export const FormField = ({
         <textarea
           id={id}
           name={name}
+          value={value}
           placeholder={placeholder}
           required={required}
+          autoComplete={autoComplete}
+          onChange={onChange}
           className={`${styles.formControl} ${styles.textarea}`}
         />
       ) : (
@@ -33,10 +38,12 @@ export const FormField = ({
           type={type}
           id={id}
           name={name}
+          value={value}
           placeholder={placeholder}
           required={required}
-          value={value}
+          autoComplete={autoComplete}
           onChange={onChange}
+          onKeyDown={onKeyDown}
           className={`${styles.formControl} ${styles.input}`}
         />
       )}
