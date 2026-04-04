@@ -1,0 +1,268 @@
+/* ================= gnb ================= */
+
+@media (min-width: 1920px) {
+  .gnb-container {
+    width: 1920px;
+    margin: 0 auto;
+  }
+}
+
+.gnb {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 70px;
+  background: #ffffff;
+  border-bottom: 1px solid #ddd;
+  z-index: 1000;
+}
+
+.gnb-container {
+  display: flex;
+  justify-content: space-between;
+  height: 70px;
+  align-items: center;
+  padding: 9px 200px;
+  max-width: 100%;
+}
+
+.logo {
+  display: flex;
+  width: 153px;
+  height: 51px;
+  padding: 5.017px 0 5.848px 0;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 8.592px;
+}
+
+.login-btn {
+  color: var(--Cool-Gray-100, #f3f4f6);
+
+  /* pretendard/lg-16px-semibold */
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 26px; /* 162.5% */
+  display: flex;
+  width: 128px;
+  height: 48px;
+  padding: 12px 23px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 8px;
+  background: var(--Primary-100, #3692ff);
+}
+
+/* ================= HERO ================= */
+
+.hero {
+  width: 100%;
+  height: 540px;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  gap: 7px;
+  background: #cfe5ff;
+}
+
+.cta-btn {
+  display: flex;
+  height: 56px;
+  padding: 16px 124px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 40px;
+  background: var(--brand-blue, #3692ff);
+  color: var(--Secondary-50, #f9fafb);
+  text-align: center;
+
+  /* pretendard/xl-20px-semibold */
+  font-family: Pretendard;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 32px; /* 160% */
+}
+.text {
+  color: var(--Secondary-700, #374151);
+  font-family: Pretendard;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 140%; /* 56px */
+}
+.hero-container {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  text-align: left;
+}
+.hero-image {
+  display: flex;
+  width: 746px;
+  height: 340px;
+  padding-right: 0;
+  justify-content: center;
+  align-items: center;
+}
+.hero-text {
+  display: flex;
+  padding-bottom: 60px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 32px;
+}
+/* ================= section ================= */
+#features {
+  padding-bottom: 138px;
+}
+
+.wrapper {
+  max-width: 120rem;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.feature {
+  display: flex;
+  width: 1920px;
+  padding: 138px 342px;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 64px;
+}
+
+.feature-content {
+  flex: 1;
+}
+
+#feature-content2 {
+  text-align: right;
+}
+
+.feature-tag {
+  color: var(--blue);
+  font-size: 18px;
+  line-height: 25px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.feature-description {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 120%;
+  letter-spacing: 0.08em;
+  margin-top: 24px;
+}
+
+/* ================= BOTTOM ================= */
+
+.bottom {
+  width: 100%;
+  height: 540px;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  background: #cfe5ff;
+}
+
+.bottom-container {
+  width: 1110px;
+  height: 397px;
+  display: inline-flex;
+  align-items: center;
+  text-align: left;
+  gap: 69px;
+}
+
+.text2 {
+  display: flex;
+  padding-bottom: 60px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  color: var(--Secondary-700, #374151);
+  font-family: Pretendard;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 140%; /* 56px */
+  white-space: nowrap;
+}
+.bottom-image {
+  display: flex;
+  width: 746px;
+  height: 397px;
+  justify-content: center;
+  align-items: center;
+}
+/* ================= FOOTER ================= */
+
+.footer {
+  background: #0b1b2b;
+  color: white;
+  padding: 40px 0;
+}
+
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 9px 200px;
+}
+
+/* 가운데 동일 간격 */
+.center {
+  display: flex;
+  gap: 40px;
+}
+
+/* SNS 오른쪽 정렬 */
+.right {
+  display: flex;
+  gap: 15px;
+}
+
+/* ================= 클릭 요소 ================= */
+
+a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+button {
+  cursor: pointer;
+}
+.sns-icons {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+
+.sns-icons a {
+  width: 60px;
+  height: 60px;
+  background: white;
+  color: #0f172a;
+  border-radius: 50%; /* 동그라미 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+/* 마우스 올렸을 때 */
+.sns-icons a:hover {
+  background: #3b82f6;
+  color: white;
+  transform: scale(1.1);
+}

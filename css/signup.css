@@ -1,0 +1,132 @@
+.auth-container {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.logo-home-button-wrapper {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-top: 60px;
+  margin-bottom: 40px;
+}
+
+.input-item {
+  margin-bottom: 24px;
+}
+
+.input-item label {
+  display: block;
+  margin-bottom: 16px;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.input-item input {
+  padding: 16px 24px;
+  background-color: #f3f4f6;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  line-height: 24px;
+  width: 100%;
+  border: 2px solid transparent;
+}
+
+.input-item input::placeholder {
+  color: #9ca3af;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.input-item input:focus {
+  outline: none; /* 기본 outline 제거 */
+  border: 2px solid #3692ff; /* 파란 테두리 */
+}
+
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-toggle-button {
+  position: absolute;
+  right: 24px;
+}
+
+.social-login-container {
+  background-color: #e6f2ff;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 23px;
+  margin: 24px 0;
+}
+
+.social-login-container h3 {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.social-login-buttons-container {
+  display: flex;
+  gap: 16px;
+}
+
+.auth-switch {
+  font-weight: 500;
+  font-size: 15px;
+  text-align: center;
+}
+
+.auth-switch a {
+  color: #3182f6;
+  text-decoration: underline;
+  /* 밑줄과 텍스트 사이 간격을 조정하고 싶다면 text-underline-offset을 사용하면 돼요. */
+  text-underline-offset: 2px;
+}
+
+button {
+  background: none;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  cursor: pointer;
+}
+
+.pill-button {
+  font-size: 2rem;
+  font-weight: 700;
+  border-radius: 99.9rem;
+  padding: 1.6rem 12.4rem;
+}
+
+.button {
+  border: none;
+  background-color: #8f959e;
+  color: white;
+  font-size: 16px;
+  padding: 15px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background: var(--Primary-100, #3692ff);
+}
+
+.full-width {
+  width: 100%;
+}
+
+.input-item input.input-error {
+  border: 1px solid red; /* 빨간 테두리 */
+}
+
+.error-message {
+  color: red; /* 빨간 글씨 */
+  font-size: 0.875rem; /* 조금 작은 글씨 */
+  margin-top: 4px;
+}
