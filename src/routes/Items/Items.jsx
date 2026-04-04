@@ -8,6 +8,7 @@ import { getProductList } from "../../api/products";
 import { Link } from "react-router-dom";
 
 const Items = () => {
+  const [isLoading, setIsLoading] = useState(true);
   const [products, setProducts] = useState([]);
   const [totalCount, setTotalCount] = useState(0);
   const [page, setPage] = useState(1);
@@ -32,6 +33,7 @@ const Items = () => {
       const data = await getProductList(page, totalLimit, debouncedKeyword);
       setProducts(data.list ?? []);
       setTotalCount(data.totalCount ?? 0);
+      setIsLoading(false);
     };
 
     fetchProducts();
@@ -63,7 +65,11 @@ const Items = () => {
         </>
       }
     >
-      <ProductList lists={products} type="total" />
+      {isLoading ? (
+        <p>상품을 불러오는 중...</p>
+      ) : (
+        <ProductList lists={products} type="total" />
+      )}
 
       <Pagination
         page={page}
