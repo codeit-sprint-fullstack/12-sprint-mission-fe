@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import heart from "../assets/img/heart.png";
 import "./SaleProduct.css";
 import { Link } from "react-router-dom";
@@ -10,11 +10,15 @@ const SaleProduct = () => {
   const [page, setPage] = useState(1);
   const [orderBy, setOrderBy] = useState("recent");
   const [keyword, setKeyword] = useState("");
-  // const [pageSize, setPageSize] = useState(
-  //   window.innerWidth <= 375 ? 4 : window.innerWidth <= 744 ? 6 : 10,
-  // );
-  const pageSize =
-    window.innerWidth <= 375 ? 4 : window.innerWidth <= 744 ? 6 : 10;
+
+  const getPageSize = () => {
+    if (window.innerWidth < 376) return 4;
+    if (window.innerWidth < 745) return 6;
+    return 10;
+  };
+
+  const [pageSize, setPageSize] = useState(getPageSize());
+  const [layout, setLayout] = useState(window.innerWidth <= 375);
 
   async function getProduct() {
     try {
@@ -32,10 +36,23 @@ const SaleProduct = () => {
 
   useEffect(() => {
     getProduct();
+    // console.log("Sale PageSize 출력" + pageSize);
   }, [page, orderBy, keyword, pageSize]);
 
-  const totalPages = Math.ceil(totalCount / pageSize);
+  useEffect(() => {
+    const handleResize = () => {
+      setPageSize(getPageSize());
+      setLayout(window.innerWidth <= 375);
+    };
 
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  const totalPages = Math.ceil(totalCount / pageSize);
   const PAGE_COUNT = 5;
   const startPage = Math.floor((page - 1) / PAGE_COUNT) * PAGE_COUNT + 1;
   const endPage = Math.min(startPage + PAGE_COUNT - 1, totalPages);
@@ -43,8 +60,6 @@ const SaleProduct = () => {
     { length: endPage - startPage + 1 },
     (_, i) => startPage + i,
   );
-
-  const layout = window.innerWidth <= 375;
 
   return (
     <>

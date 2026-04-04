@@ -1,13 +1,16 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import heart from "../assets/img/heart.png";
 import "./BestProduct.css";
 
 const BestProduct = ({ page, orderBy }) => {
   const [product, setProduct] = useState([]);
 
-  const pageSize =
-    window.innerWidth <= 375 ? 1 : window.innerWidth <= 744 ? 2 : 4;
-
+  const getPageSize = () => {
+    if (window.innerWidth < 376) return 1;
+    if (window.innerWidth < 745) return 2;
+    return 4;
+  };
+  const [pageSize, setPageSize] = useState(getPageSize());
   async function getProduct() {
     try {
       const res = await fetch(
@@ -15,6 +18,7 @@ const BestProduct = ({ page, orderBy }) => {
       );
       const result = await res.json();
       setProduct(result.list);
+      console.log("베스트 데이터 출력", result.list);
     } catch (error) {
       console.log(error);
     }
@@ -22,7 +26,20 @@ const BestProduct = ({ page, orderBy }) => {
 
   useEffect(() => {
     getProduct();
+    console.log("Best PageSize 출력" + pageSize);
   }, [pageSize]);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setPageSize(getPageSize());
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   return (
     <>
