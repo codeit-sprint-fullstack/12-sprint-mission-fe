@@ -35,8 +35,11 @@ const SaleProduct = () => {
   }
 
   useEffect(() => {
-    getProduct();
-    // console.log("Sale PageSize 출력" + pageSize);
+    const timer = setTimeout(() => {
+      getProduct();
+    }, 300);
+
+    return () => clearTimeout(timer);
   }, [page, orderBy, keyword, pageSize]);
 
   useEffect(() => {
