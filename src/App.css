@@ -161,52 +161,6 @@ body {
   margin-inline: auto;
 }
 
-/* pagination */
-.pagination {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 4px;
-  margin-top: 40px;
-}
-
-.pagination .btn-page {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 40px;
-  height: 40px;
-  background-color: white;
-  border: 1px solid var(--secondary-200);
-  border-radius: 50%;
-  font-weight: 600;
-  font-size: 1rem;
-  color: var(--secondary-500);
-  cursor: pointer;
-}
-
-.btn-page.current {
-  background-color: #2f80ed;
-  border-color: #2f80ed;
-  color: var(--secondary-50);
-}
-
-.btn-page.btn-prev {
-  background-image: url("./assets/images/ic_arrow_left_gray.png");
-  background-image: url("./assets/images/ic_arrow_left_gray.svg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: auto;
-}
-
-.btn-page.btn-next {
-  background-image: url("./assets/images/ic_arrow_right_gray.png");
-  background-image: url("./assets/images/ic_arrow_right_gray.svg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: auto;
-}
-
 /** 
  * products
 */
