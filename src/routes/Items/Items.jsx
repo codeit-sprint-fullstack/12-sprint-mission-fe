@@ -1,18 +1,16 @@
-import ProductWrap from "../components/ProductWrap";
-import SearchForm from "../components/SearchForm";
-import Sorting from "../components/Sorting";
-import ProductList from "../components/ProductList";
-import Pagination from "../components/Pagination";
+import ProductWrap from "../../components/ProductWrap";
+import SearchForm from "../../components/SearchForm";
+import ProductList from "../../components/ProductList";
+import Pagination from "../../components/Pagination";
 import { useEffect, useState } from "react";
-import usePageSize from "../hooks/usePageSize";
-import { getProductList } from "../api/products";
+import usePageSize from "../../hooks/usePageSize";
+import { getProductList } from "../../api/products";
+import { Link } from "react-router-dom";
 
 const Items = () => {
   const [products, setProducts] = useState([]);
   const [totalCount, setTotalCount] = useState(0);
   const [page, setPage] = useState(1);
-  const [sorting, setSorting] = useState("recent");
-  const [isSortOpen, setIsSortOpen] = useState(false);
   const [keyword, setKeyword] = useState("");
   const [debouncedKeyword, setDebouncedKeyword] = useState("");
   const totalLimit = usePageSize("total");
@@ -31,31 +29,17 @@ const Items = () => {
   /* 전체 상품 목록 조회 */
   useEffect(() => {
     const fetchProducts = async () => {
-      const data = await getProductList(
-        page,
-        totalLimit,
-        sorting,
-        debouncedKeyword,
-      );
+      const data = await getProductList(page, totalLimit, debouncedKeyword);
       setProducts(data.list ?? []);
       setTotalCount(data.totalCount ?? 0);
     };
 
     fetchProducts();
-  }, [page, sorting, debouncedKeyword, totalLimit]);
-
-  const handleToggleSortList = () => {
-    setIsSortOpen((prev) => !prev);
-  };
+  }, [page, debouncedKeyword, totalLimit]);
 
   const handleChangeKeyword = (e) => {
     setKeyword(e.target.value);
     setPage(1);
-  };
-
-  const handleChangeSorting = (sort) => {
-    setSorting(sort);
-    setIsSortOpen((prev) => !prev);
   };
 
   const handlePrevPage = () => {
@@ -73,24 +57,9 @@ const Items = () => {
         <>
           <SearchForm keyword={keyword} onChangeKeyword={handleChangeKeyword} />
 
-          <a
-            href=""
-            onClick={(e) => {
-              e.preventDefault();
-              alert("준비중입니다");
-              return false;
-            }}
-            className="btn-primary btn-sm"
-          >
+          <Link to={`/registration`} className="btn-primary btn-sm">
             상품 등록하기
-          </a>
-
-          <Sorting
-            sorting={sorting}
-            isSortOpen={isSortOpen}
-            onToggle={handleToggleSortList}
-            onSorting={handleChangeSorting}
-          />
+          </Link>
         </>
       }
     >
