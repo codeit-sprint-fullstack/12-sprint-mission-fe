@@ -8,12 +8,12 @@ export async function getProductList(page = 1, pageSize = 10, keyword = "") {
     );
 
     if (!res.ok) {
-      console.error("에러 발생:", res.status);
+      throw new Error(`에러 발생: ${res.status}`);
     }
 
     return await res.json();
   } catch (err) {
-    console.error("네트워크 에러:", err);
+    throw err;
   }
 }
 
@@ -23,12 +23,12 @@ export async function getProduct(id) {
     const res = await fetch(`${BASE_URL}/products/${id}`);
 
     if (!res.ok) {
-      console.error("에러 발생:", res.status);
+      throw new Error(`에러 발생: ${res.status}`);
     }
 
     return await res.json();
   } catch (err) {
-    console.error(err);
+    throw err;
   }
 }
 
@@ -50,12 +50,13 @@ export async function createProduct(data) {
     });
 
     if (!res.ok) {
-      console.error("에러 발생:", res.status);
+      throw new Error(`에러 발생: ${res.status}`);
     }
 
     return await res.json();
   } catch (err) {
     console.error(err);
+    throw err;
   }
 }
 
@@ -71,12 +72,12 @@ export async function patchProduct(id, data) {
     });
 
     if (!res.ok) {
-      console.error("에러 발생:", res.status);
+      throw new Error(`에러 발생: ${res.status}`);
     }
 
     return await res.json();
   } catch (err) {
-    console.error(err);
+    throw err;
   }
 }
 
@@ -88,11 +89,11 @@ export async function deleteProduct(id) {
     });
 
     if (!res.ok) {
-      console.error("에러 발생:", res.status);
+      throw new Error(`에러 발생: ${res.status}`);
     }
 
     return await res.json();
   } catch (err) {
-    console.error(err);
+    throw err;
   }
 }
