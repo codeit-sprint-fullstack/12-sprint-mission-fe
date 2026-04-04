@@ -27,7 +27,7 @@ const BestProduct = ({ page, orderBy }) => {
   useEffect(() => {
     getProduct();
     console.log("Best PageSize 출력" + pageSize);
-  }, [pageSize]);
+  }, [pageSize, page, orderBy]);
 
   useEffect(() => {
     const handleResize = () => {
