@@ -2,13 +2,15 @@ import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import "./reset.css";
+import Rending from "./pages/Rending";
 import Market from "./pages/Market";
 
 function App() {
   return (
     <>
       <Routes>
-        <Route path="/" element={<Market />} />
+        <Route path="/" element={<Rending />} />
+        <Route path="/items" element={<Market />} />
       </Routes>
     </>
   );
