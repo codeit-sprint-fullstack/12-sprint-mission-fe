@@ -1,0 +1,101 @@
+/**
+ * Index *
+*/
+.visual {
+  display: flex;
+  align-items: center;
+  width: min(100%, 1110px);
+  margin-inline: auto;
+  background-position: right bottom;
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+}
+.visual .headline h2 {
+  font-weight: 700;
+  font-size: 2.5rem;
+  line-height: 1.4;
+}
+.visual .headline a {
+  margin-top: 2rem;
+}
+
+#keyVisual {
+  padding-top: var(--gap-200);
+  background-color: #cfe5ff;
+}
+#keyVisual .visual {
+  height: 21.25rem;
+  background-image: url("../../assets/images/key_visual.png");
+  background-image: url("../../assets/images/key_visual.svg");
+}
+
+.section {
+  padding-block: 8.625rem;
+}
+.banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+  width: min(100%, 988px);
+  margin-inline: auto;
+  color: var(--secondary-700);
+}
+.banner .thumb {
+  overflow: hidden;
+  width: 588px;
+  height: 444px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  border-radius: 12px;
+}
+.banner .category {
+  margin-bottom: 0.75rem;
+  font-weight: 700;
+  font-size: var(--text-2lg);
+  color: var(--primary-100);
+  line-height: 1.44;
+}
+.banner h2 {
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  font-size: 2.5rem;
+  line-height: 1.4;
+  letter-spacing: 0.8px;
+}
+.banner .desc p {
+  font-weight: 500;
+  font-size: var(--text-2xl);
+  line-height: 1.33;
+}
+.section:nth-child(even) .banner {
+  flex-direction: row-reverse;
+}
+.section:nth-child(even) .bannerInfo {
+  text-align: right;
+}
+#hotItem .thumb {
+  background-image: url("../../assets/images/plan_card01.png");
+  background-image: url("../../assets/images/plan_card01.svg");
+}
+#search .thumb {
+  background-image: url("../../assets/images/plan_card02.png");
+  background-image: url("../../assets/images/plan_card02.svg");
+}
+#register .thumb {
+  background-image: url("../../assets/images/plan_card03.png");
+  background-image: url("../../assets/images/plan_card03.svg");
+}
+#promotion {
+  padding-top: 8.93rem;
+  background-color: #cfe5ff;
+}
+#promotion .visual {
+  height: 24.8125rem;
+  background-image: url("../../assets/images/promotion.png");
+  background-image: url("../../assets/images/promotion.svg");
+}
+#promotion .headline {
+  margin-bottom: 3.75rem;
+}
