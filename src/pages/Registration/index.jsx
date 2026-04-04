@@ -1,9 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { FormField } from "@/components/common/FormField";
+import { createProduct } from "@/api/productsApi";
 import deleteIcon from "./ic-x.svg";
 import styles from "./Registration.module.css";
 
 export const Registration = () => {
+  const navigate = useNavigate();
+
   const [form, setForm] = useState({
     name: "",
     description: "",
@@ -11,6 +15,22 @@ export const Registration = () => {
     tags: [],
   });
   const [tagInput, setTagInput] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const data = await createProduct({
+        ...form,
+        price: Number(form.price),
+      });
+
+      navigate(`/items/${data.data.id}`);
+    } catch (err) {
+      console.error("등록 실패: ", err.message);
+      alert(`등록에 실패했습니다: ${err.message}`);
+    }
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -39,15 +59,25 @@ export const Registration = () => {
     setForm({ ...form, tags: form.tags.filter((_, i) => i !== index) });
   };
 
+  useEffect(() => {
+    console.log(form);
+  }, [form]);
+
+  const isFormValid =
+    form.name.trim() &&
+    form.description.trim() &&
+    form.price &&
+    form.tags.length > 0;
+
   return (
     <main>
       <section className={styles.container}>
-        <form className={styles.form}>
+        <form className={styles.form} onSubmit={handleSubmit}>
           <div className={styles.header}>
             <h2 className={`${styles.title} text-xl-bold`}>상품 등록하기</h2>
             <button
               type="submit"
-              disabled
+              disabled={!isFormValid}
               className={`btn-base text-lg-semibold ${styles.addBtn}`}
             >
               등록
@@ -90,6 +120,7 @@ export const Registration = () => {
               name="tags"
               value={tagInput}
               placeholder="태그를 입력해주세요"
+              required={false}
               onChange={handleTagInputChange}
               onKeyDown={handleTagKeyDown}
             />
