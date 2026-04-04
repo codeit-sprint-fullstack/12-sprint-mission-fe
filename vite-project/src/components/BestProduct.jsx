@@ -50,7 +50,7 @@ const BestProduct = ({ page, orderBy }) => {
             <div className="best-product-container" key={t.id}>
               <img
                 className="best-product-img"
-                src={t.images}
+                src={t.images?.[0]}
                 alt="그냥 이미지"
               />
               <div className="best-product-detail">

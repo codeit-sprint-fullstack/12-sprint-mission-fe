@@ -102,7 +102,9 @@ const SaleProduct = () => {
             <p className="sub-title">판매 중인 상품</p>
             <div className="filter-container">
               <div className="form">
-                <Link className="form-button">상품 등록하기</Link>
+                <Link to="#" className="form-button">
+                  상품 등록하기
+                </Link>
                 <div className="form-wipper">
                   <img className="search-icon" src={search} />
                   <input
@@ -134,7 +136,7 @@ const SaleProduct = () => {
             <div className="sale-product-container" key={t.id}>
               <img
                 className="sale-product-img"
-                src={t.images}
+                src={t.images?.[0]}
                 alt="그냥 이미지"
               />
               <div className="sale-product-detail">
