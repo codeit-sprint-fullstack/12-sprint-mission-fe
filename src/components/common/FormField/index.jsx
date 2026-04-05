@@ -33,7 +33,7 @@ export const FormField = ({
           autoComplete={autoComplete}
           onChange={onChange}
           onBlur={onBlur}
-          className={`${styles.formControl} ${styles.textarea}`}
+          className={`${styles.formControl} ${styles.textarea} ${error ? styles.error : ""}`}
         />
       ) : (
         <input
@@ -47,7 +47,7 @@ export const FormField = ({
           onChange={onChange}
           onBlur={onBlur}
           onKeyDown={onKeyDown}
-          className={`${styles.formControl} ${styles.input}`}
+          className={`${styles.formControl} ${styles.input} ${error ? styles.error : ""}`}
         />
       )}
 
