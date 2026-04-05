@@ -22,25 +22,6 @@ export const Registration = () => {
 
   const { errors, validateField } = useProductValidation();
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setSubmitError(null);
-
-    try {
-      const data = await createProduct({
-        ...form,
-        price: Number(form.price),
-      });
-
-      navigate(`/items/${data.data.id}`);
-    } catch (err) {
-      setSubmitError(parseError(err));
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
   const clearSubmitError = () => {
     if (submitError) setSubmitError(null);
   };
@@ -80,6 +61,25 @@ export const Registration = () => {
     const newTags = form.tags.filter((_, i) => i !== index);
     setForm({ ...form, tags: newTags });
     validateField("tags", newTags);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitError(null);
+
+    try {
+      const data = await createProduct({
+        ...form,
+        price: Number(form.price),
+      });
+
+      navigate(`/items/${data.data.id}`);
+    } catch (err) {
+      setSubmitError(parseError(err));
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const isFormValid =
