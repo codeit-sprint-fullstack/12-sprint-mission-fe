@@ -17,9 +17,11 @@ export const Registration = () => {
     tags: [],
   });
   const [tagInput, setTagInput] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsSubmitting(true);
 
     try {
       const data = await createProduct({
@@ -31,6 +33,8 @@ export const Registration = () => {
     } catch (err) {
       console.error("등록 실패: ", err.message);
       alert(`등록에 실패했습니다: ${err.message}`);
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -88,10 +92,10 @@ export const Registration = () => {
             <h2 className={`${styles.title} text-xl-bold`}>상품 등록하기</h2>
             <button
               type="submit"
-              disabled={!isFormValid}
+              disabled={!isFormValid || isSubmitting}
               className={`btn-base text-lg-semibold ${styles.addBtn}`}
             >
-              등록
+              {isSubmitting ? "등록 중..." : "등록"}
             </button>
           </div>
 
