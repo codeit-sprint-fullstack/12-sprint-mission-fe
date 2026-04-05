@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 import Navbar from "../components/Section/Navbar";
 import Footer from "../components/Section/Footer";
 import sortIcon from "../assets/Items/ic_sort.svg";
@@ -7,13 +8,19 @@ import "../style/reset.css";
 import "../style/ItemsPage.css";
 
 const Items = () => {
-  const dummyProducts = Array.from({ length: 10 }, (_, index) => ({
-    id: index + 1,
-    name: "로켓 청소기",
-    price: "1,500,000원",
-    favoriteCount: 240,
-    image: "/src/assets/Items/product_default.png",
-  }));
+  const [Itmes, setItems] = useState([]);
+
+  useEffect(() => {
+    const getItemsData = async () => {
+      const response = await fetch("http://localhost:5000/products");
+      const result = await response.json();
+
+      console.log(result);
+      setItems(result);
+    };
+
+    getItemsData();
+  }, []);
 
   return (
     <div className="items-page">
@@ -41,10 +48,10 @@ const Items = () => {
         </section>
 
         <div className="items-card-list">
-          {dummyProducts.map((product) => (
+          {Itmes.map((product) => (
             <section className="card-section" key={product.id}>
               <img
-                src={product.image}
+                src="src\assets\Items\product_default.png"
                 className="items-default-img"
                 alt={product.name}
               />
@@ -55,7 +62,7 @@ const Items = () => {
                 </div>
                 <div className="items-favorite-div">
                   <span>♥</span>
-                  <span>{product.favoriteCount}</span>
+                  <span>240</span>
                 </div>
               </div>
             </section>

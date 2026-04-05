@@ -78,6 +78,10 @@
   flex: 0 1 auto;
 }
 
+.nav-menu-link-active {
+  color: var(--Primary-100);
+}
+
 .nav-img {
   display: block;
 }

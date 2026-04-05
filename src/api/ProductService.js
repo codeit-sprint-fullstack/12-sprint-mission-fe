@@ -3,9 +3,9 @@ const BASE_URL = "https://panda-market-api.vercel.app/products";
 export async function getProduct(id) {
   try {
     const response = await fetch(`${BASE_URL}/${id}`);
-    const getProduct = await response.json();
-    console.log(getProduct);
-    return getProduct;
+    const product = await response.json();
+    console.log(product);
+    return product;
   } catch (error) {
     console.log("getProductError :", error);
   }
@@ -15,7 +15,7 @@ export async function getProductList(
   page = 1,
   pageSize = 10,
   keyword = "",
-  orderBy = "recent",
+  orderBy = "recent"
 ) {
   const query = new URLSearchParams({
     page,
@@ -28,15 +28,7 @@ export async function getProductList(
   return response.json();
 }
 
-export async function createProduct() {
-  const data = {
-    images: ["https://example.com/..."],
-    tags: ["전자제품"],
-    price: 0,
-    description: "string",
-    name: "상품 이름",
-  };
-
+export async function createProduct(data) {
   try {
     const response = await fetch(BASE_URL, {
       method: "POST",
@@ -45,8 +37,8 @@ export async function createProduct() {
       },
       body: JSON.stringify(data),
     });
-    const createeRsponse = await response.json();
-    return createeRsponse;
+    const createdResponse = await response.json();
+    return createdResponse;
   } catch (error) {
     console.log("createProductError :", error);
   }
@@ -80,8 +72,8 @@ export async function deleteProduct(id) {
         "Content-Type": "application/json",
       },
     });
-    const getProduct = await response.json();
-    return getProduct;
+    const product = await response.json();
+    return product;
   } catch (error) {
     console.log("deleteProduct : ", error);
   }

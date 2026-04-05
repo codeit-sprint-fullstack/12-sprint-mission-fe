@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import "../../style/Navbar.css";
 import "../../style/reset.css";
 import pandaMarketLogo from "../../assets/mainPage/pandamarket_logo.png";
@@ -21,9 +21,14 @@ const Navbar = () => {
             <Link to="" className="nav-menu-link">
               자유게시판
             </Link>
-            <Link to="/items" className="nav-menu-link">
+            <NavLink
+              to="/items"
+              className={({ isActive }) =>
+                isActive ? "nav-menu-link nav-menu-link-active" : "nav-menu-link"
+              }
+            >
               중고마켓
-            </Link>
+            </NavLink>
           </div>
         </div>
 
