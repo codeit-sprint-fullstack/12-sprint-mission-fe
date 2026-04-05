@@ -42,6 +42,10 @@ a {
   white-space: nowrap;
 }
 
+.nav-button.active {
+  color: #3692ff;
+}
+
 .header-navigation {
   width: 8rem;
   height: 3rem;
