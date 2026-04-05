@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { createProduct } from "@/api/productsApi";
 import { useProductValidation } from "@/hooks/useProductValidation";
+import { parseError } from "@/utils/parseError";
 import { FormField } from "@/components/common/FormField";
 import deleteIcon from "./ic-x.svg";
 import styles from "./Registration.module.css";
 
 export const Registration = () => {
   const navigate = useNavigate();
-  const { errors, validateField } = useProductValidation();
 
   const [form, setForm] = useState({
     name: "",
@@ -18,10 +18,14 @@ export const Registration = () => {
   });
   const [tagInput, setTagInput] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState(null);
+
+  const { errors, validateField } = useProductValidation();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmitError(null);
 
     try {
       const data = await createProduct({
@@ -31,20 +35,25 @@ export const Registration = () => {
 
       navigate(`/items/${data.data.id}`);
     } catch (err) {
-      console.error("등록 실패: ", err.message);
-      alert(`등록에 실패했습니다: ${err.message}`);
+      setSubmitError(parseError(err));
     } finally {
       setIsSubmitting(false);
     }
   };
 
+  const clearSubmitError = () => {
+    if (submitError) setSubmitError(null);
+  };
+
   const handleChange = (e) => {
+    clearSubmitError();
     const { name, value } = e.target;
     setForm({ ...form, [name]: value });
     validateField(name, value);
   };
 
   const handleTagInputChange = (e) => {
+    clearSubmitError();
     const { value } = e.target;
     setTagInput(value);
     validateField("tagInput", value);
@@ -98,6 +107,12 @@ export const Registration = () => {
               {isSubmitting ? "등록 중..." : "등록"}
             </button>
           </div>
+
+          {submitError && (
+            <div className={`text-lg-semibold ${styles.error}`}>
+              {submitError.message}
+            </div>
+          )}
 
           <div className={styles.fields}>
             <FormField

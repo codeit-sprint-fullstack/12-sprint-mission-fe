@@ -1,3 +1,7 @@
+:root {
+  --error-bg: #ffecec;
+}
+
 .container {
   max-width: 75rem;
   margin: 1.62rem auto 10.12rem;
@@ -51,6 +55,15 @@
 
 .deleteBtn {
   padding: 0;
+}
+
+.error {
+  margin-bottom: 1.5rem;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--error-red);
+  color: var(--error-red);
+  background-color: var(--error-bg);
 }
 
 @media (max-width: 1199px) {
