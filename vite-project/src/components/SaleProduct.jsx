@@ -3,6 +3,7 @@ import heart from "../assets/img/heart.png";
 import "./SaleProduct.css";
 import { Link } from "react-router-dom";
 import search from "../assets/img/search.png";
+import img_default from "../assets/img/img_default.png";
 
 const SaleProduct = () => {
   const [product, setProduct] = useState([]);
@@ -139,7 +140,7 @@ const SaleProduct = () => {
             <div className="sale-product-container" key={t.id}>
               <img
                 className="sale-product-img"
-                src={t.images?.[0]}
+                src={t.images?.[0] || img_default}
                 alt="그냥 이미지"
               />
               <div className="sale-product-detail">
