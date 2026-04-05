@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { createProduct } from "@/api/productsApi";
 import { useProductValidation } from "@/hooks/useProductValidation";
@@ -54,6 +54,7 @@ export const Registration = () => {
 
       const trimmed = tagInput.trim();
       if (!trimmed) return;
+      if (trimmed.length > 5) return;
 
       const newTags = [...form.tags, trimmed];
       setForm({ ...form, tags: newTags });
