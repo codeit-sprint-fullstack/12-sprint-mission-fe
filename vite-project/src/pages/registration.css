@@ -41,7 +41,7 @@ textarea::placeholder {
   display: flex;
   flex-direction: column;
   gap: 24px;
-  width: 1200px;
+  min-width: 1200px;
 }
 
 .button-containter {
@@ -56,12 +56,21 @@ textarea::placeholder {
   letter-spacing: 0%;
 }
 
-.register-button {
+.deactivation-button {
   background-color: #9ca3af;
   border-radius: 8px;
   padding: 12px 23px 12px 23px;
   color: white;
 }
+
+.activation-button {
+  background-color: #3692ff;
+  border-radius: 8px;
+  padding: 12px 23px 12px 23px;
+  color: white;
+  cursor: pointer;
+}
+
 .input-container {
   display: flex;
   flex-direction: column;
@@ -97,4 +106,13 @@ textarea::placeholder {
 
 .tag-delete-button {
   cursor: pointer;
+}
+
+.error-text {
+  color: #ef4444;
+  font-size: 14px;
+}
+
+.input.error {
+  border: 1px solid #f74747;
 }
