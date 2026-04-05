@@ -1,10 +1,9 @@
-import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import "./reset.css";
 import Rending from "./pages/Rending";
 import Items from "./pages/Items";
-import Registration from "./pages/registration";
+import Registration from "./pages/Registration";
 import Market from "./pages/Market";
 
 function App() {

@@ -72,7 +72,7 @@ const SaleProduct = () => {
           <div className="filter">
             <div className="filter-top">
               <p className="sub-title">판매 중인 상품</p>
-              <Link to="#" className="form-button">
+              <Link to="/registration" className="form-button">
                 상품 등록하기
               </Link>
             </div>
@@ -106,7 +106,7 @@ const SaleProduct = () => {
             <p className="sub-title">판매 중인 상품</p>
             <div className="filter-container">
               <div className="form">
-                <Link to="#" className="form-button">
+                <Link to="/registration" className="form-button">
                   상품 등록하기
                 </Link>
                 <div className="form-wipper">
