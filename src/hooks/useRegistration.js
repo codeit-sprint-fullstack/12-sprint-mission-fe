@@ -115,7 +115,7 @@ export const useRegistration = () => {
       };
 
       const res = await fetch(
-        "http://https://one2-sprint-mission-be-zfc3.onrender.com/api/products",
+        "https://one2-sprint-mission-be-zfc3.onrender.com/api/products",
         {
           method: "POST",
           headers: {
