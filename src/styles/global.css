@@ -236,6 +236,7 @@ body {
 
 .btn-base:disabled {
   background-color: var(--secondary-400);
+  cursor: not-allowed;
 }
 
 /* =======================================================
