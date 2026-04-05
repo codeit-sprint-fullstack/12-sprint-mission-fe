@@ -114,13 +114,16 @@ export const useRegistration = () => {
         tags: tag.trim() !== "" ? [...tags, tag.trim()] : tags,
       };
 
-      const res = await fetch("http://localhost:3000/api/products", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+      const res = await fetch(
+        "http://https://one2-sprint-mission-be-zfc3.onrender.com/api/products",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(newReg),
         },
-        body: JSON.stringify(newReg),
-      });
+      );
       if (!res.ok) {
         throw new Error("상품 등록에 실패했습니다.");
       }

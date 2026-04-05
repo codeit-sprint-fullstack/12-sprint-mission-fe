@@ -13,7 +13,7 @@ export const useProducts = (page, pageSize) => {
     const getProducts = async () => {
       try {
         const res = await fetch(
-          `http://localhost:3000/api/products?page=${page}&pageSize=${pageSize}&orderBy=${orderBy}&keyword=${keyword}`,
+          `https://one2-sprint-mission-be-zfc3.onrender.com/api/products?page=${page}&pageSize=${pageSize}&orderBy=${orderBy}&keyword=${keyword}`,
         );
         const data = await res.json();
 
