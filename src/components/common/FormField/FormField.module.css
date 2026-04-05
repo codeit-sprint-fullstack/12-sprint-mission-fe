@@ -33,5 +33,5 @@
 .errorMsg {
   margin-top: 0.5rem;
   padding-left: 1rem;
-  color: var(--error-red, #f74747);
+  color: var(--error-red);
 }
