@@ -3,7 +3,7 @@ import navigationStyles from "./Navigation.module.css";
 
 const Navigation = () => {
   return (
-    <nav className={`${navigationStyles.gnb}`}>
+    <nav className={navigationStyles.gnb}>
       <ul>
         <li>
           <NavLink to={`/`}>자유게시판</NavLink>

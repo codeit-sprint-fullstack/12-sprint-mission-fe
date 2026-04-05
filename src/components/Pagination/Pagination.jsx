@@ -12,7 +12,7 @@ const Pagination = ({ page, totalPages, onNext, onPrev, onChangePage }) => {
   }
 
   return (
-    <div className={`${paginationStyles.pagination}`}>
+    <div className={paginationStyles.pagination}>
       <button
         onClick={onPrev}
         disabled={page === 1}

@@ -4,6 +4,9 @@ const ProductList = ({ lists, keyword, type }) => {
       {lists.length ? (
         lists.map((item) => (
           <li key={item.id} className="product__item">
+            <div className="item--thumb no-image">
+              <span className="sr-only">No Image</span>
+            </div>
             <div className="item--info">
               <p className="item--name">{item.name}</p>
               <p className="item--price">{item.price.toLocaleString()}원</p>

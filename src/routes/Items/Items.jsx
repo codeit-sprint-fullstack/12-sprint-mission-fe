@@ -46,6 +46,10 @@ const Items = () => {
     setPage(1);
   };
 
+  const handleToggleSortList = () => {
+    // setIsSortOpen((prev) => !prev);
+  };
+
   const handleChangeSorting = (sort) => {
     setSorting(sort);
     // setIsSortOpen((prev) => !prev);
@@ -70,7 +74,12 @@ const Items = () => {
             상품 등록하기
           </Link>
 
-          <Sorting sorting={sorting} isSortOpen={isSortOpen} />
+          <Sorting
+            sorting={sorting}
+            isSortOpen={isSortOpen}
+            onToggle={handleToggleSortList}
+            onSorting={handleChangeSorting}
+          />
         </>
       }
     >
@@ -86,16 +95,22 @@ const Items = () => {
           상품을 불러오는 중...
         </p>
       ) : (
-        <ProductList lists={products} keyword={debouncedKeyword} type="total" />
-      )}
+        <>
+          <ProductList
+            lists={products}
+            keyword={debouncedKeyword}
+            type="total"
+          />
 
-      <Pagination
-        page={page}
-        totalPages={totalPages}
-        onPrev={handlePrevPage}
-        onNext={handleNextPage}
-        onChangePage={setPage}
-      />
+          <Pagination
+            page={page}
+            totalPages={totalPages}
+            onPrev={handlePrevPage}
+            onNext={handleNextPage}
+            onChangePage={setPage}
+          />
+        </>
+      )}
     </ProductWrap>
   );
 };

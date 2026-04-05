@@ -42,6 +42,7 @@
 }
 
 body {
+  background-color: #fcfcfc;
   font-family: var(--pretendard);
 }
 
@@ -132,11 +133,13 @@ body {
   justify-content: center;
   align-items: center;
   background-color: var(--primary-100);
+  border: 1px solid var(--primary-100);
   font-weight: 600;
   font-size: var(--text-lg);
   color: white;
   text-align: center;
   line-height: 1.62;
+  cursor: pointer;
 }
 
 #wrapper {
@@ -179,7 +182,6 @@ body {
 
 .list-control-bar {
   display: flex;
-  align-items: center;
   gap: 12px;
 }
 
@@ -228,6 +230,7 @@ body {
   justify-content: space-between;
   align-items: center;
   width: 130px;
+  height: 100%;
   padding: 0.5em 1.25em;
   background-color: white;
   border: 1px solid var(--secondary-200);
@@ -294,8 +297,17 @@ body {
   border-radius: 16px;
   aspect-ratio: 1;
 }
+
+.item--thumb.no-image {
+  background-image: url("./assets/images/thumbs_default.png");
+  background-image: url("./assets/images/thumbs_default.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
 .item--thumb:has(span) {
-  border: 1px solid var(--secondary-200);
+  /* border: 1px solid var(--secondary-200); 언제 또 쓸지 몰라서 일단 주석처리 */
 }
 
 .item--thumb img {
@@ -373,6 +385,9 @@ body {
 }
 
 @media all and (max-width: 768px) {
+  #wrapper {
+    padding-top: 64px;
+  }
   .contents,
   .inner {
     padding-inline: 16px;
