@@ -16,6 +16,10 @@
 <img width="500" height="1679" alt="모바일" src="https://github.com/user-attachments/assets/9ae21c1f-034c-41d6-9d63-687ed4164531" />
 
 
+### 4. 상품 등록 페이지
+<img width="1920" height="1281" alt="sprint_등록_1" src="https://github.com/user-attachments/assets/ad51f2d3-c697-4239-9eb1-f3ece4bb8013" />
+
+
 ## ✨ 주요 특징
 
 ### 1. 직관적인 컴포넌트 구조
