@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import useInputValidation from "./useInputValidation";
+import useDebounce from "./useDebounce";
 
 export const useRegistration = () => {
   const [name, setName] = useState("");
@@ -16,24 +17,30 @@ export const useRegistration = () => {
     tags: false,
   });
 
+  // 입력값에 디바운싱 적용
+  const debouncedName = useDebounce(name, 300);
+  const debouncedDescription = useDebounce(description, 300);
+  const debouncedPrice = useDebounce(price, 300);
+  const debouncedTag = useDebounce(tag, 300);
+
   const { errors, isInputsValid } = useInputValidation({
-    name,
-    description,
-    price,
-    tag,
+    name: debouncedName,
+    description: debouncedDescription,
+    price: debouncedPrice,
+    tag: debouncedTag,
     touched,
   });
-
-  const navigate = useNavigate();
 
   // 모든 input box가 입력되어야 버튼 활성화
   // (단, 태그는 tags에 목록이 있으면 input이 비어도 활성화)
   const isActive =
     isInputsValid &&
-    name.trim() !== "" &&
-    description.trim() !== "" &&
-    price.trim() !== "" &&
-    (tag.trim() !== "" || tags.length > 0);
+    debouncedName.trim() !== "" &&
+    debouncedDescription.trim() !== "" &&
+    debouncedPrice.trim() !== "" &&
+    (debouncedTag.trim() !== "" || tags.length > 0);
+
+  const navigate = useNavigate();
 
   const initReg = () => {
     setName("");
@@ -127,8 +134,6 @@ export const useRegistration = () => {
       console.error(error);
     }
   };
-
-  // 시간 남으면 Debouncing 추가해보기
 
   return {
     name,
