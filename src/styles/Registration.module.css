@@ -105,6 +105,19 @@ textarea {
   cursor: pointer;
 }
 
+.errorInput {
+  outline: 1px solid #f74747 !important;
+}
+
+.errorInput:focus {
+  outline: 1px solid #f74747 !important;
+}
+
+.errorMessage {
+  color: #f74747;
+  padding-left: 16px;
+}
+
 @media (max-width: 1279px) {
   .wrapper {
     margin: 20px 24px 230px 24px;

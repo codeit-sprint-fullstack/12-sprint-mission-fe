@@ -11,10 +11,12 @@ const Registration = () => {
     tag,
     tags,
     isActive,
+    errors,
     handleOnChange,
     handleOnSubmit,
     handleKeyDown,
     handleTagDelete,
+    handleOnBlur,
   } = useRegistration();
 
   return (
@@ -39,46 +41,70 @@ const Registration = () => {
             <h2 className="text-2lg bold">상품명</h2>
             <input
               type="text"
-              className={`${styles.titleInput} text-lg regular`}
+              className={`${styles.titleInput} text-lg regular ${errors.name ? styles.errorInput : ""}`}
               placeholder="상품명을 입력해주세요"
               name="name"
               value={name}
               onChange={handleOnChange}
+              onBlur={handleOnBlur}
             />
+            {errors.name && (
+              <p className={`${styles.errorMessage} text-lg semibold`}>
+                {errors.name}
+              </p>
+            )}
           </section>
           <section>
             <h2 className="text-2lg bold">상품 소개</h2>
             <textarea
               type="text"
-              className={`${styles.descriptionInput} text-lg regular`}
+              className={`${styles.descriptionInput} text-lg regular ${errors.description ? styles.errorInput : ""}`}
               placeholder="상품 소개를 입력해주세요"
               name="description"
               value={description}
               onChange={handleOnChange}
+              onBlur={handleOnBlur}
             />
+            {errors.description && (
+              <p className={`${styles.errorMessage} text-lg semibold`}>
+                {errors.description}
+              </p>
+            )}
           </section>
           <section>
             <h2 className="text-2lg bold">판매가격</h2>
             <input
               type="text"
-              className={`${styles.priceInput} text-lg regular`}
+              className={`${styles.priceInput} text-lg regular ${errors.price ? styles.errorInput : ""}`}
               placeholder="상품 가격을 입력해주세요"
               name="price"
               value={price}
               onChange={handleOnChange}
+              onBlur={handleOnBlur}
             />
+            {errors.price && (
+              <p className={`${styles.errorMessage} text-lg semibold`}>
+                {errors.price}
+              </p>
+            )}
           </section>
           <section>
             <h2 className="text-2lg bold">태그</h2>
             <input
               type="text"
-              className={`${styles.tagInput} text-lg regular`}
+              className={`${styles.tagInput} text-lg regular ${errors.tags ? styles.errorInput : ""}`}
               placeholder="태그를 입력해주세요"
               name="tags"
               value={tag}
               onChange={handleOnChange}
+              onBlur={handleOnBlur}
               onKeyDown={handleKeyDown}
             />
+            {errors.tags && (
+              <p className={`${styles.errorMessage} text-lg semibold`}>
+                {errors.tags}
+              </p>
+            )}
             <ul className={styles.tagsContainer}>
               {tags.map((t) => {
                 return (

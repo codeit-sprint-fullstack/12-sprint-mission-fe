@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import useInputValidation from "./useInputValidation";
 
 export const useRegistration = () => {
   const [name, setName] = useState("");
@@ -8,11 +9,27 @@ export const useRegistration = () => {
   const [tag, setTag] = useState("");
   const [tags, setTags] = useState([]);
 
+  const [touched, setTouched] = useState({
+    name: false,
+    description: false,
+    price: false,
+    tags: false,
+  });
+
+  const { errors, isInputsValid } = useInputValidation({
+    name,
+    description,
+    price,
+    tag,
+    touched,
+  });
+
   const navigate = useNavigate();
 
   // 모든 input box가 입력되어야 버튼 활성화
   // (단, 태그는 tags에 목록이 있으면 input이 비어도 활성화)
   const isActive =
+    isInputsValid &&
     name.trim() !== "" &&
     description.trim() !== "" &&
     price.trim() !== "" &&
@@ -24,24 +41,29 @@ export const useRegistration = () => {
     setPrice("");
     setTags([]);
     setTag("");
+    setTouched({ name: false, description: false, price: false, tags: false });
   };
 
   const handleOnChange = (e) => {
     const { value, name: inputName } = e.target;
 
+    setTouched((prev) => ({ ...prev, [inputName]: true }));
+
     if (inputName === "name") {
-      const getName = value;
-      setName(getName);
+      setName(value);
     } else if (inputName === "description") {
-      const getDescription = value;
-      setDescription(getDescription);
+      setDescription(value);
     } else if (inputName === "price") {
-      const getPrice = value;
-      setPrice(getPrice);
+      setPrice(value);
     } else if (inputName === "tags") {
-      const getTag = value;
-      setTag(getTag);
+      setTag(value);
     }
+  };
+
+  // 포커스를 잃었을 때도 touched 상태 업데이트 (입력 없이 지나갈 때 에러 노출용)
+  const handleOnBlur = (e) => {
+    const { name: inputName } = e.target;
+    setTouched((prev) => ({ ...prev, [inputName]: true }));
   };
 
   // 엔터 키 입력을 가로채는 함수
@@ -56,6 +78,8 @@ export const useRegistration = () => {
 
       // 빈 값이 아닐 때만 태그 배열에 추가
       if (trimmedTag !== "") {
+        if (trimmedTag.length > 5) return;
+
         const validTag = tags.find((t) => t === trimmedTag);
         if (validTag) {
           alert("중복되지 않는 태그를 입력해주세요");
@@ -79,7 +103,7 @@ export const useRegistration = () => {
       const newReg = {
         name: name.trim(),
         description: description.trim(),
-        price: price.trim(),
+        price: Number(price.trim()),
         tags: tag.trim() !== "" ? [...tags, tag.trim()] : tags,
       };
 
@@ -113,9 +137,11 @@ export const useRegistration = () => {
     tag,
     tags,
     isActive,
+    errors,
     handleOnChange,
     handleOnSubmit,
     handleKeyDown,
     handleTagDelete,
+    handleOnBlur,
   };
 };
