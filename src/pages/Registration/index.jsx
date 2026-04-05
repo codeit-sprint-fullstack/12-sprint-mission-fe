@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { FormField } from "@/components/common/FormField";
 import { createProduct } from "@/api/productsApi";
+import { useProductValidation } from "@/hooks/useProductValidation";
+import { FormField } from "@/components/common/FormField";
 import deleteIcon from "./ic-x.svg";
 import styles from "./Registration.module.css";
 
 export const Registration = () => {
   const navigate = useNavigate();
+  const { errors, validateField } = useProductValidation();
 
   const [form, setForm] = useState({
     name: "",
@@ -35,10 +37,13 @@ export const Registration = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setForm({ ...form, [name]: value });
+    validateField(name, value);
   };
 
   const handleTagInputChange = (e) => {
-    setTagInput(e.target.value);
+    const { value } = e.target;
+    setTagInput(value);
+    validateField("tagInput", value);
   };
 
   const handleTagKeyDown = (e) => {
@@ -50,24 +55,29 @@ export const Registration = () => {
       const trimmed = tagInput.trim();
       if (!trimmed) return;
 
-      setForm({ ...form, tags: [...form.tags, trimmed] });
+      const newTags = [...form.tags, trimmed];
+      setForm({ ...form, tags: newTags });
+      validateField("tags", newTags);
       setTagInput("");
     }
   };
 
   const handleTagDelete = (index) => {
-    setForm({ ...form, tags: form.tags.filter((_, i) => i !== index) });
+    const newTags = form.tags.filter((_, i) => i !== index);
+    setForm({ ...form, tags: newTags });
+    validateField("tags", newTags);
   };
-
-  useEffect(() => {
-    console.log(form);
-  }, [form]);
 
   const isFormValid =
     form.name.trim() &&
     form.description.trim() &&
     form.price &&
-    form.tags.length > 0;
+    form.tags.length > 0 &&
+    !errors.name &&
+    !errors.description &&
+    !errors.price &&
+    !errors.tags &&
+    !errors.tagInput;
 
   return (
     <main>
@@ -92,6 +102,8 @@ export const Registration = () => {
               value={form.name}
               placeholder="상품명을 입력해주세요"
               onChange={handleChange}
+              onBlur={() => validateField("name", form.name)}
+              error={errors.name}
             />
 
             <FormField
@@ -102,6 +114,8 @@ export const Registration = () => {
               value={form.description}
               placeholder="상품 소개를 입력해주세요"
               onChange={handleChange}
+              onBlur={() => validateField("description", form.description)}
+              error={errors.description}
             />
 
             <FormField
@@ -112,6 +126,8 @@ export const Registration = () => {
               value={form.price}
               placeholder="판매 가격을 입력해주세요"
               onChange={handleChange}
+              onBlur={() => validateField("price", form.price)}
+              error={errors.price}
             />
 
             <FormField
@@ -123,6 +139,8 @@ export const Registration = () => {
               required={false}
               onChange={handleTagInputChange}
               onKeyDown={handleTagKeyDown}
+              onBlur={() => validateField("tags", form.tags)}
+              error={errors.tagInput || errors.tags}
             />
           </div>
 

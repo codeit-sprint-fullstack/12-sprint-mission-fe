@@ -18,12 +18,12 @@
   color: var(--secondary-400);
 }
 
-.formControl.error {
-  border: 1px solid var(--error-red);
+.formControl:focus {
+  border: 1px solid var(--primary-100);
 }
 
-.input:active {
-  border: 1px solid var(--primary-100);
+.formControl.error {
+  border: 1px solid var(--error-red);
 }
 
 .textarea {

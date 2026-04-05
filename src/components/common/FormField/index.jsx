@@ -11,6 +11,7 @@ export const FormField = ({
   required = true,
   autoComplete = "off",
   onChange,
+  onBlur,
   onKeyDown,
   error,
 }) => {
@@ -31,6 +32,7 @@ export const FormField = ({
           required={required}
           autoComplete={autoComplete}
           onChange={onChange}
+          onBlur={onBlur}
           className={`${styles.formControl} ${styles.textarea}`}
         />
       ) : (
@@ -43,6 +45,7 @@ export const FormField = ({
           required={required}
           autoComplete={autoComplete}
           onChange={onChange}
+          onBlur={onBlur}
           onKeyDown={onKeyDown}
           className={`${styles.formControl} ${styles.input}`}
         />
