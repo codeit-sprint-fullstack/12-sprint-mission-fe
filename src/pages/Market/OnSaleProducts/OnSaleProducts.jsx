@@ -16,14 +16,13 @@ export const OnSaleProducts = () => {
 
   const pageSize = usePageSize({ mobile: 4, tablet: 6, desktop: 10 });
   const debouncedKeyword = useDebounce(keyword, 300);
-  const { products, totalCount, isLoading, error, refetch } = useProducts({
+  const { products, totalPages, isLoading, error, refetch } = useProducts({
     orderBy: sortBy,
     keyword: debouncedKeyword,
     page,
     pageSize,
   });
 
-  const totalPages = Math.ceil(totalCount / pageSize);
   const isEmpty = !isLoading && !error && products.length === 0;
 
   const handleKeywordChange = (newKeyword) => {

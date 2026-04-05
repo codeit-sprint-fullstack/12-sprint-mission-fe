@@ -5,7 +5,7 @@ import styles from "./ProductCard.module.css";
 
 export const ProductCard = ({ type, item }) => {
   const [imgLoaded, setImgLoaded] = useState(false);
-  const thumbnailUrl = item.images[0] || defaultImg;
+  const thumbnailUrl = item.images?.[0] || defaultImg;
 
   return (
     <li className={styles.card}>

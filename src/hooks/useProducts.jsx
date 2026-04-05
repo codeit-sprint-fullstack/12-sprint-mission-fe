@@ -4,7 +4,7 @@ import { parseError } from "@/utils/parseError";
 
 export const useProducts = ({ orderBy, keyword, page, pageSize }) => {
   const [products, setProducts] = useState([]);
-  const [totalCount, setTotalCount] = useState(0);
+  const [totalPages, setTotalPages] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
@@ -14,8 +14,8 @@ export const useProducts = ({ orderBy, keyword, page, pageSize }) => {
 
     try {
       const data = await getProducts({ orderBy, keyword, page, pageSize });
-      setProducts(data.list);
-      setTotalCount(data.totalCount);
+      setProducts(data.data);
+      setTotalPages(data.meta.totalPages);
     } catch (err) {
       setError(parseError(err));
     } finally {
@@ -27,5 +27,5 @@ export const useProducts = ({ orderBy, keyword, page, pageSize }) => {
     fetchProducts();
   }, [fetchProducts]);
 
-  return { products, totalCount, isLoading, error, refetch: fetchProducts };
+  return { products, totalPages, isLoading, error, refetch: fetchProducts };
 };
