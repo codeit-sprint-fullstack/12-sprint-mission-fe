@@ -3,7 +3,7 @@
   --bg-feature: #fcfcfc;
 }
 
-.featuresContaier {
+.container {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -12,7 +12,7 @@
 }
 
 @media (max-width: 1199px) {
-  .featuresContaier {
+  .container {
     gap: 3.25rem;
     padding-top: 1.5rem;
     padding-bottom: 3.5rem;
@@ -20,7 +20,7 @@
 }
 
 @media (max-width: 743px) {
-  .featuresContaier {
+  .container {
     gap: 2.5rem;
     padding-top: 3.25rem;
     padding-bottom: 5.19rem;

@@ -8,7 +8,7 @@ export const Landing = () => {
     <main>
       <Hero type="top" title="일상의 모든 물건을 거래해보세요" />
 
-      <div className={styles.featuresContaier}>
+      <div className={styles.container}>
         <Feature
           badge="Hot item"
           title="인기 상품을 확인해보세요"
