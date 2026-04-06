@@ -1,3 +1,5 @@
+import paginationStyles from "./Pagination.module.css";
+
 const PAGE_GROUP = 5;
 
 const Pagination = ({ page, totalPages, onNext, onPrev, onChangePage }) => {
@@ -10,11 +12,11 @@ const Pagination = ({ page, totalPages, onNext, onPrev, onChangePage }) => {
   }
 
   return (
-    <div className="pagination">
+    <div className={paginationStyles.pagination}>
       <button
         onClick={onPrev}
         disabled={page === 1}
-        className="btn-page btn-prev"
+        className={`${paginationStyles.page} ${paginationStyles.prev}`}
       >
         <span className="sr-only">이전</span>
       </button>
@@ -25,7 +27,7 @@ const Pagination = ({ page, totalPages, onNext, onPrev, onChangePage }) => {
           onClick={() => {
             onChangePage(p);
           }}
-          className={`btn-page ${page === p ? "current" : ""}`}
+          className={`${paginationStyles.page} ${page === p && paginationStyles.current}`}
         >
           {p}
         </button>
@@ -75,7 +77,7 @@ const Pagination = ({ page, totalPages, onNext, onPrev, onChangePage }) => {
       <button
         onClick={onNext}
         disabled={page === totalPages}
-        className="btn-page btn-next"
+        className={`${paginationStyles.page} ${paginationStyles.next}`}
       >
         <span className="sr-only">다음</span>
       </button>

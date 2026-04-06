@@ -1,0 +1,25 @@
+.gnb ul {
+  display: flex;
+  align-items: center;
+}
+.gnb ul a {
+  padding: 21px 15px;
+  font-weight: 700;
+  font-size: var(--text-2lg);
+  color: var(--secondary-600);
+}
+
+.gnb .active {
+  color: var(--primary-100);
+}
+
+@media all and (max-width: 768px) {
+  .gnb ul {
+    gap: 8px;
+  }
+
+  .gnb ul a {
+    padding-inline: 0;
+    font-size: 1rem;
+  }
+}

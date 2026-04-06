@@ -1,25 +1,22 @@
-const ProductList = ({ lists, type }) => {
+const ProductList = ({ lists, keyword, type }) => {
   return (
     <ul className={`product__list ${type}`}>
       {lists.length ? (
         lists.map((item) => (
           <li key={item.id} className="product__item">
-            <div className="item--thumb">
-              {item.images.length > 0 && !item.images[0].includes("...") ? (
-                <img src={item.images[0]} alt={item.name} />
-              ) : (
-                <span>No Image</span>
-              )}
+            <div className="item--thumb no-image">
+              <span className="sr-only">No Image</span>
             </div>
             <div className="item--info">
               <p className="item--name">{item.name}</p>
               <p className="item--price">{item.price.toLocaleString()}원</p>
-              <button className="item--favorites">{item.favoriteCount}</button>
             </div>
           </li>
         ))
       ) : (
-        <li className="empty-list">등록된 상품이 없습니다.</li>
+        <li className="empty-list">
+          {keyword ? `${keyword}(으)로 검색` : "등록"}된 상품이 없습니다.
+        </li>
       )}
     </ul>
   );

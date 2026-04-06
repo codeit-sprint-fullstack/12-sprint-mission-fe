@@ -1,0 +1,264 @@
+/**
+ * Index *
+*/
+.visual {
+  display: flex;
+  align-items: center;
+  width: min(100%, 1110px);
+  margin-inline: auto;
+  background-position: right bottom;
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+}
+.visual .headline h2 {
+  font-weight: 700;
+  font-size: 2.5rem;
+  line-height: 1.4;
+  word-break: keep-all;
+}
+.visual .headline a {
+  margin-top: 2rem;
+}
+
+.keyVisual {
+  overflow: hidden;
+  position: relative;
+  padding-top: var(--gap-200);
+  background-color: #cfe5ff;
+}
+.keyVisual .visual {
+  height: 21.25rem;
+  background-image: url("../../assets/images/key_visual.png");
+  background-image: url("../../assets/images/key_visual.svg");
+}
+
+.section {
+  padding-block: 8.625rem;
+}
+.banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+  width: min(100%, 988px);
+  margin-inline: auto;
+  color: var(--secondary-700);
+}
+.banner .thumb {
+  overflow: hidden;
+  width: 588px;
+  height: 444px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  border-radius: 12px;
+}
+.banner .category {
+  margin-bottom: 0.75rem;
+  font-weight: 700;
+  font-size: var(--text-2lg);
+  color: var(--primary-100);
+  line-height: 1.44;
+}
+.banner h2 {
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  font-size: 2.5rem;
+  line-height: 1.4;
+  letter-spacing: 0.8px;
+  word-break: keep-all;
+}
+.banner .desc p {
+  font-weight: 500;
+  font-size: var(--text-2xl);
+  line-height: 1.33;
+}
+.section:nth-child(even) .banner {
+  flex-direction: row-reverse;
+}
+.section:nth-child(even) .bannerInfo {
+  text-align: right;
+}
+.hotItem .thumb {
+  background-image: url("../../assets/images/plan_card01.png");
+  background-image: url("../../assets/images/plan_card01.svg");
+}
+.search .thumb {
+  background-image: url("../../assets/images/plan_card02.png");
+  background-image: url("../../assets/images/plan_card02.svg");
+}
+.register .thumb {
+  background-image: url("../../assets/images/plan_card03.png");
+  background-image: url("../../assets/images/plan_card03.svg");
+}
+.promotion {
+  overflow: hidden;
+  position: relative;
+  padding-top: 8.93rem;
+  background-color: #cfe5ff;
+}
+.promotion .visual {
+  height: 24.8125rem;
+  background-image: url("../../assets/images/promotion.png");
+  background-image: url("../../assets/images/promotion.svg");
+}
+.promotion .headline {
+  margin-bottom: 3.75rem;
+}
+
+@media all and (max-width: 768px) {
+  .visual {
+    justify-content: center;
+    width: auto;
+    padding-inline: 16px;
+    text-align: center;
+  }
+
+  .visual::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    translate: -50% 0;
+  }
+
+  .visual .headline a {
+    width: clamp(240px, 64%, 357px);
+    min-width: auto;
+    margin-inline: auto;
+  }
+
+  .bannerWrap {
+    padding-bottom: 30px;
+  }
+
+  .section {
+    padding-block: 26px;
+  }
+
+  .banner {
+    display: block;
+    padding-inline: 16px;
+  }
+
+  .banner h2 {
+    font-size: var(--text-3xl);
+  }
+  .banner h2 br {
+    display: none;
+  }
+
+  .banner .desc p {
+    font-size: var(--text-2lg);
+    line-height: 1.44;
+  }
+
+  .banner .thumb {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 696/524;
+  }
+
+  .bannerInfo {
+    margin-top: 24px;
+  }
+
+  .keyVisual {
+    padding-block: 84px 551px;
+  }
+
+  .keyVisual .headline h2 br {
+    display: none;
+  }
+
+  .keyVisual .visual {
+    height: auto;
+    background: none;
+  }
+
+  .keyVisual .visual::after {
+    height: 340px;
+    background-image: url("../../assets/images/key_visual.png");
+    background-image: url("../../assets/images/key_visual.svg");
+    aspect-ratio: 744/340;
+  }
+
+  .promotion {
+    padding-top: 201px;
+  }
+
+  .promotion .headline {
+    width: 100%;
+    padding-inline: 16px;
+    margin: 0;
+  }
+
+  .promotion .visual {
+    flex-direction: column;
+    gap: 217px;
+    height: auto;
+    padding: 0;
+    background: none;
+  }
+
+  .promotion .visual::after {
+    position: static;
+    width: 100%;
+    background-image: url("../../assets/images/promotion.png");
+    background-image: url("../../assets/images/promotion.svg");
+    aspect-ratio: 744/397;
+    translate: none;
+  }
+}
+
+@media all and (max-width: 480px) {
+  .visual .headline h2 {
+    font-size: var(--text-3xl);
+  }
+
+  .visual .headline a {
+    margin-top: 18px;
+  }
+
+  .bannerWrap {
+    padding-block: 26px 57px;
+  }
+
+  .banner .category {
+    margin-bottom: 0.5em;
+    font-size: 1rem;
+  }
+
+  .banner h2 {
+    margin-bottom: 1rem;
+    font-size: var(--text-2xl);
+  }
+
+  .banner .desc p {
+    font-size: 1rem;
+    line-height: 1.2;
+  }
+
+  .keyVisual {
+    padding-block: 48px 336px;
+  }
+
+  .keyVisual .visual::after {
+    height: 204px;
+  }
+
+  .keyVisual .headline h2 br {
+    display: block;
+  }
+
+  .promotion {
+    padding-top: 121px;
+  }
+
+  .promotion .visual {
+    gap: 131px;
+  }
+}
