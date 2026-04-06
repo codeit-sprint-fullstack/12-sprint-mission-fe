@@ -1,7 +1,30 @@
+.skeleton {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--secondary-200);
+}
+
+.skeleton::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 150%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  animation: shimmer 1.2s infinite;
+}
+
 .card {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  gap: 1rem;
 }
 
 /* 공통 이미지 스타일 */
@@ -9,7 +32,6 @@
   display: block;
   width: 100%;
   aspect-ratio: 1 / 1;
-  margin-bottom: 1rem;
 }
 
 /* 인기 상품 (Card_best) */
@@ -30,22 +52,37 @@
   align-items: flex-start;
   gap: 0.375rem;
   align-self: stretch;
-  color: var(--secondary-800);
+}
+
+.name {
+  width: 70%;
+  height: 1.125rem;
+  border-radius: 0.25rem;
+}
+
+.price {
+  width: 45%;
+  height: 1.375rem;
+  border-radius: 0.25rem;
 }
 
 .meta {
   display: flex;
   align-items: center;
   gap: 0.25rem;
+  margin-top: 0.125rem;
 }
 
-.heartIcon {
+.heart {
   width: 1rem;
   height: 1rem;
+  border-radius: 50%;
 }
 
-.favoriteCount {
-  color: var(--secondary-600);
+.count {
+  width: 2rem;
+  height: 0.875rem;
+  border-radius: 0.25rem;
 }
 
 @media (max-width: 1199px) {
@@ -67,13 +104,8 @@
   }
 }
 
-.imgSkeleton {
-  background: linear-gradient(
-    90deg,
-    var(--secondary-100) 25%,
-    var(--secondary-200) 50%,
-    var(--secondary-100) 75%
-  );
-  background-size: 200% 100%;
-  animation: shimmer 1.5s infinite ease-in-out;
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
 }

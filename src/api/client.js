@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "https://panda-market-api.vercel.app";
+const BASE_URL = import.meta.env.VITE_API_URL;
 
 export async function request(url, options = {}) {
   try {
@@ -18,7 +18,7 @@ export async function request(url, options = {}) {
     const { status, data } = err.response || {};
 
     const customError = new Error(
-      data?.message || err.message || "Unknown error",
+      data?.error || err.message || "Unknown error",
     );
 
     customError.status = status;

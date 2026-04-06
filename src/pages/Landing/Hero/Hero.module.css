@@ -1,0 +1,146 @@
+:root {
+  --bg-hero: #cfe5ff;
+}
+
+.hero {
+  height: 33.75rem;
+  background-color: var(--bg-hero);
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  width: 100%;
+  height: 100%;
+  max-width: 120rem;
+  margin: 0 auto;
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+}
+
+.inner.bottom {
+  gap: 4.3125rem;
+}
+
+.content {
+  width: 22.3125rem;
+  margin-bottom: 3.75rem;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: var(--font-weight-bold);
+  line-height: 3.5rem;
+  color: var(--secondary-700);
+  word-break: keep-all;
+}
+
+.ctaBtn {
+  height: 3.5rem;
+  margin-top: 2rem;
+  padding: 1rem 7.75rem;
+  border-radius: 2.5rem;
+  font-size: var(--font-size-2lg);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-xl);
+}
+
+@media (max-width: 1199px) {
+  .hero {
+    height: 48.1875rem;
+  }
+
+  .hero.bottom {
+    height: 57.9375rem;
+  }
+
+  .wrapper {
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  .inner {
+    flex-direction: column;
+  }
+
+  .inner.top {
+    gap: 13.19rem;
+  }
+
+  .inner.bottom {
+    gap: 13.56rem;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 32rem;
+    margin-bottom: 0;
+  }
+
+  .title {
+    text-align: center;
+  }
+
+  .ctaBtn {
+    height: 3.5rem;
+    margin-top: 1.5rem;
+    padding: 1rem 7.75rem;
+  }
+}
+
+@media (max-width: 743px) {
+  .hero {
+    height: auto;
+    min-height: 33.75rem;
+    overflow: hidden;
+  }
+
+  .hero.bottom {
+    height: auto;
+    min-height: 33.75rem;
+    overflow: hidden;
+  }
+
+  .wrapper {
+    overflow: hidden;
+  }
+
+  .inner.top {
+    gap: 8.25rem;
+    padding-top: 3rem;
+  }
+
+  .inner.bottom {
+    gap: 8.19rem;
+    padding-top: 7.56rem;
+  }
+
+  .content {
+    width: 15rem;
+  }
+
+  .title {
+    font-size: var(--font-size-3xl);
+    line-height: 2.8rem;
+  }
+
+  .ctaBtn {
+    width: 100%;
+    height: 3rem;
+    margin-top: 1.12rem;
+    padding: 0.75rem 4.4375rem;
+    font-size: var(--font-size-2lg);
+    line-height: var(--line-height-lg);
+  }
+
+  .img {
+    min-width: 28rem;
+  }
+}

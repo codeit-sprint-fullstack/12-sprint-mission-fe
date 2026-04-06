@@ -1,25 +1,38 @@
 import React from "react";
+import { Link, useLocation } from "react-router-dom";
 import styles from "./Header.module.css";
 import logo from "./logo-sm.svg";
 import logoTypo from "./logo-typo.svg";
 
-export const Header = ({ variant = "default" }) => {
+export const Header = () => {
+  const location = useLocation();
+
+  const isRoot = location.pathname === "/";
+  const isMarket = location.pathname === "/items";
+  const variant = isRoot ? "default" : "tab";
+
   return (
     <header className={styles.header}>
       <div className={`${styles.inner}`}>
         <div className={`${styles.brandArea}`}>
           <h1>
-            <a href="/">
-              <img src={logo} alt="판다마켓" className={`hide-mobile`} />
-              <img src={logoTypo} alt="판다마켓" className={`show-mobile`} />
-            </a>
+            <Link to="/">
+              <img src={logo} alt="판다마켓" className="hide-mobile" />
+              <img src={logoTypo} alt="판다마켓" className="show-mobile" />
+            </Link>
           </h1>
 
           {variant === "tab" && (
             <nav>
               <ul className={styles.menu}>
                 <li className={`${styles.menuItem}`}>자유게시판</li>
-                <li className={`${styles.menuItem}`}>중고마켓</li>
+                <Link to="/items">
+                  <li
+                    className={`${styles.menuItem} ${isMarket ? styles.active : ""}`}
+                  >
+                    중고마켓
+                  </li>
+                </Link>
               </ul>
             </nav>
           )}

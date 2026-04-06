@@ -222,6 +222,7 @@ body {
   align-items: center;
   gap: 0.625rem;
   white-space: nowrap;
+  line-height: 1;
   color: var(--secondary-100);
   background-color: var(--primary-100);
 }
@@ -236,6 +237,7 @@ body {
 
 .btn-base:disabled {
   background-color: var(--secondary-400);
+  cursor: not-allowed;
 }
 
 /* =======================================================

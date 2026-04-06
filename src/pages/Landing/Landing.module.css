@@ -1,0 +1,28 @@
+:root {
+  --bg-hero: #cfe5ff;
+  --bg-feature: #fcfcfc;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding-bottom: 6.62rem;
+  background-color: var(--bg-feature);
+}
+
+@media (max-width: 1199px) {
+  .container {
+    gap: 3.25rem;
+    padding-top: 1.5rem;
+    padding-bottom: 3.5rem;
+  }
+}
+
+@media (max-width: 743px) {
+  .container {
+    gap: 2.5rem;
+    padding-top: 3.25rem;
+    padding-bottom: 5.19rem;
+  }
+}

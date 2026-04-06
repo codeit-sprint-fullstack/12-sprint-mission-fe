@@ -1,6 +1,7 @@
 import React from "react";
-import { SearchInput } from "../../components/common/SearchInput/SearchInput";
-import { SortSelect } from "../../components/common/SortSelect/SortSelect";
+import { Link } from "react-router-dom";
+import { SearchInput } from "@/components/common/SearchInput";
+import { SortSelect } from "@/components/common/SortSelect";
 import styles from "./OnSaleProductHeader.module.css";
 
 export const OnSaleProductHeader = ({
@@ -12,20 +13,20 @@ export const OnSaleProductHeader = ({
   return (
     <div className={styles.container}>
       <h2 className={`${styles.title} text-xl-bold`}>판매 중인 상품</h2>
-      <a
+      <Link
+        to="/registration"
         className={`btn-base text-lg-semibold ${styles.registrationBtn} show-mobile`}
-        href="/"
       >
         상품 등록하기
-      </a>
+      </Link>
       <div className={styles.controls}>
         <SearchInput value={keyword} onChange={onKeywordChange} />
-        <a
+        <Link
+          to="/registration"
           className={`btn-base text-lg-semibold ${styles.registrationBtn} hide-mobile`}
-          href="/"
         >
           상품 등록하기
-        </a>
+        </Link>
         <SortSelect value={sortBy} onChange={onSortChange} />
       </div>
     </div>
