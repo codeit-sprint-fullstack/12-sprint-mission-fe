@@ -14,11 +14,11 @@ const ItemHeader = () => {
           </Link>
 
           <nav className="item-header__nav">
-            <Link to="/board" className="item-header__link">
+            <Link to="/Forum" className="item-header__link">
               자유게시판
             </Link>
             <Link
-              to="/items"
+              to="/Item"
               className="item-header__link item-header__link--active"
             >
               중고마켓
