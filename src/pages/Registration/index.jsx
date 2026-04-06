@@ -50,15 +50,16 @@ export const Registration = () => {
       if (!trimmed) return;
       if (trimmed.length > 5) return;
 
-      const newTags = [...form.tags, trimmed];
+      const newTag = { id: crypto.randomUUID(), value: trimmed };
+      const newTags = [...form.tags, newTag];
       setForm({ ...form, tags: newTags });
       validateField("tags", newTags);
       setTagInput("");
     }
   };
 
-  const handleTagDelete = (index) => {
-    const newTags = form.tags.filter((_, i) => i !== index);
+  const handleTagDelete = (id) => {
+    const newTags = form.tags.filter((tag) => tag.id !== id);
     setForm({ ...form, tags: newTags });
     validateField("tags", newTags);
   };
@@ -72,6 +73,7 @@ export const Registration = () => {
       const data = await createProduct({
         ...form,
         price: Number(form.price),
+        tags: form.tags.map((t) => t.value),
       });
 
       navigate(`/items/${data.data.id}`);
@@ -165,13 +167,13 @@ export const Registration = () => {
           </div>
 
           <ul className={styles.tagList}>
-            {form.tags.map((tag, index) => (
-              <li key={index} className={`text-lg-regular ${styles.tag}`}>
-                {tag}
+            {form.tags.map((tag) => (
+              <li key={tag.id} className={`text-lg-regular ${styles.tag}`}>
+                {tag.value}
                 <button
                   type="button"
                   className={styles.deleteBtn}
-                  onClick={() => handleTagDelete(index)}
+                  onClick={() => handleTagDelete(tag.id)}
                 >
                   <img src={deleteIcon} alt="" />
                   <span className="sr-only">태그 삭제</span>
