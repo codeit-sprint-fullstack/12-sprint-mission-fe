@@ -11,6 +11,7 @@ a {
   top: 0;
   left: 0;
   right: 0;
+  z-index: 1;
 }
 
 .header-container {
@@ -39,6 +40,10 @@ a {
   color: #4b5563;
   cursor: pointer;
   white-space: nowrap;
+}
+
+.nav-button.active {
+  color: #3692ff;
 }
 
 .header-navigation {

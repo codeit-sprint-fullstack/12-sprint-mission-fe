@@ -1,0 +1,118 @@
+input {
+  background-color: #f3f4f6;
+  border-radius: 12px;
+  padding: 16px 24px 16px 24px;
+}
+
+input::placeholder {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  letter-spacing: 0%;
+  color: #9ca3af;
+}
+
+textarea {
+  border: none;
+  outline: none;
+  resize: none;
+
+  background-color: #f3f4f6;
+  border-radius: 12px;
+  padding: 16px 24px 16px 24px;
+  height: 282px;
+  box-sizing: border-box;
+}
+
+textarea::placeholder {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  letter-spacing: 0%;
+  color: #9ca3af;
+}
+
+.main-container {
+  display: flex;
+  justify-content: center;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  min-width: 1200px;
+}
+
+.button-containter {
+  display: flex;
+  justify-content: space-between;
+}
+
+.button-label {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 32px;
+  letter-spacing: 0%;
+}
+
+.deactivation-button {
+  background-color: #9ca3af;
+  border-radius: 8px;
+  padding: 12px 23px 12px 23px;
+  color: white;
+}
+
+.activation-button {
+  background-color: #3692ff;
+  border-radius: 8px;
+  padding: 12px 23px 12px 23px;
+  color: white;
+  cursor: pointer;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.input-label {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 26px;
+  letter-spacing: 0%;
+}
+
+.input-field {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.tag-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 12px;
+  background-color: #f3f4f6;
+  border-radius: 26px;
+}
+
+.tag-delete-button {
+  cursor: pointer;
+}
+
+.error-text {
+  color: #ef4444;
+  font-size: 14px;
+}
+
+.input.error {
+  border: 1px solid #f74747;
+}

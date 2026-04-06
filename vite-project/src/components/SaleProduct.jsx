@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import heart from "../assets/img/heart.png";
 import "./SaleProduct.css";
 import { Link } from "react-router-dom";
 import search from "../assets/img/search.png";
+import img_default from "../assets/img/img_default.png";
 
 const SaleProduct = () => {
   const [product, setProduct] = useState([]);
@@ -10,11 +11,15 @@ const SaleProduct = () => {
   const [page, setPage] = useState(1);
   const [orderBy, setOrderBy] = useState("recent");
   const [keyword, setKeyword] = useState("");
-  // const [pageSize, setPageSize] = useState(
-  //   window.innerWidth <= 375 ? 4 : window.innerWidth <= 744 ? 6 : 10,
-  // );
-  const pageSize =
-    window.innerWidth <= 375 ? 4 : window.innerWidth <= 744 ? 6 : 10;
+
+  const getPageSize = () => {
+    if (window.innerWidth < 376) return 4;
+    if (window.innerWidth < 745) return 6;
+    return 10;
+  };
+
+  const [pageSize, setPageSize] = useState(getPageSize());
+  const [layout, setLayout] = useState(window.innerWidth <= 375);
 
   async function getProduct() {
     try {
@@ -31,11 +36,27 @@ const SaleProduct = () => {
   }
 
   useEffect(() => {
-    getProduct();
+    const timer = setTimeout(() => {
+      getProduct();
+    }, 300);
+
+    return () => clearTimeout(timer);
   }, [page, orderBy, keyword, pageSize]);
 
-  const totalPages = Math.ceil(totalCount / pageSize);
+  useEffect(() => {
+    const handleResize = () => {
+      setPageSize(getPageSize());
+      setLayout(window.innerWidth <= 375);
+    };
 
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  const totalPages = Math.ceil(totalCount / pageSize);
   const PAGE_COUNT = 5;
   const startPage = Math.floor((page - 1) / PAGE_COUNT) * PAGE_COUNT + 1;
   const endPage = Math.min(startPage + PAGE_COUNT - 1, totalPages);
@@ -44,8 +65,6 @@ const SaleProduct = () => {
     (_, i) => startPage + i,
   );
 
-  const layout = window.innerWidth <= 375;
-
   return (
     <>
       <section className="title-container">
@@ -53,7 +72,9 @@ const SaleProduct = () => {
           <div className="filter">
             <div className="filter-top">
               <p className="sub-title">판매 중인 상품</p>
-              <Link className="form-button">상품 등록하기</Link>
+              <Link to="/registration" className="form-button">
+                상품 등록하기
+              </Link>
             </div>
             <div className="filter-container">
               <div className="form">
@@ -85,7 +106,9 @@ const SaleProduct = () => {
             <p className="sub-title">판매 중인 상품</p>
             <div className="filter-container">
               <div className="form">
-                <Link className="form-button">상품 등록하기</Link>
+                <Link to="/registration" className="form-button">
+                  상품 등록하기
+                </Link>
                 <div className="form-wipper">
                   <img className="search-icon" src={search} />
                   <input
@@ -117,7 +140,7 @@ const SaleProduct = () => {
             <div className="sale-product-container" key={t.id}>
               <img
                 className="sale-product-img"
-                src={t.images}
+                src={t.images?.[0] || img_default}
                 alt="그냥 이미지"
               />
               <div className="sale-product-detail">
