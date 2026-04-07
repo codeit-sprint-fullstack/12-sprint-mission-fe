@@ -23,7 +23,7 @@ const MainPage = () => {
                 거래해 보세요
               </h2>
 
-              <Link to="Item" className="banner__btn">
+              <Link to="/items" className="banner__btn">
                 구경하러 가기
               </Link>
             </div>

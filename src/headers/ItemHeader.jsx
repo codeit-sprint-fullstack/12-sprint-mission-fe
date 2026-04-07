@@ -18,7 +18,7 @@ const ItemHeader = () => {
               자유게시판
             </Link>
             <Link
-              to="/Item"
+              to="/Items"
               className="item-header__link item-header__link--active"
             >
               중고마켓
