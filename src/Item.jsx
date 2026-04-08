@@ -3,7 +3,7 @@ import ItemHeader from "./headers/ItemHeader.jsx";
 import Footer from "./footers/Footer.jsx";
 import * as imgAssets from "./imgs/imgController.js";
 import { getProductList } from "./api/ProductService.js";
-import "./css/Item.css";
+import "./css/item.css";
 import { useNavigate } from "react-router-dom";
 
 const Item = () => {

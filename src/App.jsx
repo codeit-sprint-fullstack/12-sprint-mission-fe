@@ -2,8 +2,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import MainContents from "./MainPage";
 import Login from "./Login";
 import Auth from "./Auth";
-import Faq from "./faq";
-import Privacy from "./privacy";
+import Faq from "./Faq";
+import Privacy from "./Privacy";
 import Item from "./Item";
 
 import Forum from "./Forum";

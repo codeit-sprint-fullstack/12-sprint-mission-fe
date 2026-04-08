@@ -89,7 +89,7 @@ const Registration = () => {
         <form className="item-registration-form" onSubmit={handleSubmit}>
           <section className="form-header">
             <h2 className="main-title">상품 등록하기</h2>
-            {/* 유효성 검사 통과 여부에 따라 active 클래스 및 disabled 속성 제어 */}
+
             <button
               type="submit"
               className={`submit-btn ${isFormValid ? "active" : ""}`}
@@ -109,7 +109,7 @@ const Registration = () => {
               value={formData.name}
               onChange={handleChange}
             />
-            {/* 에러 발생 시 빨간색 메시지 표시 */}
+
             {errors.name && <p className="error-msg">{errors.name}</p>}
           </section>
 
