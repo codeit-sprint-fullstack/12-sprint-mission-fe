@@ -110,3 +110,132 @@ app.delete("/products/:id", async (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
+
+// 1. 게시글 등록
+app.post("/articles", async (req, res) => {
+  const { title, content } = req.body;
+  if (!title || !content)
+    return res.status(400).json({ message: "제목과 내용을 입력해주세요." });
+
+  try {
+    const article = await prisma.article.create({
+      data: { title, content },
+    });
+    res.status(201).json(article);
+  } catch (e) {
+    res.status(500).json({ error: "게시글 등록 실패" });
+  }
+});
+
+// 2. 게시글 목록 조회 (Offset 페이지네이션, 검색, 정렬)
+app.get("/articles", async (req, res) => {
+  try {
+    const page = Number(req.query.page) || 1;
+    const pageSize = Number(req.query.pageSize) || 10;
+    const keyword = req.query.keyword || "";
+    const skip = (page - 1) * pageSize;
+
+    const articles = await prisma.article.findMany({
+      where: {
+        OR: [
+          { title: { contains: keyword, mode: "insensitive" } },
+          { content: { contains: keyword, mode: "insensitive" } },
+        ],
+      },
+      select: { id: true, title: true, content: true, createdAt: true },
+      skip,
+      take: pageSize,
+      orderBy: { createdAt: "desc" },
+    });
+    res.json(articles);
+  } catch (e) {
+    res.status(500).json({ error: "목록 조회 실패" });
+  }
+});
+
+// 3. 게시글 상세 조회
+app.get("/articles/:id", async (req, res) => {
+  const { id } = req.params;
+  try {
+    const article = await prisma.article.findUnique({
+      where: { id: Number(id) },
+      select: { id: true, title: true, content: true, createdAt: true },
+    });
+    if (!article)
+      return res.status(404).json({ message: "게시글을 찾을 수 없습니다." });
+    res.json(article);
+  } catch (e) {
+    res.status(500).json({ error: "조회 실패" });
+  }
+});
+
+// 4. 게시글 수정/삭제 (기존 PATCH/DELETE 로직과 유사하게 구현)
+// ... (생략)
+
+// --- 댓글 (Comment) API ---
+
+// 1. 중고마켓 댓글 등록
+app.post("/products/:productId/comments", async (req, res) => {
+  const { productId } = req.params;
+  const { content } = req.body;
+  try {
+    const comment = await prisma.comment.create({
+      data: { content, productId: Number(productId) },
+    });
+    res.status(201).json(comment);
+  } catch (e) {
+    res.status(500).json({ error: "댓글 등록 실패" });
+  }
+});
+
+// 2. 자유게시판 댓글 등록
+app.post("/articles/:articleId/comments", async (req, res) => {
+  const { articleId } = req.params;
+  const { content } = req.body;
+  try {
+    const comment = await prisma.comment.create({
+      data: { content, articleId: Number(articleId) },
+    });
+    res.status(201).json(comment);
+  } catch (e) {
+    res.status(500).json({ error: "댓글 등록 실패" });
+  }
+});
+
+// 3. 댓글 목록 조회 (Cursor 페이지네이션)
+app.get("/articles/:articleId/comments", async (req, res) => {
+  const { articleId } = req.params;
+  const cursor = req.query.cursor
+    ? { id: Number(req.query.cursor) }
+    : undefined;
+  const take = Number(req.query.limit) || 5;
+
+  try {
+    const comments = await prisma.comment.findMany({
+      where: { articleId: Number(articleId) },
+      take,
+      skip: cursor ? 1 : 0,
+      cursor,
+      orderBy: { id: "asc" },
+      select: { id: true, content: true, createdAt: true },
+    });
+    res.json(comments);
+  } catch (e) {
+    res.status(500).json({ error: "댓글 조회 실패" });
+  }
+});
+
+// 4. 댓글 수정 (PATCH)
+app.patch("/comments/:id", async (req, res) => {
+  const { id } = req.params;
+  const { content } = req.body;
+  try {
+    const updated = await prisma.comment.update({
+      where: { id: Number(id) },
+      data: { content },
+    });
+    res.json(updated);
+  } catch (e) {
+    res.status(500).json({ error: "수정 실패" });
+  }
+});
