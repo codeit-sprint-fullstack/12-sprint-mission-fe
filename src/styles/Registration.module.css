@@ -1,0 +1,131 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px 200px 230px 200px;
+}
+
+.registrationContainer {
+  display: flex;
+  flex-direction: column;
+  max-width: 1200px;
+  width: 100%;
+  gap: 24px;
+}
+
+.btnContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.registrationContainer h1,
+h2 {
+  color: var(--Secondary-800);
+}
+
+.addBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 42px;
+  border-radius: 8px;
+  border: 0;
+  padding: 12px 23px;
+  color: var(--Secondary-200);
+  background-color: var(--Secondary-400);
+}
+
+.addBtn.active {
+  cursor: pointer;
+  background-color: var(--Primary-100);
+}
+
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.inputContainer input,
+textarea {
+  width: 100%;
+  padding: 16px 24px;
+  border-radius: 12px;
+  background: var(--Secondary-200);
+  border: 0;
+}
+
+.inputContainer input:focus {
+  outline: 0.0625rem solid var(--Primary-100);
+}
+
+.inputContainer textarea {
+  font-family: "Pretendard", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 26px; /* 162.5% */
+  resize: none;
+}
+
+.inputContainer textarea:focus {
+  outline: 0.0625rem solid var(--Primary-100);
+}
+
+.inputContainer section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.descriptionInput {
+  height: 282px;
+}
+
+.tagsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.tag {
+  display: flex;
+  height: 36px;
+  padding: 6px 12px 6px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 26px;
+  background: var(--Secondary-200);
+  color: var(--Secondary-800);
+}
+
+.tag > img {
+  cursor: pointer;
+}
+
+.errorInput {
+  outline: 1px solid #f74747 !important;
+}
+
+.errorInput:focus {
+  outline: 1px solid #f74747 !important;
+}
+
+.errorMessage {
+  color: #f74747;
+  padding-left: 16px;
+}
+
+@media (max-width: 1279px) {
+  .wrapper {
+    margin: 20px 24px 230px 24px;
+  }
+}
+
+@media (max-width: 767px) {
+  .wrapper {
+    margin: 20px 16px 230px 16px;
+  }
+}

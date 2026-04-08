@@ -50,10 +50,15 @@ nav {
   align-items: center;
 }
 
-.navList span {
+.navLink {
   padding: 1.3125rem 0.9375rem;
   color: var(--Secondary-600);
   cursor: pointer;
+  text-decoration: none;
+}
+
+.navLink.active {
+  color: var(--Primary-100);
 }
 
 @media (max-width: 1279px) {
@@ -74,7 +79,7 @@ nav {
     gap: 0.5rem;
   }
 
-  .navList span {
+  .navLink {
     padding: 1.5625rem 0;
   }
 
@@ -85,6 +90,5 @@ nav {
   .logo {
     width: 5.0625rem;
     height: 2.5rem;
-    cursor: pointer;
   }
 }

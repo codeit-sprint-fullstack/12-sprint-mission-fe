@@ -6,6 +6,7 @@ import icArrowDown from "../assets/ic_arrow_down.png";
 
 import CardGeneral from "./CardGeneral";
 import Pagination from "./Pagination";
+import { Link } from "react-router-dom";
 
 const SellingProducts = ({
   products,
@@ -41,14 +42,14 @@ const SellingProducts = ({
       <div className={styles.sortList}>
         <option
           className={"text-lg regular"}
-          value="recent"
+          value="-createdAt"
           onClick={onSortToggle}
         >
           최신순
         </option>
         <option
           className={"text-lg regular"}
-          value="favorite"
+          value="-favoriteCount"
           onClick={onSortToggle}
         >
           좋아요순
@@ -116,16 +117,18 @@ const SellingProducts = ({
                 alt="돋보기 아이콘"
                 className={styles.icSearch}
               />
-              <button className={`${styles.addProductBtn} text-lg semibold`}>
-                상품 등록하기
-              </button>
+              <Link to="/registration" style={{ textDecoration: "none" }}>
+                <button className={`${styles.addProductBtn} text-lg semibold`}>
+                  상품 등록하기
+                </button>
+              </Link>
 
               <div className={styles.sortDropdownContainer}>
                 <button
                   className={`${styles.sortBtn} text-lg regular`}
                   onClick={onDropdownToggle}
                 >
-                  {orderBy === "recent" ? "최신순" : "좋아요순"}
+                  {orderBy === "-createdAt" ? "최신순" : "좋아요순"}
                   <img src={icArrowDown} />
                 </button>
                 {isOpen ? sortDropdownList() : <></>}
@@ -144,12 +147,12 @@ const SellingProducts = ({
               {products.length === 0
                 ? noSearch()
                 : products.slice(0, listRow).map((item) => {
-                    return <CardGeneral product={item} key={item.id} />;
+                    return <CardGeneral product={item} key={item._id} />;
                   })}
             </ul>
             <ul className={styles.productsList}>
               {products.slice(listRow).map((item) => {
-                return <CardGeneral product={item} key={item.id} />;
+                return <CardGeneral product={item} key={item._id} />;
               })}
             </ul>
           </>

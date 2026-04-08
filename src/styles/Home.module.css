@@ -1,0 +1,237 @@
+.wrapper {
+  width: 100%;
+  padding: 0 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* 줄바꿈을 활성화하는 효과 */
+.breakOnDesktop {
+  display: inline;
+}
+
+.button {
+  background-color: var(--Primary-100);
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.button:hover {
+  background-color: #1967d6;
+}
+
+.button:focus {
+  background-color: #1251aa;
+}
+
+.button:disabled {
+  background-color: #9ca3af;
+  cursor: default;
+  pointer-events: none;
+}
+
+.pillButton {
+  font-size: 20px;
+  font-weight: 700;
+  border-radius: 999px;
+  padding: 16px 126px;
+}
+
+.fullWidth {
+  width: 100%;
+}
+
+.banner {
+  background-color: #cfe5ff;
+  height: 540px;
+  text-align: left;
+  background-repeat: no-repeat;
+  background-position: 75% bottom;
+  background-size: 45%;
+  display: flex;
+  align-items: center;
+}
+
+.hero {
+  background-image: url("../assets/hero-image.png");
+}
+
+.hero h1 br {
+  display: inline;
+}
+
+.banner h1 {
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 56px;
+  padding-top: 0;
+  padding-bottom: 32px;
+  letter-spacing: 0.02em;
+  color: var(--Secondary-700);
+}
+
+.bottomBanner {
+  background-image: url("../assets/bottom-banner-image.png");
+}
+
+.features {
+  padding: 138px 0;
+}
+
+.feature {
+  margin-bottom: 138px;
+  display: flex;
+  align-items: center;
+  gap: 5%;
+}
+
+.feature:nth-child(2) {
+  text-align: right;
+  flex-direction: row-reverse;
+}
+
+.feature img {
+  width: 50%;
+  margin-bottom: 0;
+}
+
+.featureContent {
+  flex: 1;
+}
+
+.featureContent h2 {
+  color: var(--Primary-100);
+  font-size: 18px;
+  line-height: 25.2px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.featureContent h1 {
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 56px;
+  letter-spacing: 0.02em;
+  color: var(--Secondary-700);
+}
+
+.featureDescription {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 28.8px;
+  letter-spacing: 0.08em;
+  margin-top: 24px;
+  color: var(--Secondary-700);
+}
+
+/* 태블릿 CSS */
+@media (max-width: 1279px) {
+  .wrapper {
+    max-width: none;
+    margin: 0;
+  }
+
+  /* 줄바꿈을 없애는 효과 */
+  .breakOnDesktop {
+    display: none;
+  }
+
+  .banner {
+    /* height: 90vh; */
+    height: 120vh;
+    text-align: center;
+    display: block; /* flex 해제 */
+    background-position: bottom;
+    /* background-size: 120%; */
+    background-size: 120%;
+  }
+
+  .banner h1 {
+    /* padding-top: 84px; */
+    padding-top: 120px;
+    padding-bottom: 24px;
+  }
+
+  .hero h1 br {
+    display: none;
+  }
+
+  .features {
+    padding: 24px 24px 16px 24px;
+  }
+
+  .feature {
+    margin-bottom: 64px;
+    display: block; /* flex 해제 */
+  }
+
+  .feature img {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .featureContent h1 {
+    font-size: 32px;
+    line-height: 44.8px;
+  }
+
+  .featureDescription {
+    font-size: 18px;
+    line-height: 21.6px;
+    margin-top: 20px;
+  }
+}
+
+/* 모바일 CSS */
+@media (max-width: 767px) {
+  .wrapper {
+    padding: 0 16px;
+  }
+
+  .pillButton {
+    font-size: 16px;
+    font-weight: 600;
+    padding: 14.5px 33.5px;
+  }
+
+  .banner {
+    height: 70vh;
+    background-size: 100%;
+  }
+
+  .banner h1 {
+    font-size: 32px;
+    line-height: 44.8px;
+    /* padding-top: 48px; */
+    padding-top: 60px;
+    padding-bottom: 18px;
+  }
+
+  .hero h1 br {
+    display: inline;
+  }
+
+  .features {
+    padding-top: 51px;
+    padding-bottom: 0;
+  }
+
+  .featureContent h2 {
+    font-size: 16px;
+    line-height: 22.4px;
+    margin-bottom: 8px;
+  }
+
+  .featureContent h1 {
+    font-size: 24px;
+    line-height: 33.6px;
+  }
+
+  .featureDescription {
+    font-size: 16px;
+    line-height: 19.2px;
+  }
+}
