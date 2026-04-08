@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:4000/api";
+const API_URL = "https://one2-sprint-mission-be-0389.onrender.com";
 
 export async function getProductList(
   page = 1,

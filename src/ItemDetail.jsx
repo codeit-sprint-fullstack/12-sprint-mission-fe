@@ -2,10 +2,11 @@ import React from "react";
 import ItemHeader from "./headers/ItemHeader";
 import Footer from "./footers/Footer";
 import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const ItemDetail = () => {
   const { id } = useParams();
-
+  const navigate = useNavigate();
   return (
     <>
       <ItemHeader />
@@ -19,7 +20,7 @@ const ItemDetail = () => {
         </p>
         <p>준비중</p>
         <button
-          onClick={() => window.history.back()}
+          onClick={() => navigate("/items")}
           style={{ marginTop: "20px", padding: "10px 20px", cursor: "pointer" }}
         >
           목록으로 돌아가기
