@@ -1,0 +1,65 @@
+generator client {
+  provider = "prisma-client-js"
+  previewFeatures = ["multiSchema"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+  schemas  = ["public"]
+}
+
+model Product {
+  id          Int       @id @default(autoincrement())
+  name        String
+  description String?
+  price       Float
+  tags        String[]
+  stock       Int       @default(0)
+  category    String?   @default("기본")
+  imageUrl    String?
+  isPublished Boolean?  @default(false)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  comments    Comment[] 
+
+  @@map("products")
+  @@schema("public")
+}
+
+model Article {
+  id        Int       @id @default(autoincrement())
+  title     String
+  content   String
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  comments  Comment[]
+
+  @@map("articles")
+  @@schema("public")
+}
+
+model Comment {
+  id        Int      @id @default(autoincrement())
+  content   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // 중고마켓 상품과의 관계
+  productId Int?
+  product   Product? @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  // 자유게시판 게시글과의 관계
+  articleId Int?
+  article   Article? @relation(fields: [articleId], references: [id], onDelete: Cascade)
+
+  @@map("comments")
+  @@schema("public")
+}
+
+model users {
+  id    Int    @id @default(autoincrement())
+  email String @unique @db.VarChar(255)
+  name  String @db.VarChar(100)
+  @@schema("public")
+}
