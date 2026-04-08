@@ -169,10 +169,31 @@ app.get("/articles/:id", async (req, res) => {
   }
 });
 
-// 4. 게시글 수정/삭제 (기존 PATCH/DELETE 로직과 유사하게 구현)
-// ... (생략)
+// 4. 게시글 수정/삭제
+// 수정 (PATCH)
+app.patch("/products/:id", async (req, res) => {
+  const { id } = req.params;
+  try {
+    const updated = await prisma.article.update({
+      where: { id: Number(id) },
+      data: req.body,
+    });
+    res.status(200).json(updated);
+  } catch (e) {
+    res.status(400).json({ error: "수정 실패" });
+  }
+});
 
-// --- 댓글 (Comment) API ---
+// 삭제 (DELETE)
+app.delete("/products/:id", async (req, res) => {
+  const { id } = req.params;
+  await prisma.article.delete({ where: { id: Number(id) } });
+  res.status(204).send(); // No Content
+});
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
 
 // 1. 중고마켓 댓글 등록
 app.post("/products/:productId/comments", async (req, res) => {

@@ -2,7 +2,7 @@
 
 ## 📌 프로젝트 소개
 
-향후 플랫폼 내 게시글, 댓글 기능 추가를 위해 Prisma 스키마 및 API 생성 (백엔드만 구성)
+향후 플랫폼 내 게시글, 댓글 기능 추가를 위해 Prisma 스키마 및 API 생성
 
 ## 🛠 사용 기술
 
@@ -29,6 +29,11 @@
 
 - PrismaClient를 사용하여 Article 테이블에 4개의 초기 더미데이터 작성
 - Prisma 메소드를 활용
+
+### Article, Comment 전용 CRUD API 작성 (index.js)
+
+- Article(게시물): 등록, 조회, 상세조회, 수정, 삭제 API 작성
+- Comment(댓글): 중고마켓 댓글, 게시판 댓글 등록, 수정, 삭제 API 작성
 
 ## ✔셀프 체크리스트
 
