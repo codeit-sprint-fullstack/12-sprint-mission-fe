@@ -1,4 +1,4 @@
-const API_URL = "https://panda-market-api-crud.vercel.app";
+const API_URL = "https://one2-sprint-mission-be-0389.onrender.com";
 
 export async function getProductList(
   page = 1,
@@ -21,6 +21,28 @@ export async function getProductList(
     return await response.json();
   } catch (error) {
     console.error("요청 실패:", error);
+    throw error;
+  }
+}
+
+export async function createProduct(productData) {
+  try {
+    const response = await fetch(`${API_URL}/products`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(productData),
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(errorData.message || `등록 실패: ${response.status}`);
+    }
+
+    return await response.json();
+  } catch (error) {
+    console.error("등록 요청 실패:", error);
     throw error;
   }
 }

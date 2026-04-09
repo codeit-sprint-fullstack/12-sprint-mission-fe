@@ -3,7 +3,8 @@ import ItemHeader from "./headers/ItemHeader.jsx";
 import Footer from "./footers/Footer.jsx";
 import * as imgAssets from "./imgs/imgController.js";
 import { getProductList } from "./api/ProductService.js";
-import "./css/Item.css";
+import "./css/item.css";
+import { useNavigate } from "react-router-dom";
 
 const Item = () => {
   const [products, setProducts] = useState([]);
@@ -14,6 +15,8 @@ const Item = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [keyword, setKeyword] = useState("");
   const [orderBy, setOrderBy] = useState("recent");
+
+  const navigate = useNavigate();
 
   const loadProducts = async (page) => {
     try {
@@ -78,6 +81,7 @@ const Item = () => {
       loadProducts(1);
     }
   }, [orderBy]);
+
   return (
     <main className="market">
       <ItemHeader />
@@ -141,7 +145,10 @@ const Item = () => {
                 />
               </div>
               <div className="product-controls__actions">
-                <button className="product-controls__btn-add">
+                <button
+                  className="product-controls__btn-add"
+                  onClick={() => navigate("/registration")}
+                >
                   상품 등록하기
                 </button>
                 <select
