@@ -12,14 +12,14 @@ export const Footer = () => {
         <nav>
           <ul className="flex gap-[1.875rem]">
             <li>
-              <a className="text-gray-200" href="./privacy.html">
+              <Link href="/privacy" className="text-gray-200">
                 Privacy Policy
-              </a>
+              </Link>
             </li>
             <li>
-              <a className="text-gray-200" href="./faq.html">
+              <Link href="/faq" className="text-gray-200">
                 FAQ
-              </a>
+              </Link>
             </li>
           </ul>
         </nav>
