@@ -1,6 +1,7 @@
 import localFont from "next/font/local";
 import "./globals.css";
 import Header from "@/components/common/Header";
+import Footer from "@/components/common/Footer";
 
 const pretendard = localFont({
   src: "./fonts/PretendardVariable.woff2",
@@ -18,7 +19,10 @@ export default function RootLayout({ children }) {
     <html lang="ko" className={`${pretendard.variable} antialiased`}>
       <body>
         <Header />
-        <main>{children}</main>
+        <main className="flex-grow min-h-[calc(100vh-10rem-4.375rem)]">
+          {children}
+        </main>{" "}
+        <Footer />
       </body>
     </html>
   );
