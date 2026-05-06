@@ -1,7 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import { format } from "date-fns";
-import medalIcon from "./ic-medal.svg";
 
 export default function BestPostCard({ post }) {
   const imageSrc = post?.imageUrl || "/images/post-default-image.png";
@@ -14,7 +13,7 @@ export default function BestPostCard({ post }) {
       >
         <div className="flex justify-center items-center gap-1 w-[6.375rem] py-0.5 px-6 rounded-b-2xl bg-primary">
           <Image
-            src={medalIcon}
+            src="/icons/ic-medal.svg"
             width={16}
             height={16}
             alt=""
