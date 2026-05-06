@@ -8,7 +8,7 @@ export const metadata = {
 
 export default function CommunityPage() {
   return (
-    <div className="flex flex-col gap-10 mt-6">
+    <div className="flex flex-col gap-10 mt-6 mb-[5.69rem] md:mb-[9.69rem] lg:mb-[18.31rem]">
       <section className="flex flex-col gap-6 mb-6 lg:mb-10">
         <h2 className="text-xl-bold">베스트 게시글</h2>
         <BestPostSection />
