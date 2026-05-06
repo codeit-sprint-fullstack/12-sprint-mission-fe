@@ -7,11 +7,10 @@ export default function BestPostCard({ post }) {
   const imageSrc = post?.imageUrl || "/images/post-default-image.png";
 
   return (
-    <Link href="">
+    <Link href="" className="flex-1 min-w-0">
       <div
-        className="flex flex-col items-start gap-4 self-stretch px-6 pb-4 rounded-lg bg-gray-50
-                    md:w-[21.25rem] md:self-auto
-                    xl:w-[24rem] xl:h-[10.5625rem] xl:pb-2 xl:gap-[0.625rem]"
+        className="flex flex-col items-start gap-4 h-full px-6 pb-4 rounded-lg bg-gray-50
+                  xl:h-[10.5625rem] xl:pb-2 xl:gap-[0.625rem]"
       >
         <div className="flex justify-center items-center gap-1 w-[6.375rem] py-0.5 px-6 rounded-b-2xl bg-primary">
           <Image

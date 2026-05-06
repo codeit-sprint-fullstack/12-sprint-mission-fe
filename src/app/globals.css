@@ -34,6 +34,8 @@
   --line-height-lg: 1.625rem;
   --line-height-md: 1.5rem;
   --line-height-xs: 1.125rem;
+
+  --breakpoint-md: 744px;
 }
 
 body {
