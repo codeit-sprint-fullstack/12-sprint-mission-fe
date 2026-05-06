@@ -28,11 +28,22 @@
   --font-size-lg: 1rem;
   --font-size-md: 0.875rem;
   --font-size-xs: 0.75rem;
+
+  --line-height-3xl: 2.625rem;
+  --line-height-xl: 2rem;
+  --line-height-lg: 1.625rem;
+  --line-height-md: 1.5rem;
+  --line-height-xs: 1.125rem;
 }
 
 body {
-  color: theme(--color-gray-700);
-  background-color: theme(--color-white);
+  font-family: var(--font-pretendard), sans-serif;
+
+  color: var(--color-gray-900);
+  background-color: var(--color-white);
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* =======================================================
@@ -40,151 +51,151 @@ body {
    ======================================================= */
 .text-3xl-bold {
   font-size: var(--font-size-3xl);
-  font-weight: var(--font-weight-bold);
+  font-weight: 700;
   line-height: var(--line-height-3xl);
 }
 
 .text-3xl-semibold {
   font-size: var(--font-size-3xl);
-  font-weight: var(--font-weight-semibold);
+  font-weight: 600;
   line-height: var(--line-height-3xl);
 }
 
 .text-2xl-bold {
   font-size: var(--font-size-2xl);
-  font-weight: var(--font-weight-bold);
+  font-weight: 700;
   line-height: var(--line-height-xl);
 }
 
 .text-2xl-semibold {
   font-size: var(--font-size-2xl);
-  font-weight: var(--font-weight-semibold);
+  font-weight: 600;
   line-height: var(--line-height-xl);
 }
 
 .text-2xl-medium {
   font-size: var(--font-size-2xl);
-  font-weight: var(--font-weight-medium);
+  font-weight: 500;
   line-height: var(--line-height-xl);
 }
 
 .text-2xl-regular {
   font-size: var(--font-size-2xl);
-  font-weight: var(--font-weight-regular);
+  font-weight: 400;
   line-height: var(--line-height-xl);
 }
 
 .text-xl-bold {
   font-size: var(--font-size-xl);
-  font-weight: var(--font-weight-bold);
+  font-weight: 700;
   line-height: var(--line-height-xl);
 }
 
 .text-xl-semibold {
   font-size: var(--font-size-xl);
-  font-weight: var(--font-weight-semibold);
+  font-weight: 600;
   line-height: var(--line-height-xl);
 }
 
 .text-xl-medium {
   font-size: var(--font-size-xl);
-  font-weight: var(--font-weight-medium);
+  font-weight: 500;
   line-height: var(--line-height-xl);
 }
 
 .text-xl-regular {
   font-size: var(--font-size-xl);
-  font-weight: var(--font-weight-regular);
+  font-weight: 400;
   line-height: var(--line-height-xl);
 }
 
 .text-2lg-bold {
   font-size: var(--font-size-2lg);
-  font-weight: var(--font-weight-bold);
+  font-weight: 700;
   line-height: var(--line-height-lg);
 }
 
 .text-2lg-semibold {
   font-size: var(--font-size-2lg);
-  font-weight: var(--font-weight-semibold);
+  font-weight: 600;
   line-height: var(--line-height-lg);
 }
 
 .text-2lg-medium {
   font-size: var(--font-size-2lg);
-  font-weight: var(--font-weight-medium);
+  font-weight: 500;
   line-height: var(--line-height-lg);
 }
 
 .text-2lg-regular {
   font-size: var(--font-size-2lg);
-  font-weight: var(--font-weight-regular);
+  font-weight: 400;
   line-height: var(--line-height-lg);
 }
 
 .text-lg-bold {
   font-size: var(--font-size-lg);
-  font-weight: var(--font-weight-bold);
+  font-weight: 700;
   line-height: var(--line-height-lg);
 }
 
 .text-lg-semibold {
   font-size: var(--font-size-lg);
-  font-weight: var(--font-weight-semibold);
+  font-weight: 600;
   line-height: var(--line-height-lg);
 }
 
 .text-lg-medium {
   font-size: var(--font-size-lg);
-  font-weight: var(--font-weight-medium);
+  font-weight: 500;
   line-height: var(--line-height-lg);
 }
 
 .text-lg-regular {
   font-size: var(--font-size-lg);
-  font-weight: var(--font-weight-regular);
+  font-weight: 400;
   line-height: var(--line-height-lg);
 }
 
 .text-md-bold {
   font-size: var(--font-size-md);
-  font-weight: var(--font-weight-bold);
+  font-weight: 700;
   line-height: var(--line-height-md);
 }
 
 .text-md-semibold {
   font-size: var(--font-size-md);
-  font-weight: var(--font-weight-semibold);
+  font-weight: 600;
   line-height: var(--line-height-md);
 }
 
 .text-md-medium {
   font-size: var(--font-size-md);
-  font-weight: var(--font-weight-medium);
+  font-weight: 500;
   line-height: var(--line-height-md);
 }
 
 .text-md-regular {
   font-size: var(--font-size-md);
-  font-weight: var(--font-weight-regular);
+  font-weight: 400;
   line-height: var(--line-height-md);
 }
 
 .text-xs-semibold {
   font-size: var(--font-size-xs);
-  font-weight: var(--font-weight-semibold);
+  font-weight: 600;
   line-height: var(--line-height-xs);
 }
 
 .text-xs-medium {
   font-size: var(--font-size-xs);
-  font-weight: var(--font-weight-medium);
+  font-weight: 500;
   line-height: var(--line-height-xs);
 }
 
 .text-xs-regular {
   font-size: var(--font-size-xs);
-  font-weight: var(--font-weight-regular);
+  font-weight: 400;
   line-height: var(--line-height-xs);
 }
 
