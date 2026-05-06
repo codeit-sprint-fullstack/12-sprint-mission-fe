@@ -10,8 +10,11 @@ const pretendard = localFont({
 });
 
 export const metadata = {
-  title: "판다마켓",
-  description: "중고 시장",
+  title: {
+    default: "판다마켓",
+    template: "%s | 판다마켓",
+  },
+  description: "일상의 모든 물건을 거래해보세요. 가장 쉬운 중고 거래 플랫폼",
 };
 
 export default function RootLayout({ children }) {
@@ -19,10 +22,7 @@ export default function RootLayout({ children }) {
     <html lang="ko" className={`${pretendard.variable} antialiased`}>
       <body>
         <Header />
-        <main className="flex-grow min-h-[calc(100vh-10rem-4.375rem)]">
-          {children}
-        </main>{" "}
-        <Footer />
+        <main>{children}</main> <Footer />
       </body>
     </html>
   );
