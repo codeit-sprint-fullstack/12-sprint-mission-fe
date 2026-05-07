@@ -2,12 +2,25 @@
 
 import { useState } from "react";
 import Button from "@/components/ui/Button";
+import { createArticleComment } from "@/lib/api/posts";
 
-export default function CommentForm({ postId }) {
+export default function CommentForm({ postId, onSuccess }) {
   const [comment, setComment] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const isDisabled = comment.trim().length === 0 || isSubmitting;
 
   const handleSubmit = async () => {
-    // API 호출
+    try {
+      setIsSubmitting(true);
+      await createArticleComment(postId, comment);
+      setComment("");
+      await onSuccess();
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -24,7 +37,7 @@ export default function CommentForm({ postId }) {
           <Button
             className="px-[1.4375rem] h-[2.625rem] text-lg-semibold rounded-lg"
             onClick={handleSubmit}
-            disabled
+            disabled={isDisabled}
           >
             등록
           </Button>

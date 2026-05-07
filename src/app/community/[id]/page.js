@@ -2,9 +2,8 @@ import Image from "next/image";
 import { format } from "date-fns";
 import { getArticle } from "@/lib/api/posts";
 import Button from "@/components/ui/Button";
-import CommentForm from "./_components/CommentForm";
-import CommentList from "./_components/CommentList";
 import PostKebabMenu from "./_components/PostKebabMenu";
+import CommentSection from "./_components/CommentSection";
 
 export async function generateMetadata({ params }) {
   const { id } = await params;
@@ -64,12 +63,7 @@ export default async function PostDetailPage({ params }) {
         {post.content}
       </p>
 
-      <div className="flex flex-col mb-6 md:mb-8 lg:mb-10">
-        <h3 className="mb-2 text-lg-semibold">댓글달기</h3>
-        <CommentForm postId={id} />
-      </div>
-
-      <CommentList postId={id} />
+      <CommentSection postId={id} />
 
       <Button
         className="w-[15rem] px-[2.47rem] py-[0.75rem] mx-auto rounded-full "
