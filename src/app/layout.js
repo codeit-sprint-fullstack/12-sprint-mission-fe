@@ -20,11 +20,13 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="ko" className={`${pretendard.variable} antialiased`}>
-      <body>
+      <body className="min-h-screen flex flex-col">
         <Header />
-        <main className="w-full max-w-[75rem] mx-auto px-4 md:px-6">
+
+        <main className="flex-1 w-full max-w-[75rem] mx-auto px-4 md:px-6">
           {children}
         </main>
+
         <Footer />
       </body>
     </html>

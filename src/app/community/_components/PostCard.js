@@ -6,7 +6,10 @@ export default function PostCard({ post }) {
   const imageSrc = post?.imageUrl || "/images/post-default-image.png";
 
   return (
-    <Link href="" className="block w-full mt-6 pb-6 border-b border-gray-200">
+    <Link
+      href={`/community/${post.id}`}
+      className="block w-full mt-6 pb-6 border-b border-gray-200 bg-gray-bg"
+    >
       <div className="flex flex-col gap-4">
         <div className="flex w-full justify-between gap-2">
           <h3 className="text-xl-semibold text-gray-800">{post.title}</h3>

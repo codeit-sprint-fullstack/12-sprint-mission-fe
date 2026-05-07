@@ -13,3 +13,28 @@ export async function getArticles({
   }
   return res.json();
 }
+
+export async function getArticle(id) {
+  const res = await fetch(`${BASE_URL}/articles/${id}`);
+  if (!res.ok) {
+    throw new Error("개별 게시글을 가져오는 데 실패했습니다.");
+  }
+  return res.json();
+}
+
+export async function getArticleComments({ articleId, cursor, take = 10 }) {
+  const params = new URLSearchParams();
+
+  if (cursor) params.append("cursor", cursor);
+  params.append("take", take);
+
+  const res = await fetch(
+    `${BASE_URL}/articles/${articleId}/comments?${params}`,
+  );
+
+  if (!res.ok) {
+    throw new Error("댓글 데이터를 가져오는 데 실패했습니다.");
+  }
+
+  return res.json();
+}

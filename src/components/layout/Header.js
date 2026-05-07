@@ -14,6 +14,13 @@ export const Header = () => {
   const pathname = usePathname();
   const isRoot = pathname === "/";
 
+  const isActive = (href) => {
+    if (href === "/community") {
+      return pathname === "/community" || pathname === "/community/write";
+    }
+    return pathname.startsWith(href);
+  };
+
   return (
     <header className="sticky top-0 left-0 z-[100] h-[4.375rem] border-b border-gray-border bg-white">
       <div className="flex justify-between items-center w-full max-w-[120rem] h-full mx-auto px-4 md:px-6 xl:px-[12.5rem]">
@@ -52,7 +59,7 @@ export const Header = () => {
                         px-0 py-0 text-lg-bold
                         md:px-[0.9375rem] md:py-[1.3125rem] md:text-2lg-bold
                         hover:text-primary
-                        ${pathname === href ? "text-primary" : ""}`}
+                        ${isActive(href) ? "text-primary" : ""}`}
                     >
                       {label}
                     </Link>
