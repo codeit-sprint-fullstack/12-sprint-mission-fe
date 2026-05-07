@@ -4,7 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { formatDistanceToNow } from "date-fns";
 import { ko } from "date-fns/locale";
-import { updateComment } from "@/lib/api/comments";
+import { updateComment, deleteComment } from "@/lib/api/comments";
 import Button from "@/components/ui/Button";
 import KebabMenu from "./KebabMenu";
 import CommentTextarea from "./CommentTextarea";
@@ -37,6 +37,15 @@ export default function CommentCard({ comment, onRefresh }) {
     setIsEditing(false);
   };
 
+  const handleDelete = async () => {
+    try {
+      await deleteComment(comment.id);
+      await onRefresh();
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   return (
     <div
       className={`
@@ -56,7 +65,9 @@ export default function CommentCard({ comment, onRefresh }) {
               <KebabMenu.Button onClick={() => setIsEditing(true)}>
                 수정하기
               </KebabMenu.Button>
-              <KebabMenu.Button>삭제하기</KebabMenu.Button>
+              <KebabMenu.Button onClick={handleDelete}>
+                삭제하기
+              </KebabMenu.Button>
             </KebabMenu>
           </div>
         </div>

@@ -15,3 +15,15 @@ export async function updateComment(commentId, content) {
 
   return res.json();
 }
+
+export async function deleteComment(commentId) {
+  const res = await fetch(`${BASE_URL}/comments/${commentId}`, {
+    method: "DELETE",
+  });
+
+  if (!res.ok) {
+    throw new Error("댓글 삭제에 실패했습니다.");
+  }
+
+  return;
+}
