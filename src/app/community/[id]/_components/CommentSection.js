@@ -27,7 +27,7 @@ export default function CommentSection({ postId }) {
         <CommentForm postId={postId} onSuccess={fetchComments} />
       </div>
 
-      <CommentList comments={comments} />
+      <CommentList comments={comments} onRefresh={fetchComments} />
     </>
   );
 }
