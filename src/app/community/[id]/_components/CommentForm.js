@@ -3,8 +3,7 @@
 import { useState } from "react";
 import Button from "@/components/ui/Button";
 import { createArticleComment } from "@/lib/api/posts";
-
-const MAX_LENGTH = 200;
+import CommentTextarea from "./CommentTextarea";
 
 export default function CommentForm({ postId, onSuccess }) {
   const [comment, setComment] = useState("");
@@ -30,19 +29,7 @@ export default function CommentForm({ postId, onSuccess }) {
   return (
     <div>
       <div className="flex flex-col gap-3">
-        <div className="relative">
-          <textarea
-            value={comment}
-            onChange={(e) => setComment(e.target.value)}
-            placeholder="댓글을 입력해주세요."
-            maxLength={MAX_LENGTH}
-            className="w-full h-[6.5rem] px-6 py-4 rounded-xl bg-gray-100 resize-none"
-          />
-
-          <span className="absolute bottom-4 right-6 text-xs text-gray-400">
-            {comment.length}/{MAX_LENGTH}
-          </span>
-        </div>
+        <CommentTextarea value={comment} onChange={setComment} />
 
         <div className="flex justify-end">
           <Button

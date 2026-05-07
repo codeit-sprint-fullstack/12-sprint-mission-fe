@@ -7,8 +7,7 @@ import { ko } from "date-fns/locale";
 import { updateComment } from "@/lib/api/comments";
 import Button from "@/components/ui/Button";
 import KebabMenu from "./KebabMenu";
-
-const MAX_LENGTH = 200;
+import CommentTextarea from "./CommentTextarea";
 
 export default function CommentCard({ comment, onRefresh }) {
   const [content, setContent] = useState(comment.content);
@@ -46,18 +45,7 @@ export default function CommentCard({ comment, onRefresh }) {
     `}
     >
       {isEditing ? (
-        <div className="relative">
-          <textarea
-            value={content}
-            onChange={(e) => setContent(e.target.value)}
-            maxLength={MAX_LENGTH}
-            className="w-full h-[6.5rem] px-6 py-4 rounded-xl bg-gray-100 resize-none"
-          />
-
-          <span className="absolute bottom-4 right-6 text-xs text-gray-400">
-            {content.length}/{MAX_LENGTH}
-          </span>
-        </div>
+        <CommentTextarea value={content} onChange={setContent} />
       ) : (
         <div className="flex justify-between items-start gap-3">
           <p className="tflex-1 min-w-0 break-words text-md-regular">
