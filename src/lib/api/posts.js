@@ -22,6 +22,18 @@ export async function getArticle(id) {
   return res.json();
 }
 
+export async function deleteArticle(id) {
+  const res = await fetch(`${BASE_URL}/articles/${id}`, {
+    method: "DELETE",
+  });
+
+  if (!res.ok) {
+    throw new Error("게시글 삭제에 실패했습니다.");
+  }
+
+  return;
+}
+
 export async function getArticleComments({ articleId, cursor, take = 10 }) {
   const params = new URLSearchParams();
 
