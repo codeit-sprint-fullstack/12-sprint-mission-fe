@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import { formatDistanceToNow } from "date-fns";
+import { ko } from "date-fns/locale";
 import KebabMenu from "./KebabMenu";
 
 export default function CommentCard({ comment }) {
@@ -27,7 +29,12 @@ export default function CommentCard({ comment }) {
         />
         <div className="flex flex-col gap-1 text-xs-regular">
           <span className="text-gray-600">닉네임</span>
-          <span className="text-gray-400">1시간 전</span>
+          <span className="text-gray-400">
+            {formatDistanceToNow(new Date(comment.createdAt), {
+              addSuffix: true,
+              locale: ko,
+            })}
+          </span>
         </div>
       </div>
     </div>
