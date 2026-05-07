@@ -26,6 +26,7 @@ export default function Modal({
   cancelText = "취소",
   onConfirm,
   variant = "confirm",
+  disabled = false,
 }) {
   if (!isOpen) return null;
 
@@ -33,7 +34,10 @@ export default function Modal({
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center">
-      <div className="absolute inset-0 bg-black/70" onClick={onClose} />
+      <div
+        className="absolute inset-0 bg-black/70"
+        onClick={disabled ? undefined : onClose}
+      />
 
       <div
         className="
@@ -58,7 +62,7 @@ export default function Modal({
           <Button
             variant={theme.cancel}
             className="px-[1.4375rem] h-[3rem] text-lg-semibold rounded-lg"
-            onClick={onClose}
+            onClick={disabled ? undefined : onClose}
           >
             {cancelText}
           </Button>
@@ -67,6 +71,7 @@ export default function Modal({
             variant={theme.confirm}
             className="px-[1.4375rem] h-[3rem] text-lg-semibold rounded-lg"
             onClick={onConfirm}
+            disabled={disabled}
           >
             {confirmText}
           </Button>
