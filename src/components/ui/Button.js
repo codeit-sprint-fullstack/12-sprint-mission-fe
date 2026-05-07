@@ -5,6 +5,7 @@ export default function Button({
   href,
   onClick,
   disabled,
+  type = "button",
   variant = "primary",
   className = "",
 }) {
@@ -56,7 +57,12 @@ export default function Button({
   }
 
   return (
-    <button onClick={onClick} disabled={disabled} className={combinedClassName}>
+    <button
+      type={type}
+      onClick={onClick}
+      disabled={disabled}
+      className={combinedClassName}
+    >
       {children}
     </button>
   );

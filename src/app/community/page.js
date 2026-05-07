@@ -17,7 +17,7 @@ export default function CommunityPage() {
         <div className="flex justify-between items-center w-full mb-4 md:mb-12 lg:mb-6">
           <h2 className="text-xl-bold">게시글</h2>
           <Button
-            href="/community/new"
+            href="/community/write"
             className="px-[1.4375rem] py-[0.75rem] text-lg-semibold rounded-lg"
           >
             글쓰기

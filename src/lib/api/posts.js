@@ -22,6 +22,19 @@ export async function getArticle(id) {
   return res.json();
 }
 
+export async function createArticle({ title, content }) {
+  const res = await fetch(`${BASE_URL}/articles`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ title, content }),
+  });
+
+  if (!res.ok) throw new Error("게시글 등록에 실패했습니다.");
+  return res.json();
+}
+
 export async function deleteArticle(id) {
   const res = await fetch(`${BASE_URL}/articles/${id}`, {
     method: "DELETE",
