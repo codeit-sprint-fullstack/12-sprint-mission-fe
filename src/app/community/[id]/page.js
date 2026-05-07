@@ -19,7 +19,7 @@ export default async function PostDetailPage({ params }) {
   const { data: post } = await getArticle(id);
 
   return (
-    <section className="flex flex-col w-full mb-[16.94rem] pt-6 md:pt-[1.62rem] md:mb-[18.19rem] lg:pt-[2.13rem] lg:mb-[12.06rem]">
+    <section className="flex flex-col w-full">
       <div className="pb-4 mb-4 md:mb-6 border-b border-gray-200">
         <div className="flex justify-between gap-2 w-full pb-4">
           <h2 className="text-xl-bold">{post.title}</h2>
