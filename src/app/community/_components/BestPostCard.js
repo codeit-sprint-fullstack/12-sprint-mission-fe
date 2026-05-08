@@ -3,7 +3,8 @@ import Image from "next/image";
 import { format } from "date-fns";
 
 export default function BestPostCard({ post }) {
-  const imageSrc = post?.imageUrl || "/images/post-default-image.png";
+  const hasImage = Boolean(post?.imageUrl);
+  const imageSrc = hasImage ? post.imageUrl : "/images/post-default-image.png";
 
   return (
     <Link href={`/community/${post.id}`} className="flex-1 min-w-0">
@@ -30,7 +31,13 @@ export default function BestPostCard({ post }) {
                 flex justify-center items-center w-[4.5rem] h-[4.5rem] p-[0.857rem_0.75rem] rounded-lg border-gray-200 bg-white 
                 md:rounded-md md:border md:flex-shrink-0"
           >
-            <Image src={imageSrc} width={40} height={45} alt="게시글 이미지" />
+            <Image
+              src={imageSrc}
+              width={48}
+              height={45}
+              alt={hasImage ? `${post.title} 썸네일` : ""}
+              aria-hidden={!imageSrc}
+            />
           </div>
         </div>
         <div className="flex justify-between items-center w-full text-md-regular mt-6 xl:mt-0">
@@ -38,7 +45,7 @@ export default function BestPostCard({ post }) {
             <span className="text-gray-600">닉네임</span>
             <div className="flex items-center gap-1 text-gray-500">
               <Image
-                src="./icons/ic-heart.svg"
+                src="/icons/ic-heart.svg"
                 width={16}
                 height={16}
                 alt=""

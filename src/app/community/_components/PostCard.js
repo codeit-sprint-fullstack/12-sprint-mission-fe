@@ -3,7 +3,8 @@ import Image from "next/image";
 import { format } from "date-fns";
 
 export default function PostCard({ post }) {
-  const imageSrc = post?.imageUrl || "/images/post-default-image.png";
+  const hasImage = Boolean(post?.imageUrl);
+  const imageSrc = hasImage ? post.imageUrl : "/images/post-default-image.png";
 
   return (
     <Link
@@ -14,17 +15,18 @@ export default function PostCard({ post }) {
         <div className="flex w-full justify-between gap-2">
           <h3 className="text-xl-semibold text-gray-800">{post.title}</h3>
           <div className="flex justify-center items-center w-[72px] h-[72px] px-3 py-[13.7px] rounded-lg border border-gray-100 bg-white">
-            <Image src={imageSrc} width={48} height={45} alt="게시글 이미지" />
+            <Image
+              src={imageSrc}
+              width={48}
+              height={45}
+              alt={hasImage ? `${post.title} 썸네일` : ""}
+              aria-hidden={!imageSrc}
+            />
           </div>
         </div>
         <div className="flex justify-between items-center w-full">
           <div className="flex items-center gap-2 text-md-regular">
-            <Image
-              src="./icons/ic-profile.svg"
-              width={24}
-              height={24}
-              alt="프로필 사진"
-            />
+            <Image src="/icons/ic-profile.svg" width={24} height={24} alt="" />
             <span className="text-gray-600">닉네임</span>
             <span className="text-gray-400">
               {format(new Date(post.createdAt), "yyyy. MM. dd")}
@@ -33,7 +35,7 @@ export default function PostCard({ post }) {
 
           <div className="flex items-center gap-2">
             <Image
-              src="./icons/ic-heart.svg"
+              src="/icons/ic-heart.svg"
               width={16}
               height={16}
               alt=""
