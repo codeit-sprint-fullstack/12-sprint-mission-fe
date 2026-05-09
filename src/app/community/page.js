@@ -18,7 +18,7 @@ export default function CommunityPage() {
           <h2 className="text-xl-bold">게시글</h2>
           <Button
             href="/community/write"
-            className="px-[1.4375rem] py-[0.75rem] text-lg-semibold rounded-lg"
+            className="h-[2.625rem] px-[1.4375rem] text-lg-semibold rounded-lg"
           >
             글쓰기
           </Button>

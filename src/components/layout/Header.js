@@ -71,7 +71,7 @@ export const Header = () => {
         </div>
         <Button
           href="/login"
-          className="px-[1.4375rem] py-[0.75rem] text-lg-semibold rounded-lg"
+          className="h-[2.625rem] px-[1.4375rem] text-lg-semibold rounded-lg"
         >
           로그인
         </Button>
