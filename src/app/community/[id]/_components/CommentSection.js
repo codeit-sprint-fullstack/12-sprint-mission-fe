@@ -4,9 +4,11 @@ import { useEffect, useState } from "react";
 import { getArticleComments } from "@/lib/api/posts";
 import CommentForm from "./CommentForm";
 import CommentList from "./CommentList";
+import CommentListSkeleton from "./CommentListSkeleton";
 
 export default function CommentSection({ postId }) {
   const [comments, setComments] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   const fetchComments = async () => {
     const { data } = await getArticleComments({
@@ -14,6 +16,7 @@ export default function CommentSection({ postId }) {
     });
 
     setComments(data);
+    setIsLoading(false);
   };
 
   useEffect(() => {
@@ -27,7 +30,11 @@ export default function CommentSection({ postId }) {
         <CommentForm postId={postId} onSuccess={fetchComments} />
       </div>
 
-      <CommentList comments={comments} onRefresh={fetchComments} />
+      {isLoading ? (
+        <CommentListSkeleton />
+      ) : (
+        <CommentList comments={comments} onRefresh={fetchComments} />
+      )}
     </>
   );
 }
