@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { getArticles } from "@/lib/api/posts";
+import useDebounce from "@/hooks/useDebounce";
 import SearchBar from "@/components/ui/SearchBar";
 import SortDropDown from "@/components/ui/SortDropDown";
 import PostCard from "./PostCard";
@@ -13,6 +14,9 @@ export default function PostSectionClient({ initialData }) {
   const [posts, setPosts] = useState(initialData);
   const [isLoading, setIsLoading] = useState(false);
 
+  const debouncedKeyword = useDebounce(keyword, 300);
+  const isFirstRender = useRef(true);
+
   const fetchPosts = async (params) => {
     setIsLoading(true);
     const { data } = await getArticles(params);
@@ -20,21 +24,23 @@ export default function PostSectionClient({ initialData }) {
     setIsLoading(false);
   };
 
-  const handleSearch = (value) => {
-    setKeyword(value);
-    fetchPosts({ keyword: value, orderBy });
-  };
+  useEffect(() => {
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      return;
+    }
 
-  const handleSort = (value) => {
-    setOrderBy(value);
-    fetchPosts({ keyword, orderBy: value });
-  };
+    fetchPosts({
+      keyword: debouncedKeyword,
+      orderBy,
+    });
+  }, [debouncedKeyword, orderBy]);
 
   return (
     <div>
       <div className="flex items-center w-full mb-4 gap-[0.8rem] md:mb-10 md:gap-[0.3rem] lg:mb-6 lg:gap-[1rem]">
-        <SearchBar value={keyword} onChange={handleSearch} />
-        <SortDropDown value={orderBy} onChange={handleSort} />
+        <SearchBar value={keyword} onChange={setKeyword} />
+        <SortDropDown value={orderBy} onChange={setOrderBy} />
       </div>
 
       {isLoading ? (
