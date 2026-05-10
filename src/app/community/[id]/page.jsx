@@ -2,10 +2,10 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { format } from "date-fns";
 import { getArticle } from "@/lib/api/posts";
-import LikeCount from "@/components/ui/LikeCount";
-import PostKebabMenu from "./_components/PostKebabMenu";
-import CommentSection from "./_components/CommentSection";
 import BackToCommunitBtn from "./_components/BackToCommunityBtn";
+import CommentSection from "./_components/CommentSection";
+import PostKebabMenu from "./_components/PostKebabMenu";
+import LikeCountClient from "./_components/LikeCountClient";
 
 export async function generateMetadata({ params }) {
   const { id } = await params;
@@ -58,7 +58,7 @@ export default async function PostDetailPage({ params }) {
 
           <div className="w-px h-[2.125rem] bg-gray-200" />
 
-          <LikeCount count={123} />
+          <LikeCountClient initialCount={123} />
         </div>
       </div>
 
