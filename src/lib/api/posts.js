@@ -7,18 +7,25 @@ export async function getArticles({
   keyword = "",
 }) {
   const params = new URLSearchParams({ page, pageSize, orderBy, keyword });
+
   const res = await fetch(`${BASE_URL}/articles?${params}`);
+
   if (!res.ok) {
     throw new Error("게시글 데이터를 가져오는 데 실패했습니다.");
   }
+
   return res.json();
 }
 
 export async function getArticle(id) {
   const res = await fetch(`${BASE_URL}/articles/${id}`);
+
   if (!res.ok) {
-    throw new Error("개별 게시글을 가져오는 데 실패했습니다.");
+    const err = new Error("개별 게시글을 가져오는 데 실패했습니다.");
+    err.status = res.status;
+    throw err;
   }
+
   return res.json();
 }
 
@@ -31,7 +38,10 @@ export async function createArticle({ title, content }) {
     body: JSON.stringify({ title, content }),
   });
 
-  if (!res.ok) throw new Error("게시글 등록에 실패했습니다.");
+  if (!res.ok) {
+    throw new Error("게시글 등록에 실패했습니다.");
+  }
+
   return res.json();
 }
 

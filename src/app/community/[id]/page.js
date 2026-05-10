@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { notFound } from "next/navigation";
 import { format } from "date-fns";
 import { getArticle } from "@/lib/api/posts";
 import Button from "@/components/ui/Button";
@@ -7,16 +8,28 @@ import CommentSection from "./_components/CommentSection";
 
 export async function generateMetadata({ params }) {
   const { id } = await params;
-  const { data: post } = await getArticle(id);
 
-  return {
-    title: post.title,
-  };
+  try {
+    const { data: post } = await getArticle(id);
+    return { title: post.title };
+  } catch {
+    return { title: "게시글을 찾을 수 없어요" };
+  }
 }
 
 export default async function PostDetailPage({ params }) {
   const { id } = await params;
-  const { data: post } = await getArticle(id);
+
+  let post;
+  try {
+    const { data } = await getArticle(id);
+    post = data;
+  } catch (err) {
+    if (err.status === 404) {
+      notFound();
+    }
+    throw err;
+  }
 
   return (
     <section className="flex flex-col w-full">
