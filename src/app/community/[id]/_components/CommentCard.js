@@ -101,16 +101,11 @@ export default function CommentCard({ comment, onRefresh }) {
 
           {isEditing && (
             <div className="flex gap-1 justify-end">
-              <Button
-                variant="secondary"
-                className="px-[1.4375rem] h-[2.625rem] text-lg-semibold rounded-lg"
-                onClick={handleCancel}
-              >
+              <Button variant="secondary" onClick={handleCancel}>
                 취소
               </Button>
 
               <Button
-                className="px-[1.4375rem] h-[2.625rem] text-lg-semibold rounded-lg"
                 onClick={handleEdit}
                 disabled={isDisabled}
                 loading={isSubmitting}

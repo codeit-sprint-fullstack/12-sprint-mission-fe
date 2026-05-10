@@ -16,12 +16,7 @@ export default function CommunityPage() {
       <section>
         <div className="flex justify-between items-center w-full mb-4 md:mb-12 lg:mb-6">
           <h2 className="text-xl-bold">게시글</h2>
-          <Button
-            href="/community/write"
-            className="h-[2.625rem] px-[1.4375rem] text-lg-semibold rounded-lg"
-          >
-            글쓰기
-          </Button>
+          <Button href="/community/write">글쓰기</Button>
         </div>
         <PostSection />
       </section>

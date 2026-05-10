@@ -27,7 +27,6 @@ export default function PostForm({
             type="submit"
             disabled={!isValid || isSubmitting}
             loading={isSubmitting}
-            className="px-[1.4375rem] h-[2.625rem] text-lg-semibold rounded-lg"
           >
             {submitLabel}
           </Button>

@@ -69,12 +69,7 @@ export const Header = () => {
             </nav>
           )}
         </div>
-        <Button
-          href="/login"
-          className="h-[2.625rem] px-[1.4375rem] text-lg-semibold rounded-lg"
-        >
-          로그인
-        </Button>
+        <Button href="/login">로그인</Button>
       </div>
     </header>
   );

@@ -33,7 +33,6 @@ export default function CommentForm({ postId, onSuccess }) {
 
         <div className="flex justify-end">
           <Button
-            className="px-[1.4375rem] h-[2.625rem] text-lg-semibold rounded-lg"
             onClick={handleSubmit}
             disabled={isDisabled}
             loading={isSubmitting}

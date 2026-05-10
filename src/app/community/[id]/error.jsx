@@ -10,7 +10,9 @@ export default function Error({ reset }) {
       <div className="flex gap-3">
         <Button
           variant="secondary"
-          className="w-[15rem] px-[2.47rem] py-[0.75rem] mx-auto rounded-full"
+          size="lg"
+          rounded="full"
+          className="w-[15rem]"
           onClick={() => reset()}
         >
           <span className="text-2lg-semibold">다시 시도</span>

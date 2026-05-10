@@ -61,7 +61,7 @@ export default function Modal({
         <div className="flex gap-2">
           <Button
             variant={theme.cancel}
-            className="px-[1.4375rem] h-[3rem] text-lg-semibold rounded-lg"
+            size="md"
             onClick={loading ? undefined : onClose}
           >
             {cancelText}
@@ -69,7 +69,7 @@ export default function Modal({
 
           <Button
             variant={theme.confirm}
-            className="px-[1.4375rem] h-[3rem] text-lg-semibold rounded-lg"
+            size="md"
             onClick={onConfirm}
             loading={loading}
           >
