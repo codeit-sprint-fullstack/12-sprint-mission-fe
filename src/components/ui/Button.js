@@ -1,14 +1,24 @@
 import Link from "next/link";
 
+function Spinner() {
+  return (
+    <span className="w-4 h-4 border-2 border-current border-t-transparent rounded-full animate-spin" />
+  );
+}
+
 export default function Button({
   children,
   href,
   onClick,
   disabled,
+  loading = false,
+
   type = "button",
   variant = "primary",
   className = "",
 }) {
+  const isDisabled = disabled || loading;
+
   const baseStyles =
     "inline-flex items-center justify-center gap-[0.625rem] whitespace-nowrap transition-all leading-none";
 
@@ -60,10 +70,11 @@ export default function Button({
     <button
       type={type}
       onClick={onClick}
-      disabled={disabled}
+      disabled={isDisabled}
       className={combinedClassName}
     >
-      {children}
+      {loading && <Spinner />}
+      {loading ? `${children} 중` : children}
     </button>
   );
 }

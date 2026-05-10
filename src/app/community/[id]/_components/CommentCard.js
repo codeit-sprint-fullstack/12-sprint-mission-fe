@@ -113,8 +113,9 @@ export default function CommentCard({ comment, onRefresh }) {
                 className="px-[1.4375rem] h-[2.625rem] text-lg-semibold rounded-lg"
                 onClick={handleEdit}
                 disabled={isDisabled}
+                loading={isSubmitting}
               >
-                {isSubmitting ? "수정 중..." : "수정 완료"}
+                수정
               </Button>
             </div>
           )}
@@ -125,9 +126,10 @@ export default function CommentCard({ comment, onRefresh }) {
         onClose={() => setOpen(false)}
         variant="danger"
         title="정말로 댓글을 삭제하시겠어요?"
-        confirmText={isDeleting ? "삭제 중..." : "삭제"}
+        confirmText="삭제"
         onConfirm={handleDelete}
         disabled={isDeleting}
+        loading={isDeleting}
       />
     </>
   );

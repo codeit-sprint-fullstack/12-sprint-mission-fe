@@ -37,9 +37,10 @@ export default function PostKebabMenu({ id }) {
         onClose={() => setOpen(false)}
         variant="danger"
         title="정말로 게시글을 삭제하시겠어요?"
-        confirmText={isDeleting ? "삭제 중..." : "삭제"}
+        confirmText="삭제"
         onConfirm={handleDelete}
         disabled={isDeleting}
+        loading={isDeleting}
       />
     </>
   );

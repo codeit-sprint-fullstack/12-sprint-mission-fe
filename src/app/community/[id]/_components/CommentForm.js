@@ -36,8 +36,9 @@ export default function CommentForm({ postId, onSuccess }) {
             className="px-[1.4375rem] h-[2.625rem] text-lg-semibold rounded-lg"
             onClick={handleSubmit}
             disabled={isDisabled}
+            loading={isSubmitting}
           >
-            {isSubmitting ? "등록 중..." : "등록"}
+            등록
           </Button>
         </div>
       </div>
