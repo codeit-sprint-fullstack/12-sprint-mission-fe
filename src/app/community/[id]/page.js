@@ -2,9 +2,9 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { format } from "date-fns";
 import { getArticle } from "@/lib/api/posts";
-import Button from "@/components/ui/Button";
 import PostKebabMenu from "./_components/PostKebabMenu";
 import CommentSection from "./_components/CommentSection";
+import BackToCommunitBtn from "./_components/BackToCommunityBtn";
 
 export async function generateMetadata({ params }) {
   const { id } = await params;
@@ -78,15 +78,7 @@ export default async function PostDetailPage({ params }) {
 
       <CommentSection postId={id} />
 
-      <Button
-        className="w-[15rem] px-[2.47rem] py-[0.75rem] mx-auto rounded-full "
-        href="/community"
-      >
-        <div className="flex items-center gap-2">
-          <span className="text-2lg-semibold">목록으로 돌아가기</span>
-          <Image src="/icons/ic-back.svg" width={24} height={24} alt="" />
-        </div>
-      </Button>
+      <BackToCommunitBtn />
     </section>
   );
 }
