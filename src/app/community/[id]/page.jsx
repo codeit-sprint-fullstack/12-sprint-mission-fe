@@ -2,6 +2,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { format } from "date-fns";
 import { getArticle } from "@/lib/api/posts";
+import LikeCount from "@/components/ui/LikeCount";
 import PostKebabMenu from "./_components/PostKebabMenu";
 import CommentSection from "./_components/CommentSection";
 import BackToCommunitBtn from "./_components/BackToCommunityBtn";
@@ -57,18 +58,7 @@ export default async function PostDetailPage({ params }) {
 
           <div className="w-px h-[2.125rem] bg-gray-200" />
 
-          <div className="flex flex-col items-start h-10 px-3 py-1 rounded-full border border-gray-200 bg-white">
-            <div className="flex items-center gap-1 ">
-              <Image
-                src="/icons/ic-heart.svg"
-                width={32}
-                height={32}
-                alt=""
-                aria-hidden="true"
-              />
-              <span className="text-lg-medium text-gray-500">123</span>
-            </div>
-          </div>
+          <LikeCount count={123} />
         </div>
       </div>
 
