@@ -12,7 +12,6 @@ export default function Button({
   onClick,
   disabled,
   loading = false,
-
   type = "button",
   variant = "primary",
   className = "",
