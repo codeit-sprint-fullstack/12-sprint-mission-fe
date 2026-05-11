@@ -1,7 +1,9 @@
+import { POST_LIMIT } from "@/constants/pagination";
+
 export default function PostSectionSkeleton() {
   return (
     <div>
-      {Array.from({ length: 5 }).map((_, i) => (
+      {Array.from({ length: POST_LIMIT }).map((_, i) => (
         <div
           key={i}
           className="block w-full mt-6 pb-6 border-b border-gray-200"

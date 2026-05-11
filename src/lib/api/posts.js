@@ -1,8 +1,10 @@
+import { POST_LIMIT } from "@/constants/pagination";
+
 const BASE_URL = process.env.NEXT_PUBLIC_API_URL;
 
 export async function getArticles({
   page = 1,
-  pageSize = 10,
+  pageSize = POST_LIMIT,
   orderBy = "recent",
   keyword = "",
 }) {

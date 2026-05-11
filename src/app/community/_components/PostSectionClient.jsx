@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import { getArticles } from "@/lib/api/posts";
 import useDebounce from "@/hooks/useDebounce";
+import Button from "@/components/ui/Button";
 import SearchBar from "@/components/ui/SearchBar";
 import SortDropDown from "@/components/ui/SortDropDown";
 import PostCard from "./PostCard";
@@ -13,14 +14,20 @@ export default function PostSectionClient({ initialData }) {
   const [orderBy, setOrderBy] = useState("recent");
   const [posts, setPosts] = useState(initialData);
   const [isLoading, setIsLoading] = useState(false);
+  const [page, setPage] = useState(1);
+  const [hasMore, setHasMore] = useState(true);
 
   const debouncedKeyword = useDebounce(keyword, 300);
   const isFirstRender = useRef(true);
 
-  const fetchPosts = async (params) => {
+  const fetchPosts = async (params, reset = false) => {
     setIsLoading(true);
-    const { data } = await getArticles(params);
-    setPosts(data);
+
+    const { data, meta } = await getArticles(params);
+
+    setPosts((prev) => (reset ? data : [...prev, ...data]));
+
+    setHasMore(params.page < meta.totalPages);
     setIsLoading(false);
   };
 
@@ -30,11 +37,28 @@ export default function PostSectionClient({ initialData }) {
       return;
     }
 
+    setPage(1);
+
+    fetchPosts(
+      {
+        keyword: debouncedKeyword,
+        orderBy,
+        page: 1,
+      },
+      true,
+    );
+  }, [debouncedKeyword, orderBy]);
+
+  const loadMore = () => {
+    const nextPage = page + 1;
+    setPage(nextPage);
+
     fetchPosts({
       keyword: debouncedKeyword,
       orderBy,
+      page: nextPage,
     });
-  }, [debouncedKeyword, orderBy]);
+  };
 
   return (
     <div>
@@ -43,14 +67,33 @@ export default function PostSectionClient({ initialData }) {
         <SortDropDown value={orderBy} onChange={setOrderBy} />
       </div>
 
-      {isLoading ? (
+      {isLoading && page === 1 ? (
         <PostSectionSkeleton />
       ) : (
-        <div>
-          {posts.map((post) => (
-            <PostCard key={post.id} post={post} />
-          ))}
-        </div>
+        <>
+          <div>
+            {posts.map((post) => (
+              <PostCard key={post.id} post={post} />
+            ))}
+          </div>
+
+          {isLoading && page > 1 && <PostSectionSkeleton />}
+
+          {hasMore && (
+            <div className="flex justify-center mt-8">
+              <Button
+                variant="outlinedBlue"
+                size="lg"
+                rounded="full"
+                className="w-[15rem]"
+                onClick={loadMore}
+                disabled={isLoading}
+              >
+                더보기
+              </Button>
+            </div>
+          )}
+        </>
       )}
     </div>
   );
