@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { toast } from "react-hot-toast";
 import Image from "next/image";
 import { formatDistanceToNow } from "date-fns";
 import { ko } from "date-fns/locale";
@@ -29,7 +30,7 @@ export default function CommentCard({ comment, onRefresh }) {
 
       setIsEditing(false);
     } catch (err) {
-      console.error(err);
+      toast.error(err.message || "댓글 수정에 실패했습니다.");
     } finally {
       setIsSubmitting(false);
     }
@@ -47,7 +48,7 @@ export default function CommentCard({ comment, onRefresh }) {
       await onRefresh();
       setOpen(false);
     } catch (err) {
-      console.error(err);
+      toast.error(err.message || "댓글 삭제에 실패했습니다.");
     } finally {
       setIsDeleting(false);
     }

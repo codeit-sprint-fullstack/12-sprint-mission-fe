@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { toast } from "react-hot-toast";
 import Button from "@/components/ui/Button";
 import { createArticleComment } from "@/lib/api/posts";
 import CommentTextarea from "./CommentTextarea";
@@ -20,7 +21,7 @@ export default function CommentForm({ postId, onSuccess }) {
       setComment("");
       await onSuccess();
     } catch (err) {
-      console.error(err);
+      toast.error(err.message || "댓글 등록에 실패했습니다.");
     } finally {
       setIsSubmitting(false);
     }

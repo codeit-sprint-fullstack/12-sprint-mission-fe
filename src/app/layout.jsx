@@ -1,3 +1,4 @@
+import { Toaster } from "react-hot-toast";
 import localFont from "next/font/local";
 import "./globals.css";
 import Header from "@/components/layout/Header";
@@ -28,6 +29,17 @@ export default function RootLayout({ children }) {
         </main>
 
         <Footer />
+
+        <Toaster
+          position="top-center"
+          toastOptions={{
+            duration: 3000,
+            style: {
+              background: "#333",
+              color: "#fff",
+            },
+          }}
+        />
       </body>
     </html>
   );

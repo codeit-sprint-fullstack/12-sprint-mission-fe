@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { toast } from "react-hot-toast";
 
 export default function usePostForm(initialValues = {}) {
   const [title, setTitle] = useState(initialValues.title ?? "");
@@ -13,7 +14,8 @@ export default function usePostForm(initialValues = {}) {
       setIsSubmitting(true);
       await action({ title, content });
     } catch (err) {
-      console.error(err);
+      toast.error(err.message || "문제가 발생했습니다.");
+      throw err;
     } finally {
       setIsSubmitting(false);
     }

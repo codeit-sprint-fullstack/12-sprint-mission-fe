@@ -17,7 +17,7 @@ export default function PostKebabMenu({ id }) {
       await deleteArticle(id);
       router.replace("/community");
     } catch (err) {
-      console.error(err);
+      toast.error(err.message || "게시글 삭제에 실패했습니다.");
     } finally {
       setIsDeleting(false);
     }
