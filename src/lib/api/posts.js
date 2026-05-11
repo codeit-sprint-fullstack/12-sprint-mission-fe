@@ -1,109 +1,30 @@
+import { api } from "./client";
 import { POST_LIMIT } from "@/constants/pagination";
 
-const BASE_URL = process.env.NEXT_PUBLIC_API_URL;
-
-export async function getArticles({
+export const getArticles = ({
   page = 1,
   pageSize = POST_LIMIT,
   orderBy = "recent",
   keyword = "",
-}) {
+}) => {
   const params = new URLSearchParams({ page, pageSize, orderBy, keyword });
+  return api.get(`/articles?${params}`);
+};
 
-  const res = await fetch(`${BASE_URL}/articles?${params}`);
+export const getArticle = (id) => api.get(`/articles/${id}`);
 
-  if (!res.ok) {
-    throw new Error("게시글 데이터를 가져오는 데 실패했습니다.");
-  }
+export const createArticle = (data) => api.post(`/articles`, data);
 
-  return res.json();
-}
+export const updateArticle = (id, fields) =>
+  api.patch(`/articles/${id}`, fields);
 
-export async function getArticle(id) {
-  const res = await fetch(`${BASE_URL}/articles/${id}`);
+export const deleteArticle = (id) => api.delete(`/articles/${id}`);
 
-  if (!res.ok) {
-    const err = new Error("개별 게시글을 가져오는 데 실패했습니다.");
-    err.status = res.status;
-    throw err;
-  }
-
-  return res.json();
-}
-
-export async function createArticle({ title, content }) {
-  const res = await fetch(`${BASE_URL}/articles`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ title, content }),
-  });
-
-  if (!res.ok) {
-    throw new Error("게시글 등록에 실패했습니다.");
-  }
-
-  return res.json();
-}
-
-export async function updateArticle(id, fields) {
-  const res = await fetch(`${BASE_URL}/articles/${id}`, {
-    method: "PATCH",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(fields),
-  });
-
-  if (!res.ok) {
-    throw new Error("게시글 수정에 실패했습니다.");
-  }
-
-  return res.json();
-}
-
-export async function deleteArticle(id) {
-  const res = await fetch(`${BASE_URL}/articles/${id}`, {
-    method: "DELETE",
-  });
-
-  if (!res.ok) {
-    throw new Error("게시글 삭제에 실패했습니다.");
-  }
-
-  return;
-}
-
-export async function getArticleComments({ articleId, cursor, take = 10 }) {
-  const params = new URLSearchParams();
-
+export const getArticleComments = ({ articleId, cursor, take = 10 }) => {
+  const params = new URLSearchParams({ take });
   if (cursor) params.append("cursor", cursor);
-  params.append("take", take);
+  return api.get(`/articles/${articleId}/comments?${params}`);
+};
 
-  const res = await fetch(
-    `${BASE_URL}/articles/${articleId}/comments?${params}`,
-  );
-
-  if (!res.ok) {
-    throw new Error("댓글 데이터를 가져오는 데 실패했습니다.");
-  }
-
-  return res.json();
-}
-
-export async function createArticleComment(articleId, content) {
-  const res = await fetch(`${BASE_URL}/articles/${articleId}/comments`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ content }),
-  });
-
-  if (!res.ok) {
-    throw new Error("게시물 댓글 등록에 실패했습니다.");
-  }
-
-  return res.json();
-}
+export const createArticleComment = (articleId, content) =>
+  api.post(`/articles/${articleId}/comments`, { content });
