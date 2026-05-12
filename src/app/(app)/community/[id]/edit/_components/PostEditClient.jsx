@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation";
 import { updateArticle } from "@/lib/api/posts";
 import usePostForm from "@/hooks/usePostForm";
-import PostForm from "@/app/community/_components/PostForm";
+import PostForm from "@/app/(app)/community/_components/PostForm";
 
 export default function PostEditClient({ post }) {
   const router = useRouter();
