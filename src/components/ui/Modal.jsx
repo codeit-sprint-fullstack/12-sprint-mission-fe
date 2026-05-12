@@ -56,7 +56,7 @@ export default function Modal({
             aria-hidden="true"
           />
         </div>
-        <h2 className="mb-8 text-lg-medium text-gray-800">{title}</h2>
+        <h2 className="mb-8 text-lg font-medium text-gray-800">{title}</h2>
 
         <div className="flex gap-2">
           <Button

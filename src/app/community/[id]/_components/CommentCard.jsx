@@ -66,7 +66,7 @@ export default function CommentCard({ comment, onRefresh }) {
           <CommentTextarea value={content} onChange={setContent} />
         ) : (
           <div className="flex justify-between items-start gap-3">
-            <p className="tflex-1 min-w-0 break-words text-md-regular">
+            <p className="tflex-1 min-w-0 break-words text-md">
               {comment.content}
             </p>
             <div className="shrink-0">
@@ -89,7 +89,7 @@ export default function CommentCard({ comment, onRefresh }) {
               height={32}
               alt="프로필 사진"
             />
-            <div className="flex flex-col gap-1 text-xs-regular">
+            <div className="flex flex-col gap-1 text-xs">
               <span className="text-gray-600">닉네임</span>
               <span className="text-gray-400">
                 {formatDistanceToNow(new Date(comment.createdAt), {

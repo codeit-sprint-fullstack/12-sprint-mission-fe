@@ -13,7 +13,7 @@ export default function CommentList({ comments, onRefresh }) {
             alt=""
             aria-hidden="true"
           />
-          <p className="text-lg-regular text-gray-400 text-center">
+          <p className="text-lg text-gray-400 text-center">
             아직 댓글이 없어요,
             <br /> 지금 댓글을 달아보세요!
           </p>

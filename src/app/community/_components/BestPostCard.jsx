@@ -20,10 +20,10 @@ export default function BestPostCard({ post }) {
             alt=""
             aria-hidden="true"
           />
-          <span className="text-lg-semibold text-white">Best</span>
+          <span className="text-lg font-semibold text-white">Best</span>
         </div>
         <div className="flex w-full justify-between gap-2">
-          <h3 className="text-xl-semibold text-gray-800 line-clamp-2">
+          <h3 className="text-xl font-semibold text-gray-800 line-clamp-2">
             {post.title}
           </h3>
           <div
@@ -40,7 +40,7 @@ export default function BestPostCard({ post }) {
             />
           </div>
         </div>
-        <div className="flex justify-between items-center w-full text-md-regular mt-6 xl:mt-0">
+        <div className="flex justify-between items-center w-full text-md mt-6 xl:mt-0">
           <div className="flex gap-2">
             <span className="text-gray-600">닉네임</span>
             <div className="flex items-center gap-1 text-gray-500">

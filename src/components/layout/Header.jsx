@@ -56,8 +56,8 @@ export const Header = () => {
                     <Link
                       href={href}
                       className={`flex items-center text-gray-600 transition-colors
-                        px-0 py-0 text-lg-bold
-                        md:px-[0.9375rem] md:py-[1.3125rem] md:text-2lg-bold
+                        px-0 py-0 text-lg font-bold leading-none
+                        md:px-[0.9375rem] md:py-[1.3125rem] md:text-2lg font-bold
                         hover:text-primary
                         ${isActive(href) ? "text-primary" : ""}`}
                     >

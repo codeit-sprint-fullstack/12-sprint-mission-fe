@@ -5,12 +5,12 @@ export const Footer = () => {
   return (
     <footer className="h-[10rem] bg-gray-900">
       <div className="flex justify-between items-start w-full max-w-[120rem] h-full mx-auto py-8 px-[1rem] md:px-[1.5rem] xl:px-[12.5rem] flex-wrap md:flex-nowrap">
-        <span className="text-gray-400 text-lg font-normal order-1 md:order-none w-full md:w-auto mt-6 md:mt-0 text-left md:text-center">
+        <span className="text-gray-400 text-lg leading-none order-1 md:order-none w-full md:w-auto mt-6 md:mt-0 text-left md:text-center">
           ©codeit - 2024
         </span>
 
         <nav>
-          <ul className="flex gap-[1.875rem]">
+          <ul className="flex gap-[1.875rem] text-lg leading-none">
             <li>
               <Link href="/privacy" className="text-gray-200">
                 Privacy Policy

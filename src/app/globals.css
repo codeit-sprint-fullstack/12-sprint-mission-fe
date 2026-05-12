@@ -24,19 +24,21 @@
   --font-sans: var(--font-pretendard), sans-serif;
 
   /* 폰트 사이즈 */
-  --font-size-3xl: 2rem;
-  --font-size-2xl: 1.5rem;
-  --font-size-xl: 1.25rem;
-  --font-size-2lg: 1.125rem;
-  --font-size-lg: 1rem;
-  --font-size-md: 0.875rem;
-  --font-size-xs: 0.75rem;
+  --text-3xl: 2rem;
+  --text-2xl: 1.5rem;
+  --text-xl: 1.25rem;
+  --text-2lg: 1.125rem;
+  --text-lg: 1rem;
+  --text-md: 0.875rem;
+  --text-xs: 0.75rem;
 
-  --line-height-3xl: 2.625rem;
-  --line-height-xl: 2rem;
-  --line-height-lg: 1.625rem;
-  --line-height-md: 1.5rem;
-  --line-height-xs: 1.125rem;
+  --text-3xl--line-height: 2.625rem;
+  --text-2xl--line-height: 2rem;
+  --text-xl--line-height: 2rem;
+  --text-2lg--line-height: 1.625rem;
+  --text-lg--line-height: 1.625rem;
+  --text-md--line-height: 1.5rem;
+  --text-xs--line-height: 1.125rem;
 
   --breakpoint-md: 744px;
 }
@@ -49,159 +51,6 @@ body {
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-/* =======================================================
-    TYPOGRAPHY
-   ======================================================= */
-.text-3xl-bold {
-  font-size: var(--font-size-3xl);
-  font-weight: 700;
-  line-height: var(--line-height-3xl);
-}
-
-.text-3xl-semibold {
-  font-size: var(--font-size-3xl);
-  font-weight: 600;
-  line-height: var(--line-height-3xl);
-}
-
-.text-2xl-bold {
-  font-size: var(--font-size-2xl);
-  font-weight: 700;
-  line-height: var(--line-height-xl);
-}
-
-.text-2xl-semibold {
-  font-size: var(--font-size-2xl);
-  font-weight: 600;
-  line-height: var(--line-height-xl);
-}
-
-.text-2xl-medium {
-  font-size: var(--font-size-2xl);
-  font-weight: 500;
-  line-height: var(--line-height-xl);
-}
-
-.text-2xl-regular {
-  font-size: var(--font-size-2xl);
-  font-weight: 400;
-  line-height: var(--line-height-xl);
-}
-
-.text-xl-bold {
-  font-size: var(--font-size-xl);
-  font-weight: 700;
-  line-height: var(--line-height-xl);
-}
-
-.text-xl-semibold {
-  font-size: var(--font-size-xl);
-  font-weight: 600;
-  line-height: var(--line-height-xl);
-}
-
-.text-xl-medium {
-  font-size: var(--font-size-xl);
-  font-weight: 500;
-  line-height: var(--line-height-xl);
-}
-
-.text-xl-regular {
-  font-size: var(--font-size-xl);
-  font-weight: 400;
-  line-height: var(--line-height-xl);
-}
-
-.text-2lg-bold {
-  font-size: var(--font-size-2lg);
-  font-weight: 700;
-  line-height: var(--line-height-lg);
-}
-
-.text-2lg-semibold {
-  font-size: var(--font-size-2lg);
-  font-weight: 600;
-  line-height: var(--line-height-lg);
-}
-
-.text-2lg-medium {
-  font-size: var(--font-size-2lg);
-  font-weight: 500;
-  line-height: var(--line-height-lg);
-}
-
-.text-2lg-regular {
-  font-size: var(--font-size-2lg);
-  font-weight: 400;
-  line-height: var(--line-height-lg);
-}
-
-.text-lg-bold {
-  font-size: var(--font-size-lg);
-  font-weight: 700;
-  line-height: var(--line-height-lg);
-}
-
-.text-lg-semibold {
-  font-size: var(--font-size-lg);
-  font-weight: 600;
-  line-height: var(--line-height-lg);
-}
-
-.text-lg-medium {
-  font-size: var(--font-size-lg);
-  font-weight: 500;
-  line-height: var(--line-height-lg);
-}
-
-.text-lg-regular {
-  font-size: var(--font-size-lg);
-  font-weight: 400;
-  line-height: var(--line-height-lg);
-}
-
-.text-md-bold {
-  font-size: var(--font-size-md);
-  font-weight: 700;
-  line-height: var(--line-height-md);
-}
-
-.text-md-semibold {
-  font-size: var(--font-size-md);
-  font-weight: 600;
-  line-height: var(--line-height-md);
-}
-
-.text-md-medium {
-  font-size: var(--font-size-md);
-  font-weight: 500;
-  line-height: var(--line-height-md);
-}
-
-.text-md-regular {
-  font-size: var(--font-size-md);
-  font-weight: 400;
-  line-height: var(--line-height-md);
-}
-
-.text-xs-semibold {
-  font-size: var(--font-size-xs);
-  font-weight: 600;
-  line-height: var(--line-height-xs);
-}
-
-.text-xs-medium {
-  font-size: var(--font-size-xs);
-  font-weight: 500;
-  line-height: var(--line-height-xs);
-}
-
-.text-xs-regular {
-  font-size: var(--font-size-xs);
-  font-weight: 400;
-  line-height: var(--line-height-xs);
 }
 
 .sr-only {

@@ -17,7 +17,7 @@ export default function LikeCount({ liked = false, count, onToggle }) {
           aria-hidden="true"
           className="w-6 h-6 md:w-8 md:h-8 shrink-0"
         />
-        <span className="text-lg-medium text-gray-500">{count}</span>
+        <span className="text-lg font-medium text-gray-500">{count}</span>
       </div>
     </button>
   );

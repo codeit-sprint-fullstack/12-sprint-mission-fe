@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 const itemClass =
-  "flex items-center justify-center w-full h-[2.875rem] text-lg-regular text-gray-500 hover:bg-gray-100";
+  "flex items-center justify-center w-full h-[2.875rem] text-lg text-gray-500 hover:bg-gray-100";
 
 function KebabMenu({ children }) {
   const [isOpen, setIsOpen] = useState(false);

@@ -19,7 +19,7 @@ export default function SearchBar({ value, onChange }) {
         onChange={(e) => onChange(e.target.value)}
         placeholder="검색할 상품을 입력해주세요"
         className="
-          flex-1 gap-2.5 w-[20.3125rem] h-[2.625rem] pl-11 pr-5 rounded-xl bg-gray-100 text-lg-regular
+          flex-1 gap-2.5 w-[20.3125rem] h-[2.625rem] pl-11 pr-5 rounded-xl bg-gray-100 text-lg
           placeholder:text-gray-400
           focus:border focus:border-primary focus:text-gray-800
         "

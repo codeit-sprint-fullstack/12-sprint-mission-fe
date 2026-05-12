@@ -7,10 +7,10 @@ function Spinner() {
 }
 
 const sizeStyles = {
-  sm: "h-[2.625rem] px-[1.4375rem] text-lg-semibold", // Small_40
-  md: "h-12 px-[1.4375rem] text-lg-semibold", // Small_48
-  lg: "h-12 px-[4.4375rem] text-2lg-semibold", // Medium
-  xl: "h-14 px-[7.75rem] text-2lg-semibold", // Large
+  sm: "h-[2.625rem] px-[1.4375rem] text-lg font-semibold", // Small_40
+  md: "h-12 px-[1.4375rem] text-lg font-semibold", // Small_48
+  lg: "h-12 px-[4.4375rem] text-2lg font-semibold", // Medium
+  xl: "h-12 px-[4.4375rem] text-2lg font-semibold md:h-14 md:px-[7.75rem] md:text-xl", // Large
 };
 
 const roundedStyles = {
@@ -63,7 +63,7 @@ export default function Button({
   const isDisabled = disabled || loading;
 
   const baseStyles =
-    "inline-flex items-center justify-center gap-[0.625rem] whitespace-nowrap transition-all leading-none";
+    "inline-flex items-center justify-center gap-[0.625rem] whitespace-nowrap transition-all";
 
   const combinedClassName = `${baseStyles} ${variantStyles[variant]} ${sizeStyles[size]} ${roundedStyles[rounded]} ${className}`;
 

@@ -22,7 +22,7 @@ export default function PostForm({
         }}
       >
         <div className="flex items-center justify-between mb-6 md:mb-8">
-          <h2 className="text-xl-bold text-gray-800">{heading}</h2>
+          <h2 className="text-xl font-bold text-gray-800">{heading}</h2>
           <Button
             type="submit"
             disabled={!isValid || isSubmitting}
@@ -33,7 +33,9 @@ export default function PostForm({
         </div>
 
         <div className="mb-[0.75rem]">
-          <label className="block text-2lg-bold text-gray-800">*제목</label>
+          <label className="block text-2lg font-bold text-gray-800">
+            *제목
+          </label>
         </div>
         <div className="relative">
           <input
@@ -54,7 +56,9 @@ export default function PostForm({
         </div>
 
         <div className="mb-[0.75rem]">
-          <label className="block text-2lg-bold text-gray-800">*내용</label>
+          <label className="block text-2lg font-bold text-gray-800">
+            *내용
+          </label>
         </div>
         <textarea
           value={content}

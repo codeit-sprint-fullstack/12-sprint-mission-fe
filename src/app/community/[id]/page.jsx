@@ -36,7 +36,7 @@ export default async function PostDetailPage({ params }) {
     <section className="flex flex-col w-full">
       <div className="pb-4 mb-4 md:mb-6 border-b border-gray-200">
         <div className="flex justify-between gap-2 w-full pb-4">
-          <h2 className="text-xl-bold">{post.title}</h2>
+          <h2 className="text-xl font-bold">{post.title}</h2>
           <PostKebabMenu id={id} />
         </div>
 
@@ -48,7 +48,7 @@ export default async function PostDetailPage({ params }) {
               height={40}
               alt="프로필 사진"
             />
-            <div className="flex gap-1 text-md-medium md:gap-2">
+            <div className="flex gap-1 text-md font-medium md:gap-2">
               <span className="text-gray-600">닉네임</span>
               <span className="text-gray-400">
                 {format(new Date(post.createdAt), "yyyy. MM. dd")}
