@@ -9,7 +9,7 @@ export default function PostCard({ post }) {
   return (
     <Link
       href={`/community/${post.id}`}
-      className="block w-full mt-6 pb-6 border-b border-gray-200 bg-gray-bg"
+      className="block w-full mt-6 pb-6 border-b border-gray-200 bg-surface"
     >
       <div className="flex flex-col gap-4">
         <div className="flex w-full justify-between gap-2">

@@ -58,7 +58,7 @@ export default function CommentCard({ comment, onRefresh }) {
     <>
       <div
         className={`
-          flex flex-col pb-[0.75rem] border-b border-gray-300 bg-gray-bg
+          flex flex-col pb-[0.75rem] border-b border-gray-300 bg-surface
           ${isEditing ? "gap-4" : "gap-6"}    
       `}
       >
