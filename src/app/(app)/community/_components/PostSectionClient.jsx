@@ -29,10 +29,19 @@ export default function PostSectionClient({
   const debouncedKeyword = useDebounce(keyword, 300);
 
   const updateURL = (nextKeyword, nextOrderBy, method = "replace") => {
-    const params = new URLSearchParams();
+    const params = new URLSearchParams(searchParams.toString());
 
-    if (nextKeyword) params.set("keyword", nextKeyword);
-    if (nextOrderBy !== "recent") params.set("orderBy", nextOrderBy);
+    if (nextKeyword) {
+      params.set("keyword", nextKeyword);
+    } else {
+      params.delete("keyword");
+    }
+
+    if (nextOrderBy !== "recent") {
+      params.set("orderBy", nextOrderBy);
+    } else {
+      params.delete("orderBy");
+    }
 
     const query = params.toString();
     router[method](`/community${query ? `?${query}` : ""}`);
