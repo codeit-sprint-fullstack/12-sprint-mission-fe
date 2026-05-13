@@ -26,22 +26,21 @@ export default function PostSectionClient({
   const [hasMore, setHasMore] = useState(true);
 
   const debouncedKeyword = useDebounce(keyword, 300);
-  const isFirstRender = useRef(true);
 
-  const updateURL = (nextKeyword, nextOrderBy) => {
-    const params = new URLSearchParams(searchParams);
+  const updateURL = (nextKeyword, nextOrderBy, method = "replace") => {
+    const params = new URLSearchParams(searchParams.toString());
     if (nextKeyword) {
       params.set("keyword", nextKeyword);
     } else {
       params.delete("keyword");
     }
     params.set("orderBy", nextOrderBy);
-    router.replace(`/community?${params.toString()}`);
+    router[method](`/community?${params.toString()}`);
   };
 
   const handleOrderByChange = (value) => {
     setOrderBy(value);
-    updateURL(keyword, value);
+    updateURL(keyword, value, "push");
   };
 
   const fetchPosts = async (params, reset = false) => {
@@ -59,10 +58,10 @@ export default function PostSectionClient({
   };
 
   useEffect(() => {
-    if (isFirstRender.current) {
-      isFirstRender.current = false;
-      return;
-    }
+    const isInitialState =
+      debouncedKeyword === initialKeyword && orderBy === initialOrderBy;
+
+    if (isInitialState) return;
 
     setPage(1);
     updateURL(debouncedKeyword, orderBy);
