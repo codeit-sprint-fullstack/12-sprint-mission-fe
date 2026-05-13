@@ -7,7 +7,7 @@ export default function BestPostCard({ post }) {
   const imageSrc = hasImage ? post.imageUrl : "/images/post-default-image.png";
 
   return (
-    <Link href={`/community/${post.id}`} className="flex-1 min-w-0">
+    <Link href={`/community/${post.id}`}>
       <div
         className="flex flex-col items-start gap-4 h-full px-6 pb-4 rounded-lg bg-gray-50
                   xl:h-[10.5625rem] xl:pb-2 xl:gap-[0.625rem]"

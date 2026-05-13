@@ -71,11 +71,13 @@ export default function PostSectionClient({ initialData }) {
         <PostSectionSkeleton />
       ) : (
         <>
-          <div>
+          <ul>
             {posts.map((post) => (
-              <PostCard key={post.id} post={post} />
+              <li key={post.id}>
+                <PostCard post={post} />
+              </li>
             ))}
-          </div>
+          </ul>
 
           {isLoading && page > 1 && <PostSectionSkeleton />}
 
