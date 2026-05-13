@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { getArticles } from "@/lib/api/posts";
 import useDebounce from "@/hooks/useDebounce";
@@ -14,6 +14,7 @@ export default function PostSectionClient({
   initialData,
   initialKeyword,
   initialOrderBy,
+  initialHasMore,
 }) {
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -23,7 +24,7 @@ export default function PostSectionClient({
   const [posts, setPosts] = useState(initialData);
   const [isLoading, setIsLoading] = useState(false);
   const [page, setPage] = useState(1);
-  const [hasMore, setHasMore] = useState(true);
+  const [hasMore, setHasMore] = useState(initialHasMore);
 
   const debouncedKeyword = useDebounce(keyword, 300);
 
