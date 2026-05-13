@@ -8,7 +8,7 @@ export const metadata = {
   title: "자유게시판",
 };
 
-export default function CommunityPage() {
+export default function CommunityPage({ searchParams }) {
   return (
     <div className="flex flex-col gap-10">
       <section className="flex flex-col gap-6 mb-6 lg:mb-10">
@@ -22,7 +22,7 @@ export default function CommunityPage() {
           <h2 className="text-xl font-bold">게시글</h2>
           <Button href="/community/write">글쓰기</Button>
         </div>
-        <PostSection />
+        <PostSection searchParams={searchParams} />
       </section>
     </div>
   );

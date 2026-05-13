@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import { useSearchParams, useRouter } from "next/navigation";
 import { getArticles } from "@/lib/api/posts";
 import useDebounce from "@/hooks/useDebounce";
 import Button from "@/components/ui/Button";
@@ -9,9 +10,16 @@ import SortDropDown from "@/components/ui/SortDropDown";
 import PostCard from "./PostCard";
 import PostSectionSkeleton from "./PostSectionSkeleton";
 
-export default function PostSectionClient({ initialData }) {
-  const [keyword, setKeyword] = useState("");
-  const [orderBy, setOrderBy] = useState("recent");
+export default function PostSectionClient({
+  initialData,
+  initialKeyword,
+  initialOrderBy,
+}) {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+
+  const [keyword, setKeyword] = useState(initialKeyword);
+  const [orderBy, setOrderBy] = useState(initialOrderBy);
   const [posts, setPosts] = useState(initialData);
   const [isLoading, setIsLoading] = useState(false);
   const [page, setPage] = useState(1);
@@ -20,15 +28,34 @@ export default function PostSectionClient({ initialData }) {
   const debouncedKeyword = useDebounce(keyword, 300);
   const isFirstRender = useRef(true);
 
+  const updateURL = (nextKeyword, nextOrderBy) => {
+    const params = new URLSearchParams(searchParams);
+    if (nextKeyword) {
+      params.set("keyword", nextKeyword);
+    } else {
+      params.delete("keyword");
+    }
+    params.set("orderBy", nextOrderBy);
+    router.replace(`/community?${params.toString()}`);
+  };
+
+  const handleOrderByChange = (value) => {
+    setOrderBy(value);
+    updateURL(keyword, value);
+  };
+
   const fetchPosts = async (params, reset = false) => {
     setIsLoading(true);
 
-    const { data, meta } = await getArticles(params);
-
-    setPosts((prev) => (reset ? data : [...prev, ...data]));
-
-    setHasMore(params.page < meta.totalPages);
-    setIsLoading(false);
+    try {
+      const { data, meta } = await getArticles(params);
+      setPosts((prev) => (reset ? data : [...prev, ...data]));
+      setHasMore(params.page < meta.totalPages);
+    } catch (err) {
+      toast.error(err.message || "게시글을 불러오는 데 실패했습니다.");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   useEffect(() => {
@@ -38,33 +65,21 @@ export default function PostSectionClient({ initialData }) {
     }
 
     setPage(1);
-
-    fetchPosts(
-      {
-        keyword: debouncedKeyword,
-        orderBy,
-        page: 1,
-      },
-      true,
-    );
+    updateURL(debouncedKeyword, orderBy);
+    fetchPosts({ keyword: debouncedKeyword, orderBy, page: 1 }, true);
   }, [debouncedKeyword, orderBy]);
 
   const loadMore = () => {
     const nextPage = page + 1;
     setPage(nextPage);
-
-    fetchPosts({
-      keyword: debouncedKeyword,
-      orderBy,
-      page: nextPage,
-    });
+    fetchPosts({ keyword: debouncedKeyword, orderBy, page: nextPage });
   };
 
   return (
     <div>
       <div className="flex items-center w-full mb-4 gap-[0.8rem] md:mb-10 md:gap-[0.3rem] lg:mb-6 lg:gap-[1rem]">
         <SearchBar value={keyword} onChange={setKeyword} />
-        <SortDropDown value={orderBy} onChange={setOrderBy} />
+        <SortDropDown value={orderBy} onChange={handleOrderByChange} />
       </div>
 
       {isLoading && page === 1 ? (
