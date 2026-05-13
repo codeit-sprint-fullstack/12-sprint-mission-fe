@@ -36,7 +36,7 @@ export default function BestPostCard({ post }) {
               width={48}
               height={45}
               alt={hasImage ? `${post.title} 썸네일` : ""}
-              aria-hidden={!imageSrc}
+              aria-hidden={!hasImage}
             />
           </div>
         </div>
