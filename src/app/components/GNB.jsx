@@ -17,6 +17,7 @@ const GNB = () => {
               width={81}
               height={27}
               className="md:hidden"
+              priority
             />
             <Image
               src={logo}
@@ -24,6 +25,7 @@ const GNB = () => {
               width={153}
               height={51}
               className="hidden md:block"
+              priority
             />
           </Link>
           <div className="flex gap-5 text-(--Secondary-600) font-bold text-lg md:text-2lg">
