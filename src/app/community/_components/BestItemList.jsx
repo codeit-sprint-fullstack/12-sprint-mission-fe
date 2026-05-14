@@ -9,7 +9,9 @@ const BestItemList = () => {
   useEffect(() => {
     try {
       const fetchArticles = async () => {
-        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/articles`);
+        const res = await fetch(
+          `${process.env.NEXT_PUBLIC_API_URL}/articles?orderby=desc`,
+        );
         if (!res.ok) {
           throw new Error("게시글 목록 조회에 실패했습니다.");
         }
