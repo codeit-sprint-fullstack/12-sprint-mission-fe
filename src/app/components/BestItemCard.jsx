@@ -13,7 +13,7 @@ const BestItemCard = ({ article }) => {
         alt="베스트 뱃지"
         width={102}
         height={28}
-        className="absolute top-0"
+        className="absolute top-0 w-[102px] h-[28px]"
       />
       <div className="flex flex-col gap-[40px] xl:gap-[18px]">
         <div className="flex gap-[40px] xl:gap-2">
