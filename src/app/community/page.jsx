@@ -1,11 +1,9 @@
 import Image from "next/image";
 import React from "react";
-import icFavorite from "../../../public/icons/ic_favorite.png";
-import imgSeed from "../../../public/images/img_seed.png";
 import icSearch from "../../../public/icons/ic_search.png";
-import icProfile from "../../../public/icons/ic_profile_sm.svg";
 import icSortBtn from "../../../public/icons/ic_btn_sort.png";
 import BestItemList from "./_components/BestItemList";
+import ArticlesList from "./_components/ArticlesList";
 
 const CommunityPage = () => {
   return (
@@ -49,70 +47,7 @@ const CommunityPage = () => {
               className="block shrink-0 md:hidden"
             />
           </div>
-          <div className="flex flex-col gap-[24px]">
-            <div className="pb-[24px] flex flex-col gap-[16px] bg-(--background-gray) border-b-1 border-(--Secondary-200)">
-              <div className="flex justify-between gap-[8px]">
-                <p className="text-xl font-semibold text-(--Secondary-800)">
-                  맥북 16인치 16기가 1테라 정도 사양이면 얼마에 팔아야하나요?
-                </p>
-                <div className="w-[72px] h-[72px] p-[12px] flex justify-center items-center rounded-md border-1 border-(--Secondary-200) bg-white shrink-0">
-                  <Image
-                    src={imgSeed}
-                    alt="상품 이미지"
-                    width={72}
-                    height={72}
-                  />
-                </div>
-              </div>
-              <div className="flex justify-between items-center text-md">
-                <div className="flex gap-2">
-                  <Image
-                    src={icProfile}
-                    alt="프로필 이미지"
-                    width={24}
-                    height={24}
-                  />
-                  <p className="text-(--Secondary-600)">총명한판다</p>
-                  <p className="text-(--Secondary-400)">2024. 04. 16</p>
-                </div>
-                <div className="flex gap-1 items-center">
-                  <Image src={icFavorite} alt="좋아요" width={16} height={16} />
-                  <p className="text-(--Secondary-500)">9999+</p>
-                </div>
-              </div>
-            </div>
-            <div className="pb-[24px] flex flex-col gap-[16px] bg-(--background-gray) border-b-1 border-(--Secondary-200)">
-              <div className="flex justify-between">
-                <p className="text-xl font-semibold text-(--Secondary-800)">
-                  맥북 16인치 16기가 1테라 정도 사양이면 얼마에 팔아야하나요?
-                </p>
-                <div className="w-[72px] h-[72px] p-[12px] flex justify-center items-center rounded-md border-1 border-(--Secondary-200) bg-white shrink-0">
-                  <Image
-                    src={imgSeed}
-                    alt="상품 이미지"
-                    width={72}
-                    height={72}
-                  />
-                </div>
-              </div>
-              <div className="flex justify-between items-center text-md">
-                <div className="flex gap-2">
-                  <Image
-                    src={icProfile}
-                    alt="프로필 이미지"
-                    width={24}
-                    height={24}
-                  />
-                  <p className="text-(--Secondary-600)">총명한판다</p>
-                  <p className="text-(--Secondary-400)">2024. 04. 16</p>
-                </div>
-                <div className="flex gap-1 items-center">
-                  <Image src={icFavorite} alt="좋아요" width={16} height={16} />
-                  <p className="text-(--Secondary-500)">9999+</p>
-                </div>
-              </div>
-            </div>
-          </div>
+          <ArticlesList />
         </section>
       </main>
     </div>
