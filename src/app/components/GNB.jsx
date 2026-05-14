@@ -7,7 +7,7 @@ import NavLink from "./NavLink";
 
 const GNB = () => {
   return (
-    <header className="border-b-1 border-(--border-gray) sticky">
+    <header className="border-b-1 border-(--border-gray) bg-white sticky top-0 z-50">
       <nav className="flex justify-between items-center h-[70px] mx-[16px] md:mx-[24px] xl:mx-[200px]">
         <div className="flex items-center gap-[16px] md:gap-[20px] xl:gap-[32px]">
           <Link href="/">
