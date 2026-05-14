@@ -8,8 +8,8 @@ import NavLink from "./NavLink";
 const GNB = () => {
   return (
     <header className="border-b-1 border-(--border-gray) sticky">
-      <nav className="flex justify-between items-center h-[70px] mx-[16px] md:mx-[24px] lg:mx-[200px]">
-        <div className="flex items-center gap-[16px] md:gap-[20px] lg:gap-[32px]">
+      <nav className="flex justify-between items-center h-[70px] mx-[16px] md:mx-[24px] xl:mx-[200px]">
+        <div className="flex items-center gap-[16px] md:gap-[20px] xl:gap-[32px]">
           <Link href="/">
             <Image
               src={logoMobile}
