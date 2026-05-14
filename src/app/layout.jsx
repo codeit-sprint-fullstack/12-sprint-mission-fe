@@ -1,6 +1,7 @@
 import localFont from "next/font/local";
 import "./globals.css";
 import GNB from "./components/GNB";
+import Footer from "./components/Footer";
 
 const pretendard = localFont({
   src: "../../public/fonts/PretendardVariable.woff2",
@@ -20,6 +21,7 @@ export default function RootLayout({ children }) {
       <body className="min-h-full flex flex-col">
         <GNB />
         {children}
+        <Footer />
       </body>
     </html>
   );
