@@ -47,7 +47,7 @@ export default function PostForm({
             disabled={isSubmitting}
             className="
               w-full h-14 mb-4 md:mb-6 px-6 py-4 rounded-lg bg-gray-100
-              placeholder:text-gray-400 focus:outline-none focus:border-primary
+              placeholder:text-gray-400 focus:outline-none focus:ring focus:ring-primary focus:ring-2
             "
           />
           <span className="absolute bottom-8 right-6 text-xs text-gray-400">
@@ -67,7 +67,7 @@ export default function PostForm({
           disabled={isSubmitting}
           className="
             w-full h-[17.625rem] px-6 py-4 rounded-lg bg-gray-100 resize-none
-            placeholder:text-gray-400 focus:outline-none focus:border-primary
+            placeholder:text-gray-400 focus:outline-none focus:ring focus:ring-primary focus:ring-2
           "
         />
       </form>
