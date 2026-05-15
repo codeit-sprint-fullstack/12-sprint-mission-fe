@@ -1,0 +1,169 @@
+.banner {
+  width: 100%;
+  background: #cfe5ff;
+}
+
+.banner--top .banner__inner {
+  min-height: 540px;
+  padding-top: 4.375rem;
+}
+
+.banner--bottom .banner__inner {
+  min-height: 540px;
+}
+
+.banner__inner {
+  width: min(100%, 1120px);
+  margin: 0 auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  box-sizing: border-box;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 0.5rem;
+}
+
+.banner__content {
+  flex-shrink: 0;
+  padding-bottom: 5rem;
+}
+
+.banner__title {
+  margin: 0 0 2rem;
+  color: var(--Secondary-700);
+  font-family: Pretendard, sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.banner__btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 3.5rem;
+  padding: 0 7.75rem;
+  border-radius: 2.5rem;
+  background: var(--Primary-100);
+
+  color: var(--Secondary-50);
+  text-align: center;
+  text-decoration: none;
+  font-family: Pretendard, sans-serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 2rem;
+}
+
+.banner__image {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.feature {
+  padding: 8.625rem 1.5rem;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+.feature__inner {
+  width: min(100%, 988px);
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+}
+
+.feature__content {
+  flex: 1;
+  min-width: 0;
+}
+
+.feature__image {
+  display: block;
+  width: 588px;
+  max-width: 100%;
+  height: auto;
+  flex-shrink: 0;
+}
+
+.feature__label {
+  margin: 0 0 0.75rem;
+  color: var(--Primary-100);
+  font-family: Pretendard, sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.625rem;
+}
+
+.feature__title {
+  margin: 0 0 1.5rem;
+  color: var(--Secondary-700);
+  font-family: Pretendard, sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 0.8px;
+}
+
+.feature__desc {
+  margin: 0;
+  color: var(--Secondary-700);
+  font-family: Pretendard, sans-serif;
+  font-size: 1.4rem;
+  font-weight: 500;
+  line-height: 2rem;
+}
+
+.feature--reverse .feature__content {
+  text-align: right;
+}
+
+@media (max-width: 743px) {
+  .banner__inner {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 2rem;
+  }
+
+  .banner__content {
+    padding-bottom: 0;
+  }
+
+  .banner__title {
+    font-size: 2rem;
+  }
+
+  .banner__btn {
+    width: 100%;
+    max-width: 240px;
+    padding: 0;
+  }
+
+  .banner__image {
+    max-width: 320px;
+  }
+
+  .feature__inner {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .feature__title {
+    font-size: 2rem;
+  }
+
+  .feature__desc {
+    font-size: 1rem;
+  }
+
+  .feature--reverse .feature__content {
+    text-align: center;
+  }
+}
