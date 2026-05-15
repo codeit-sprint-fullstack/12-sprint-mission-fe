@@ -3,6 +3,7 @@ import Button from "@/components/ui/Button";
 import BestPostSection from "./_components/BestPostSection";
 import BestPostSectionSkeleton from "./_components/BestPostSectionSkeleton";
 import PostSection from "./_components/PostSection";
+import PostSectionSkeleton from "./_components/PostSectionSkeleton";
 
 export const metadata = {
   title: "자유게시판",
@@ -24,7 +25,9 @@ export default async function CommunityPage({ searchParams }) {
           <h2 className="text-xl font-bold">게시글</h2>
           <Button href="/community/write">글쓰기</Button>
         </div>
-        <PostSection searchParams={resolvedParams} />
+        <Suspense fallback={<PostSectionSkeleton />}>
+          <PostSection searchParams={resolvedParams} />
+        </Suspense>{" "}
       </section>
     </div>
   );
