@@ -7,7 +7,7 @@ import { formatDate } from "@/utils/formatDate";
 
 const ListCommunity = ({ article }) => {
   return (
-    <div className="pb-[24px] flex flex-col gap-[16px] bg-(--background-gray) border-b-1 border-(--Secondary-200)">
+    <div className="pb-[24px] pt-[16px] px-[16px] flex flex-col gap-[16px] bg-(--background-gray) border-b-1 border-(--Secondary-200)">
       <div className="flex justify-between gap-[8px]">
         <p className="text-xl font-semibold text-(--Secondary-800)">
           {article.title}
@@ -19,7 +19,7 @@ const ListCommunity = ({ article }) => {
       <div className="flex justify-between items-center text-md">
         <div className="flex gap-2">
           <Image src={icProfile} alt="프로필 이미지" width={24} height={24} />
-          <p className="text-(--Secondary-600)">총명한판다</p>
+          <p className="text-(--Secondary-600)">총명한 판다</p>
           <p className="text-(--Secondary-400)">
             {formatDate(new Date(article.createdAt))}
           </p>

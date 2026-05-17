@@ -14,16 +14,16 @@ const Footer = () => {
         <div className="text-(--Secondary-400) hidden md:block">
           <p>©codeit - 2024</p>
         </div>
-        <div className="flex gap-[30px] text-(--Secondary-200) hidden md:block">
+        <div className="hidden md:flex gap-[30px] text-(--Secondary-200) ">
           <Link href="/privacy">Privacy Policy</Link>
           <Link href="/faq">FAQ</Link>
         </div>
-        <div className="block flex flex-col gap-[24px] md:hidden">
+        <div className="flex flex-col gap-[24px] md:hidden">
           <div className="flex gap-[30px] text-(--Secondary-200)">
             <Link href="/privacy">Privacy Policy</Link>
             <Link href="/faq">FAQ</Link>
           </div>
-          <div className="text-(--Secondary-400) block md:hidden">
+          <div className="text-(--Secondary-400) md:hidden">
             <p>©codeit - 2024</p>
           </div>
         </div>

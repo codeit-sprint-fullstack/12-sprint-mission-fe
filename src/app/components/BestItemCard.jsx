@@ -16,7 +16,7 @@ const BestItemCard = ({ article }) => {
         className="absolute top-0 w-[102px] h-[28px]"
       />
       <div className="flex flex-col gap-[40px] xl:gap-[18px]">
-        <div className="flex gap-[40px] xl:gap-2">
+        <div className="flex gap-[40px] justify-between xl:gap-2">
           <p className="font-semibold text-2lg text-(--Secondary-800) xl:text-xl">
             {article.title}
           </p>
@@ -26,7 +26,7 @@ const BestItemCard = ({ article }) => {
         </div>
         <div className="flex justify-between text-md">
           <div className="flex gap-2">
-            <p className="text-(--Secondary-600)">총명한판다</p>
+            <p className="text-(--Secondary-600)">총명한 판다</p>
             <div className="flex gap-1 items-center">
               <Image src={icFavorite} alt="좋아요" width={16} height={16} />
               <p className="text-(--Secondary-500)">9999+</p>

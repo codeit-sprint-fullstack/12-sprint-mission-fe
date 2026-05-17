@@ -6,8 +6,9 @@ import React from "react";
 
 const NavLink = ({ href, children }) => {
   const pathname = usePathname();
+  const firstPathname = pathname.split("/")[1];
 
-  const isActive = pathname === href;
+  const isActive = `/${firstPathname}` === href;
   return (
     <Link
       href={href}
