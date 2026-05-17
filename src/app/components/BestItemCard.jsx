@@ -4,10 +4,14 @@ import imgBadge from "../../../public/images/img_badge.svg";
 import imgSeed from "../../../public/images/img_seed.png";
 import icFavorite from "../../../public/icons/ic_favorite.png";
 import { formatDate } from "@/utils/formatDate";
+import Link from "next/link";
 
 const BestItemCard = ({ article }) => {
   return (
-    <div className="relative w-full px-[24px] pt-[46px] pb-[16px] rounded-lg bg-(--Secondary-100) flex flex-col justify-center md:w-[340px] xl:w-[384px]">
+    <Link
+      href={`/community/${article.id}`}
+      className="relative w-full px-[24px] pt-[46px] pb-[16px] rounded-lg bg-(--Secondary-100) flex flex-col justify-center md:w-[340px] xl:w-[384px]"
+    >
       <Image
         src={imgBadge}
         alt="베스트 뱃지"
@@ -37,7 +41,7 @@ const BestItemCard = ({ article }) => {
           </p>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 

@@ -4,10 +4,14 @@ import icProfile from "../../../public/icons/ic_profile_sm.svg";
 import imgSeed from "../../../public/images/img_seed.png";
 import icFavorite from "../../../public/icons/ic_favorite.png";
 import { formatDate } from "@/utils/formatDate";
+import Link from "next/link";
 
 const ListCommunity = ({ article }) => {
   return (
-    <div className="pb-[24px] pt-[16px] px-[16px] flex flex-col gap-[16px] bg-(--background-gray) border-b-1 border-(--Secondary-200)">
+    <Link
+      href={`/community/${article.id}`}
+      className="pb-[24px] pt-[16px] px-[16px] flex flex-col gap-[16px] bg-(--background-gray) border-b-1 border-(--Secondary-200)"
+    >
       <div className="flex justify-between gap-[8px]">
         <p className="text-xl font-semibold text-(--Secondary-800)">
           {article.title}
@@ -29,7 +33,7 @@ const ListCommunity = ({ article }) => {
           <p className="text-(--Secondary-500)">9999+</p>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
