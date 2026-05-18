@@ -33,13 +33,17 @@ export default function PostForm({
         </div>
 
         <div className="mb-[0.75rem]">
-          <label className="block text-2lg font-bold text-gray-800">
+          <label
+            htmlFor="title"
+            className="block text-2lg font-bold text-gray-800"
+          >
             *제목
           </label>
         </div>
         <div className="relative">
           <input
             type="text"
+            id="title"
             placeholder="제목을 입력해주세요."
             value={title}
             onChange={(e) => onTitleChange(e.target.value)}
@@ -56,11 +60,15 @@ export default function PostForm({
         </div>
 
         <div className="mb-[0.75rem]">
-          <label className="block text-2lg font-bold text-gray-800">
+          <label
+            htmlFor="content"
+            className="block text-2lg font-bold text-gray-800"
+          >
             *내용
           </label>
         </div>
         <textarea
+          id="content"
           value={content}
           placeholder="내용을 입력해주세요."
           onChange={(e) => onContentChange(e.target.value)}

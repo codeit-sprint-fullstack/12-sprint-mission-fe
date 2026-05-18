@@ -9,11 +9,13 @@ export default function SearchBar({ value, onChange }) {
         src="/icons/ic-search.svg"
         width={15}
         height={15}
-        alt="검색"
+        alt=""
+        aria-hidden="true"
         className="absolute left-4 w-6 h-6"
       />
       <input
         type="text"
+        aria-label="검색"
         name="search"
         value={value}
         onChange={(e) => onChange(e.target.value)}

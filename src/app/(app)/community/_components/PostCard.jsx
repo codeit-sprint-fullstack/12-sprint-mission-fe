@@ -28,9 +28,9 @@ export default function PostCard({ post }) {
           <div className="flex items-center gap-2 text-md">
             <Image src="/icons/ic-profile.svg" width={24} height={24} alt="" />
             <span className="text-gray-600">닉네임</span>
-            <span className="text-gray-400">
+            <time dateTime={post.createdAt} className="text-gray-400">
               {format(new Date(post.createdAt), "yyyy. MM. dd")}
-            </span>
+            </time>
           </div>
 
           <div className="flex items-center gap-2">

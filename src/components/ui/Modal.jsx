@@ -40,6 +40,9 @@ export default function Modal({
       />
 
       <div
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modal-title"
         className="
           relative flex flex-col items-center justify-center w-[18.625rem] p-6
           bg-white rounded-xl shadow-[0_4px_16px_0_rgba(17,34,17,0.05)]
@@ -56,7 +59,9 @@ export default function Modal({
             aria-hidden="true"
           />
         </div>
-        <h2 className="mb-8 text-lg font-medium text-gray-800">{title}</h2>
+        <h2 id="modal-title" className="mb-8 text-lg font-medium text-gray-800">
+          {title}
+        </h2>
 
         <div className="flex gap-2">
           <Button

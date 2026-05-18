@@ -54,9 +54,9 @@ export default function BestPostCard({ post }) {
               <span>9999+</span>
             </div>
           </div>
-          <span className="text-gray-400">
+          <time dateTime={post.createdAt} className="text-gray-400">
             {format(new Date(post.createdAt), "yyyy. MM. dd")}
-          </span>
+          </time>
         </div>
       </div>
     </Link>

@@ -50,9 +50,9 @@ export default async function PostDetailPage({ params }) {
             />
             <div className="flex gap-1 text-md font-medium md:gap-2">
               <span className="text-gray-600">닉네임</span>
-              <span className="text-gray-400">
+              <time dateTime={post.createdAt} className="text-gray-400">
                 {format(new Date(post.createdAt), "yyyy. MM. dd")}
-              </span>
+              </time>
             </div>
           </div>
 

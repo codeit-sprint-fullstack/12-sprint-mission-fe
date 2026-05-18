@@ -91,12 +91,12 @@ export default function CommentCard({ comment, onRefresh }) {
             />
             <div className="flex flex-col gap-1 text-xs">
               <span className="text-gray-600">닉네임</span>
-              <span className="text-gray-400">
+              <time dateTime={comment.createdAt} className="text-gray-400">
                 {formatDistanceToNow(new Date(comment.createdAt), {
                   addSuffix: true,
                   locale: ko,
                 })}
-              </span>
+              </time>
             </div>
           </div>
 

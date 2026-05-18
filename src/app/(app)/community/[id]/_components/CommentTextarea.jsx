@@ -16,6 +16,7 @@ export default function CommentTextarea({
           w-full h-[6.5rem] px-6 py-4 rounded-xl bg-gray-100 resize-none
           focus:outline-none focus:ring focus:ring-primary focus:ring-2
         "
+        aria-label="댓글 내용"
       />
       <span className="absolute bottom-4 right-6 text-xs text-gray-400">
         {value.length}/{MAX_LENGTH}
