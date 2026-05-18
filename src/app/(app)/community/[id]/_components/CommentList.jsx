@@ -12,6 +12,7 @@ export default function CommentList({ comments, onRefresh }) {
             height={140}
             alt=""
             aria-hidden="true"
+            loading="eager"
           />
           <p className="text-lg text-gray-400 text-center">
             아직 댓글이 없어요,
