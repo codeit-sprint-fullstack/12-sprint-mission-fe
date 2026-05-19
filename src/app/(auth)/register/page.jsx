@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import logo from "@/assets/images/pandamarket_logo_lg.png";
-import RegisterForm from "./_components/RegisterForm";
+import SignupForm from "./_components/SignupForm";
 
 const RegisterPage = () => {
   return (
@@ -20,7 +20,7 @@ const RegisterPage = () => {
         />
       </Link>
       <section className="w-full flex flex-col gap-[24px] justify-center items-center">
-        <RegisterForm />
+        <SignupForm />
       </section>
     </main>
   );

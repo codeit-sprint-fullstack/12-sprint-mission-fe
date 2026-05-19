@@ -1,16 +1,18 @@
 "use client";
+
 import Button from "@/app/components/Button";
-import { fetchSignIn } from "@/lib/fetchData";
+import Modal from "@/app/components/Modal";
 import Image from "next/image";
 import React, { useState } from "react";
-import { useForm } from "react-hook-form";
 import icVisibleOff from "@/assets/icons/ic_visible_off.png";
 import icVisibleOn from "@/assets/icons/ic_visible_on.png";
-import Modal from "@/app/components/Modal";
 import { useRouter } from "next/navigation";
+import { useForm } from "react-hook-form";
+import { fetchSignUp } from "@/lib/fetchData";
 
-const LoginForm = () => {
+const RegisterForm = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [isConfirmVisible, setIsConfirmVisible] = useState(false);
   const [modalConfig, setModalConfig] = useState({
     isOpen: false,
     message: "",
@@ -20,6 +22,7 @@ const LoginForm = () => {
     handleSubmit,
     formState: { errors, isValid },
     reset,
+    getValues,
   } = useForm({
     mode: "onChange",
   });
@@ -30,28 +33,30 @@ const LoginForm = () => {
   };
 
   const onSubmit = async (data) => {
-    const signIn = await fetchSignIn(data.email, data.password);
-    console.log("sign", signIn);
-    if (signIn.status !== 200) {
-      console.log("모달실행됨");
+    const signUp = await fetchSignUp(
+      data.email,
+      data.nickname,
+      data.password,
+      data.confirmPassword,
+    );
+    if (signUp.status !== 201) {
       setModalConfig({
         isOpen: true,
-        message: signIn.data.message,
+        message: signUp.data.message,
       });
       return;
     }
-    router.push("/items");
+    router.push("/login");
     reset();
   };
 
-  const togglePassword = () => {
-    setIsVisible((prev) => !prev);
-  };
+  const togglePassword = () => setIsVisible((prev) => !prev);
+  const toggleConfirmPassword = () => setIsConfirmVisible((prev) => !prev);
   return (
     <>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="flex flex-col gap-[16px] md:gap-[24px]"
+        className="w-full flex flex-col gap-[16px] md:gap-[24px]"
       >
         <div className="flex flex-col gap-2">
           <label className="text-lg font-semibold text-(--Secondary-800) md:text-2lg">
@@ -66,11 +71,33 @@ const LoginForm = () => {
               },
             })}
             placeholder="이메일을 입력해주세요"
-            autoComplete="email"
             className={`px-[24px] py-[16px] bg-(--Secondary-100) rounded-xl text-lg ${errors.email ? "border-2 border-(--error-red)" : ""}`}
           />
           {errors.email && (
             <p className="text-(--error-red)">{errors.email.message}</p>
+          )}
+        </div>
+        <div className="flex flex-col gap-2">
+          <label className="text-lg font-semibold text-(--Secondary-800) md:text-2lg">
+            닉네임
+          </label>
+          <input
+            {...register("nickname", {
+              required: "닉네임을 입력해주세요",
+              minLength: {
+                value: 2,
+                message: "2자 이상 입력해주세요",
+              },
+              maxLength: {
+                value: 10,
+                message: "10자 이하로 입력해주세요",
+              },
+            })}
+            placeholder="닉네임을 입력해주세요"
+            className={`px-[24px] py-[16px] bg-(--Secondary-100) rounded-xl text-lg ${errors.nickname ? "border-2 border-(--error-red)" : ""}`}
+          />
+          {errors.nickname && (
+            <p className="text-(--error-red)">{errors.nickname.message}</p>
           )}
         </div>
         <div className="flex flex-col gap-2">
@@ -88,7 +115,6 @@ const LoginForm = () => {
                 },
               })}
               placeholder="비밀번호를 입력해주세요"
-              autoComplete="current-password"
               className={`w-full pl-[24px] pr-[52px] py-[16px] bg-(--Secondary-100) rounded-xl text-lg ${errors.password ? "border-2 border-(--error-red)" : ""}`}
             />
             <button
@@ -106,8 +132,41 @@ const LoginForm = () => {
             <p className="text-(--error-red)">{errors.password.message}</p>
           )}
         </div>
+        <div className="flex flex-col gap-2">
+          <label className="text-lg font-semibold text-(--Secondary-800) md:text-2lg">
+            비밀번호 확인
+          </label>
+          <div className="relative">
+            <input
+              type={isConfirmVisible ? "text" : "password"}
+              {...register("confirmPassword", {
+                required: "비밀번호를 다시 한 번 입력해주세요",
+                validate: (value) =>
+                  value === getValues("password") ||
+                  "비밀번호가 일치하지 않습니다",
+              })}
+              placeholder="비밀번호를 다시 한 번 입력해주세요"
+              className={`w-full pl-[24px] pr-[52px] py-[16px] bg-(--Secondary-100) rounded-xl text-lg ${errors.confirmPassword ? "border-2 border-(--error-red)" : ""}`}
+            />
+            <button
+              type="button"
+              onClick={toggleConfirmPassword}
+              className="absolute right-5 top-1/2 -translate-y-1/2 z-10 cursor-pointer"
+            >
+              <Image
+                src={isConfirmVisible ? icVisibleOn : icVisibleOff}
+                alt="비밀번호 토글 버튼"
+              />
+            </button>
+          </div>
+          {errors.confirmPassword && (
+            <p className="text-(--error-red)">
+              {errors.confirmPassword.message}
+            </p>
+          )}
+        </div>
         <Button as={"submit"} disabled={!isValid}>
-          로그인
+          회원가입
         </Button>
       </form>
       <Modal
@@ -119,4 +178,4 @@ const LoginForm = () => {
   );
 };
 
-export default LoginForm;
+export default RegisterForm;
