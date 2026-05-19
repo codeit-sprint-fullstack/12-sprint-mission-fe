@@ -8,6 +8,7 @@ import icVisibleOff from "@/assets/icons/ic_visible_off.png";
 import icVisibleOn from "@/assets/icons/ic_visible_on.png";
 import Modal from "@/app/components/Modal";
 import { useRouter } from "next/navigation";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 const LoginForm = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -24,24 +25,30 @@ const LoginForm = () => {
     mode: "onChange",
   });
   const router = useRouter();
+  const queryClient = useQueryClient();
+
+  const { mutate: handleSignIn } = useMutation({
+    mutationFn: ({ email, password }) => fetchSignIn(email, password),
+    onSuccess: (res) => {
+      queryClient.invalidateQueries({ queryKey: ["signIn"] });
+      if (res.status !== 200) {
+        setModalConfig({
+          isOpen: true,
+          message: res.data.message,
+        });
+        return;
+      }
+      router.push("/items");
+      reset();
+    },
+  });
 
   const closeModal = () => {
     setModalConfig({ ...modalConfig, isOpen: false });
   };
 
   const onSubmit = async (data) => {
-    const signIn = await fetchSignIn(data.email, data.password);
-    console.log("sign", signIn);
-    if (signIn.status !== 200) {
-      console.log("모달실행됨");
-      setModalConfig({
-        isOpen: true,
-        message: signIn.data.message,
-      });
-      return;
-    }
-    router.push("/items");
-    reset();
+    handleSignIn({ email: data.email, password: data.password });
   };
 
   const togglePassword = () => {

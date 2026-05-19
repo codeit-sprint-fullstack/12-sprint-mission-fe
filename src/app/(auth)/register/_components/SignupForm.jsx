@@ -9,6 +9,7 @@ import icVisibleOn from "@/assets/icons/ic_visible_on.png";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { fetchSignUp } from "@/lib/fetchData";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 const RegisterForm = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -27,27 +28,36 @@ const RegisterForm = () => {
     mode: "onChange",
   });
   const router = useRouter();
+  const queryClient = useQueryClient();
+
+  const { mutate: handleSignUp } = useMutation({
+    mutationFn: ({ email, nickname, password, passwordConfirmation }) =>
+      fetchSignUp(email, nickname, password, passwordConfirmation),
+    onSuccess: (res) => {
+      queryClient.invalidateQueries({ queryKey: ["signUp"] });
+      if (res.status !== 201) {
+        setModalConfig({
+          isOpen: true,
+          message: res.data.message,
+        });
+        return;
+      }
+      router.push("/items");
+      reset();
+    },
+  });
 
   const closeModal = () => {
     setModalConfig({ ...modalConfig, isOpen: false });
   };
 
   const onSubmit = async (data) => {
-    const signUp = await fetchSignUp(
-      data.email,
-      data.nickname,
-      data.password,
-      data.confirmPassword,
-    );
-    if (signUp.status !== 201) {
-      setModalConfig({
-        isOpen: true,
-        message: signUp.data.message,
-      });
-      return;
-    }
-    router.push("/login");
-    reset();
+    handleSignUp({
+      email: data.email,
+      nickname: data.nickname,
+      password: data.password,
+      passwordConfirmation: data.confirmPassword,
+    });
   };
 
   const togglePassword = () => setIsVisible((prev) => !prev);
