@@ -15,26 +15,42 @@ const ArticleComment = () => {
   const [values, setValues] = useState({ content: "" });
   const router = useRouter();
 
-  const fetchComments = async (id) => {
-    try {
-      const res = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/articles/${id}/comments`,
-      );
-      if (!res.ok) {
-        throw new Error("댓글 불러오기에 실패했습니다.");
-      }
-      const { data } = await res.json();
-      setComments(data);
-    } catch (error) {
-      console.error(error.message);
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
   useEffect(() => {
+    const fetchComments = async (id) => {
+      try {
+        const res = await fetch(
+          `${process.env.NEXT_PUBLIC_API_URL}/articles/${id}/comments`,
+        );
+        if (!res.ok) {
+          throw new Error("댓글 불러오기에 실패했습니다.");
+        }
+        const { data } = await res.json();
+        setComments(data);
+      } catch (error) {
+        console.error(error.message);
+      } finally {
+        setIsLoading(false);
+      }
+    };
     fetchComments(id);
   }, [id]);
+
+  const handleRefreshComments = () => {
+    const reFetch = async () => {
+      try {
+        const res = await fetch(
+          `${process.env.NEXT_PUBLIC_API_URL}/articles/${id}/comments`,
+        );
+        if (res.ok) {
+          const { data } = await res.json();
+          setComments(data);
+        }
+      } catch (e) {
+        console.error(e);
+      }
+    };
+    if (id) reFetch();
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -58,7 +74,7 @@ const ArticleComment = () => {
       );
 
       setValues({ content: "" });
-      fetchComments(id);
+      handleRefreshComments();
     } catch (error) {
       console.error(error.message);
     }
@@ -109,7 +125,7 @@ const ArticleComment = () => {
               <ListReply
                 key={comment.id}
                 comment={comment}
-                onUpdate={() => fetchComments(id)}
+                onUpdate={handleRefreshComments}
               />
             );
           })}
