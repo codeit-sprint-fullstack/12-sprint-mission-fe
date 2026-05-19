@@ -1,0 +1,159 @@
+:root {
+  --Primary-100: #3692ff;
+  --Secondary-900: #111827;
+  --Secondary-800: #1f2937;
+  --Secondary-700: #374151;
+  --Secondary-100: #f3f4f6;
+  --Cool-Gray-100: #f3f4f6;
+  --Cool-Gray-400: #9ca3af;
+}
+
+.registration {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px 24px 122px;
+  flex: 1;
+}
+
+.registration header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.registration h2 {
+  color: var(--Secondary-800);
+  font-family: Pretendard;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 26px;
+  align-self: stretch;
+}
+
+.registration main {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  width: 100%;
+}
+
+.registration section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  align-self: stretch;
+}
+
+.header-title {
+  color: var(--Secondary-800);
+  font-family: Pretendard;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 32px;
+}
+
+.product-registration-btn {
+  display: flex;
+  height: 42px;
+  border: none;
+  padding: 12px 23px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 8px;
+  background: var(--Cool-Gray-400);
+  color: var(--Cool-Gray-100);
+  transition: background-color 0.2s ease;
+}
+
+.product-registration-btn:hover:not(:disabled) {
+  background: var(--Primary-100);
+}
+
+.product-registration-btn:disabled {
+  cursor: not-allowed;
+  background: var(--Cool-Gray-400);
+}
+
+.middle-input,
+.product-description-input {
+  border: 1px solid transparent;
+  border-radius: 12px;
+  background: var(--Cool-Gray-100);
+  display: flex;
+  width: 100%;
+  padding: 16px 24px;
+  align-items: flex-start;
+  gap: 10px;
+  align-self: stretch;
+  outline: none;
+  font: inherit;
+}
+
+.middle-input {
+  height: 56px;
+}
+
+.product-description-input {
+  min-height: 282px;
+  resize: none;
+}
+
+.middle-input:focus,
+.product-description-input:focus {
+  border-color: var(--Primary-100);
+}
+
+.registration-field {
+  position: relative;
+}
+
+.input-error {
+  border-color: #f74747;
+}
+
+.input-error-message {
+  color: #f74747;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.tag-chip-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.tag-chip {
+  border: none;
+  border-radius: 26px;
+  background: var(--Secondary-100);
+  color: var(--Secondary-800);
+  padding: 6px 12px;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+@media (max-width: 743px) {
+  .registration {
+    padding: 24px 16px 80px;
+  }
+
+  .registration header {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .product-registration-btn {
+    width: 100%;
+  }
+}

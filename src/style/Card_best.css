@@ -1,0 +1,45 @@
+.best-card {
+  overflow: hidden;
+  border-radius: 16px;
+  background-color: #ffffff;
+}
+
+.best-card-image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.best-card-content {
+  padding: 16px;
+}
+
+.best-card-title {
+  color: var(--Secondary-800, #1f2937);
+  /* pretendard/md-14px-medium */
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px; /* 171.429% */
+}
+
+.best-card-price {
+  color: var(--Secondary-800, #1f2937);
+  /* pretendard/lg-16px-bold */
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 26px; /* 162.5% */
+}
+
+.best-card-favorite {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #6b7280;
+  font-size: 14px;
+}

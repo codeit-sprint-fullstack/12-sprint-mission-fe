@@ -1,0 +1,139 @@
+:root {
+  --Primary-100: #3692ff;
+  --Secondary-700: #374151;
+  --Cool-Gray-100: #f3f4f6;
+  --bg-white: #ffffff;
+  --border-light: #dfdfdf;
+}
+
+.container {
+  width: 100%;
+  max-width: 192rem;
+  margin: 0 auto;
+  padding: 0 20rem;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.6rem;
+}
+
+.nav-bg {
+  display: flex;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  height: 7rem;
+  align-items: center;
+  background: var(--bg-white);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.cta-btn {
+  display: flex;
+  width: 12.8rem;
+  height: 4.8rem;
+  padding: 1.2rem 2.3rem;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  border-radius: 0.8rem;
+  background: var(--Primary-100);
+  color: var(--Cool-Gray-100);
+}
+
+.nav .nav-tag {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex: 1 1 auto;
+  width: auto;
+  flex-shrink: 1;
+  min-width: 0;
+  color: var(--Secondary-700);
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 26px;
+}
+
+.nav-logo-link {
+  flex: 0 0 auto;
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 2.4rem;
+  flex: 1 1 auto;
+  flex-shrink: 1;
+  min-width: 0;
+}
+
+.nav-menu-link {
+  color: var(--Secondary-700);
+  white-space: nowrap;
+  flex: 0 1 auto;
+}
+
+.nav-menu-link-active {
+  color: var(--Primary-100);
+}
+
+.nav-img {
+  display: block;
+}
+
+@media (max-width: 1199px) {
+  .container {
+    padding: 0 2.4rem;
+    display: flex;
+    align-items: center;
+  }
+}
+
+@media (max-width: 743px) {
+  .container {
+    padding: 0 1.2rem;
+  }
+
+  .nav {
+    gap: 0.6rem;
+  }
+
+  .nav-bg {
+    height: 7rem;
+  }
+
+  .nav .nav-tag {
+    gap: 0.6rem;
+    flex: 1 1 0;
+  }
+
+  .nav-menu {
+    gap: 0.6rem;
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .nav-menu-link {
+    font-size: 1.2rem;
+    line-height: 1.8rem;
+  }
+
+  .nav-img {
+    width: 7.2rem;
+    height: auto;
+  }
+
+  .cta-btn {
+    flex: 0 0 auto;
+    width: 6.8rem;
+    height: 3.6rem;
+    padding: 0 1rem;
+    font-size: 1.2rem;
+    line-height: 1.8rem;
+  }
+}
