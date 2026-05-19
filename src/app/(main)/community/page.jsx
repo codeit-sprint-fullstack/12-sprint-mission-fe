@@ -2,7 +2,7 @@ import React from "react";
 
 import BestItemList from "./_components/BestItemList";
 import ArticlesList from "./_components/ArticlesList";
-import Button from "../components/Button";
+import Button from "@/app/components/Button";
 
 const CommunityPage = () => {
   return (

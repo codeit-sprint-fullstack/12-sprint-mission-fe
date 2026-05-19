@@ -4,8 +4,8 @@ import { fetchSignIn } from "@/lib/fetchData";
 import Image from "next/image";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import icVisibleOff from "../../../../public/icons/ic_visible_off.png";
-import icVisibleOn from "../../../../public/icons/ic_visible_on.png";
+import icVisibleOff from "@/assets/icons/ic_visible_off.png";
+import icVisibleOn from "@/assets/icons/ic_visible_on.png";
 import Modal from "@/app/components/Modal";
 import { useRouter } from "next/navigation";
 

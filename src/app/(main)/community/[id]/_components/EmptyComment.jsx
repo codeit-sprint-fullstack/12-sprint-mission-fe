@@ -1,5 +1,5 @@
 import React from "react";
-import imgReplyEmpty from "../../../../../public/images/img_reply_empty.png";
+import imgReplyEmpty from "@/assets/images/img_reply_empty.png";
 import Image from "next/image";
 
 const EmptyComment = () => {

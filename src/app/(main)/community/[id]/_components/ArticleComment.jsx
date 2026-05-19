@@ -5,7 +5,7 @@ import ListReply from "@/app/components/ListReply";
 import { useParams, useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import EmptyComment from "./EmptyComment";
-import icBack from "../../../../../public/icons/ic_back.png";
+import icBack from "@/assets/icons/ic_back.png";
 import Image from "next/image";
 
 const ArticleComment = () => {
