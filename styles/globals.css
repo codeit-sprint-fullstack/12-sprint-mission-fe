@@ -1,0 +1,43 @@
+@import "./reset.css";
+@import "./index.css";
+@import "./App.css";
+@import "./mainheader.css";
+@import "./loginpage.css";
+@import "./auth.css";
+@import "./footer.css";
+@import "./item.css";
+@import "./registration.css";
+@import "./detail_forum.css";
+@import "./forum-page.css";
+@import "./forum-write.css";
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+}
+
+#__next {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+footer {
+  width: 100%;
+  padding: 40px 20px;
+  height: auto !important;
+  margin-top: auto;
+}
+
+@media (max-width: 1024px) {
+  footer > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+  }
+}

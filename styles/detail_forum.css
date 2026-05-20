@@ -1,0 +1,433 @@
+.forum-detail-page {
+  min-height: 100vh;
+  background-color: #f9fafb;
+  padding: 32px 16px 80px;
+}
+
+.forum-detail__container {
+  max-width: 792px;
+  margin: 0 auto;
+}
+
+/* 게시글 카드 */
+.forum-detail {
+  background: #ffffff;
+  border-radius: 16px;
+  border: 1px solid #e5e7eb;
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+
+.forum-detail__header {
+  padding: 28px 28px 20px;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.forum-detail__header h1 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #111827;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.forum-detail__title-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.forum-detail__meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 13px;
+  color: #9ca3af;
+}
+
+.forum-detail__meta .author {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #374151;
+  font-weight: 500;
+}
+
+.forum-detail__meta .author-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #e5e7eb;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.forum-detail__meta .author-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.forum-detail__meta .divider {
+  width: 1px;
+  height: 12px;
+  background: #d1d5db;
+}
+
+.forum-detail__meta .likes {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #374151;
+  font-weight: 500;
+  padding: 5px 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 999px;
+}
+
+/* 게시글 본문 */
+.forum-detail__content {
+  padding: 24px 28px;
+}
+
+.forum-detail__content p {
+  font-size: 15px;
+  line-height: 1.75;
+  color: #374151;
+  white-space: pre-wrap;
+  word-break: keep-all;
+}
+
+.forum-detail__image-wrap {
+  margin-bottom: 20px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.forum-detail__image {
+  width: 100%;
+  max-height: 500px;
+  object-fit: contain;
+  background-color: #f3f4f6;
+}
+
+/* 통합 댓글 */
+.forum-detail__comments-section {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  overflow: hidden;
+  margin-top: 24px;
+}
+
+.forum-detail__comment-form {
+  padding: 24px 28px;
+}
+
+.forum-detail__comment-form h2 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.comment-form__field textarea {
+  width: 100%;
+  padding: 12px 14px;
+  font-size: 14px;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  resize: none;
+  outline: none;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+
+.comment-form__submit-row {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 12px;
+}
+
+.comment-form__submit-row button {
+  padding: 10px 24px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+  background: #9ca3af;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.comment-form__submit-row button.active {
+  background: #3b82f6;
+}
+
+.comment-divider {
+  border: 0;
+  border-top: 1px solid #f3f4f6;
+  margin: 0;
+}
+
+.forum-detail__comments-list {
+  padding: 0 28px 24px;
+}
+
+.empty-comments {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 48px 0;
+  gap: 12px;
+}
+
+.empty-comments img {
+  width: 80px;
+  opacity: 0.5;
+}
+
+.empty-comments p {
+  font-size: 14px;
+  color: #9ca3af;
+  text-align: center;
+  line-height: 1.6;
+}
+
+.comment-item__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+
+.comment-item__content {
+  font-size: 14px;
+  color: #374151;
+  line-height: 1.6;
+}
+
+.comment-item__author {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.comment-item__avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #e5e7eb;
+  overflow: hidden;
+}
+
+.comment-item__name {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.comment-item__time {
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+/* 케밥 메뉴 */
+.kebab-menu {
+  position: relative;
+}
+.kebab-menu__trigger {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #6b7280;
+  font-size: 16px;
+  padding: 4px;
+}
+.kebab-menu__dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  min-width: 100px;
+}
+.kebab-menu__dropdown button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+.kebab-menu__dropdown button.delete {
+  color: #ef4444;
+}
+
+/* 하단 목록 버튼 */
+.forum-detail__back-button-wrap {
+  display: flex;
+  justify-content: center;
+  padding: 32px 0 36px;
+}
+
+.forum-detail__back-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #3692ff;
+  color: #ffffff;
+  padding: 12px 40px;
+  min-width: 180px;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.forum-detail__back-button:hover {
+  background-color: #1e7be6;
+  transform: translateY(-2px);
+}
+
+.comment-edit-box {
+  background-color: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 12px;
+}
+
+.comment-edit-box textarea {
+  width: 100%;
+  padding: 12px;
+  font-size: 14px;
+  line-height: 1.6;
+  background-color: #ffffff;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  resize: none;
+  outline: none;
+  font-family: inherit;
+  box-sizing: border-box;
+  transition: border-color 0.2s;
+}
+
+.comment-edit-box textarea:focus {
+  border-color: #3b82f6;
+}
+
+.comment-edit-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.comment-edit-actions button {
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+}
+
+.comment-edit-actions button.active {
+  background-color: #3b82f6;
+  color: #ffffff;
+}
+
+.comment-edit-actions button.active:hover {
+  background-color: #2563eb;
+}
+
+.comment-edit-actions button.disabled {
+  background-color: #e5e7eb;
+  color: #9ca3af;
+  cursor: not-allowed;
+}
+
+.comment-edit-actions button[type="button"]:not(.active):not(.disabled) {
+  background-color: #ffffff;
+  color: #4b5563;
+  border: 1px solid #d1d5db;
+}
+
+.comment-edit-actions button[type="button"]:not(.active):not(.disabled):hover {
+  background-color: #f3f4f6;
+  border-color: #9ca3af;
+}
+
+.comment-item {
+  list-style: none;
+  padding: 20px 0;
+  background-color: #fcfcfc;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.comment-item:last-child {
+  border-bottom: none;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  margin: 24px 0 8px;
+}
+
+.pagination button {
+  width: 36px;
+  height: 36px;
+  border: none;
+  background: none;
+  color: #9ca3af;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.15s;
+  font-weight: 500;
+}
+
+.pagination button:hover:not(:disabled):not(.active) {
+  background-color: #f3f4f6;
+  color: #374151;
+}
+
+.pagination button.active {
+  color: #111827;
+  font-weight: 700;
+  background-color: #eff6ff;
+  color: #3b82f6;
+  text-decoration: none;
+}
+
+.pagination button:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.pagination__arrow {
+  font-size: 20px !important;
+  color: #6b7280 !important;
+}
+
+@media (max-width: 640px) {
+  .forum-detail__header,
+  .forum-detail__content,
+  .forum-detail__comment-form,
+  .forum-detail__comments-list {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
