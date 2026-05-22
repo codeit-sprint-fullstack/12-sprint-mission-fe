@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #3692ff;
+  --color-primary-dark: #1967d6;
+  --color-primary-darker: #1251aa;
+
+  --color-hero-bg: #cfe5ff;
+  --color-surface: #fcfcfc;
+
+  --color-gray-900: #111827;
+  --color-gray-800: #1f2937;
+  --color-gray-700: #374151;
+  --color-gray-600: #4b5563;
+  --color-gray-500: #6b7280;
+  --color-gray-400: #9ca3af;
+  --color-gray-200: #e5e7eb;
+  --color-gray-100: #f3f4f6;
+  --color-gray-border: #dfdfdf;
+  --color-white: #ffffff;
+
+  --color-error: #f74747;
+
+  --font-sans: var(--font-pretendard), sans-serif;
+
+  /* 폰트 사이즈 */
+  --text-3xl: 2rem;
+  --text-2xl: 1.5rem;
+  --text-xl: 1.25rem;
+  --text-2lg: 1.125rem;
+  --text-lg: 1rem;
+  --text-md: 0.875rem;
+  --text-xs: 0.75rem;
+
+  --text-3xl--line-height: 2.625rem;
+  --text-2xl--line-height: 2rem;
+  --text-xl--line-height: 2rem;
+  --text-2lg--line-height: 1.625rem;
+  --text-lg--line-height: 1.625rem;
+  --text-md--line-height: 1.5rem;
+  --text-xs--line-height: 1.125rem;
+
+  --breakpoint-md: 744px;
+}
+
+body {
+  font-family: var(--font-pretendard), sans-serif;
+
+  color: var(--color-gray-900);
+  background-color: var(--color-white);
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.sr-only {
+  position: absolute;
+  width: 0.0625rem;
+  height: 0.0625rem;
+  padding: 0;
+  margin: -0.0625rem;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
