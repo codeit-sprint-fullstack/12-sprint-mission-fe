@@ -2,6 +2,7 @@
 
 import usePostLoadMore from "@/hooks/usePostLoadMore";
 import Button from "@/components/ui/Button";
+import PostCard from "./PostCard";
 
 export default function PostLoadMore({
   keyword,

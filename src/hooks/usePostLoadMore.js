@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { toast } from "react-hot-toast";
+import { getArticles } from "@/lib/api/posts";
 
 export default function usePostLoadMore({
   keyword,
