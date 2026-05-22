@@ -1,11 +1,11 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { createArticle } from "@/lib/api/posts";
+import { updateArticle } from "@/lib/api/posts";
 import usePostForm from "@/hooks/usePostForm";
-import PostForm from "@/app/(app)/community/_components/PostForm";
+import PostForm from "@/app/(with-layout)/(app)/community/_components/PostForm";
 
-export default function PostWriteClient() {
+export default function PostEditClient({ post }) {
   const router = useRouter();
   const {
     title,
@@ -15,12 +15,12 @@ export default function PostWriteClient() {
     isValid,
     isSubmitting,
     handleSubmit,
-  } = usePostForm();
+  } = usePostForm({ title: post.title, content: post.content });
 
   return (
     <PostForm
-      heading="게시글 쓰기"
-      submitLabel="등록"
+      heading="게시글 수정"
+      submitLabel="수정"
       title={title}
       onTitleChange={setTitle}
       content={content}
@@ -29,8 +29,8 @@ export default function PostWriteClient() {
       isSubmitting={isSubmitting}
       onSubmit={() =>
         handleSubmit(async ({ title, content }) => {
-          const { data } = await createArticle({ title, content });
-          router.replace(`/community/${data.id}`);
+          await updateArticle(post.id, { title, content });
+          router.replace(`/community/${post.id}`);
         })
       }
     />

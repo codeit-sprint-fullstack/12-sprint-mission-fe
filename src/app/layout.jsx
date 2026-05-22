@@ -1,8 +1,6 @@
 import { Toaster } from "react-hot-toast";
 import localFont from "next/font/local";
 import "./globals.css";
-import Header from "@/components/layout/Header";
-import Footer from "@/components/layout/Footer";
 
 const pretendard = localFont({
   src: "./fonts/PretendardVariable.woff2",
@@ -22,11 +20,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="ko" className={`${pretendard.variable} antialiased`}>
       <body className="min-h-screen flex flex-col">
-        <Header />
-
         {children}
-
-        <Footer />
 
         <Toaster
           position="top-center"
