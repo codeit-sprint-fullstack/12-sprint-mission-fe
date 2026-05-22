@@ -1,7 +1,7 @@
 import { getArticles } from "@/lib/api/posts";
 import BestPostCard from "./BestPostCard";
 
-export default async function BestPostSection() {
+export default async function BestPostList() {
   const { data } = await getArticles({ pageSize: 3 });
   const [first, second, third] = data;
 

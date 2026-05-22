@@ -1,6 +1,6 @@
 import { Suspense } from "react";
-import BestPostSection from "./_components/BestPostSection";
-import BestPostSectionSkeleton from "./_components/BestPostSectionSkeleton";
+import BestPostList from "./_components/BestPostList";
+import BestPostListSkeleton from "./_components/BestPostListSkeleton";
 import PostSectionHeader from "./_components/PostSectionHeader";
 import PostList from "./_components/PostList";
 import PostListSkeleton from "./_components/PostListSkeleton";
@@ -16,8 +16,8 @@ export default async function CommunityPage({ searchParams }) {
     <div className="flex flex-col gap-10">
       <section className="flex flex-col gap-6 mb-6 lg:mb-10">
         <h2 className="text-xl font-bold">베스트 게시글</h2>
-        <Suspense fallback={<BestPostSectionSkeleton />}>
-          <BestPostSection />
+        <Suspense fallback={<BestPostListSkeleton />}>
+          <BestPostList />
         </Suspense>
       </section>
 
