@@ -1,13 +1,8 @@
 import { POST_LIMIT } from "@/constants/pagination";
 
-export default function PostSectionSkeleton() {
+export default function PostListSkeleton() {
   return (
-    <div>
-      <div className="flex items-center w-full mb-4 gap-[0.8rem] md:mb-10 md:gap-[0.3rem] lg:mb-6 lg:gap-[1rem]">
-        <div className="flex-1 h-[2.625rem] rounded-xl bg-gray-200 animate-pulse" />
-        <div className="w-[2.625rem] h-[2.625rem] rounded-xl bg-gray-200 animate-pulse md:w-[8.125rem]" />
-      </div>
-
+    <>
       {Array.from({ length: POST_LIMIT }).map((_, i) => (
         <div
           key={i}
@@ -25,6 +20,6 @@ export default function PostSectionSkeleton() {
           </div>
         </div>
       ))}
-    </div>
+    </>
   );
 }

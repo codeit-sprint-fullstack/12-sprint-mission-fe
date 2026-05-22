@@ -1,16 +1,16 @@
 import { Suspense } from "react";
-import Button from "@/components/ui/Button";
 import BestPostSection from "./_components/BestPostSection";
 import BestPostSectionSkeleton from "./_components/BestPostSectionSkeleton";
-import PostSection from "./_components/PostSection";
-import PostSectionSkeleton from "./_components/PostSectionSkeleton";
+import PostSectionHeader from "./_components/PostSectionHeader";
+import PostList from "./_components/PostList";
+import PostListSkeleton from "./_components/PostListSkeleton";
 
 export const metadata = {
   title: "자유게시판",
 };
 
 export default async function CommunityPage({ searchParams }) {
-  const resolvedParams = await searchParams;
+  const { keyword = "", orderBy = "recent" } = await searchParams;
 
   return (
     <div className="flex flex-col gap-10">
@@ -20,13 +20,11 @@ export default async function CommunityPage({ searchParams }) {
           <BestPostSection />
         </Suspense>
       </section>
+
       <section>
-        <div className="flex justify-between items-center w-full mb-4 md:mb-12 lg:mb-6">
-          <h2 className="text-xl font-bold">게시글</h2>
-          <Button href="/community/write">글쓰기</Button>
-        </div>
-        <Suspense fallback={<PostSectionSkeleton />}>
-          <PostSection searchParams={resolvedParams} />
+        <PostSectionHeader keyword={keyword} orderBy={orderBy} />
+        <Suspense fallback={<PostListSkeleton />}>
+          <PostList keyword={keyword} orderBy={orderBy} />
         </Suspense>{" "}
       </section>
     </div>
