@@ -1,58 +1,29 @@
 "use client";
 
-import { useState } from "react";
-import { toast } from "react-hot-toast";
 import Image from "next/image";
 import { formatDistanceToNow } from "date-fns";
 import { ko } from "date-fns/locale";
-import { updateComment, deleteComment } from "@/lib/api/comments";
+import useCommentCard from "@/hooks/useCommentCard";
 import Button from "@/components/ui/Button";
 import Modal from "@/components/ui/Modal";
 import KebabMenu from "./KebabMenu";
 import CommentTextarea from "./CommentTextarea";
 
 export default function CommentCard({ comment, onRefresh }) {
-  const [content, setContent] = useState(comment.content);
-  const [isEditing, setIsEditing] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [open, setOpen] = useState(false);
-  const [isDeleting, setIsDeleting] = useState(false);
-
-  const isDisabled = content.trim().length === 0 || isSubmitting;
-
-  const handleEdit = async () => {
-    if (isDisabled) return;
-
-    try {
-      setIsSubmitting(true);
-      await updateComment(comment.id, content);
-      await onRefresh();
-
-      setIsEditing(false);
-    } catch (err) {
-      toast.error(err.message || "댓글 수정에 실패했습니다.");
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
-  const handleCancel = () => {
-    setContent(comment.content);
-    setIsEditing(false);
-  };
-
-  const handleDelete = async () => {
-    try {
-      setIsDeleting(true);
-      await deleteComment(comment.id);
-      await onRefresh();
-      setOpen(false);
-    } catch (err) {
-      toast.error(err.message || "댓글 삭제에 실패했습니다.");
-    } finally {
-      setIsDeleting(false);
-    }
-  };
+  const {
+    content,
+    setContent,
+    isEditing,
+    setIsEditing,
+    isSubmitting,
+    isDeleting,
+    isDisabled,
+    modalOpen,
+    setModalOpen,
+    handleEdit,
+    handleCancel,
+    handleDelete,
+  } = useCommentCard({ comment, onRefresh });
 
   return (
     <>
@@ -74,7 +45,7 @@ export default function CommentCard({ comment, onRefresh }) {
                 <KebabMenu.Button onClick={() => setIsEditing(true)}>
                   수정하기
                 </KebabMenu.Button>
-                <KebabMenu.Button onClick={() => setOpen(true)}>
+                <KebabMenu.Button onClick={() => setModalOpen(true)}>
                   삭제하기
                 </KebabMenu.Button>
               </KebabMenu>
@@ -118,8 +89,8 @@ export default function CommentCard({ comment, onRefresh }) {
         </div>
       </div>
       <Modal
-        isOpen={open}
-        onClose={() => setOpen(false)}
+        isOpen={modalOpen}
+        onClose={() => setModalOpen(false)}
         variant="danger"
         title="정말로 댓글을 삭제하시겠어요?"
         confirmText="삭제"

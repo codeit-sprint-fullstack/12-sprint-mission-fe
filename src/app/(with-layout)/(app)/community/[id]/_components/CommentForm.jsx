@@ -1,31 +1,12 @@
 "use client";
 
-import { useState } from "react";
-import { toast } from "react-hot-toast";
+import useCommentForm from "@/hooks/useCommentForm";
 import Button from "@/components/ui/Button";
-import { createArticleComment } from "@/lib/api/posts";
 import CommentTextarea from "./CommentTextarea";
 
 export default function CommentForm({ postId, onSuccess }) {
-  const [comment, setComment] = useState("");
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const isDisabled = comment.trim().length === 0 || isSubmitting;
-
-  const handleSubmit = async () => {
-    if (isDisabled) return;
-
-    try {
-      setIsSubmitting(true);
-      await createArticleComment(postId, comment);
-      setComment("");
-      await onSuccess();
-    } catch (err) {
-      toast.error(err.message || "댓글 등록에 실패했습니다.");
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
+  const { comment, setComment, isSubmitting, isDisabled, handleSubmit } =
+    useCommentForm({ postId, onSuccess });
 
   return (
     <div>

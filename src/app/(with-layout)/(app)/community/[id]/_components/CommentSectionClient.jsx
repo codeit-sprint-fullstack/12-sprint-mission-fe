@@ -1,24 +1,15 @@
 "use client";
 
-import { useState } from "react";
-import { getArticleComments } from "@/lib/api/posts";
+import useCommentSection from "@/hooks/useCommentSection";
 import CommentForm from "./CommentForm";
 import CommentList from "./CommentList";
 import CommentListSkeleton from "./CommentListSkeleton";
 
 export default function CommentSectionClient({ postId, initialComments }) {
-  const [comments, setComments] = useState(initialComments);
-  const [isLoading, setIsLoading] = useState(false);
-
-  const handleRefresh = async () => {
-    setIsLoading(true);
-    try {
-      const { data } = await getArticleComments({ articleId: postId });
-      setComments(data);
-    } finally {
-      setIsLoading(false);
-    }
-  };
+  const { comments, isLoading, handleRefresh } = useCommentSection({
+    postId,
+    initialComments,
+  });
 
   return (
     <>
