@@ -28,6 +28,13 @@ export default function PostSectionClient({
 
   const debouncedKeyword = useDebounce(keyword, 300);
 
+  // initialData 바뀌면 (서버 리렌더 후) posts 동기화
+  useEffect(() => {
+    setPosts(initialData);
+    setPage(1);
+    setHasMore(initialHasMore);
+  }, [initialData, initialHasMore]);
+
   const updateURL = (nextKeyword, nextOrderBy, method = "replace") => {
     const params = new URLSearchParams(searchParams.toString());
 
@@ -52,35 +59,35 @@ export default function PostSectionClient({
     updateURL(keyword, value, "push");
   };
 
-  const fetchPosts = async (params, reset = false) => {
-    setIsLoading(true);
-
-    try {
-      const { data, meta } = await getArticles(params);
-      setPosts((prev) => (reset ? data : [...prev, ...data]));
-      setHasMore(params.page < meta.totalPages);
-    } catch (err) {
-      toast.error(err.message || "게시글을 불러오는 데 실패했습니다.");
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
+  // 정렬/검색어 변경 시 URL 업데이트
   useEffect(() => {
     const isInitialState =
       debouncedKeyword === initialKeyword && orderBy === initialOrderBy;
 
     if (isInitialState) return;
 
-    setPage(1);
     updateURL(debouncedKeyword, orderBy);
-    fetchPosts({ keyword: debouncedKeyword, orderBy, page: 1 }, true);
   }, [debouncedKeyword, orderBy]);
 
-  const loadMore = () => {
+  // 더보기만 클라이언트에서 fetch
+  const loadMore = async () => {
     const nextPage = page + 1;
-    setPage(nextPage);
-    fetchPosts({ keyword: debouncedKeyword, orderBy, page: nextPage });
+    setIsLoading(true);
+
+    try {
+      const { data, meta } = await getArticles({
+        keyword: debouncedKeyword,
+        orderBy,
+        page: nextPage,
+      });
+      setPosts((prev) => (reset ? data : [...prev, ...data]));
+      setPage(nextPage);
+      setHasMore(params.page < meta.totalPages);
+    } catch (err) {
+      toast.error(err.message || "게시글을 불러오는 데 실패했습니다.");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
