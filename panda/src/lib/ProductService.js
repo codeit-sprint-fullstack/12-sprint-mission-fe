@@ -1,83 +1,56 @@
-import { productApi } from "./api";
+import { api } from "./api";
 
 export async function getProductList({
-  offset = 0,
-  limit = 10,
+  page = 1,
+  pageSize = 10,
   keyword = "",
   orderBy = "recent",
-}) {
-  try {
-    const response = await productApi.get("/products", {
-      params: { offset, limit, keyword, orderBy },
-    });
+} = {}) {
+  const response = await api.get("/products", {
+    params: {
+      page,
+      pageSize,
+      keyword,
+      orderBy,
+    },
+  });
 
-    return response.data;
-  } catch (error) {
-    console.error(
-      "getProductList error:",
-      error.response?.data || error.message,
-    );
-    throw error;
-  }
+  return response.data;
 }
 
 export async function getProduct(productId) {
-  try {
-    const response = await productApi.get(`/products/${productId}`);
-    return response.data;
-  } catch (error) {
-    console.error("getProduct error:", error.response?.data || error.message);
-    throw error;
-  }
+  const response = await api.get(`/products/${productId}`);
+  return response.data;
 }
 
-export async function createProduct({ name, description, price, tags }) {
-  try {
-    const response = await productApi.post("/products", {
-      name,
-      description,
-      price,
-      tags,
-    });
+export async function createProduct({ name, description, price, tags, image }) {
+  const response = await api.post("/products", {
+    name,
+    description,
+    price,
+    tags,
+    image,
+  });
 
-    return response.data;
-  } catch (error) {
-    console.error(
-      "createProduct error:",
-      error.response?.data || error.message,
-    );
-    throw error;
-  }
+  return response.data;
 }
 
-export async function patchProduct(
-  productId,
-  { name, description, price, tags },
-) {
-  try {
-    const response = await productApi.patch(`/products/${productId}`, {
-      name,
-      description,
-      price,
-      tags,
-    });
-
-    return response.data;
-  } catch (error) {
-    console.error("patchProduct error:", error.response?.data || error.message);
-    throw error;
-  }
+export async function patchProduct(productId, payload) {
+  const response = await api.patch(`/products/${productId}`, payload);
+  return response.data;
 }
 
 export async function deleteProduct(productId) {
-  try {
-    const response = await productApi.delete(`/products/${productId}`);
-    return response.data;
-  } catch (error) {
-    console.error(
-      "deleteProduct error:",
-      error.response?.data || error.message,
-    );
-    throw error;
-  }
+  const response = await api.delete(`/products/${productId}`);
+  return response.data;
+}
+
+export async function favoriteProduct(productId) {
+  const response = await api.post(`/products/${productId}/favorite`);
+  return response.data;
+}
+
+export async function unfavoriteProduct(productId) {
+  const response = await api.delete(`/products/${productId}/favorite`);
+  return response.data;
 }

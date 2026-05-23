@@ -1,16 +1,29 @@
 import axios from "axios";
 
-export const BASE_URL = "https://panda-market-backend-gc3w.onrender.com";
+export const BASE_URL = "https://panda-market-api.vercel.app";
 
-export const productApi = axios.create({
+export const api = axios.create({
   baseURL: BASE_URL,
   timeout: 15000,
 });
 
+export const productApi = api;
+
+api.interceptors.request.use((config) => {
+  if (typeof window !== "undefined") {
+    const token = localStorage.getItem("accessToken");
+
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
+  }
+
+  return config;
+});
+
 export function handleResponse(response) {
   if (!response.ok) {
-    console.error(`Error: ${response.status}`);
-    throw new Error(response.statusText);
+    throw new Error(response.statusText || "요청에 실패했습니다.");
   }
 
   return response.json();

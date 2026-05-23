@@ -2,9 +2,21 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useQuery } from "@tanstack/react-query";
+import { getMe } from "@/lib/UserService";
 
 function Header() {
   const pathname = usePathname();
+
+  const hasToken =
+    typeof window !== "undefined" && localStorage.getItem("accessToken");
+
+  const { data: user } = useQuery({
+    queryKey: ["me"],
+    queryFn: getMe,
+    enabled: Boolean(hasToken),
+    retry: false,
+  });
 
   return (
     <header className="!sticky !top-0 !z-50 !h-[70px] !w-full !border-b !border-[#DFDFDF] !bg-white">
@@ -49,12 +61,25 @@ function Header() {
           </nav>
         </div>
 
-        <Link
-          href="/login"
-          className="!flex !h-[48px] !w-[88px] !items-center !justify-center !rounded-lg !bg-[#3692FF] !text-base !font-semibold !text-white"
-        >
-          로그인
-        </Link>
+        {hasToken ? (
+          <div className="!flex !items-center !gap-3">
+            <img
+              src="/images/icons/pr-small.svg"
+              alt="프로필"
+              className="!h-8 !w-8"
+            />
+            <span className="!text-sm !font-semibold !text-[#111827]">
+              {user?.nickname || user?.name || "판다유저"}
+            </span>
+          </div>
+        ) : (
+          <Link
+            href="/signin"
+            className="!flex !h-[48px] !w-[88px] !items-center !justify-center !rounded-lg !bg-[#3692FF] !text-base !font-semibold !text-white"
+          >
+            로그인
+          </Link>
+        )}
       </div>
     </header>
   );

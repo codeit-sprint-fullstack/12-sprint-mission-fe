@@ -1,20 +1,37 @@
 "use client";
 
 import { useRouter } from "next/navigation";
+import { useQueryClient } from "@tanstack/react-query";
+import { getProduct } from "@/lib/ProductService";
 
 const DEFAULT_IMAGE = "/images/default-product.png";
 
 function ProductCard({ product }) {
   const router = useRouter();
-  const formattedPrice = product.price?.toLocaleString() ?? "0";
+  const queryClient = useQueryClient();
+
+  const formattedPrice = Number(product.price || 0).toLocaleString();
+
+  const handlePrefetch = () => {
+    queryClient.prefetchQuery({
+      queryKey: ["product", product.id],
+      queryFn: () => getProduct(product.id),
+      staleTime: 1000 * 30,
+    });
+  };
 
   return (
     <div
       className="product-card"
       onClick={() => router.push(`/items/${product.id}`)}
+      onMouseEnter={handlePrefetch}
+      onFocus={handlePrefetch}
     >
       <div className="product-image-box">
-        <img src={DEFAULT_IMAGE} alt={product.name} />
+        <img
+          src={product.images?.[0] || product.image || DEFAULT_IMAGE}
+          alt={product.name}
+        />
       </div>
 
       <div className="product-info">

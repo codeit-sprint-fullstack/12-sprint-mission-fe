@@ -1,3 +1,4 @@
+import Providers from "./providers";
 import "./globals.css";
 import "@/styles/legacy.css";
 
@@ -9,7 +10,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="ko">
-      <body>{children}</body>
+      <body>
+        <Providers>{children}</Providers>
+      </body>
     </html>
   );
 }

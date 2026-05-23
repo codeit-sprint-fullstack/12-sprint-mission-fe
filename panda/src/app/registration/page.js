@@ -1,16 +1,22 @@
 "use client";
 
-import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
 import useProductForm from "@/hooks/useProductForm";
-import { createProduct } from "@/lib/ProductService";
+import { createProduct, getProduct, patchProduct } from "@/lib/ProductService";
 
 export default function RegistrationPage() {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const queryClient = useQueryClient();
+
+  const productId = searchParams.get("id");
+  const isEditMode = Boolean(productId);
+
   const [submitError, setSubmitError] = useState("");
-  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const {
     name,
@@ -22,11 +28,48 @@ export default function RegistrationPage() {
     tagInput,
     setTagInput,
     tags,
+    setTags,
     errors,
     isFormValid,
     handleAddTag,
     handleRemoveTag,
   } = useProductForm();
+
+  const productQuery = useQuery({
+    queryKey: ["product", productId],
+    queryFn: () => getProduct(productId),
+    enabled: isEditMode,
+  });
+
+  useEffect(() => {
+    if (!productQuery.data) return;
+
+    setName(productQuery.data.name || "");
+    setDescription(productQuery.data.description || "");
+    setPrice(String(productQuery.data.price || ""));
+    setTags(productQuery.data.tags || []);
+  }, [productQuery.data, setName, setDescription, setPrice, setTags]);
+
+  const productMutation = useMutation({
+    mutationFn: (payload) => {
+      if (isEditMode) {
+        return patchProduct(productId, payload);
+      }
+
+      return createProduct(payload);
+    },
+    onSuccess: (data) => {
+      queryClient.invalidateQueries({ queryKey: ["products"] });
+      queryClient.invalidateQueries({ queryKey: ["product", productId] });
+
+      router.push(`/items/${data.id || productId}`);
+    },
+    onError: () => {
+      setSubmitError(
+        isEditMode ? "상품 수정에 실패했습니다." : "상품 등록에 실패했습니다.",
+      );
+    },
+  });
 
   const handleTagKeyDown = (e) => {
     if (e.key === "Enter") {
@@ -35,30 +78,30 @@ export default function RegistrationPage() {
     }
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!isFormValid || isSubmitting) return;
+    if (!isFormValid || productMutation.isPending) return;
 
-    try {
-      setSubmitError("");
-      setIsSubmitting(true);
-
-      const createdProduct = await createProduct({
-        name: name.trim(),
-        description: description.trim(),
-        price: Number(price),
-        tags,
-      });
-
-      router.push(`/items/${createdProduct.id}`);
-    } catch (error) {
-      console.error(error);
-      setSubmitError("상품 등록에 실패했습니다.");
-    } finally {
-      setIsSubmitting(false);
-    }
+    productMutation.mutate({
+      name: name.trim(),
+      description: description.trim(),
+      price: Number(price),
+      tags,
+    });
   };
+
+  if (isEditMode && productQuery.isLoading) {
+    return (
+      <div className="registration-page">
+        <Header />
+        <main className="registration-main text-center text-[#9CA3AF]">
+          상품 정보를 불러오는 중...
+        </main>
+        <Footer />
+      </div>
+    );
+  }
 
   return (
     <div className="registration-page">
@@ -67,15 +110,23 @@ export default function RegistrationPage() {
       <main className="registration-main">
         <section className="registration-section">
           <div className="registration-header">
-            <h1 className="registration-title">상품 등록하기</h1>
+            <h1 className="registration-title">
+              {isEditMode ? "상품 수정하기" : "상품 등록하기"}
+            </h1>
 
             <button
               type="submit"
               form="registration-form"
               className="submit-button"
-              disabled={!isFormValid || isSubmitting}
+              disabled={!isFormValid || productMutation.isPending}
             >
-              {isSubmitting ? "등록 중..." : "등록"}
+              {productMutation.isPending
+                ? isEditMode
+                  ? "수정 중..."
+                  : "등록 중..."
+                : isEditMode
+                  ? "수정"
+                  : "등록"}
             </button>
           </div>
 
