@@ -109,10 +109,10 @@ export const authHeaderFetch = async (url, options = {}) => {
   };
 
   // 원래 요청 실행
-  let response = await fetch(`${baseURL}${url}`, mergedOptions);
+  let res = await fetch(`${baseURL}${url}`, mergedOptions);
 
   // 401 에러 발생 시 토큰 갱신 시도
-  if (response.status === 401 && url !== "/auth/refresh-token") {
+  if (res.status === 401 && url !== "/auth/refresh-token") {
     try {
       // 토큰 갱신 요청
       const refreshResponse = await fetch(`${baseURL}/auth/refresh-token`, {
@@ -127,26 +127,28 @@ export const authHeaderFetch = async (url, options = {}) => {
       });
 
       if (refreshResponse.ok) {
+        const data = await refreshResponse.json();
+        localStorage.setItem("accessToken", data.accessToken);
         // 토큰 갱신 성공 시 원래 요청 재시도
-        response = await fetch(`${baseURL}${url}`, mergedOptions);
+        res = await fetch(`${baseURL}${url}`, mergedOptions);
       }
     } catch (error) {
       console.error("토큰 갱신 실패:", error);
     }
   }
 
-  if (!response.ok) {
-    throw new Error(`API error: ${response.status}`);
+  if (!res.ok) {
+    throw new Error(`API error: ${res.status}`);
   }
 
   // 응답 본문이 있는지 확인
-  const contentType = response.headers.get("content-type");
+  const contentType = res.headers.get("content-type");
   if (contentType && contentType.includes("application/json")) {
-    return response.json();
+    return res.json();
   }
 
   // 본문이 없거나 JSON이 아닌 경우 응답 객체 자체 반환
-  return { status: response.status, ok: response.ok };
+  return { status: res.status, ok: res.ok };
 };
 
 /**

@@ -34,17 +34,20 @@ export default function AuthProvider({ children }) {
   };
 
   const signUp = async (name, email, password, passwordConfirmation) => {
-    return await authService.signUp(
+    const data = await authService.signUp(
       name,
       email,
       password,
       passwordConfirmation,
     );
+    await getUser();
+    return data;
   };
 
   const login = async (email, password) => {
-    return await authService.login(email, password);
-    // await getUser();
+    const data = await authService.login(email, password);
+    await getUser();
+    return data;
   };
 
   const logout = async () => {
@@ -52,11 +55,9 @@ export default function AuthProvider({ children }) {
     setUser(null);
   };
 
-  // useEffect(() => {
-  //   if (user) {
-  //     getUser();
-  //   }
-  // }, []);
+  useEffect(() => {
+    getUser();
+  }, []);
 
   return (
     <AuthContext.Provider value={{ user, login, logout, signUp }}>

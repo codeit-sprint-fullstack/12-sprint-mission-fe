@@ -8,7 +8,6 @@ import icVisibleOff from "@/assets/icons/ic_visible_off.png";
 import icVisibleOn from "@/assets/icons/ic_visible_on.png";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
-import { fetchSignUp } from "@/lib/fetchData";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useAuth } from "@/providers/AuthProvider";
 
