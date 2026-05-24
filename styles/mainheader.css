@@ -46,7 +46,7 @@
 
 .logo__title {
   color: #3692ff;
-  font-family: "ROKAF Sans", sans-serif;
+  font-family: \"ROKAF Sans\", sans-serif;
   font-size: 1.625rem;
   font-weight: 700;
   line-height: 1;
@@ -71,6 +71,11 @@
   color: #111827;
 }
 
+.header__right {
+  display: flex;
+  align-items: center;
+}
+
 .header__login {
   display: inline-flex;
   justify-content: center;
@@ -85,6 +90,76 @@
   font-size: 1rem;
   font-weight: 600;
   line-height: 1.625rem;
+}
+
+.header__profile {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.header__avatar-wrapper {
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: #9ca3af;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  position: relative;
+}
+
+.header__avatar-img {
+  display: block;
+  object-fit: contain;
+}
+
+.header__nickname {
+  color: #374151;
+  font-family: Pretendard, sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+
+  display: inline-flex;
+  align-items: center;
+}
+
+.header__logout-btn {
+  background: none;
+  border: 1px solid #d1d5db;
+  padding: 0.375rem 0.75rem;
+  border-radius: 0.375rem;
+  font-family: Pretendard, sans-serif;
+  font-size: 0.75rem;
+  color: #6b7280;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header__logout-btn:hover {
+  background-color: #f3f4f6;
+  color: #374151;
+}
+
+@media (max-width: 1199px) {
+  .header__container {
+    padding: 0 3.75rem;
+  }
+
+  .header__left {
+    gap: 2.5rem;
+  }
+
+  .header__menu {
+    gap: 1.5rem;
+  }
 }
 
 @media (max-width: 743px) {
@@ -112,5 +187,19 @@
     width: 5.5rem;
     height: 2.5rem;
     font-size: 0.875rem;
+  }
+
+  .header__avatar-wrapper {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .header__nickname {
+    font-size: 0.8125rem;
+  }
+
+  .header__logout-btn {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.6875rem;
   }
 }

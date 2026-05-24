@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import Header from "../../../components/Header";
 import Footer from "../../../components/Footer";
 import { createArticle } from "../../../lib/articleService";
-
+import "../../../styles/forum-write.css";
 export default function CreateArticlePage() {
   const router = useRouter();
   const fileInputRef = useRef(null);

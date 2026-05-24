@@ -8,6 +8,7 @@ import {
   getArticleDetail,
   updateArticle,
 } from "../../../../lib/articleService";
+import "../../../../styles/forum-write.css";
 
 export default function EditArticlePage(props) {
   const router = useRouter();

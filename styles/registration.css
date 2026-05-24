@@ -27,16 +27,21 @@
   color: #1f2937;
 }
 
-.submit-btn.active {
-  background-color: #3692ff;
+.submit-btn {
+  background-color: #9ca3af;
   color: #ffffff;
   padding: 10px 36px;
   border-radius: 8px;
   font-weight: 600;
   font-size: 16px;
-  cursor: pointer;
+  cursor: not-allowed;
   border: none;
   transition: background-color 0.2s;
+}
+
+.submit-btn.active {
+  background-color: #3692ff;
+  cursor: pointer;
 }
 
 .submit-btn.active:hover {
@@ -53,6 +58,83 @@
   font-size: 18px;
   font-weight: 700;
   color: #1f2937;
+}
+
+.image-upload-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 4px;
+}
+
+.image-upload-box {
+  width: 180px;
+  height: 180px;
+  background-color: #f3f4f6;
+  border: 1px dashed #d1d5db;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  gap: 8px;
+  transition:
+    background-color 0.2s,
+    border-color 0.2s;
+}
+
+.image-upload-box:hover {
+  background-color: #e5e7eb;
+  border-color: #3692ff;
+}
+
+.image-file-input {
+  display: none;
+}
+
+.upload-icon {
+  font-size: 32px;
+  color: #9ca3af;
+  font-weight: 300;
+  line-height: 1;
+}
+
+.upload-text {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.image-preview-box {
+  position: relative;
+  width: 180px;
+  height: 180px;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #f3f4f6;
+}
+
+.image-delete-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 24px;
+  height: 24px;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #ffffff;
+  border: none;
+  border-radius: 50%;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: background-color 0.2s;
+}
+
+.image-delete-btn:hover {
+  background-color: rgba(239, 68, 68, 0.9);
 }
 
 .form-input,
@@ -130,24 +212,6 @@
   margin-top: -4px;
 }
 
-.submit-btn {
-  background-color: #9ca3af;
-  cursor: not-allowed;
-  color: #ffffff;
-  padding: 10px 36px;
-  border-radius: 8px;
-  font-weight: 600;
-  font-size: 16px;
-  cursor: pointer;
-  border: none;
-  transition: background-color 0.2s;
-}
-
-.submit-btn.active {
-  background-color: #3692ff;
-  cursor: pointer;
-}
-
 @media (max-width: 768px) {
   .item-registration-form {
     gap: 24px;
@@ -160,5 +224,11 @@
   .form-input,
   .form-textarea {
     padding: 12px;
+  }
+
+  .image-upload-box,
+  .image-preview-box {
+    width: 140px;
+    height: 140px;
   }
 }

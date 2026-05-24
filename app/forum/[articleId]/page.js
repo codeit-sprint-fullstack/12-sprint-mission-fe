@@ -15,6 +15,7 @@ import {
   deleteArticle,
 } from "../../../lib/articleService";
 import { formatRelativeTime } from "../../../lib/formatDate";
+import "../../../styles/detail_forum.css";
 
 function KebabMenu({ onEdit, onDelete }) {
   const [open, setOpen] = useState(false);
