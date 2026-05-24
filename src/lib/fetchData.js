@@ -14,6 +14,10 @@ export const fetchSignIn = async (email, password) => {
   );
   const data = await res.json();
 
+  if (data.accessToken) {
+    localStorage.setItem("accessToken", data.accessToken);
+  }
+
   return {
     status: res.status,
     data,
@@ -42,6 +46,10 @@ export const fetchSignUp = async (
     },
   );
   const data = await res.json();
+
+  if (data.accessToken) {
+    localStorage.setItem("accessToken", data.accessToken);
+  }
 
   return {
     status: res.status,

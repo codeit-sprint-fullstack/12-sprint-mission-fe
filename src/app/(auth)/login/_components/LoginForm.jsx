@@ -1,6 +1,5 @@
 "use client";
 import Button from "@/app/components/Button";
-import { fetchSignIn } from "@/lib/fetchData";
 import Image from "next/image";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
@@ -9,8 +8,10 @@ import icVisibleOn from "@/assets/icons/ic_visible_on.png";
 import Modal from "@/app/components/Modal";
 import { useRouter } from "next/navigation";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useAuth } from "@/providers/AuthProvider";
 
 const LoginForm = () => {
+  const { login } = useAuth();
   const [isVisible, setIsVisible] = useState(false);
   const [modalConfig, setModalConfig] = useState({
     isOpen: false,
@@ -28,7 +29,7 @@ const LoginForm = () => {
   const queryClient = useQueryClient();
 
   const { mutate: handleSignIn } = useMutation({
-    mutationFn: ({ email, password }) => fetchSignIn(email, password),
+    mutationFn: ({ email, password }) => login(email, password),
     onSuccess: (res) => {
       queryClient.invalidateQueries({ queryKey: ["signIn"] });
       if (res.status !== 200) {
@@ -38,7 +39,7 @@ const LoginForm = () => {
         });
         return;
       }
-      router.push("/items");
+      router.replace("/items");
       reset();
     },
   });
@@ -47,7 +48,7 @@ const LoginForm = () => {
     setModalConfig({ ...modalConfig, isOpen: false });
   };
 
-  const onSubmit = async (data) => {
+  const onSubmit = (data) => {
     handleSignIn({ email: data.email, password: data.password });
   };
 

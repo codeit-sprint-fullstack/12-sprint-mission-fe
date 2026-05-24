@@ -10,8 +10,10 @@ import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { fetchSignUp } from "@/lib/fetchData";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useAuth } from "@/providers/AuthProvider";
 
 const RegisterForm = () => {
+  const { signUp } = useAuth();
   const [isVisible, setIsVisible] = useState(false);
   const [isConfirmVisible, setIsConfirmVisible] = useState(false);
   const [modalConfig, setModalConfig] = useState({
@@ -32,7 +34,7 @@ const RegisterForm = () => {
 
   const { mutate: handleSignUp } = useMutation({
     mutationFn: ({ email, nickname, password, passwordConfirmation }) =>
-      fetchSignUp(email, nickname, password, passwordConfirmation),
+      signUp(email, nickname, password, passwordConfirmation),
     onSuccess: (res) => {
       queryClient.invalidateQueries({ queryKey: ["signUp"] });
       if (res.status !== 201) {
@@ -42,7 +44,7 @@ const RegisterForm = () => {
         });
         return;
       }
-      router.push("/items");
+      router.replace("/items");
       reset();
     },
   });
@@ -51,12 +53,12 @@ const RegisterForm = () => {
     setModalConfig({ ...modalConfig, isOpen: false });
   };
 
-  const onSubmit = async (data) => {
+  const onSubmit = (data) => {
     handleSignUp({
       email: data.email,
       nickname: data.nickname,
       password: data.password,
-      passwordConfirmation: data.confirmPassword,
+      passwordConfirmation: data.passwordConfirmation,
     });
   };
 
@@ -149,14 +151,14 @@ const RegisterForm = () => {
           <div className="relative">
             <input
               type={isConfirmVisible ? "text" : "password"}
-              {...register("confirmPassword", {
+              {...register("passwordConfirmation", {
                 required: "비밀번호를 다시 한 번 입력해주세요",
                 validate: (value) =>
                   value === getValues("password") ||
                   "비밀번호가 일치하지 않습니다",
               })}
               placeholder="비밀번호를 다시 한 번 입력해주세요"
-              className={`w-full pl-[24px] pr-[52px] py-[16px] bg-(--Secondary-100) rounded-xl text-lg ${errors.confirmPassword ? "border-2 border-(--error-red)" : ""}`}
+              className={`w-full pl-[24px] pr-[52px] py-[16px] bg-(--Secondary-100) rounded-xl text-lg ${errors.passwordConfirmation ? "border-2 border-(--error-red)" : ""}`}
             />
             <button
               type="button"
@@ -169,9 +171,9 @@ const RegisterForm = () => {
               />
             </button>
           </div>
-          {errors.confirmPassword && (
+          {errors.passwordConfirmation && (
             <p className="text-(--error-red)">
-              {errors.confirmPassword.message}
+              {errors.passwordConfirmation.message}
             </p>
           )}
         </div>

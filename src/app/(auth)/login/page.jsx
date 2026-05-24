@@ -28,20 +28,23 @@ const LoginPage = () => {
         <div className="px-[24px] py-[16px] w-full flex justify-between items-center bg-(--background-blue) rounded-lg">
           <p className="text-lg text-(--Secondary-800)">간편 로그인하기</p>
           <div className="flex gap-2">
-            <button className="cursor-pointer">
+            <Link href="https://www.google.com" className="cursor-pointer">
               <Image
                 src={icGoogle}
                 alt="구글 아이디 로그인"
                 className="object-contain"
               />
-            </button>
-            <button className="flex justify-center pt-[10px] py-[8px] w-[42px] h-[42px] bg-[#F5E14B] rounded-full cursor-pointer">
+            </Link>
+            <Link
+              href="https://www.kakaocorp.com/page"
+              className="flex justify-center pt-[10px] py-[8px] w-[42px] h-[42px] bg-[#F5E14B] rounded-full cursor-pointer"
+            >
               <Image
                 src={icKakaotalk}
                 alt="카카오톡 아이디 로그인"
                 className="object-contain"
               />
-            </button>
+            </Link>
           </div>
         </div>
         <p className="text-md text-(--Secondary-800)">
