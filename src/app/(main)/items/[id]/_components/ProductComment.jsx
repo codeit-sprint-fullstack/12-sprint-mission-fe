@@ -1,14 +1,14 @@
 "use client";
 
 import Button from "@/app/components/Button";
-import ListReply from "@/app/components/ListReply";
 import { useParams, useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
-import EmptyComment from "../../../../components/EmptyComment";
 import icBack from "@/assets/icons/ic_back.png";
 import Image from "next/image";
+import EmptyComment from "@/app/components/EmptyComment";
+import ListProductReply from "@/app/components/ListProductReply";
 
-const ArticleComment = () => {
+const ProductComment = () => {
   const { id } = useParams();
   const [comments, setComments] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -19,13 +19,13 @@ const ArticleComment = () => {
     const fetchComments = async (id) => {
       try {
         const res = await fetch(
-          `${process.env.NEXT_PUBLIC_API_URL}/articles/${id}/comments`,
+          `${process.env.NEXT_PUBLIC_PANDAMARKET_API_URL}/products/${id}/comments?limit=10`,
         );
         if (!res.ok) {
           throw new Error("댓글 불러오기에 실패했습니다.");
         }
-        const { data } = await res.json();
-        setComments(data);
+        const { list } = await res.json();
+        setComments(list);
       } catch (error) {
         console.error(error.message);
       } finally {
@@ -39,11 +39,11 @@ const ArticleComment = () => {
     const reFetch = async () => {
       try {
         const res = await fetch(
-          `${process.env.NEXT_PUBLIC_API_URL}/articles/${id}/comments`,
+          `${process.env.NEXT_PUBLIC_PANDAMARKET_API_URL}/products/${id}/comments?limit=10`,
         );
         if (res.ok) {
-          const { data } = await res.json();
-          setComments(data);
+          const { list } = await res.json();
+          setComments(list);
         }
       } catch (e) {
         console.error(e);
@@ -61,11 +61,12 @@ const ArticleComment = () => {
     e.preventDefault();
     try {
       const res = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/articles/${id}/comments`,
+        `${process.env.NEXT_PUBLIC_PANDAMARKET_API_URL}/products/${id}/comments`,
         {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
+            Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
           },
           body: JSON.stringify({
             content: values.content,
@@ -96,18 +97,18 @@ const ArticleComment = () => {
   }
 
   return (
-    <div>
+    <div className="my-[24px]">
       <div className="mb-[24px] flex flex-col gap-[9px] md:mb-[32px] xl:mb-[40px]">
         <h1 className="text-lg text-(--Secondary-900) font-semibold">
-          댓글달기
+          문의하기
         </h1>
         <div className="flex flex-col gap-[16px] items-end">
           <textarea
             name="content"
             value={values.content}
             onChange={handleChange}
-            placeholder="댓글을 입력해주세요"
-            className="w-full h-[104px] px-[24px] py-[16px] bg-(--Secondary-100) rounded-xl text-lg resize-none"
+            placeholder="개인정보를 공유 및 요청하거나, 명예 훼손, 무단 광고, 불법 정보 유포시 모니터링 후 삭제될 수 있으며, 이에 대한 민형사상 책임은 게시자에게 있습니다."
+            className="w-full h-[129px] px-[24px] py-[16px] bg-(--Secondary-100) rounded-xl text-lg resize-none"
           />
           <div>
             <Button onClick={handleSubmit} disabled={isDisabled}>
@@ -117,12 +118,12 @@ const ArticleComment = () => {
         </div>
       </div>
       {comments.length <= 0 ? (
-        <EmptyComment type={"articles"} />
+        <EmptyComment type={"products"} />
       ) : (
         <div className="flex flex-col gap-[16px]">
           {comments.map((comment) => {
             return (
-              <ListReply
+              <ListProductReply
                 key={comment.id}
                 comment={comment}
                 onUpdate={handleRefreshComments}
@@ -134,7 +135,7 @@ const ArticleComment = () => {
       <div className="flex justify-center mt-[40px] md:mt-[56px] xl:mt-[64px]">
         <button
           onClick={() => {
-            router.push("/community");
+            router.push("/items");
           }}
           className="flex gap-2 text-2lg font-semibold text-white text-center rounded-[40px] bg-(--Primary-100) px-[64px] py-[12px] cursor-pointer hover:bg-(--Primary-200)"
         >
@@ -153,4 +154,4 @@ const ArticleComment = () => {
   );
 };
 
-export default ArticleComment;
+export default ProductComment;
