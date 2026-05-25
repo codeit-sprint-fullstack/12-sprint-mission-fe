@@ -13,7 +13,7 @@ const NAV_TABS = [
 
 export const Header = () => {
   const pathname = usePathname();
-  const { data: user, isPending } = useUser();
+  const { data: user, isLoading } = useUser();
 
   const isRoot = pathname === "/";
 
@@ -73,7 +73,7 @@ export const Header = () => {
           )}
         </div>
 
-        {isPending ? null : user ? (
+        {isLoading ? null : user ? (
           <div className="flex items-center gap-[0.4rem]">
             <Image
               src={user.image || "/images/profile-default-img.svg"}
