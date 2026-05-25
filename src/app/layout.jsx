@@ -1,5 +1,6 @@
 import { Toaster } from "react-hot-toast";
 import localFont from "next/font/local";
+import Providers from "./providers";
 import "./globals.css";
 
 const pretendard = localFont({
@@ -20,18 +21,20 @@ export default function RootLayout({ children }) {
   return (
     <html lang="ko" className={`${pretendard.variable} antialiased`}>
       <body className="min-h-screen flex flex-col">
-        {children}
+        <Providers>
+          {children}
 
-        <Toaster
-          position="top-center"
-          toastOptions={{
-            duration: 3000,
-            style: {
-              background: "#333",
-              color: "#fff",
-            },
-          }}
-        />
+          <Toaster
+            position="top-center"
+            toastOptions={{
+              duration: 3000,
+              style: {
+                background: "#333",
+                color: "#fff",
+              },
+            }}
+          />
+        </Providers>
       </body>
     </html>
   );
