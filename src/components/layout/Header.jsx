@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -14,6 +15,11 @@ const NAV_TABS = [
 export const Header = () => {
   const pathname = usePathname();
   const { data: user, isLoading } = useUser();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const isRoot = pathname === "/";
 
@@ -73,7 +79,7 @@ export const Header = () => {
           )}
         </div>
 
-        {isLoading ? null : user ? (
+        {!mounted ? null : isLoading ? null : user ? (
           <div className="flex items-center gap-[0.4rem]">
             <Image
               src={user.image || "/images/profile-default-img.svg"}
