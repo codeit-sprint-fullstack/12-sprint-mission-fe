@@ -1,6 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
+import { signIn, saveTokens } from "@/lib/api/auth";
 import useAuthForm from "@/hooks/useAuthForm";
 import Button from "@/components/ui/Button";
 import Modal from "@/components/ui/Modal";
@@ -13,6 +14,7 @@ export default function LoginForm() {
   const {
     values,
     errors,
+    setFieldErrors,
     isValid,
     isSubmitting,
     submitError,
@@ -28,8 +30,22 @@ export default function LoginForm() {
         onSubmit={(e) => {
           e.preventDefault();
           handleSubmit(async (values) => {
-            //await updateArticle(post.id, values);
-            router.replace(`/items`);
+            try {
+              const data = await signIn(values);
+              saveTokens(data);
+              router.replace("/items");
+            } catch (err) {
+              // 로그인 실패: 인풋 아래 메시지
+              if (err.status >= 400 && err.status < 500) {
+                setFieldErrors({
+                  email: "이메일을 확인해 주세요.",
+                  password: "비밀번호를 확인해 주세요.",
+                });
+              } else {
+                // 그 외 에러 (네트워크, 500 등): 모달
+                setSubmitError(err.message);
+              }
+            }
           });
         }}
         className="flex flex-col gap-4 md:gap-6 w-full mb-6"
