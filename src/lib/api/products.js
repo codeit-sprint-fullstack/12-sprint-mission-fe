@@ -1,0 +1,29 @@
+import { api } from "./client";
+
+export const getProducts = ({
+  page = 1,
+  pageSize = 10,
+  orderBy = "recent",
+  keyword = "",
+}) => {
+  const params = new URLSearchParams({ page, pageSize, orderBy, keyword });
+  return api.get(`/products?${params}`);
+};
+
+export const getProduct = (id) => api.get(`/products/${id}`);
+
+export const createProduct = (data) => api.post(`/products`, data);
+
+export const updateProduct = (id, fields) =>
+  api.patch(`/products/${id}`, fields);
+
+export const deleteProduct = (id) => api.delete(`/products/${id}`);
+
+export const getProductComments = ({ productId, cursor, take = 10 }) => {
+  const params = new URLSearchParams({ take });
+  if (cursor) params.append("cursor", cursor);
+  return api.get(`/products/${productId}/comments?${params}`);
+};
+
+export const createProductComment = (productId, content) =>
+  api.post(`/products/${productId}/comments`, { content });

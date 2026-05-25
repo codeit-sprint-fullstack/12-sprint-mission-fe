@@ -8,4 +8,10 @@ export const saveTokens = ({ accessToken }) => {
   localStorage.setItem("accessToken", accessToken);
 };
 
-export const getAccessToken = () => localStorage.getItem("accessToken");
+export const getAccessToken = () => {
+  if (typeof window === "undefined") {
+    return null;
+  }
+
+  return localStorage.getItem("accessToken");
+};

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import useUser from "@/hooks/useUser";
 import Button from "@/components/ui/Button";
 
 const NAV_TABS = [
@@ -12,6 +13,8 @@ const NAV_TABS = [
 
 export const Header = () => {
   const pathname = usePathname();
+  const { data: user, isPending } = useUser();
+
   const isRoot = pathname === "/";
 
   const isActive = (href) => {
@@ -69,7 +72,22 @@ export const Header = () => {
             </nav>
           )}
         </div>
-        <Button href="/login">로그인</Button>
+
+        {isPending ? null : user ? (
+          <div className="flex items-center gap-[0.4rem]">
+            <Image
+              src={user.image || "/images/profile-default-img.svg"}
+              alt={`${user.nickname}님의 프로필 이미지`}
+              width={40}
+              height={40}
+            />
+            <span className="hidden md:inline md:text-lg lg:text-2lg text-gray-600">
+              {user.nickname}
+            </span>
+          </div>
+        ) : (
+          <Button href="/login">로그인</Button>
+        )}
       </div>
     </header>
   );
