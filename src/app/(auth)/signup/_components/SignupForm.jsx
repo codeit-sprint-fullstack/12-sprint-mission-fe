@@ -16,7 +16,6 @@ export default function SignupForm() {
     errors,
     setFieldErrors,
     isValid,
-    isSubmitting,
     submitError,
     setSubmitError,
     handleChange,
@@ -31,33 +30,31 @@ export default function SignupForm() {
     validateSignup,
   );
 
+  const { mutate, isPending } = useMutation({
+    mutationFn: signUp,
+    onSuccess: (data) => {
+      saveTokens(data);
+      router.replace("/items");
+    },
+    onError: (err) => {
+      if (err.details) {
+        const fieldErrors = Object.fromEntries(
+          Object.entries(err.details).map(([key, val]) => [key, val.message]),
+        );
+        setFieldErrors(fieldErrors);
+      } else {
+        setSubmitError(err.message);
+      }
+    },
+  });
+
   return (
     <>
       <form
         noValidate
         onSubmit={(e) => {
           e.preventDefault();
-          handleSubmit(async (values) => {
-            try {
-              const data = await signUp(values);
-              saveTokens(data);
-              router.replace("/items");
-            } catch (err) {
-              if (err.details) {
-                // 필드 관련 에러: 인풋 아래 메시지
-                const fieldErrors = Object.fromEntries(
-                  Object.entries(err.details).map(([key, val]) => [
-                    key,
-                    val.message,
-                  ]),
-                );
-                setFieldErrors(fieldErrors);
-              } else {
-                // 필드와 무관한 에러 (네트워크, 500 등): 모달
-                setSubmitError(err.message);
-              }
-            }
-          });
+          handleSubmit(async (values) => mutate(values));
         }}
         className="flex flex-col gap-4 md:gap-6 w-full mb-6"
       >
@@ -108,7 +105,7 @@ export default function SignupForm() {
           rounded="full"
           className="h-14"
           disabled={!isValid}
-          loading={isSubmitting}
+          loading={isPending}
         >
           회원가입
         </Button>

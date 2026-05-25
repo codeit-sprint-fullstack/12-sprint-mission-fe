@@ -3,7 +3,6 @@ import { useState } from "react";
 export default function useAuthForm(initialValues, validate) {
   const [values, setValues] = useState(initialValues);
   const [errors, setErrors] = useState({});
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState(null);
 
   const handleChange = (name, value) => {
@@ -26,12 +25,7 @@ export default function useAuthForm(initialValues, validate) {
       return;
     }
 
-    try {
-      setIsSubmitting(true);
-      await action(values);
-    } finally {
-      setIsSubmitting(false);
-    }
+    await action(values);
   };
 
   // 서버 응답 에러 처리
@@ -51,7 +45,6 @@ export default function useAuthForm(initialValues, validate) {
     errors,
     setFieldErrors,
     isValid,
-    isSubmitting,
     submitError,
     setSubmitError,
     handleChange,

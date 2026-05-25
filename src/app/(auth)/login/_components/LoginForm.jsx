@@ -1,6 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
+import { useMutation } from "@tanstack/react-query";
 import { signIn, saveTokens } from "@/lib/api/auth";
 import useAuthForm from "@/hooks/useAuthForm";
 import Button from "@/components/ui/Button";
@@ -10,18 +11,36 @@ import FormField from "@/app/(auth)/_components/FormField";
 
 export default function LoginForm() {
   const router = useRouter();
-
   const {
     values,
     errors,
     setFieldErrors,
     isValid,
-    isSubmitting,
     submitError,
     setSubmitError,
     handleChange,
     handleSubmit,
   } = useAuthForm({ email: "", password: "" }, validateLogin);
+
+  const { mutate, isPending } = useMutation({
+    mutationFn: signIn,
+    onSuccess: (data) => {
+      saveTokens(data);
+      router.replace("/items");
+    },
+    onError: (err) => {
+      if (err.status >= 400 && err.status < 500) {
+        // 4xx 에러: 인풋 아래 메시지
+        setFieldErrors({
+          email: "이메일을 확인해 주세요.",
+          password: "비밀번호를 확인해 주세요.",
+        });
+      } else {
+        // 그 외 에러 (네트워크, 500 등): 모달
+        setSubmitError(err.message);
+      }
+    },
+  });
 
   return (
     <>
@@ -29,24 +48,7 @@ export default function LoginForm() {
         noValidate
         onSubmit={(e) => {
           e.preventDefault();
-          handleSubmit(async (values) => {
-            try {
-              const data = await signIn(values);
-              saveTokens(data);
-              router.replace("/items");
-            } catch (err) {
-              // 로그인 실패: 인풋 아래 메시지
-              if (err.status >= 400 && err.status < 500) {
-                setFieldErrors({
-                  email: "이메일을 확인해 주세요.",
-                  password: "비밀번호를 확인해 주세요.",
-                });
-              } else {
-                // 그 외 에러 (네트워크, 500 등): 모달
-                setSubmitError(err.message);
-              }
-            }
-          });
+          handleSubmit((values) => mutate(values));
         }}
         className="flex flex-col gap-4 md:gap-6 w-full mb-6"
       >
@@ -77,7 +79,7 @@ export default function LoginForm() {
           rounded="full"
           className="h-14"
           disabled={!isValid}
-          loading={isSubmitting}
+          loading={isPending}
         >
           로그인
         </Button>
