@@ -29,12 +29,17 @@ export default function useAuthForm(initialValues, validate) {
     try {
       setIsSubmitting(true);
       await action(values);
-    } catch (err) {
-      setSubmitError(err.message || "문제가 발생했습니다.");
-      throw err;
     } finally {
       setIsSubmitting(false);
     }
+  };
+
+  // 서버 응답 에러 처리
+  const setFieldErrors = (newErrors) => {
+    setErrors((prev) => ({
+      ...prev,
+      ...newErrors,
+    }));
   };
 
   const isValid =
@@ -44,6 +49,7 @@ export default function useAuthForm(initialValues, validate) {
   return {
     values,
     errors,
+    setFieldErrors,
     isValid,
     isSubmitting,
     submitError,

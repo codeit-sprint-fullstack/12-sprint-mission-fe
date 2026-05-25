@@ -16,9 +16,10 @@ async function request(endpoint, options = {}) {
     if (!res.ok) {
       const errorData = await res.json().catch(() => ({}));
       const error = new Error(
-        errorData.error || "알 수 없는 오류가 발생했습니다.",
+        errorData.message || "알 수 없는 오류가 발생했습니다.",
       );
       error.status = res.status;
+      error.details = errorData.details;
       throw error;
     }
 
