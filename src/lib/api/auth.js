@@ -7,3 +7,5 @@ export const signIn = (data) => api.post(`/auth/signIn`, data);
 export const saveTokens = ({ accessToken }) => {
   localStorage.setItem("accessToken", accessToken);
 };
+
+export const getAccessToken = () => localStorage.getItem("accessToken");
