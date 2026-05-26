@@ -1,12 +1,16 @@
 "use client";
 
-import usePostKebabMenu from "@/hooks/usePostKebabMenu";
+import useKebabMenu from "@/hooks/useKebabMenu";
+import { deleteArticle } from "@/lib/api/posts";
 import Modal from "@/components/ui/Modal";
 import KebabMenu from "@/components/ui/KebabMenu";
 
 export default function PostKebabMenu({ id }) {
-  const { isDeleting, modalOpen, setModalOpen, handleDelete } =
-    usePostKebabMenu({ id });
+  const { isDeleting, modalOpen, setModalOpen, handleDelete } = useKebabMenu({
+    deleteFn: () => deleteArticle(id),
+    redirectUrl: "/community",
+    queryKey: "articles",
+  });
 
   return (
     <>

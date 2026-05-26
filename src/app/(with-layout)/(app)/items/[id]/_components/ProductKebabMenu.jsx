@@ -1,7 +1,8 @@
 "use client";
 
-import useProductKebabMenu from "@/hooks/useProductKebabMenu";
+import useKebabMenu from "@/hooks/useKebabMenu";
 import useUser from "@/hooks/useUser";
+import { deleteProduct } from "@/lib/api/products";
 import Modal from "@/components/ui/Modal";
 import KebabMenu from "@/components/ui/KebabMenu";
 
@@ -9,8 +10,11 @@ export default function ProductKebabMenu({ productId, ownerId }) {
   const { data: user } = useUser();
   const isOwner = user?.id === ownerId;
 
-  const { isDeleting, modalOpen, setModalOpen, handleDelete } =
-    useProductKebabMenu({ productId });
+  const { isDeleting, modalOpen, setModalOpen, handleDelete } = useKebabMenu({
+    deleteFn: () => deleteProduct(productId),
+    redirectUrl: "/items",
+    queryKey: "products",
+  });
 
   if (!isOwner) return null;
 

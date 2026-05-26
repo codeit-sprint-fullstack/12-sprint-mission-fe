@@ -4,6 +4,7 @@ import Image from "next/image";
 import { formatDistanceToNow } from "date-fns";
 import { ko } from "date-fns/locale";
 import useCommentCard from "@/hooks/useCommentCard";
+import useKebabMenu from "@/hooks/useKebabMenu";
 import useUser from "@/hooks/useUser";
 import Button from "@/components/ui/Button";
 import Modal from "@/components/ui/Modal";
@@ -25,14 +26,15 @@ export default function CommentCard({
     isEditing,
     setIsEditing,
     isSubmitting,
-    isDeleting,
     isDisabled,
-    modalOpen,
-    setModalOpen,
     handleEdit,
     handleCancel,
-    handleDelete,
   } = useCommentCard({ comment, onRefresh, updateComment, deleteComment });
+
+  const { isDeleting, modalOpen, setModalOpen, handleDelete } = useKebabMenu({
+    deleteFn: () => deleteComment(comment.id),
+    onSuccess: onRefresh,
+  });
 
   return (
     <>
