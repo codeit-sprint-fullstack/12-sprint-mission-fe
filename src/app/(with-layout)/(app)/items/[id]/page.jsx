@@ -54,7 +54,7 @@ export default async function ProductDetailPage({ params }) {
                 </strong>
               </div>
 
-              <ProductKebabMenu id={id} />
+              <ProductKebabMenu productId={id} ownerId={product.ownerId} />
             </div>
 
             <div className="mb-6">
