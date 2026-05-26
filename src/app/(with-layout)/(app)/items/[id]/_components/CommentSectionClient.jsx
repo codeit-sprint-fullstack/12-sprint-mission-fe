@@ -35,6 +35,10 @@ export default function CommentSectionClient({ productId, initialComments }) {
           queryKey={queryKey}
           updateComment={updateComment}
           deleteComment={deleteComment}
+          emptyImage="/icons/ic-empty-inquiry.svg"
+          emptyMessage="아직 문의가 없어요"
+          emptySize={196}
+          className="pb-2"
         />
       )}
     </>

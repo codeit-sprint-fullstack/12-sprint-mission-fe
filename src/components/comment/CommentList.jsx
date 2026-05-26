@@ -6,23 +6,25 @@ export default function CommentList({
   queryKey,
   updateComment,
   deleteComment,
+  emptyImage,
+  emptyMessage,
+  emptySize,
+  className,
 }) {
   return (
     <div className="flex flex-col gap-4 md:gap-6 mb-10 md:mb-14 lg:mb-16">
       {comments.length == 0 ? (
         <div className="flex flex-col items-center justify-center">
           <Image
-            src="/icons/ic-empty-comment.svg"
-            width={140}
-            height={140}
+            src={emptyImage}
+            width={emptySize}
+            height={emptySize}
             alt=""
             aria-hidden="true"
             loading="eager"
+            className={className}
           />
-          <p className="text-lg text-gray-400 text-center">
-            아직 댓글이 없어요,
-            <br /> 지금 댓글을 달아보세요!
-          </p>
+          <p className="text-lg text-gray-400 text-center">{emptyMessage}</p>
         </div>
       ) : (
         comments.map((comment) => (
