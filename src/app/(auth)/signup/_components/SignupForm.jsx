@@ -1,6 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
+import { useMutation } from "@tanstack/react-query";
 import { signUp, saveTokens } from "@/lib/api/auth";
 import useAuthForm from "@/hooks/useAuthForm";
 import Button from "@/components/ui/Button";
@@ -19,7 +20,7 @@ export default function SignupForm() {
     submitError,
     setSubmitError,
     handleChange,
-    handleSubmit,
+    getValidatedValues,
   } = useAuthForm(
     {
       email: "",
@@ -48,14 +49,20 @@ export default function SignupForm() {
     },
   });
 
+  const onSubmit = (e) => {
+    e.preventDefault();
+
+    const validData = getValidatedValues();
+    if (validData) {
+      mutate(validData);
+    }
+  };
+
   return (
     <>
       <form
         noValidate
-        onSubmit={(e) => {
-          e.preventDefault();
-          handleSubmit(async (values) => mutate(values));
-        }}
+        onSubmit={onSubmit}
         className="flex flex-col gap-4 md:gap-6 w-full mb-6"
       >
         <FormField

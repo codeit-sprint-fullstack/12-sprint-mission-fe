@@ -16,16 +16,13 @@ export default function useAuthForm(initialValues, validate) {
     }
   };
 
-  const handleSubmit = async (action) => {
-    if (!isValid) return;
-
+  const getValidatedValues = () => {
     const validationErrors = validate(values);
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
-      return;
+      return null;
     }
-
-    await action(values);
+    return values;
   };
 
   // 서버 응답 에러 처리
@@ -48,6 +45,6 @@ export default function useAuthForm(initialValues, validate) {
     submitError,
     setSubmitError,
     handleChange,
-    handleSubmit,
+    getValidatedValues,
   };
 }

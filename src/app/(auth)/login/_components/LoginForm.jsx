@@ -19,7 +19,7 @@ export default function LoginForm() {
     submitError,
     setSubmitError,
     handleChange,
-    handleSubmit,
+    getValidatedValues,
   } = useAuthForm({ email: "", password: "" }, validateLogin);
 
   const { mutate, isPending } = useMutation({
@@ -42,14 +42,20 @@ export default function LoginForm() {
     },
   });
 
+  const onSubmit = (e) => {
+    e.preventDefault();
+
+    const validData = getValidatedValues();
+    if (validData) {
+      mutate(validData);
+    }
+  };
+
   return (
     <>
       <form
         noValidate
-        onSubmit={(e) => {
-          e.preventDefault();
-          handleSubmit((values) => mutate(values));
-        }}
+        onSubmit={onSubmit}
         className="flex flex-col gap-4 md:gap-6 w-full mb-6"
       >
         <FormField
