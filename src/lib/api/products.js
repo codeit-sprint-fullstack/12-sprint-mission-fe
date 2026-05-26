@@ -19,6 +19,12 @@ export const updateProduct = (id, fields) =>
 
 export const deleteProduct = (id) => api.delete(`/products/${id}`);
 
+export const toggleProductFavorite = (productId, nextLiked) => {
+  return nextLiked
+    ? api.post(`/products/${productId}/favorite`)
+    : api.delete(`/products/${productId}/favorite`);
+};
+
 export const getProductComments = async ({ productId, cursor, limit = 10 }) => {
   const params = new URLSearchParams({ limit });
   if (cursor) {

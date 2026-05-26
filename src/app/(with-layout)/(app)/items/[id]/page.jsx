@@ -99,7 +99,11 @@ export default async function ProductDetailPage({ params }) {
               </div>
 
               <div className="pl-6 border-l border-gray-200">
-                <LikeCountClient initialCount={product.favoriteCount} />
+                <LikeCountClient
+                  productId={id}
+                  initialCount={product.favoriteCount}
+                  initialLiked={product.isFavorite}
+                />
               </div>
             </div>
           </div>
@@ -107,6 +111,7 @@ export default async function ProductDetailPage({ params }) {
       </div>
 
       <CommentSection productId={id} />
+
       <BackToListButton href="/items" />
     </section>
   );
