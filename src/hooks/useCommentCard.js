@@ -1,8 +1,12 @@
 import { useState } from "react";
 import { toast } from "react-hot-toast";
-import { updateComment, deleteComment } from "@/lib/api/comments";
 
-export default function useCommentCard({ comment, onRefresh }) {
+export default function useCommentCard({
+  comment,
+  onRefresh,
+  updateComment,
+  deleteComment,
+}) {
   const [content, setContent] = useState(comment.content);
   const [isEditing, setIsEditing] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -13,12 +17,10 @@ export default function useCommentCard({ comment, onRefresh }) {
 
   const handleEdit = async () => {
     if (isDisabled) return;
-
     try {
       setIsSubmitting(true);
       await updateComment(comment.id, content);
       await onRefresh();
-
       setIsEditing(false);
     } catch (err) {
       toast.error(err.message || "댓글 수정에 실패했습니다.");

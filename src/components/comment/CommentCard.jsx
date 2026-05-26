@@ -9,7 +9,12 @@ import Modal from "@/components/ui/Modal";
 import KebabMenu from "@/components/ui/KebabMenu";
 import CommentTextarea from "./CommentTextarea";
 
-export default function CommentCard({ comment, onRefresh }) {
+export default function CommentCard({
+  comment,
+  onRefresh,
+  updateComment,
+  deleteComment,
+}) {
   const {
     content,
     setContent,
@@ -23,21 +28,18 @@ export default function CommentCard({ comment, onRefresh }) {
     handleEdit,
     handleCancel,
     handleDelete,
-  } = useCommentCard({ comment, onRefresh });
+  } = useCommentCard({ comment, onRefresh, updateComment, deleteComment });
 
   return (
     <>
       <div
-        className={`
-          flex flex-col pb-[0.75rem] border-b border-gray-300 bg-surface
-          ${isEditing ? "gap-4" : "gap-6"}    
-      `}
+        className={`flex flex-col pb-[0.75rem] border-b border-gray-300 bg-surface ${isEditing ? "gap-4" : "gap-6"}`}
       >
         {isEditing ? (
           <CommentTextarea value={content} onChange={setContent} />
         ) : (
           <div className="flex justify-between items-start gap-3">
-            <p className="tflex-1 min-w-0 break-words text-md">
+            <p className="flex-1 min-w-0 break-words text-md">
               {comment.content}
             </p>
             <div className="shrink-0">
@@ -55,13 +57,13 @@ export default function CommentCard({ comment, onRefresh }) {
         <div className="flex justify-between items-center">
           <div className="flex items-start gap-2">
             <Image
-              src="/icons/ic-profile.svg"
+              src={comment.writer?.image || "/icons/ic-profile.svg"}
               width={32}
               height={32}
-              alt="프로필 사진"
+              alt={`${comment.writer.nickname}님의 프로필 사진`}
             />
             <div className="flex flex-col gap-1 text-xs">
-              <span className="text-gray-600">닉네임</span>
+              <span className="text-gray-600">{comment.writer.nickname}</span>
               <time dateTime={comment.createdAt} className="text-gray-400">
                 {formatDistanceToNow(new Date(comment.createdAt), {
                   addSuffix: true,
@@ -70,13 +72,11 @@ export default function CommentCard({ comment, onRefresh }) {
               </time>
             </div>
           </div>
-
           {isEditing && (
             <div className="flex gap-1 justify-end">
               <Button variant="secondary" onClick={handleCancel}>
                 취소
               </Button>
-
               <Button
                 onClick={handleEdit}
                 disabled={isDisabled}

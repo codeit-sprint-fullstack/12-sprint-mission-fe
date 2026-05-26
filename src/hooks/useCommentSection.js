@@ -1,15 +1,15 @@
 import { useState } from "react";
-import { getArticleComments } from "@/lib/api/posts";
 
-export default function useCommentSection({ postId, initialComments }) {
-  const [comments, setComments] = useState(initialComments);
+export default function useCommentSection({ fetchComments, initialComments }) {
+  const [comments, setComments] = useState(initialComments || []);
   const [isLoading, setIsLoading] = useState(false);
 
   const handleRefresh = async () => {
+    if (!fetchComments) return;
     setIsLoading(true);
     try {
-      const { data } = await getArticleComments({ articleId: postId });
-      setComments(data);
+      const { data } = await fetchComments();
+      setComments(data || []);
     } finally {
       setIsLoading(false);
     }

@@ -1,8 +1,7 @@
 import { useState } from "react";
 import { toast } from "react-hot-toast";
-import { createArticleComment } from "@/lib/api/posts";
 
-export default function useCommentForm({ postId, onSuccess }) {
+export default function useCommentForm({ createComment, onSuccess }) {
   const [comment, setComment] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -10,10 +9,9 @@ export default function useCommentForm({ postId, onSuccess }) {
 
   const handleSubmit = async () => {
     if (isDisabled) return;
-
     try {
       setIsSubmitting(true);
-      await createArticleComment(postId, comment);
+      await createComment(comment);
       setComment("");
       await onSuccess();
     } catch (err) {

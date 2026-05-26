@@ -1,7 +1,12 @@
 import Image from "next/image";
 import CommentCard from "./CommentCard";
 
-export default function CommentList({ comments, onRefresh }) {
+export default function CommentList({
+  comments,
+  onRefresh,
+  updateComment,
+  deleteComment,
+}) {
   return (
     <div className="flex flex-col gap-4 md:gap-6 mb-10 md:mb-14 lg:mb-16">
       {comments.length == 0 ? (
@@ -25,6 +30,8 @@ export default function CommentList({ comments, onRefresh }) {
             key={comment.id}
             comment={comment}
             onRefresh={onRefresh}
+            updateComment={updateComment}
+            deleteComment={deleteComment}
           />
         ))
       )}
