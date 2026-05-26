@@ -3,7 +3,7 @@ import CommentCard from "./CommentCard";
 
 export default function CommentList({
   comments,
-  onRefresh,
+  queryKey,
   updateComment,
   deleteComment,
 }) {
@@ -29,7 +29,7 @@ export default function CommentList({
           <CommentCard
             key={comment.id}
             comment={comment}
-            onRefresh={onRefresh}
+            queryKey={queryKey}
             updateComment={updateComment}
             deleteComment={deleteComment}
           />

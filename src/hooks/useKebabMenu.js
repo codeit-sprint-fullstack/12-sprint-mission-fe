@@ -20,7 +20,7 @@ export default function useKebabMenu({
       setModalOpen(false);
 
       if (queryKey) {
-        queryClient.invalidateQueries({ queryKey: [queryKey] });
+        queryClient.invalidateQueries({ queryKey });
       }
 
       if (onSuccess) {

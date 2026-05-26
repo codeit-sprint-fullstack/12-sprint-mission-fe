@@ -8,8 +8,10 @@ import { getArticleComments, createArticleComment } from "@/lib/api/posts";
 import { updateComment, deleteComment } from "@/lib/api/comments";
 
 export default function CommentSectionClient({ articleId, initialComments }) {
-  const { comments, isLoading, handleRefresh } = useCommentSection({
-    queryKey: ["postComments", articleId],
+  const queryKey = ["postComments", articleId];
+
+  const { comments, isLoading } = useCommentSection({
+    queryKey,
     initialComments,
     fetchComments: () => getArticleComments({ articleId }),
   });
@@ -20,7 +22,7 @@ export default function CommentSectionClient({ articleId, initialComments }) {
         <h3 className="mb-2 text-lg font-semibold">댓글달기</h3>
         <CommentForm
           createComment={(content) => createArticleComment(articleId, content)}
-          onSuccess={handleRefresh}
+          queryKey={queryKey}
         />
       </div>
 
@@ -29,7 +31,7 @@ export default function CommentSectionClient({ articleId, initialComments }) {
       ) : (
         <CommentList
           comments={comments}
-          onRefresh={handleRefresh}
+          queryKey={queryKey}
           updateComment={updateComment}
           deleteComment={deleteComment}
         />

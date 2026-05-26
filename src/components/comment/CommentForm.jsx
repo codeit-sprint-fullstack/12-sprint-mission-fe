@@ -4,9 +4,9 @@ import useCommentForm from "@/hooks/useCommentForm";
 import Button from "@/components/ui/Button";
 import CommentTextarea from "./CommentTextarea";
 
-export default function CommentForm({ createComment, onSuccess, placeholder }) {
+export default function CommentForm({ createComment, queryKey, placeholder }) {
   const { comment, setComment, isSubmitting, isDisabled, handleSubmit } =
-    useCommentForm({ createComment, onSuccess });
+    useCommentForm({ createComment, queryKey });
 
   return (
     <div>

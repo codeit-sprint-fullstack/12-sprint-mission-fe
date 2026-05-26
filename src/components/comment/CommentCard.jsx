@@ -13,7 +13,7 @@ import CommentTextarea from "./CommentTextarea";
 
 export default function CommentCard({
   comment,
-  onRefresh,
+  queryKey,
   updateComment,
   deleteComment,
 }) {
@@ -29,11 +29,11 @@ export default function CommentCard({
     isDisabled,
     handleEdit,
     handleCancel,
-  } = useCommentCard({ comment, onRefresh, updateComment, deleteComment });
+  } = useCommentCard({ comment, updateComment, queryKey });
 
   const { isDeleting, modalOpen, setModalOpen, handleDelete } = useKebabMenu({
     deleteFn: () => deleteComment(comment.id),
-    onSuccess: onRefresh,
+    queryKey,
   });
 
   return (
