@@ -1,7 +1,7 @@
 "use client";
 
 import Button from "@/components/ui/Button";
-import BackToCommunitBtn from "./_components/BackToCommunityBtn";
+import BackToListButton from "@/components/ui/BackToListButton";
 
 export default function Error({ reset }) {
   return (
@@ -20,7 +20,7 @@ export default function Error({ reset }) {
           <span className="text-2lg font-semibold">다시 시도</span>
         </Button>
 
-        <BackToCommunitBtn />
+        <BackToListButton href="/community" />
       </div>
     </div>
   );

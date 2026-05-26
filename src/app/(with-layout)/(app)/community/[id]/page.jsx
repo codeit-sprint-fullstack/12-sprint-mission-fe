@@ -2,7 +2,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { format } from "date-fns";
 import { getArticle } from "@/lib/api/posts";
-import BackToCommunitBtn from "./_components/BackToCommunityBtn";
+import BackToListButton from "@/components/ui/BackToListButton";
 import CommentSection from "./_components/CommentSection";
 import PostKebabMenu from "./_components/PostKebabMenu";
 import LikeCountClient from "./_components/LikeCountClient";
@@ -68,7 +68,7 @@ export default async function PostDetailPage({ params }) {
 
       <CommentSection postId={id} />
 
-      <BackToCommunitBtn />
+      <BackToListButton href="/community" />
     </section>
   );
 }

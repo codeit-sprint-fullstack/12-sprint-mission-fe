@@ -1,4 +1,4 @@
-import BackToCommunitBtn from "./_components/BackToCommunityBtn";
+import BackToListButton from "@/components/ui/BackToListButton";
 
 export default function NotFound() {
   return (
@@ -6,7 +6,7 @@ export default function NotFound() {
       <p className="text-xl font-bold text-gray-800">
         존재하지 않거나 삭제된 게시글입니다.
       </p>
-      <BackToCommunitBtn />
+      <BackToListButton href="/community" />
     </div>
   );
 }

@@ -6,7 +6,7 @@ import { ko } from "date-fns/locale";
 import useCommentCard from "@/hooks/useCommentCard";
 import Button from "@/components/ui/Button";
 import Modal from "@/components/ui/Modal";
-import KebabMenu from "./KebabMenu";
+import KebabMenu from "@/components/ui/KebabMenu";
 import CommentTextarea from "./CommentTextarea";
 
 export default function CommentCard({ comment, onRefresh }) {

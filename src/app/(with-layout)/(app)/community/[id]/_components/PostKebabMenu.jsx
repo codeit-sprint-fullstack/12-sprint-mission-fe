@@ -2,7 +2,7 @@
 
 import usePostKebabMenu from "@/hooks/usePostKebabMenu";
 import Modal from "@/components/ui/Modal";
-import KebabMenu from "./KebabMenu";
+import KebabMenu from "@/components/ui/KebabMenu";
 
 export default function PostKebabMenu({ id }) {
   const { isDeleting, modalOpen, setModalOpen, handleDelete } =
