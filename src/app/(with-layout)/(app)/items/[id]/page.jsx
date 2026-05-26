@@ -14,7 +14,7 @@ export async function generateMetadata({ params }) {
     const product = await getProduct(id);
     return { title: product.name };
   } catch {
-    return { title: "게시글을 찾을 수 없어요" };
+    return { title: "상품을 찾을 수 없어요" };
   }
 }
 
