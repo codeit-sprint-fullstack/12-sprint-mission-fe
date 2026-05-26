@@ -4,6 +4,7 @@ import Image from "next/image";
 import { formatDistanceToNow } from "date-fns";
 import { ko } from "date-fns/locale";
 import useCommentCard from "@/hooks/useCommentCard";
+import useUser from "@/hooks/useUser";
 import Button from "@/components/ui/Button";
 import Modal from "@/components/ui/Modal";
 import KebabMenu from "@/components/ui/KebabMenu";
@@ -15,6 +16,9 @@ export default function CommentCard({
   updateComment,
   deleteComment,
 }) {
+  const { data: user } = useUser();
+  const isOwner = user?.id === comment.writer.id;
+
   const {
     content,
     setContent,
@@ -42,16 +46,18 @@ export default function CommentCard({
             <p className="flex-1 min-w-0 break-words text-md">
               {comment.content}
             </p>
-            <div className="shrink-0">
-              <KebabMenu>
-                <KebabMenu.Button onClick={() => setIsEditing(true)}>
-                  수정하기
-                </KebabMenu.Button>
-                <KebabMenu.Button onClick={() => setModalOpen(true)}>
-                  삭제하기
-                </KebabMenu.Button>
-              </KebabMenu>
-            </div>
+            {isOwner && (
+              <div className="shrink-0">
+                <KebabMenu>
+                  <KebabMenu.Button onClick={() => setIsEditing(true)}>
+                    수정하기
+                  </KebabMenu.Button>
+                  <KebabMenu.Button onClick={() => setModalOpen(true)}>
+                    삭제하기
+                  </KebabMenu.Button>
+                </KebabMenu>
+              </div>
+            )}
           </div>
         )}
         <div className="flex justify-between items-center">
