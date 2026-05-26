@@ -7,11 +7,11 @@ import CommentListSkeleton from "@/components/comment/CommentListSkeleton";
 import { getArticleComments, createArticleComment } from "@/lib/api/posts";
 import { updateComment, deleteComment } from "@/lib/api/comments";
 
-export default function CommentSectionClient({ postId, initialComments }) {
+export default function CommentSectionClient({ articleId, initialComments }) {
   const { comments, isLoading, handleRefresh } = useCommentSection({
-    queryKey: ["postComments", postId],
+    queryKey: ["postComments", articleId],
     initialComments,
-    fetchComments: () => getArticleComments({ articleId: postId }),
+    fetchComments: () => getArticleComments({ articleId }),
   });
 
   return (
@@ -19,7 +19,7 @@ export default function CommentSectionClient({ postId, initialComments }) {
       <div className="flex flex-col mb-6 md:mb-8 lg:mb-10">
         <h3 className="mb-2 text-lg font-semibold">댓글달기</h3>
         <CommentForm
-          createComment={(content) => createArticleComment(postId, content)}
+          createComment={(content) => createArticleComment(articleId, content)}
           onSuccess={handleRefresh}
         />
       </div>

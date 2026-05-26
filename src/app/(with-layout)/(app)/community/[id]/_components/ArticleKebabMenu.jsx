@@ -5,7 +5,7 @@ import { deleteArticle } from "@/lib/api/posts";
 import Modal from "@/components/ui/Modal";
 import KebabMenu from "@/components/ui/KebabMenu";
 
-export default function PostKebabMenu({ id }) {
+export default function ArticleKebabMenu({ id }) {
   const { isDeleting, modalOpen, setModalOpen, handleDelete } = useKebabMenu({
     deleteFn: () => deleteArticle(id),
     redirectUrl: "/community",

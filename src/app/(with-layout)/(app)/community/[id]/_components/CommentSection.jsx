@@ -1,12 +1,15 @@
 import { getArticleComments } from "@/lib/api/posts";
 import CommentSectionClient from "./CommentSectionClient";
 
-export default async function CommentSection({ postId }) {
+export default async function CommentSection({ articleId }) {
   const { data: initialComments } = await getArticleComments({
-    articleId: postId,
+    articleId,
   });
 
   return (
-    <CommentSectionClient postId={postId} initialComments={initialComments} />
+    <CommentSectionClient
+      articleId={articleId}
+      initialComments={initialComments}
+    />
   );
 }
