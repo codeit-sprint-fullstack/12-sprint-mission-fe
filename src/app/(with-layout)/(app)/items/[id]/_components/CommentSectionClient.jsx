@@ -16,10 +16,11 @@ export default function CommentSectionClient({ productId, initialComments }) {
   return (
     <>
       <div className="flex flex-col mb-6 md:mb-8 lg:mb-10">
-        <h3 className="mb-2 text-lg font-semibold">댓글달기</h3>
+        <h3 className="mb-2 text-lg font-semibold">문의하기</h3>
         <CommentForm
           createComment={(content) => createProductComment(productId, content)}
           onSuccess={handleRefresh}
+          placeholder="개인정보를 공유 및 요청하거나, 명예 훼손, 무단 광고, 불법 정보 유포시 모니터링 후 삭제될 수 있으며, 이에 대한 민형사상 책임은 게시자에게 있습니다."
         />
       </div>
 
