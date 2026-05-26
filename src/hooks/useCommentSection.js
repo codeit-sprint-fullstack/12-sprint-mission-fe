@@ -1,19 +1,22 @@
-import { useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 
-export default function useCommentSection({ fetchComments, initialComments }) {
-  const [comments, setComments] = useState(initialComments || []);
-  const [isLoading, setIsLoading] = useState(false);
+export default function useCommentSection({
+  queryKey,
+  fetchComments,
+  initialComments,
+}) {
+  const { data, isLoading, refetch } = useQuery({
+    queryKey: queryKey,
+    queryFn: async () => {
+      const response = await fetchComments();
+      return response.data || [];
+    },
+    initialData: initialComments,
+  });
 
-  const handleRefresh = async () => {
-    if (!fetchComments) return;
-    setIsLoading(true);
-    try {
-      const { data } = await fetchComments();
-      setComments(data || []);
-    } finally {
-      setIsLoading(false);
-    }
+  return {
+    comments: data,
+    isLoading,
+    handleRefresh: refetch,
   };
-
-  return { comments, isLoading, handleRefresh };
 }
