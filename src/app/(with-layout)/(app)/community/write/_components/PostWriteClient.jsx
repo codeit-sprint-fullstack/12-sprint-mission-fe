@@ -1,21 +1,21 @@
 "use client";
 
+import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { createArticle } from "@/lib/api/posts";
-import usePostForm from "@/hooks/usePostForm";
-import PostForm from "@/app/(with-layout)/(app)/community/_components/PostForm";
+import useCreate from "@/hooks/useCreate";
+import PostForm from "./_components/PostForm";
 
 export default function PostWriteClient() {
   const router = useRouter();
-  const {
-    title,
-    setTitle,
-    content,
-    setContent,
-    isValid,
-    isSubmitting,
-    handleSubmit,
-  } = usePostForm();
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
+  const isValid = title.trim() && content.trim();
+
+  const { handleSubmit, isSubmitting } = useCreate({
+    createFn: () => createArticle({ title, content }),
+    onSuccess: (data) => router.replace(`/community/${data.id}`),
+  });
 
   return (
     <PostForm
@@ -27,12 +27,7 @@ export default function PostWriteClient() {
       onContentChange={setContent}
       isValid={isValid}
       isSubmitting={isSubmitting}
-      onSubmit={() =>
-        handleSubmit(async ({ title, content }) => {
-          const { data } = await createArticle({ title, content });
-          router.replace(`/community/${data.id}`);
-        })
-      }
+      onSubmit={() => handleSubmit()}
     />
   );
 }
