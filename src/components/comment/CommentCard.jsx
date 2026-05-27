@@ -33,7 +33,9 @@ export default function CommentCard({
 
   const { isDeleting, modalOpen, setModalOpen, handleDelete } = useKebabMenu({
     deleteFn: () => deleteComment(comment.id),
-    queryKey,
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey });
+    },
   });
 
   return (

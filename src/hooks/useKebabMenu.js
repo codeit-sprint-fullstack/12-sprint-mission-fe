@@ -1,35 +1,16 @@
-import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useMutation } from "@tanstack/react-query";
 import { useState } from "react";
-import { useRouter } from "next/navigation";
 import { toast } from "react-hot-toast";
 
-export default function useKebabMenu({
-  deleteFn,
-  redirectUrl,
-  queryKey,
-  onSuccess,
-}) {
-  const router = useRouter();
-  const queryClient = useQueryClient();
+export default function useKebabMenu({ deleteFn, onSuccess }) {
   const [modalOpen, setModalOpen] = useState(false);
 
   const { mutate: deleteMutate, isPending: isDeleting } = useMutation({
     mutationFn: deleteFn,
 
-    onSuccess: () => {
+    onSuccess: (data) => {
       setModalOpen(false);
-
-      if (queryKey) {
-        queryClient.invalidateQueries({ queryKey });
-      }
-
-      if (onSuccess) {
-        onSuccess();
-      }
-
-      if (redirectUrl) {
-        router.replace(redirectUrl);
-      }
+      onSuccess(data);
     },
 
     onError: (err) => {
