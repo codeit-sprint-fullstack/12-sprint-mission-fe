@@ -6,6 +6,11 @@ import SearchBar from "@/components/ui/SearchBar";
 import SortDropDown from "@/components/ui/SortDropDown";
 
 export default function PostSectionHeader({ keyword, orderBy }) {
+  const sortOptions = [
+    { label: "최신순", value: "recent" },
+    { label: "좋아요순", value: "like" },
+  ];
+
   const { inputValue, setInputValue, handleOrderByChange } = useListFilters({
     pathname: "/community",
     keyword,
@@ -20,7 +25,11 @@ export default function PostSectionHeader({ keyword, orderBy }) {
       </div>
       <div className="flex items-center w-full mb-4 gap-[0.8rem] md:mb-10 md:gap-[0.3rem] lg:mb-6 lg:gap-[1rem]">
         <SearchBar value={inputValue} onChange={setInputValue} />
-        <SortDropDown value={orderBy} onChange={handleOrderByChange} />
+        <SortDropDown
+          value={orderBy}
+          onChange={handleOrderByChange}
+          options={sortOptions}
+        />
       </div>
     </>
   );
