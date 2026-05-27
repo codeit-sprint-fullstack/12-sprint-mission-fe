@@ -1,18 +1,20 @@
 import Link from "next/link";
 import Image from "next/image";
+import FallbackImage from "@/components/ui/FallbackImage";
 
 export default function ProductCard({ product }) {
   const hasImage = Boolean(product?.images[0]);
   const imageSrc = hasImage
     ? product.images[0]
-    : "/images/product-default-image.png";
+    : "/images/product-default-img.svg";
 
   return (
     <Link href={`/items/${product.id}`} className="block w-full">
       <div className="flex flex-col gap-[0.62rem] lg:gap-4">
         <div className="relative w-full aspect-square overflow-hidden rounded-[1.03675rem]">
-          <Image
+          <FallbackImage
             src={imageSrc}
+            fallbackSrc="/images/product-default-img.svg"
             alt={hasImage ? `${product.name}의 썸네일` : ""}
             fill
             className="object-cover"

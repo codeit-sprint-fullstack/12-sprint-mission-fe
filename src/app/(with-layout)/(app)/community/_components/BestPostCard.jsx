@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { format } from "date-fns";
+import FallbackImage from "@/components/ui/FallbackImage";
 
 export default function BestPostCard({ post }) {
   const hasImage = Boolean(post?.imageUrl);
@@ -9,8 +10,10 @@ export default function BestPostCard({ post }) {
   return (
     <Link href={`/community/${post.id}`}>
       <div
-        className="flex flex-col items-start gap-4 h-full px-6 pb-4 rounded-lg bg-gray-50
-                  xl:h-[10.5625rem] xl:pb-2 xl:gap-[0.625rem]"
+        className="
+          flex flex-col items-start gap-4 h-full px-6 pb-4 rounded-lg bg-gray-50
+          xl:h-[10.5625rem] xl:pb-2 xl:gap-[0.625rem]
+        "
       >
         <div className="flex justify-center items-center gap-1 w-[6.375rem] py-0.5 px-6 rounded-b-2xl bg-primary">
           <Image
@@ -28,14 +31,16 @@ export default function BestPostCard({ post }) {
           </h3>
           <div
             className="
-                flex justify-center items-center w-[4.5rem] h-[4.5rem] p-[0.857rem_0.75rem] rounded-lg border-gray-200 bg-white 
-                md:rounded-md md:border md:flex-shrink-0"
+              flex justify-center items-center w-[4.5rem] h-[4.5rem] p-[0.857rem_0.75rem]
+              rounded-lg border-gray-200 bg-white 
+              md:rounded-md md:border md:flex-shrink-0"
           >
-            <Image
+            <FallbackImage
               src={imageSrc}
+              fallbackSrc="/images/post-default-image.png"
               width={48}
               height={45}
-              alt={hasImage ? `${post.title} 썸네일` : ""}
+              alt={hasImage ? `${post.title}의 썸네일` : ""}
               aria-hidden={!hasImage}
             />
           </div>

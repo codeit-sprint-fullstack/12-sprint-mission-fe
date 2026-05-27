@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { format } from "date-fns";
 import { getProduct } from "@/lib/api/products";
 import BackToListButton from "@/components/ui/BackToListButton";
+import FallbackImage from "@/components/ui/FallbackImage";
 import LikeCountClient from "./_components/LikeCountClient";
 import ProductKebabMenu from "./_components/ProductKebabMenu";
 import CommentSection from "./_components/CommentSection";
@@ -35,9 +36,10 @@ export default async function ProductDetailPage({ params }) {
     <section className="flex flex-col w-full">
       <div className="mb-6 pb-6 md:mb-10 md:pb-8 lg:pb-10 border-b border-gray-200">
         <div className="flex flex-col md:flex-row gap-4 lg:gap-6 w-full">
-          <div className="relative w-full max-w-[486px] aspect-square overflow-hidden rounded-[1.78675rem]">
-            <Image
+          <div className="relative w-full aspect-square overflow-hidden rounded-[1.78675rem]">
+            <FallbackImage
               src={product.images[0]}
+              fallbackSrc="/images/product-default-img.svg"
               alt={`${product.name} 사진`}
               fill
               className="object-cover"

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { format } from "date-fns";
+import FallbackImage from "@/components/ui/FallbackImage";
 
 export default function PostCard({ post }) {
   const hasImage = Boolean(post?.imageUrl);
@@ -15,12 +16,13 @@ export default function PostCard({ post }) {
         <div className="flex w-full justify-between gap-2">
           <h3 className="text-xl font-semibold text-gray-800">{post.title}</h3>
           <div className="flex justify-center items-center w-[72px] h-[72px] px-3 py-[13.7px] rounded-lg border border-gray-100 bg-white">
-            <Image
+            <FallbackImage
               src={imageSrc}
+              fallbackSrc="/images/post-default-image.png"
               width={48}
               height={45}
-              alt={hasImage ? `${post.title} 썸네일` : ""}
-              aria-hidden={!imageSrc}
+              alt={hasImage ? `${post.title}의 썸네일` : ""}
+              aria-hidden={!hasImage}
             />
           </div>
         </div>
