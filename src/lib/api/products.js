@@ -10,7 +10,8 @@ export const getProducts = ({
   return api.get(`/products?${params}`);
 };
 
-export const getProduct = (id) => api.get(`/products/${id}`);
+export const getProduct = (id) =>
+  api.get(`/products/${id}`, { cache: `no-store` });
 
 export const createProduct = (data) => api.post(`/products`, data);
 

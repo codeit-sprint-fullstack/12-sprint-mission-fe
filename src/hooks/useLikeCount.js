@@ -1,14 +1,19 @@
 import { useMutation } from "@tanstack/react-query";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { toast } from "react-hot-toast";
 
 export default function useLikeCount({
   initialCount,
   initialLiked = false,
   mutateFn,
+  onSuccess,
 }) {
   const [liked, setLiked] = useState(initialLiked);
   const [count, setCount] = useState(initialCount);
+
+  useEffect(() => {
+    setLiked(initialLiked);
+  }, [initialLiked]);
 
   const { mutate, isPending } = useMutation({
     mutationFn: (nextLiked) => mutateFn(nextLiked),
@@ -21,6 +26,10 @@ export default function useLikeCount({
       setCount((c) => (nextLiked ? c + 1 : c - 1));
 
       return { prevLiked, prevCount };
+    },
+
+    onSuccess: () => {
+      if (onSuccess) onSuccess();
     },
 
     onError: (err, nextLiked, context) => {

@@ -102,7 +102,6 @@ export default async function ProductDetailPage({ params }) {
                 <LikeCountClient
                   productId={id}
                   initialCount={product.favoriteCount}
-                  initialLiked={product.isFavorite}
                 />
               </div>
             </div>
