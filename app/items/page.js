@@ -1,50 +1,38 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useQuery } from "@tanstack/react-query";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import { getProductList } from "../../lib/productService";
+import "../../styles/item.css";
 
 export default function ItemsPage() {
-  const [products, setProducts] = useState([]);
-  const [bestProducts, setBestProducts] = useState([]);
-  const [totalPages, setTotalPages] = useState(1);
-  const [isLoading, setIsLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [keyword, setKeyword] = useState("");
+  const [searchInput, setSearchInput] = useState("");
   const [orderBy, setOrderBy] = useState("recent");
   const router = useRouter();
 
-  const loadProducts = async (page) => {
-    try {
-      setIsLoading(true);
-      const bestData = await getProductList(1, 4, "", "favorite");
-      setBestProducts(bestData.list || []);
+  const { data: bestData } = useQuery({
+    queryKey: ["bestProducts"],
+    queryFn: () => getProductList(1, 4, "", "favorite"),
+    staleTime: 1000 * 60,
+    refetchInterval: 1000 * 60, // 1분마다 자동 갱신
+  });
 
-      const data = await getProductList(page, 10, keyword, orderBy);
-      setProducts(data.list || []);
-      const totalCount = data.totalCount || 0;
-      setTotalPages(Math.max(1, Math.ceil(totalCount / 10)));
-    } catch (err) {
-      console.error("데이터 로딩 실패:", err);
-    } finally {
-      setIsLoading(false);
-    }
-  };
+  const { data, isLoading } = useQuery({
+    queryKey: ["products", currentPage, keyword, orderBy],
+    queryFn: () => getProductList(currentPage, 10, keyword, orderBy),
+    staleTime: 1000 * 30,
+    refetchInterval: 1000 * 30, // 30초마다 자동 갱신
+  });
 
-  useEffect(() => {
-    loadProducts(currentPage);
-  }, [currentPage, orderBy]);
-
-  useEffect(() => {
-    const fetchBest = async () => {
-      const bestData = await getProductList(1, 4, "", "favorite");
-      setBestProducts(bestData.list ?? []);
-    };
-    fetchBest();
-  }, []);
+  const bestProducts = bestData?.list || [];
+  const products = data?.list || [];
+  const totalPages = Math.max(1, Math.ceil((data?.totalCount || 0) / 10));
 
   const WINDOW_SIZE = 5;
   const currentGroup = Math.ceil(currentPage / WINDOW_SIZE);
@@ -54,14 +42,10 @@ export default function ItemsPage() {
     (_, i) => startPageNumber + i,
   ).filter((p) => p <= totalPages);
 
-  const handleSearch = (event) => {
-    setKeyword(event.target.value);
-  };
-
   const handleKeyDown = (event) => {
     if (event.key === "Enter") {
+      setKeyword(searchInput);
       setCurrentPage(1);
-      loadProducts(1);
     }
   };
 
@@ -125,7 +109,7 @@ export default function ItemsPage() {
                     type="text"
                     placeholder="검색어를 입력해주세요"
                     value={keyword}
-                    onChange={handleSearch}
+                    onChange={(e) => setSearchInput(e.target.value)}
                     onKeyDown={handleKeyDown}
                     className="product-controls__search-input"
                   />

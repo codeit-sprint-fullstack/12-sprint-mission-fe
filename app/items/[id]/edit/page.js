@@ -1,17 +1,23 @@
 "use client";
 
-import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { useState, useEffect } from "react";
+import { useRouter, useParams } from "next/navigation";
 import Image from "next/image";
-import Header from "../../components/Header";
-import Footer from "../../components/Footer";
-import { createProduct } from "../../lib/productService";
-import { useFormValidation } from "../../hooks/useFormValidation";
-import { api } from "../../lib/axios";
-import "../../styles/registration.css";
+import Header from "../../../../components/Header";
+import Footer from "../../../../components/Footer";
+import {
+  getProductById as getProductDetail,
+  updateProduct,
+} from "../../../../lib/productService";
+import { useFormValidation } from "../../../../hooks/useFormValidation";
+import { api } from "../../../../lib/axios";
+import "../../../../styles/registration.css";
 
-export default function RegistrationPage() {
+export default function ProductEditPage() {
   const router = useRouter();
+  const params = useParams();
+  const productId = params.id;
+
   const [formData, setFormData] = useState({
     name: "",
     description: "",
@@ -23,6 +29,37 @@ export default function RegistrationPage() {
 
   const [images, setImages] = useState([]);
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  useEffect(() => {
+    async function loadProductData() {
+      try {
+        const product = await getProductDetail(productId);
+
+        setFormData({
+          name: product.name || "",
+          description: product.description || "",
+          price: String(product.price || ""),
+        });
+        setTags(product.tags || []);
+
+        if (product.images && product.images.length > 0) {
+          const existingImages = product.images.map((url) => ({
+            previewUrl: url,
+            fileObject: null,
+          }));
+          setImages(existingImages);
+        }
+      } catch (error) {
+        console.error("기존 데이터 로드 실패:", error);
+        alert("상품 정보를 불러오는데 실패했습니다.");
+        router.push(`/items/${productId}`);
+      }
+    }
+
+    if (productId) {
+      loadProductData();
+    }
+  }, [productId, router]);
 
   const { errors, isFormValid, validateTag } = useFormValidation(
     formData,
@@ -75,7 +112,11 @@ export default function RegistrationPage() {
   };
 
   const removeImage = (indexToRemove) => {
-    URL.revokeObjectURL(images[indexToRemove].previewUrl);
+    const targetImage = images[indexToRemove];
+
+    if (targetImage.previewUrl.startsWith("blob:")) {
+      URL.revokeObjectURL(targetImage.previewUrl);
+    }
     setImages(images.filter((_, idx) => idx !== indexToRemove));
   };
 
@@ -83,32 +124,44 @@ export default function RegistrationPage() {
     const urlResult = [];
 
     for (const [index, item] of images.entries()) {
-      const uploadFormData = new FormData();
+      if (
+        !item.fileObject &&
+        item.previewUrl &&
+        item.previewUrl.startsWith("http")
+      ) {
+        urlResult.push(item.previewUrl);
+        continue;
+      }
 
-      const originalFile = item.fileObject;
-      const fileExtension = originalFile.name.split(".").pop();
-      const cleanFileName = `image_${Date.now()}_${index}.${fileExtension}`;
+      if (item.fileObject) {
+        const uploadFormData = new FormData();
+        const originalFile = item.fileObject;
 
-      const renamedFile = new File([originalFile], cleanFileName, {
-        type: originalFile.type,
-      });
+        const fileExtension = originalFile.name
+          ? originalFile.name.split(".").pop()
+          : "png";
+        const cleanFileName = `image_${Date.now()}_${index}.${fileExtension}`;
 
-      uploadFormData.append("image", renamedFile);
-
-      try {
-        const response = await api.post("/images/upload", uploadFormData, {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
+        const renamedFile = new File([originalFile], cleanFileName, {
+          type: originalFile.type,
         });
 
-        const imageUrl = response.data?.url || response.data;
+        uploadFormData.append("image", renamedFile);
 
-        if (imageUrl && typeof imageUrl === "string") {
-          urlResult.push(imageUrl);
+        try {
+          const response = await api.post("/images/upload", uploadFormData, {
+            headers: {
+              "Content-Type": "multipart/form-data",
+            },
+          });
+
+          const imageUrl = response.data?.url || response.data;
+          if (imageUrl && typeof imageUrl === "string") {
+            urlResult.push(imageUrl);
+          }
+        } catch (error) {
+          console.error("이미지 업로드 중 실패:", error);
         }
-      } catch (error) {
-        console.error("이미지 업로드 중 실패:", error);
       }
     }
 
@@ -142,14 +195,14 @@ export default function RegistrationPage() {
         images: remoteUrls,
       };
 
-      const result = await createProduct(submitData);
-      alert("상품이 성공적으로 등록되었습니다.");
-      router.push(`/items/${result.id}`);
+      await updateProduct(productId, submitData);
+      alert("상품 정보가 성공적으로 수정되었습니다.");
+      router.push(`/items/${productId}`);
     } catch (error) {
-      console.error("등록 실패:", error);
+      console.error("수정 실패:", error);
       alert(
         error.response?.data?.message ||
-          "등록에 실패했습니다. 입력값을 확인해 주세요.",
+          "수정에 실패했습니다. 입력값을 확인해 주세요.",
       );
     } finally {
       setIsSubmitting(false);
@@ -162,13 +215,13 @@ export default function RegistrationPage() {
       <main className="main-contents">
         <form className="item-registration-form" onSubmit={handleSubmit}>
           <section className="form-header">
-            <h2 className="main-title">상품 등록하기</h2>
+            <h2 className="main-title">상품 수정하기</h2>
             <button
               type="submit"
               className={`submit-btn ${isSubmitValid ? "active" : ""}`}
               disabled={!isSubmitValid}
             >
-              {isSubmitting ? "등록 중..." : "등록"}
+              {isSubmitting ? "수정 중..." : "수정 완료"}
             </button>
           </section>
 
@@ -184,7 +237,7 @@ export default function RegistrationPage() {
                   onChange={handleImageChange}
                 />
                 <span className="upload-icon">+</span>
-                <span className="upload-text">이미지 등록</span>
+                <span className="upload-text">이미지 변경</span>
               </label>
 
               {images.map((item, idx) => (

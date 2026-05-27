@@ -5,7 +5,7 @@ import Link from "next/link";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import { getArticleList } from "../../lib/articleService";
-
+import "../../styles/forum-page.css";
 export default function ForumPage() {
   const [articles, setArticles] = useState([]);
   const [bestArticles, setBestArticles] = useState([]);

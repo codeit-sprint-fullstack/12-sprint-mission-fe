@@ -1,6 +1,8 @@
 import Link from "next/link";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import "../styles/reset.css";
+import "../styles/App.css";
 
 export const metadata = {
   title: "판다마켓 | 홈",
