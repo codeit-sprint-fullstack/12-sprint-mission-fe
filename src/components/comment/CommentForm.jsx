@@ -1,12 +1,20 @@
 "use client";
 
-import useCommentForm from "@/hooks/useCommentForm";
+import { useState } from "react";
+import useCreateComment from "@/hooks/useCreateComment";
 import Button from "@/components/ui/Button";
 import CommentTextarea from "./CommentTextarea";
 
 export default function CommentForm({ createComment, queryKey, placeholder }) {
-  const { comment, setComment, isSubmitting, isDisabled, handleSubmit } =
-    useCommentForm({ createComment, queryKey });
+  const [comment, setComment] = useState("");
+
+  const { isSubmitting, handleSubmit } = useCreateComment({
+    createComment: () => createComment(comment),
+    queryKey,
+    onSuccess: () => setComment(""),
+  });
+
+  const isDisabled = comment.trim().length === 0 || isSubmitting;
 
   return (
     <div>
