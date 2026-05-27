@@ -1,13 +1,16 @@
 "use client";
 
-import usePostSectionHeader from "@/hooks/usePostSectionHeader";
+import useListFilters from "@/hooks/useListFilters";
 import Button from "@/components/ui/Button";
 import SearchBar from "@/components/ui/SearchBar";
 import SortDropDown from "@/components/ui/SortDropDown";
 
 export default function PostSectionHeader({ keyword, orderBy }) {
-  const { inputValue, setInputValue, handleOrderByChange } =
-    usePostSectionHeader({ keyword, orderBy });
+  const { inputValue, setInputValue, handleOrderByChange } = useListFilters({
+    pathname: "/community",
+    keyword,
+    orderBy,
+  });
 
   return (
     <>
