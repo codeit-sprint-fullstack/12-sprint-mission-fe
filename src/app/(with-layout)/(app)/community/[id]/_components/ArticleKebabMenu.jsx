@@ -9,7 +9,6 @@ export default function ArticleKebabMenu({ id }) {
   const { isDeleting, modalOpen, setModalOpen, handleDelete } = useKebabMenu({
     deleteFn: () => deleteArticle(id),
     redirectUrl: "/community",
-    queryKey: "articles",
   });
 
   return (

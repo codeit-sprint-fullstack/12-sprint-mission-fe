@@ -13,7 +13,6 @@ export default function ProductKebabMenu({ productId, ownerId }) {
   const { isDeleting, modalOpen, setModalOpen, handleDelete } = useKebabMenu({
     deleteFn: () => deleteProduct(productId),
     redirectUrl: "/items",
-    queryKey: "products",
   });
 
   if (!isOwner) return null;
