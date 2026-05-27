@@ -8,7 +8,7 @@ import { getArticleComments, createArticleComment } from "@/lib/api/posts";
 import { updateComment, deleteComment } from "@/lib/api/comments";
 
 export default function CommentSectionClient({ articleId, initialComments }) {
-  const queryKey = ["postComments", articleId];
+  const queryKey = ["articleComments", articleId];
 
   const { comments, isLoading } = useCommentSection({
     queryKey,
