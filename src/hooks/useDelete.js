@@ -2,7 +2,7 @@ import { useMutation } from "@tanstack/react-query";
 import { useState } from "react";
 import { toast } from "react-hot-toast";
 
-export default function useKebabMenu({ deleteFn, onSuccess }) {
+export default function useDelete({ deleteFn, onSuccess }) {
   const [modalOpen, setModalOpen] = useState(false);
 
   const { mutate: deleteMutate, isPending: isDeleting } = useMutation({

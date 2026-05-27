@@ -4,7 +4,7 @@ import Image from "next/image";
 import { formatDistanceToNow } from "date-fns";
 import { ko } from "date-fns/locale";
 import useCommentCard from "@/hooks/useCommentCard";
-import useKebabMenu from "@/hooks/useKebabMenu";
+import useDelete from "@/hooks/useDelete";
 import useUser from "@/hooks/useUser";
 import Button from "@/components/ui/Button";
 import Modal from "@/components/ui/Modal";
@@ -31,7 +31,7 @@ export default function CommentCard({
     handleCancel,
   } = useCommentCard({ comment, updateComment, queryKey });
 
-  const { isDeleting, modalOpen, setModalOpen, handleDelete } = useKebabMenu({
+  const { isDeleting, modalOpen, setModalOpen, handleDelete } = useDelete({
     deleteFn: () => deleteComment(comment.id),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey });

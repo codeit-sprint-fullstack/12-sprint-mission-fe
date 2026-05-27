@@ -1,6 +1,6 @@
 "use client";
 
-import useKebabMenu from "@/hooks/useKebabMenu";
+import useDelete from "@/hooks/useDelete";
 import useUser from "@/hooks/useUser";
 import { deleteProduct } from "@/lib/api/products";
 import Modal from "@/components/ui/Modal";
@@ -10,7 +10,7 @@ export default function ProductKebabMenu({ productId, ownerId }) {
   const { data: user } = useUser();
   const isOwner = user?.id === ownerId;
 
-  const { isDeleting, modalOpen, setModalOpen, handleDelete } = useKebabMenu({
+  const { isDeleting, modalOpen, setModalOpen, handleDelete } = useDelete({
     deleteFn: () => deleteProduct(productId),
     onSuccess: () => router.replace("/items"),
   });

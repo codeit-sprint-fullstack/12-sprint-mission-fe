@@ -1,12 +1,12 @@
 "use client";
 
-import useKebabMenu from "@/hooks/useKebabMenu";
+import useDelete from "@/hooks/useDelete";
 import { deleteArticle } from "@/lib/api/posts";
 import Modal from "@/components/ui/Modal";
 import KebabMenu from "@/components/ui/KebabMenu";
 
 export default function ArticleKebabMenu({ id }) {
-  const { isDeleting, modalOpen, setModalOpen, handleDelete } = useKebabMenu({
+  const { isDeleting, modalOpen, setModalOpen, handleDelete } = useDelete({
     deleteFn: () => deleteArticle(id),
     onSuccess: () => router.replace("/community"),
   });
