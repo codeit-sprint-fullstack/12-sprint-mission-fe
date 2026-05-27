@@ -1,10 +1,11 @@
 "use client";
 
 import Image from "next/image";
+import { useState } from "react";
 import { useQueryClient } from "@tanstack/react-query";
 import { formatDistanceToNow } from "date-fns";
 import { ko } from "date-fns/locale";
-import useCommentCard from "@/hooks/useCommentCard";
+import useUpdateComment from "@/hooks/useUpdateComment";
 import useDelete from "@/hooks/useDelete";
 import useUser from "@/hooks/useUser";
 import Button from "@/components/ui/Button";
@@ -18,21 +19,16 @@ export default function CommentCard({
   updateComment,
   deleteComment,
 }) {
+  const [content, setContent] = useState(comment.content);
+  const [isEditing, setIsEditing] = useState(false);
   const { data: user } = useUser();
   const queryClient = useQueryClient();
 
-  const isOwner = user?.id === comment.writer.id;
-
-  const {
-    content,
-    setContent,
-    isEditing,
-    setIsEditing,
-    isSubmitting,
-    isDisabled,
-    handleEdit,
-    handleCancel,
-  } = useCommentCard({ comment, updateComment, queryKey });
+  const { isSubmitting, handleEdit } = useUpdateComment({
+    updateFn: () => updateComment(comment.id, content),
+    onSuccess: () => setIsEditing(false),
+    queryKey,
+  });
 
   const { isDeleting, modalOpen, setModalOpen, handleDelete } = useDelete({
     deleteFn: () => deleteComment(comment.id),
@@ -40,6 +36,14 @@ export default function CommentCard({
       queryClient.invalidateQueries({ queryKey });
     },
   });
+
+  const handleCancel = () => {
+    setContent(comment.content);
+    setIsEditing(false);
+  };
+
+  const isOwner = user?.id === comment.writer.id;
+  const isDisabled = content.trim().length === 0 || isSubmitting;
 
   return (
     <>
