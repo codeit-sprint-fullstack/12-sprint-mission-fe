@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { useQueryClient } from "@tanstack/react-query";
 import { formatDistanceToNow } from "date-fns";
 import { ko } from "date-fns/locale";
 import useCommentCard from "@/hooks/useCommentCard";
@@ -18,6 +19,8 @@ export default function CommentCard({
   deleteComment,
 }) {
   const { data: user } = useUser();
+  const queryClient = useQueryClient();
+
   const isOwner = user?.id === comment.writer.id;
 
   const {
