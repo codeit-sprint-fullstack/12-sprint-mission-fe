@@ -1,5 +1,6 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import useDelete from "@/hooks/useDelete";
 import useUser from "@/hooks/useUser";
 import { deleteProduct } from "@/lib/api/products";
@@ -7,6 +8,7 @@ import Modal from "@/components/ui/Modal";
 import KebabMenu from "@/components/ui/KebabMenu";
 
 export default function ProductKebabMenu({ productId, ownerId }) {
+  const router = useRouter();
   const { data: user } = useUser();
   const isOwner = user?.id === ownerId;
 
