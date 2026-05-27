@@ -5,7 +5,7 @@ import { toast } from "react-hot-toast";
 export default function useDelete({ deleteFn, onSuccess }) {
   const [modalOpen, setModalOpen] = useState(false);
 
-  const { mutate: deleteMutate, isPending: isDeleting } = useMutation({
+  const { mutate, isPending } = useMutation({
     mutationFn: deleteFn,
 
     onSuccess: (data) => {
@@ -21,9 +21,14 @@ export default function useDelete({ deleteFn, onSuccess }) {
   });
 
   const handleDelete = () => {
-    if (isDeleting) return;
-    deleteMutate();
+    if (isPending) return;
+    mutate();
   };
 
-  return { isDeleting, modalOpen, setModalOpen, handleDelete };
+  return {
+    isDeleting: isPending,
+    modalOpen,
+    setModalOpen,
+    handleDelete,
+  };
 }

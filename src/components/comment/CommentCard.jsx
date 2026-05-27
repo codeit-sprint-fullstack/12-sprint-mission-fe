@@ -5,7 +5,7 @@ import { useState } from "react";
 import { useQueryClient } from "@tanstack/react-query";
 import { formatDistanceToNow } from "date-fns";
 import { ko } from "date-fns/locale";
-import useUpdateComment from "@/hooks/useUpdateComment";
+import useUpdate from "@/hooks/useUpdate";
 import useDelete from "@/hooks/useDelete";
 import useUser from "@/hooks/useUser";
 import Button from "@/components/ui/Button";
@@ -24,7 +24,7 @@ export default function CommentCard({
   const { data: user } = useUser();
   const queryClient = useQueryClient();
 
-  const { isSubmitting, handleEdit } = useUpdateComment({
+  const { isSubmitting, handleEdit } = useUpdate({
     updateFn: () => updateComment(comment.id, content),
     onSuccess: () => {
       setIsEditing(false);

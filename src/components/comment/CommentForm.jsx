@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useQueryClient } from "@tanstack/react-query";
-import useCreateComment from "@/hooks/useCreateComment";
+import useCreate from "@/hooks/useCreate";
 import Button from "@/components/ui/Button";
 import CommentTextarea from "./CommentTextarea";
 
@@ -10,8 +10,8 @@ export default function CommentForm({ createComment, queryKey, placeholder }) {
   const [comment, setComment] = useState("");
   const queryClient = useQueryClient();
 
-  const { isSubmitting, handleSubmit } = useCreateComment({
-    createComment: () => createComment(comment),
+  const { isSubmitting, handleSubmit } = useCreate({
+    createFn: () => createComment(comment),
     onSuccess: () => {
       setComment("");
       queryClient.invalidateQueries({ queryKey });
