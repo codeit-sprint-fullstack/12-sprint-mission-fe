@@ -7,7 +7,7 @@ import Image from "next/image";
 import { getRelativeTime } from "@/utils/formatDate";
 import Button from "./Button";
 
-const ListReply = ({ comment, onUpdate }) => {
+const ListProductReply = ({ comment, onUpdate }) => {
   const [isDrop, setIsDrop] = useState(false);
   const [isEdit, setIsEdit] = useState(false);
   const [values, setValues] = useState({
@@ -19,11 +19,12 @@ const ListReply = ({ comment, onUpdate }) => {
   const editComment = async () => {
     try {
       const res = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/articles/comments/${comment.id}`,
+        `${process.env.NEXT_PUBLIC_PANDAMARKET_API_URL}/comments/${comment.id}`,
         {
           method: "PATCH",
           headers: {
             "Content-Type": "application/json",
+            Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
           },
           body: JSON.stringify({
             content: values.content,
@@ -44,13 +45,17 @@ const ListReply = ({ comment, onUpdate }) => {
   const deleteComment = async () => {
     try {
       const res = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/articles/comments/${comment.id}`,
+        `${process.env.NEXT_PUBLIC_PANDAMARKET_API_URL}/comments/${comment.id}`,
         {
           method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+          },
         },
       );
       if (!res.ok) {
-        throw new Error("게시글 삭제에 실패했습니다");
+        throw new Error("댓글 삭제에 실패했습니다");
       }
       setIsDrop(false);
       if (onUpdate) onUpdate();
@@ -166,4 +171,4 @@ const ListReply = ({ comment, onUpdate }) => {
   );
 };
 
-export default ListReply;
+export default ListProductReply;

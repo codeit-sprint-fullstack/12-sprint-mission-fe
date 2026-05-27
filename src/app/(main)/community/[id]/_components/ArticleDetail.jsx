@@ -2,8 +2,8 @@
 import Image from "next/image";
 import { useParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
-import icProfileLg from "../../../../../public/icons/ic_profile_lg.svg";
-import icHeartMdInactive from "../../../../../public/icons/ic_heart_md_inactive.png";
+import icProfileLg from "@/assets/icons/ic_profile_lg.svg";
+import icHeartMdInactive from "@/assets/icons/ic_heart_md_inactive.png";
 import { formatDate } from "@/utils/formatDate";
 import DropdownList from "@/app/components/DropdownList";
 

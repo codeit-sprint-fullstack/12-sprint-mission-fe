@@ -2,8 +2,8 @@
 
 import ListCommunity from "@/app/components/ListCommunity";
 import React, { useEffect, useState } from "react";
-import icSearch from "../../../../public/icons/ic_search.png";
-import icSortBtn from "../../../../public/icons/ic_btn_sort.png";
+import icSearch from "@/assets/icons/ic_search.png";
+import icSortBtn from "@/assets/icons/ic_btn_sort.png";
 import Image from "next/image";
 
 const ArticlesList = () => {
