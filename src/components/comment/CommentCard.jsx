@@ -26,8 +26,10 @@ export default function CommentCard({
 
   const { isSubmitting, handleEdit } = useUpdateComment({
     updateFn: () => updateComment(comment.id, content),
-    onSuccess: () => setIsEditing(false),
-    queryKey,
+    onSuccess: () => {
+      setIsEditing(false);
+      queryClient.invalidateQueries({ queryKey });
+    },
   });
 
   const { isDeleting, modalOpen, setModalOpen, handleDelete } = useDelete({
