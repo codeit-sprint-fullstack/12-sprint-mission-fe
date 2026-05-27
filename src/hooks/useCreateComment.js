@@ -1,22 +1,10 @@
-import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useMutation } from "@tanstack/react-query";
 import { toast } from "react-hot-toast";
 
-export default function useCreateComment({
-  createComment,
-  queryKey,
-  onSuccess,
-}) {
-  const queryClient = useQueryClient();
-
+export default function useCreateComment({ createComment, onSuccess }) {
   const { mutate, isPending } = useMutation({
     mutationFn: createComment,
-    onSuccess: (data) => {
-      onSuccess(data);
-      if (queryKey) {
-        queryClient.invalidateQueries({ queryKey });
-      }
-    },
-
+    onSuccess,
     onError: (err) => {
       toast.error(err.message || "댓글 등록에 실패했습니다.");
     },

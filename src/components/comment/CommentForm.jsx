@@ -1,17 +1,21 @@
 "use client";
 
 import { useState } from "react";
+import { useQueryClient } from "@tanstack/react-query";
 import useCreateComment from "@/hooks/useCreateComment";
 import Button from "@/components/ui/Button";
 import CommentTextarea from "./CommentTextarea";
 
 export default function CommentForm({ createComment, queryKey, placeholder }) {
   const [comment, setComment] = useState("");
+  const queryClient = useQueryClient();
 
   const { isSubmitting, handleSubmit } = useCreateComment({
     createComment: () => createComment(comment),
-    queryKey,
-    onSuccess: () => setComment(""),
+    onSuccess: () => {
+      setComment("");
+      queryClient.invalidateQueries({ queryKey });
+    },
   });
 
   const isDisabled = comment.trim().length === 0 || isSubmitting;
