@@ -1,0 +1,74 @@
+import Image from "next/image";
+import { notFound } from "next/navigation";
+import { format } from "date-fns";
+import { getArticle } from "@/lib/api/posts";
+import BackToListButton from "@/components/ui/BackToListButton";
+import CommentSection from "./_components/CommentSection";
+import ArticleKebabMenu from "./_components/ArticleKebabMenu";
+import LikeCountClient from "./_components/LikeCountClient";
+
+export async function generateMetadata({ params }) {
+  const { id } = await params;
+
+  try {
+    const { data: article } = await getArticle(id);
+    return { title: article.title };
+  } catch {
+    return { title: "게시글을 찾을 수 없어요" };
+  }
+}
+
+export default async function ArticleDetailPage({ params }) {
+  const { id } = await params;
+
+  let article;
+  try {
+    const { data } = await getArticle(id);
+    article = data;
+  } catch (err) {
+    if (err.status === 404) {
+      notFound();
+    }
+    throw err;
+  }
+
+  return (
+    <section className="flex flex-col w-full">
+      <div className="pb-4 mb-4 md:mb-6 border-b border-gray-200">
+        <div className="flex justify-between gap-2 w-full pb-4">
+          <h2 className="text-xl font-bold">{article.title}</h2>
+          <ArticleKebabMenu articleId={id} />
+        </div>
+
+        <div className="flex items-center gap-4 md:gap-8">
+          <div className="flex items-center gap-4">
+            <Image
+              src="/icons/ic-profile.svg"
+              width={40}
+              height={40}
+              alt="프로필 사진"
+            />
+            <div className="flex gap-1 text-md font-medium md:gap-2">
+              <span className="text-gray-600">닉네임</span>
+              <time dateTime={article.createdAt} className="text-gray-400">
+                {format(new Date(article.createdAt), "yyyy. MM. dd")}
+              </time>
+            </div>
+          </div>
+
+          <div className="w-px h-[2.125rem] bg-gray-200" />
+
+          <LikeCountClient initialCount={123} />
+        </div>
+      </div>
+
+      <p className="mb-8 md:mb-10 lg:mb-8 text-lg lg:text-2lg font-normal">
+        {article.content}
+      </p>
+
+      <CommentSection articleId={id} />
+
+      <BackToListButton href="/community" />
+    </section>
+  );
+}

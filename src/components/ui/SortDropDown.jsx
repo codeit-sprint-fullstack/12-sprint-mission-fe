@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 
-export default function SortSelect({ value, onChange }) {
+export default function SortDropDown({ value, onChange, options }) {
   return (
     <div className="relative inline-block">
       <select
@@ -13,8 +13,11 @@ export default function SortSelect({ value, onChange }) {
           md:w-[8.125rem] md:px-5 md:text-current md:text-gray-900
         "
       >
-        <option value="recent">최신순</option>
-        <option value="favorite">좋아요순</option>
+        {options.map((opt) => (
+          <option key={opt.value} value={opt.value}>
+            {opt.label}
+          </option>
+        ))}
       </select>
 
       <Image
