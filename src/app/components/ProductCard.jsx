@@ -5,7 +5,7 @@ import React, { useState } from "react";
 import icHeartInactive from "@/assets/icons/ic_heart_md_inactive.png";
 import imgDefault from "@/assets/images/product_img_default_md.png";
 
-const BestProductCard = ({ product }) => {
+const ProductCard = ({ product }) => {
   const [imgError, setImgError] = useState(false);
   const currentImgSrc = imgError
     ? imgDefault
@@ -48,4 +48,4 @@ const BestProductCard = ({ product }) => {
   );
 };
 
-export default BestProductCard;
+export default ProductCard;

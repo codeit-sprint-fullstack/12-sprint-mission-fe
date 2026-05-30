@@ -31,7 +31,7 @@ const LoginForm = () => {
   const { mutate: handleSignIn } = useMutation({
     mutationFn: ({ email, password }) => login(email, password),
     onSuccess: (res) => {
-      queryClient.invalidateQueries({ queryKey: ["signIn"] });
+      queryClient.invalidateQueries({ queryKey: ["user"] });
       if (res.status !== 200) {
         setModalConfig({
           isOpen: true,

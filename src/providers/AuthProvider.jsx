@@ -33,10 +33,10 @@ export default function AuthProvider({ children }) {
     }
   };
 
-  const signUp = async (name, email, password, passwordConfirmation) => {
+  const signUp = async (emial, nickname, password, passwordConfirmation) => {
     const data = await authService.signUp(
-      name,
-      email,
+      emial,
+      nickname,
       password,
       passwordConfirmation,
     );

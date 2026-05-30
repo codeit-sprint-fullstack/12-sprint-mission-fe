@@ -35,7 +35,7 @@ const RegisterForm = () => {
     mutationFn: ({ email, nickname, password, passwordConfirmation }) =>
       signUp(email, nickname, password, passwordConfirmation),
     onSuccess: (res) => {
-      queryClient.invalidateQueries({ queryKey: ["signUp"] });
+      queryClient.invalidateQueries({ queryKey: ["user"] });
       if (res.status !== 201) {
         setModalConfig({
           isOpen: true,
