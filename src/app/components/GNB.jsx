@@ -8,9 +8,10 @@ import logoMobile from "../../../public/images/pandamarket_logo_mobile.png";
 import NavLink from "./NavLink";
 import { useAuth } from "@/providers/AuthProvider";
 import icProfile from "@/assets/icons/ic_profile_lg.svg";
+import Button from "./Button";
 
 const GNB = () => {
-  const { user } = useAuth();
+  const { user, logout } = useAuth();
 
   return (
     <header className="border-b-1 border-(--border-gray) bg-white sticky top-0 z-50">
@@ -38,14 +39,17 @@ const GNB = () => {
           </div>
         </div>
         {user ? (
-          <div className="flex gap-2 items-center">
-            <Image
-              src={user.image ? user.image : icProfile}
-              alt="프로필 이미지"
-              width={40}
-              height={40}
-            />
-            <p className="text-2lg text-(--Secondary-600)">{user.nickname}</p>
+          <div className="flex gap-4 items-center">
+            <div className="flex gap-2 items-center">
+              <Image
+                src={user.image.length === 0 ? icProfile : user.image[0]}
+                alt="프로필 이미지"
+                width={40}
+                height={40}
+              />
+              <p className="text-2lg text-(--Secondary-600)">{user.nickname}</p>
+            </div>
+            <Button onClick={logout}>로그아웃</Button>
           </div>
         ) : (
           <Link

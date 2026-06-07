@@ -39,7 +39,7 @@ const LoginForm = () => {
         });
         return;
       }
-      router.replace("/items");
+      router.replace("/");
       reset();
     },
   });

@@ -53,7 +53,7 @@ const ItemDetail = ({ id }) => {
               {productData.name}
             </h2>
             <p className="text-2xl fond-semibold md:text-3xl">
-              {productData.price.toLocaleString()}원
+              {Number(productData.price).toLocaleString()}원
             </p>
           </div>
           <DropdownList id={productData.id} type={"products"} />

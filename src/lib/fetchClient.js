@@ -2,7 +2,8 @@
  * 기본 fetch 클라이언트 - 인증이 필요 없는 일반 요청용
  */
 export const defaultFetch = async (url, options = {}) => {
-  const baseURL = process.env.NEXT_PUBLIC_PANDAMARKET_API_URL;
+  // const baseURL = process.env.NEXT_PUBLIC_PANDAMARKET_API_URL;
+  const baseURL = process.env.NEXT_PUBLIC_API_URL;
   const defaultOptions = {
     headers: {
       "Content-Type": "application/json",
@@ -32,7 +33,7 @@ export const defaultFetch = async (url, options = {}) => {
  * 쿠키 인증 fetch 클라이언트
  */
 export const cookieFetch = async (url, options = {}) => {
-  const baseURL = process.env.NEXT_PUBLIC_PANDAMARKET_API_URL;
+  const baseURL = process.env.NEXT_PUBLIC_API_URL;
   const defaultOptions = {
     headers: {
       "Content-Type": "application/json",
@@ -90,7 +91,7 @@ export const cookieFetch = async (url, options = {}) => {
  * Authorization-Header 인증 fetch 클라이언트
  */
 export const authHeaderFetch = async (url, options = {}) => {
-  const baseURL = process.env.NEXT_PUBLIC_PANDAMARKET_API_URL;
+  const baseURL = process.env.NEXT_PUBLIC_API_URL;
   const defaultOptions = {
     headers: {
       "Content-Type": "application/json",
@@ -129,6 +130,7 @@ export const authHeaderFetch = async (url, options = {}) => {
       if (refreshResponse.ok) {
         const data = await refreshResponse.json();
         localStorage.setItem("accessToken", data.accessToken);
+        mergedOptions.headers.Authorization = `Bearer ${data.accessToken}`;
         // 토큰 갱신 성공 시 원래 요청 재시도
         res = await fetch(`${baseURL}${url}`, mergedOptions);
       }
@@ -155,7 +157,7 @@ export const authHeaderFetch = async (url, options = {}) => {
  * Authorization-Header 인증 fetch 클라이언트
  */
 export const authFetch = async (url, options = {}) => {
-  const baseURL = process.env.NEXT_PUBLIC_PANDAMARKET_API_URL;
+  const baseURL = process.env.NEXT_PUBLIC_API_URL;
   const defaultOptions = {
     headers: {
       "Content-Type": "application/json",
@@ -178,7 +180,6 @@ export const authFetch = async (url, options = {}) => {
 
   if (data.accessToken) {
     localStorage.setItem("accessToken", data.accessToken);
-    localStorage.setItem("refreshToken", data.refreshToken);
   }
 
   return {
