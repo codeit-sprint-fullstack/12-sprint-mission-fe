@@ -25,21 +25,16 @@ export default function AuthProvider({ children }) {
 
   const getUser = async () => {
     try {
-      const user = await userService.getMe();
-      setUser(user);
+      const { data } = await userService.getMe();
+      setUser(data);
     } catch (error) {
       console.error("사용자 정보를 가져오는데 실패했습니다:", error);
       setUser(null);
     }
   };
 
-  const signUp = async (name, email, password, passwordConfirmation) => {
-    const data = await authService.signUp(
-      name,
-      email,
-      password,
-      passwordConfirmation,
-    );
+  const signUp = async (emial, nickname, password) => {
+    const data = await authService.signUp(emial, nickname, password);
     await getUser();
     return data;
   };
@@ -56,7 +51,20 @@ export default function AuthProvider({ children }) {
   };
 
   useEffect(() => {
-    getUser();
+    const loadUser = async () => {
+      const token = localStorage.getItem("accessToken");
+      if (!token) {
+        return;
+      }
+
+      try {
+        await getUser();
+      } catch (error) {
+        console.log("로그인 세션이 만료되었습니다.");
+      }
+    };
+
+    loadUser();
   }, []);
 
   return (

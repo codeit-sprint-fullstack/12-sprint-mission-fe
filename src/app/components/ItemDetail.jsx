@@ -21,26 +21,31 @@ const ItemDetail = ({ id }) => {
     queryFn: () => productService.getItem(id),
   });
 
-  const [imgSrc, setImgSrc] = useState(productData?.images?.[0] || imgDefault);
+  const [imgError, setImgError] = useState(false);
 
   if (isPending) return <div>로딩중...</div>;
   if (error)
     return (
       <div className="py-10 text-center">데이터를 불러오는데 실패했습니다.</div>
     );
+
+  const currentImgSrc = imgError
+    ? imgDefault
+    : productData?.images?.[0] || imgDefault;
   return (
     <div className="w-full flex flex-col pb-[24px] gap-[16px] border-b-1 border-(--Secondary-200) md:flex-row md:pb-[32px] md:gap-[24px]">
-      <Image
-        // src={imgSrc}
-        src={productData?.images?.[0]}
-        alt="상품 이미지"
-        width={344}
-        height={344}
-        onError={() => {
-          setImgSrc(imgDefault);
-        }}
-        className="object-cover w-[343px] h-[343px] rounded-3xl"
-      />
+      <div className="relative w-full aspect-square rounded-2xl overflow-hidden">
+        <Image
+          src={currentImgSrc}
+          alt="상품 이미지"
+          fill
+          sizes="(max-width: 743px) 50vw"
+          onError={() => {
+            setImgError(true);
+          }}
+          className="object-cover"
+        />
+      </div>
       <div className="w-full flex flex-col gap-[16px]">
         <section className="flex justify-between border-b pb-[16px] border-(--Secondary-200)">
           <div className="flex flex-col gap-2">
@@ -48,7 +53,7 @@ const ItemDetail = ({ id }) => {
               {productData.name}
             </h2>
             <p className="text-2xl fond-semibold md:text-3xl">
-              {productData.price.toLocaleString()}원
+              {Number(productData.price).toLocaleString()}원
             </p>
           </div>
           <DropdownList id={productData.id} type={"products"} />
