@@ -1,3 +1,9 @@
+// 브라우저 환경에서만 localStorage 접근
+const getAuthToken = () => {
+  if (typeof window !== "undefined") return localStorage.getItem("accessToken");
+  return null;
+};
+
 /**
  * 기본 fetch 클라이언트 - 인증이 필요 없는 일반 요청용
  */
@@ -8,7 +14,7 @@ export const defaultFetch = async (url, options = {}) => {
     headers: {
       "Content-Type": "application/json",
     },
-    cache: "force-cache",
+    cache: "no-store",
   };
 
   const mergedOptions = {
@@ -92,10 +98,12 @@ export const cookieFetch = async (url, options = {}) => {
  */
 export const authHeaderFetch = async (url, options = {}) => {
   const baseURL = process.env.NEXT_PUBLIC_API_URL;
+  const token = getAuthToken();
+
   const defaultOptions = {
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      ...(token ? { Authorization: `Bearer ${token}` } : {}),
     },
     cache: "no-store",
   };
@@ -113,10 +121,10 @@ export const authHeaderFetch = async (url, options = {}) => {
   let res = await fetch(`${baseURL}${url}`, mergedOptions);
 
   // 401 에러 발생 시 토큰 갱신 시도
-  if (res.status === 401 && url !== "/auth/refresh-token") {
+  if (res.status === 401 && url !== "/auth/refresh") {
     try {
       // 토큰 갱신 요청
-      const refreshResponse = await fetch(`${baseURL}/auth/refresh-token`, {
+      const refreshResponse = await fetch(`${baseURL}/auth/refresh`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -133,9 +141,18 @@ export const authHeaderFetch = async (url, options = {}) => {
         mergedOptions.headers.Authorization = `Bearer ${data.accessToken}`;
         // 토큰 갱신 성공 시 원래 요청 재시도
         res = await fetch(`${baseURL}${url}`, mergedOptions);
+      } else {
+        if (typeof window !== "undefined") {
+          localStorage.removeItem("accessToken");
+          localStorage.removeItem("refreshToken");
+        }
       }
     } catch (error) {
       console.error("토큰 갱신 실패:", error);
+      if (typeof window !== "undefined") {
+        localStorage.removeItem("accessToken");
+        localStorage.removeItem("refreshToken");
+      }
     }
   }
 
@@ -177,8 +194,15 @@ export const authFetch = async (url, options = {}) => {
   const res = await fetch(`${baseURL}${url}`, mergedOptions);
 
   const data = await res.json();
+  if (!res.ok) {
+    const errorMessage = Array.isArray(data.message)
+      ? data.message[0]
+      : data.message;
 
-  if (data.accessToken) {
+    throw new Error(errorMessage || "요청 처리에 실패했습니다.");
+  }
+
+  if (data.accessToken && typeof window !== "undefined") {
     localStorage.setItem("accessToken", data.accessToken);
   }
 

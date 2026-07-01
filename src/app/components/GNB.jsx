@@ -42,7 +42,7 @@ const GNB = () => {
           <div className="flex gap-4 items-center">
             <div className="flex gap-2 items-center">
               <Image
-                src={user.image.length === 0 ? icProfile : user.image[0]}
+                src={user.image?.length > 0 ? user.image[0] : icProfile}
                 alt="프로필 이미지"
                 width={40}
                 height={40}

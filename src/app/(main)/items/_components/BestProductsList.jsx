@@ -1,34 +1,12 @@
 "use client";
+
 import BestProductCard from "@/app/components/BestProductCard";
-import { productService } from "@/lib/productService";
-import { useQuery } from "@tanstack/react-query";
+import { useGetBestProducts } from "@/hooks/useProducts";
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 const BestProductsList = () => {
-  // const [products, setProducts] = useState([]);
-  // useEffect(() => {
-  //   const fetchProducts = async () => {
-  //     const res = await fetch(
-  //       `${process.env.NEXT_PUBLIC_PANDAMARKET_API_URL}/products?page=1&pageSize=4&orderBy=favorite`,
-  //     );
-  //     const data = await res.json();
-
-  //     setProducts(data.list);
-  //   };
-
-  //   fetchProducts();
-  // }, []);
-  const {
-    data: products,
-    isPending,
-    isError,
-  } = useQuery({
-    queryKey: ["bestItems"],
-    queryFn: () => productService.getBestItems(),
-  });
-
-  console.log("products", products);
+  const { data: products, isPending, isError } = useGetBestProducts();
 
   if (isPending) {
     return <div className="py-10 text-center">로딩 중...</div>;

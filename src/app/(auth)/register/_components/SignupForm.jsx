@@ -8,16 +8,15 @@ import icVisibleOff from "@/assets/icons/ic_visible_off.png";
 import icVisibleOn from "@/assets/icons/ic_visible_on.png";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { useAuth } from "@/providers/AuthProvider";
+import { useSignUp } from "@/hooks/useAuthActions";
 
 const RegisterForm = () => {
-  const { signUp } = useAuth();
   const [isVisible, setIsVisible] = useState(false);
   const [isConfirmVisible, setIsConfirmVisible] = useState(false);
   const [modalConfig, setModalConfig] = useState({
     isOpen: false,
     message: "",
+    onCloseAction: null,
   });
   const {
     register,
@@ -29,36 +28,41 @@ const RegisterForm = () => {
     mode: "onChange",
   });
   const router = useRouter();
-  const queryClient = useQueryClient();
 
-  const { mutate: handleSignUp } = useMutation({
-    mutationFn: ({ email, nickname, password, passwordConfirmation }) =>
-      signUp(email, nickname, password, passwordConfirmation),
-    onSuccess: (res) => {
-      queryClient.invalidateQueries({ queryKey: ["user"] });
-      if (res.status !== 201) {
-        setModalConfig({
-          isOpen: true,
-          message: res.data.message,
-        });
-        return;
-      }
-      router.replace("/items");
-      reset();
-    },
-  });
+  const { mutate: handleSignUp } = useSignUp();
+
+  const onSubmit = (data) => {
+    handleSignUp(
+      {
+        email: data.email,
+        nickname: data.nickname,
+        password: data.password,
+      },
+      {
+        onSuccess: (res) => {
+          if (res.status === 201) {
+            setModalConfig({
+              isOpen: true,
+              message: res.data.message,
+              onCloseAction: () => router.replace("/login"),
+            });
+            reset();
+            return;
+          }
+        },
+        onError: (error) => {
+          console.log("에러 발생:", error);
+          setModalConfig({ isOpen: true, message: error.message });
+        },
+      },
+    );
+  };
 
   const closeModal = () => {
     setModalConfig({ ...modalConfig, isOpen: false });
-  };
-
-  const onSubmit = (data) => {
-    handleSignUp({
-      email: data.email,
-      nickname: data.nickname,
-      password: data.password,
-      passwordConfirmation: data.passwordConfirmation,
-    });
+    if (modalConfig.onCloseAction) {
+      modalConfig.onCloseAction();
+    }
   };
 
   const togglePassword = () => setIsVisible((prev) => !prev);

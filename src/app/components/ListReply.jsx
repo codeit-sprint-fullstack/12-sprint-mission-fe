@@ -138,7 +138,7 @@ const ListReply = ({ comment, onUpdate }) => {
           <Image src={icProfileLg} alt="프로필 이미지" width={32} height={32} />
           <div className="flex flex-col gap-1">
             <p className="text-xs text-(--Secondary-600)">
-              {comment.writer.nickname}
+              {comment.writer?.nickname}
             </p>
             <p className="text-xs text-(--Secondary-400)">
               {getRelativeTime(new Date(comment.createdAt))}

@@ -10,20 +10,23 @@ import icHeartMdInactive from "@/assets/icons/ic_favorite.png";
 import { formatDate } from "@/utils/formatDate";
 import imgDefault from "@/assets/images/product_img_default_md.png";
 import DropdownList from "./DropdownList";
+import { useGetProduct } from "@/hooks/useProducts";
 
 const ItemDetail = ({ id }) => {
-  const {
-    data: productData,
-    isPending,
-    error,
-  } = useQuery({
-    queryKey: ["product", id],
-    queryFn: () => productService.getItem(id),
-  });
+  // const {
+  //   data: productData,
+  //   isPending,
+  //   error,
+  // } = useQuery({
+  //   queryKey: ["product", id],
+  //   queryFn: () => productService.getItem(id),
+  // });
+  const { data: productData, isPending, error } = useGetProduct(id);
 
   const [imgError, setImgError] = useState(false);
 
   if (isPending) return <div>로딩중...</div>;
+
   if (error)
     return (
       <div className="py-10 text-center">데이터를 불러오는데 실패했습니다.</div>
@@ -32,6 +35,7 @@ const ItemDetail = ({ id }) => {
   const currentImgSrc = imgError
     ? imgDefault
     : productData?.images?.[0] || imgDefault;
+
   return (
     <div className="w-full flex flex-col pb-[24px] gap-[16px] border-b-1 border-(--Secondary-200) md:flex-row md:pb-[32px] md:gap-[24px]">
       <div className="relative w-full aspect-square rounded-2xl overflow-hidden">
@@ -65,7 +69,7 @@ const ItemDetail = ({ id }) => {
         <section className="flex flex-col gap-2">
           <h3 className="text-lg font-semibold">상품 태그</h3>
           <div className="flex gap-2">
-            {productData.tags.map((tag) => {
+            {productData.tags?.map((tag) => {
               return <Tag key={tag} tag={tag} />;
             })}
           </div>

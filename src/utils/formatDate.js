@@ -1,4 +1,8 @@
 export const formatDate = (date) => {
+  if (!date || isNaN(date.getTime())) {
+    return "날짜 없음";
+  }
+
   const dateString = date.toISOString().split("T")[0];
   const [year, month, day] = dateString.split("-");
 
@@ -6,7 +10,9 @@ export const formatDate = (date) => {
 };
 
 export const getRelativeTime = (dateString) => {
+  if (!dateString) return "";
   const date = new Date(dateString);
+  if (isNaN(date.getTime())) return "";
   const now = new Date();
 
   const diff = now.getTime() - date.getTime();

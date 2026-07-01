@@ -7,11 +7,9 @@ import icVisibleOff from "@/assets/icons/ic_visible_off.png";
 import icVisibleOn from "@/assets/icons/ic_visible_on.png";
 import Modal from "@/app/components/Modal";
 import { useRouter } from "next/navigation";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { useAuth } from "@/providers/AuthProvider";
+import { useLogin } from "@/hooks/useAuthActions";
 
 const LoginForm = () => {
-  const { login } = useAuth();
   const [isVisible, setIsVisible] = useState(false);
   const [modalConfig, setModalConfig] = useState({
     isOpen: false,
@@ -26,30 +24,30 @@ const LoginForm = () => {
     mode: "onChange",
   });
   const router = useRouter();
-  const queryClient = useQueryClient();
 
-  const { mutate: handleSignIn } = useMutation({
-    mutationFn: ({ email, password }) => login(email, password),
-    onSuccess: (res) => {
-      queryClient.invalidateQueries({ queryKey: ["user"] });
-      if (res.status !== 200) {
-        setModalConfig({
-          isOpen: true,
-          message: res.data.message,
-        });
-        return;
-      }
-      router.replace("/");
-      reset();
-    },
-  });
+  const { mutate: handleSignIn } = useLogin();
+
+  const onSubmit = (data) => {
+    handleSignIn(
+      { email: data.email, password: data.password },
+      {
+        onSuccess: (res) => {
+          if (res.status !== 200) {
+            setModalConfig({ isOpen: true, message: res.data.message });
+            return;
+          }
+          router.replace("/");
+          reset();
+        },
+        onError: (err) => {
+          setModalConfig({ isOpen: true, message: err.message });
+        },
+      },
+    );
+  };
 
   const closeModal = () => {
     setModalConfig({ ...modalConfig, isOpen: false });
-  };
-
-  const onSubmit = (data) => {
-    handleSignIn({ email: data.email, password: data.password });
   };
 
   const togglePassword = () => {
