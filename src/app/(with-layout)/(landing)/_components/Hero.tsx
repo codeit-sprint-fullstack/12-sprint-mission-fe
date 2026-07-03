@@ -1,7 +1,14 @@
 import Image from "next/image";
+import type { ReactNode } from "react";
+
 import Button from "@/components/ui/Button";
 
-export default function Hero({ type, children }) {
+type HeroProps = {
+  type: "top" | "bottom";
+  children: ReactNode;
+};
+
+export function Hero({ type, children }: HeroProps) {
   const isBottom = type === "bottom";
 
   return (

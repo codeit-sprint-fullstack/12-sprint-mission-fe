@@ -1,17 +1,27 @@
 import Image from "next/image";
+import type { ReactNode } from "react";
 
-const featureImages = {
+type FeatureBadge = "Hot item" | "Search" | "Register";
+
+type FeatureProps = {
+  badge: FeatureBadge;
+  title: string;
+  description: ReactNode;
+  reverse?: boolean;
+};
+
+const featureImages: Record<FeatureBadge, string> = {
   "Hot item": "/images/hot-item-img.svg",
   Search: "/images/search-img.svg",
   Register: "/images/register-img.svg",
 };
 
-export default function Feature({
+export function Feature({
   badge,
   title,
   description,
   reverse = false,
-}) {
+}: FeatureProps) {
   return (
     <section className="py-0 px-0 lg:py-[8.625rem]">
       <div

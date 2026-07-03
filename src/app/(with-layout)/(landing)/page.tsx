@@ -1,7 +1,7 @@
-import Hero from "./_components/Hero";
-import Feature from "./_components/Feature";
+import { Feature } from "./_components/Feature";
+import { Hero } from "./_components/Hero";
 
-export default function Landing() {
+export default function LandingPage() {
   return (
     <>
       <Hero type="top">일상의 모든 물건을 거래해보세요</Hero>
