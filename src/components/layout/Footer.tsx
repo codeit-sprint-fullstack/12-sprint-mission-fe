@@ -1,5 +1,5 @@
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
 
 export const Footer = () => {
   return (
@@ -86,5 +86,3 @@ export const Footer = () => {
     </footer>
   );
 };
-
-export default Footer;
