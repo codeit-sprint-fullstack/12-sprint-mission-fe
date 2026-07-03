@@ -1,6 +1,16 @@
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
+import type { ReactNode } from "react";
+
 import SocialLogin from "./SocialLogin";
+
+type AuthTemplateProps = {
+  children: ReactNode;
+  heading: string;
+  bottomText: string;
+  bottomLinkText: string;
+  bottomLinkHref: string;
+};
 
 export default function AuthTemplate({
   children,
@@ -8,7 +18,7 @@ export default function AuthTemplate({
   bottomText,
   bottomLinkText,
   bottomLinkHref,
-}) {
+}: AuthTemplateProps) {
   return (
     <div className="flex flex-col items-center w-full max-w-[40rem]">
       <h1>

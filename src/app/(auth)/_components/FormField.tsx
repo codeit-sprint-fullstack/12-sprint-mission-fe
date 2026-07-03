@@ -1,7 +1,18 @@
 "use client";
 
-import { useState } from "react";
 import Image from "next/image";
+import { useState } from "react";
+
+type FormFieldProps = {
+  id: string;
+  label: string;
+  type: string;
+  placeholder?: string;
+  value: string;
+  onChange: (value: string) => void;
+  error?: string;
+  autoComplete?: string;
+};
 
 export default function FormField({
   id,
@@ -12,7 +23,7 @@ export default function FormField({
   onChange,
   error,
   autoComplete,
-}) {
+}: FormFieldProps) {
   const [showPassword, setShowPassword] = useState(false);
   const isPassword = type === "password";
 
