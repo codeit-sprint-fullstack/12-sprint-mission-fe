@@ -1,32 +1,30 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
-import useUser from "@/hooks/useUser";
+
 import Button from "@/components/ui/Button";
+import { useUser } from "@/hooks/useUser";
 
 const NAV_TABS = [
   { label: "자유게시판", href: "/community" },
   { label: "중고마켓", href: "/items" },
-];
+] as const;
+
+type NavHref = (typeof NAV_TABS)[number]["href"];
 
 export const Header = () => {
   const pathname = usePathname();
   const { data: user, isLoading } = useUser();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   const isRoot = pathname === "/";
 
-  const isActive = (href) => {
+  const isActive = (href: NavHref): boolean => {
     if (href === "/community") {
       return pathname === "/community" || pathname === "/community/write";
     }
+
     return pathname.startsWith(href);
   };
 
@@ -79,10 +77,10 @@ export const Header = () => {
           )}
         </div>
 
-        {!mounted ? null : isLoading ? null : user ? (
+        {isLoading ? null : user ? (
           <div className="flex items-center gap-[0.4rem]">
             <Image
-              src={user.image || "/images/profile-default-img.svg"}
+              src={"/images/profile-default-img.svg"}
               alt={`${user.nickname}님의 프로필 이미지`}
               width={40}
               height={40}

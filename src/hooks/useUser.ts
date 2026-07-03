@@ -4,7 +4,7 @@ import { userQueryKeys } from "@/constants/queryKeys";
 import { getMyInfo } from "@/lib/api/user.api";
 import type { User } from "@/types/user";
 
-export default function useUser() {
+export function useUser() {
   const query = useQuery<User>({
     queryKey: userQueryKeys.me(),
     queryFn: getMyInfo,
