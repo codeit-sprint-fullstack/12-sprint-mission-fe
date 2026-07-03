@@ -2,20 +2,24 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { createArticle } from "@/lib/api/posts";
-import useCreate from "@/hooks/useCreate";
+import { useMutation } from "@tanstack/react-query";
+import { showErrorToast } from "@/utils/showErrorToast";
+import { createArticle } from "@/lib/api/article.api";
 import PostForm from "./_components/PostForm";
 
 export default function PostWriteClient() {
   const router = useRouter();
+
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
-  const isValid = title.trim() && content.trim();
 
-  const { handleSubmit, isSubmitting } = useCreate({
-    createFn: () => createArticle({ title, content }),
+  const { mutate: handleSubmit, isPending: isSubmitting } = useMutation({
+    mutationFn: () => createArticle({ title, content }),
     onSuccess: (data) => router.replace(`/community/${data.id}`),
+    onError: (err) => showErrorToast(err, "게시글 등록"),
   });
+
+  const isValid = title.trim() && content.trim();
 
   return (
     <PostForm

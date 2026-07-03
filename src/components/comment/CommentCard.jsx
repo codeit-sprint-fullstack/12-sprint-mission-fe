@@ -2,11 +2,11 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import { useQueryClient } from "@tanstack/react-query";
 import { formatDistanceToNow } from "date-fns";
 import { ko } from "date-fns/locale";
-import useUpdate from "@/hooks/useUpdate";
-import useDelete from "@/hooks/useDelete";
+import { useQueryClient, useMutation } from "@tanstack/react-query";
+import { showErrorToast } from "@/utils/showErrorToast";
+import { useDeleteState } from "@/hooks/useDeleteState";
 import useUser from "@/hooks/useUser";
 import Button from "@/components/ui/Button";
 import Modal from "@/components/ui/Modal";
@@ -19,24 +19,34 @@ export default function CommentCard({
   updateComment,
   deleteComment,
 }) {
-  const [content, setContent] = useState(comment.content);
-  const [isEditing, setIsEditing] = useState(false);
-  const { data: user } = useUser();
   const queryClient = useQueryClient();
 
-  const { isSubmitting, handleEdit } = useUpdate({
-    updateFn: () => updateComment(comment.id, content),
+  const [content, setContent] = useState(comment.content);
+  const [isEditing, setIsEditing] = useState(false);
+
+  const { data: user } = useUser();
+
+  const { mutate: handleEdit, isPending: isSubmitting } = useMutation({
+    mutationFn: () => updateComment(comment.id, content),
+
     onSuccess: () => {
       setIsEditing(false);
       queryClient.invalidateQueries({ queryKey });
     },
+
+    onError: (err) => showErrorToast(err, "댓글 수정"),
   });
 
-  const { isDeleting, modalOpen, setModalOpen, handleDelete } = useDelete({
-    deleteFn: () => deleteComment(comment.id),
+  const { modalOpen, openModal, closeModal, handleErrorDelete } =
+    useDeleteState();
+
+  const { mutate: handleDelete, isPending: isDeleting } = useMutation({
+    mutationFn: () => deleteComment(comment.id),
     onSuccess: () => {
+      closeModal();
       queryClient.invalidateQueries({ queryKey });
     },
+    onError: handleErrorDelete,
   });
 
   const handleCancel = () => {
@@ -65,7 +75,7 @@ export default function CommentCard({
                   <KebabMenu.Button onClick={() => setIsEditing(true)}>
                     수정하기
                   </KebabMenu.Button>
-                  <KebabMenu.Button onClick={() => setModalOpen(true)}>
+                  <KebabMenu.Button onClick={openModal}>
                     삭제하기
                   </KebabMenu.Button>
                 </KebabMenu>
@@ -109,7 +119,7 @@ export default function CommentCard({
       </div>
       <Modal
         isOpen={modalOpen}
-        onClose={() => setModalOpen(false)}
+        onClose={closeModal}
         variant="danger"
         title="정말로 댓글을 삭제하시겠어요?"
         confirmText="삭제"
