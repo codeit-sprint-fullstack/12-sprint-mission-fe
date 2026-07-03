@@ -53,10 +53,10 @@ export function useAuthForm<T extends FormValues>(
     }));
   };
 
-  // 제출 버튼 활성화 여부: 모든 필드 값이 공백이 아니며, 에러가 하나도 없는 경우
+  // 제출 버튼 활성화 여부: 모든 필드 값이 공백이 아니며 유효성 검사를 통과한 경우
   const isValid =
     Object.values(values).every((v) => v.trim().length > 0) &&
-    Object.keys(errors).length === 0;
+    Object.keys(validate(values)).length === 0;
 
   return {
     values,

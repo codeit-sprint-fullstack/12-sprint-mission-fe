@@ -41,8 +41,8 @@ export default function LoginForm() {
       if (err.status && err.status >= 400 && err.status < 500) {
         // 4xx 에러: 인풋 아래 메시지
         setFieldErrors({
-          email: "이메일을 확인해 주세요.",
-          password: "비밀번호를 확인해 주세요.",
+          password:
+            "이메일 또는 비밀번호가 올바르지 않습니다. 입력한 정보를 확인한 후 다시 시도해 주세요.",
         });
       } else {
         // 그 외 에러 (네트워크, 500 등): 모달

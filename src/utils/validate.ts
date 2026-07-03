@@ -9,7 +9,7 @@ export const validateLogin = ({
   email,
   password,
 }: LoginValues): LoginErrors => {
-  const errors: LoginErrors = {};
+  const errors: Partial<Record<keyof LoginValues, string>> = {};
 
   if (!email.trim()) {
     errors.email = "이메일을 입력해주세요";
