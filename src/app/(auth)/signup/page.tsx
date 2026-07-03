@@ -1,7 +1,10 @@
+import type { Metadata } from "next";
+
 import AuthTemplate from "@/app/(auth)/_components/AuthTemplate";
+
 import SignupForm from "./_components/SignupForm";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "회원가입",
 };
 
