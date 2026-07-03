@@ -2,8 +2,17 @@
 
 import Image from "next/image";
 import Button from "@/components/ui/Button";
+import type { ButtonVariant } from "@/components/ui/Button";
 
-const MODAL_THEME = {
+type ModalVariant = "confirm" | "danger";
+
+type ModalTheme = {
+  iconBg: string;
+  cancel: ButtonVariant;
+  confirm: ButtonVariant;
+};
+
+const MODAL_THEME: Record<ModalVariant, ModalTheme> = {
   confirm: {
     iconBg: "bg-primary",
     cancel: "outlinedBlue",
@@ -17,7 +26,17 @@ const MODAL_THEME = {
   },
 };
 
-/* variant: "confirm" | "danger" */
+type ModalProps = {
+  isOpen: boolean;
+  onClose: () => void;
+  title: string;
+  confirmText?: string;
+  cancelText?: string;
+  onConfirm: () => void;
+  variant?: ModalVariant;
+  loading?: boolean;
+};
+
 export default function Modal({
   isOpen,
   onClose,
@@ -27,8 +46,10 @@ export default function Modal({
   onConfirm,
   variant = "confirm",
   loading = false,
-}) {
-  if (!isOpen) return null;
+}: ModalProps) {
+  if (!isOpen) {
+    return null;
+  }
 
   const theme = MODAL_THEME[variant];
 

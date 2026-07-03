@@ -1,4 +1,5 @@
 import Link from "next/link";
+import type { MouseEventHandler, ReactNode } from "react";
 
 function Spinner() {
   return (
@@ -11,12 +12,12 @@ const sizeStyles = {
   md: "h-12 px-[1.4375rem] text-lg font-semibold", // Small_48
   lg: "h-12 px-[4.4375rem] text-2lg font-semibold", // Medium
   xl: "h-12 px-[4.4375rem] text-2lg font-semibold md:h-14 md:px-[7.75rem] md:text-xl", // Large
-};
+} as const;
 
 const roundedStyles = {
   md: "rounded-lg",
   full: "rounded-full",
-};
+} as const;
 
 const variantStyles = {
   primary: `
@@ -46,6 +47,24 @@ const variantStyles = {
     active:bg-red-700
     disabled:bg-gray-400 disabled:cursor-not-allowed
   `,
+} as const;
+
+// 스타일 객체의 키를 그대로 타입으로 사용해 스타일 추가/삭제 시 prop 타입도 자동으로 따라감
+export type ButtonSize = keyof typeof sizeStyles;
+export type ButtonRounded = keyof typeof roundedStyles;
+export type ButtonVariant = keyof typeof variantStyles;
+
+type ButtonProps = {
+  children: ReactNode;
+  href?: string; // href가 있으면 링크로, 없으면 버튼으로 렌더링
+  onClick?: MouseEventHandler<HTMLButtonElement>;
+  disabled?: boolean;
+  loading?: boolean;
+  type?: "button" | "submit" | "reset";
+  variant?: ButtonVariant;
+  size?: ButtonSize;
+  rounded?: ButtonRounded;
+  className?: string;
 };
 
 export default function Button({
@@ -59,7 +78,7 @@ export default function Button({
   size = "sm",
   rounded = "md",
   className = "",
-}) {
+}: ButtonProps) {
   const isDisabled = disabled || loading;
 
   const baseStyles =
