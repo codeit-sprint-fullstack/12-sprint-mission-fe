@@ -1,16 +1,22 @@
 "use client";
 
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
-import { useMutation } from "@tanstack/react-query";
-import { signUp, saveTokens } from "@/lib/api/auth";
-import useAuthForm from "@/hooks/useAuthForm";
+import { FormEvent } from "react";
+
+import FormField from "@/app/(auth)/_components/FormField";
 import Button from "@/components/ui/Button";
 import Modal from "@/components/ui/Modal";
+import { userQueryKeys } from "@/constants/queryKeys";
+import { useAuthForm } from "@/hooks/useAuthForm";
+import { login, signup } from "@/lib/api/auth.api";
+import type { ApiError } from "@/types/api";
+import type { SignupValues } from "@/types/auth";
 import { validateSignup } from "@/utils/validate";
-import FormField from "@/app/(auth)/_components/FormField";
 
 export default function SignupForm() {
   const router = useRouter();
+  const queryClient = useQueryClient();
 
   const {
     values,
@@ -21,7 +27,7 @@ export default function SignupForm() {
     setSubmitError,
     handleChange,
     getValidatedValues,
-  } = useAuthForm(
+  } = useAuthForm<SignupValues>(
     {
       email: "",
       nickname: "",
@@ -32,27 +38,36 @@ export default function SignupForm() {
   );
 
   const { mutate, isPending } = useMutation({
-    mutationFn: signUp,
-    onSuccess: (data) => {
-      saveTokens(data);
+    mutationFn: async (data: SignupValues) => {
+      // 회원가입은 계정만 만들고 쿠키를 안 심어주므로, 곧바로 로그인까지 이어서 처리
+      await signup({
+        email: data.email,
+        nickname: data.nickname,
+        password: data.password,
+      });
+      return login({ email: data.email, password: data.password });
+    },
+
+    onSuccess: (user) => {
+      queryClient.setQueryData(userQueryKeys.me(), user);
       router.replace("/items");
     },
-    onError: (err) => {
-      if (err.details) {
-        const fieldErrors = Object.fromEntries(
-          Object.entries(err.details).map(([key, val]) => [key, val.message]),
-        );
-        setFieldErrors(fieldErrors);
+
+    onError: (err: ApiError) => {
+      if (err.status === 409) {
+        setFieldErrors({ email: err.message });
       } else {
         setSubmitError(err.message);
       }
     },
   });
 
-  const onSubmit = (e) => {
+  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     const validData = getValidatedValues();
+
+    // 유효성 검증을 통과한 경우 서버에 전달
     if (validData) {
       mutate(validData);
     }
