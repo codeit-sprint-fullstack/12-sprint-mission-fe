@@ -19,24 +19,34 @@ async function request<T>(
       },
     });
 
+    const shouldRefresh =
+      retry &&
+      res.status === 401 &&
+      !endpoint.startsWith("/auth/login") &&
+      !endpoint.startsWith("/auth/signup") &&
+      !endpoint.startsWith("/auth/refresh");
+
     // 1. HTTP 에러 처리 (400, 500 등)
     if (!res.ok) {
-      // 401이고 재시도 가능하면 토큰 갱신 후 재시도
-      if (res.status === 401 && retry) {
+      // 401이고 재시도 가능하며 로그인/회원가입/토큰 재갱신이 아닌 경우 토큰 갱신 후 원래 요청 재시도
+      if (shouldRefresh) {
         try {
           await fetch(`${BASE_URL}/auth/refresh`, {
             method: "POST",
             credentials: "include",
           }).then((refreshRes) => {
             if (!refreshRes.ok) {
-              throw new Error("토큰이 유효하지 않습니다");
+              const error: ApiError = new Error("토큰이 유효하지 않습니다");
+              error.status = 401;
+              throw error;
             }
           });
 
           return request(endpoint, options, false);
         } catch {
-          window.location.href = "/login";
-          throw new Error("로그인이 만료되었습니다.");
+          const error: ApiError = new Error("로그인이 만료되었습니다.");
+          error.status = 401;
+          throw error;
         }
       }
 
