@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { toast } from "react-hot-toast";
 
+import type { ApiError } from "@/types/api";
+
 export function useDeleteState() {
   const [modalOpen, setModalOpen] = useState(false);
 
@@ -8,10 +10,8 @@ export function useDeleteState() {
 
   const closeModal = () => setModalOpen(false);
 
-  const handleErrorDelete = (err) => {
-    toast.error(
-      err.response?.data?.message || err.message || "삭제에 실패했습니다.",
-    );
+  const handleErrorDelete = (err: ApiError) => {
+    toast.error(err.message || "삭제에 실패했습니다.");
   };
 
   return {
