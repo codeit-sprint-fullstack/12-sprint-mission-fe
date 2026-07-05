@@ -1,13 +1,32 @@
 "use client";
 
-import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { type ReactNode, useState } from "react";
 
 const itemClass =
   "flex items-center justify-center w-full h-[2.875rem] text-lg text-gray-500 hover:bg-gray-100";
 
-function KebabMenu({ children }) {
+type KebabMenuProps = {
+  children: ReactNode;
+};
+
+type KebabButtonProps = {
+  children: ReactNode;
+  onClick?: () => void;
+};
+
+type KebabLinkProps = {
+  children: ReactNode;
+  href: string;
+};
+
+type KebabMenuComponent = ((props: KebabMenuProps) => React.JSX.Element) & {
+  Button: (props: KebabButtonProps) => React.JSX.Element;
+  Link: (props: KebabLinkProps) => React.JSX.Element;
+};
+
+const KebabMenu: KebabMenuComponent = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -27,9 +46,12 @@ function KebabMenu({ children }) {
       )}
     </div>
   );
-}
+};
 
-KebabMenu.Button = function KebabButton({ children, onClick }) {
+KebabMenu.Button = function KebabButton({
+  children,
+  onClick,
+}: KebabButtonProps) {
   return (
     <button onClick={onClick} className={`${itemClass} pt-[0.75rem] pb-4`}>
       {children}
@@ -37,7 +59,7 @@ KebabMenu.Button = function KebabButton({ children, onClick }) {
   );
 };
 
-KebabMenu.Link = function KebabLink({ children, href }) {
+KebabMenu.Link = function KebabLink({ children, href }: KebabLinkProps) {
   return (
     <Link href={href} className={`${itemClass} pb-[0.75rem] pt-4`}>
       {children}

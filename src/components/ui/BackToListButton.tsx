@@ -1,7 +1,12 @@
 import Image from "next/image";
+
 import Button from "@/components/ui/Button";
 
-export default function BackToListButton({ href }) {
+type BackToListButtonProps = {
+  href: string;
+};
+
+export default function BackToListButton({ href }: BackToListButtonProps) {
   return (
     <div className="flex justify-center">
       <Button size="lg" rounded="full" className="w-[15rem]" href={href}>
