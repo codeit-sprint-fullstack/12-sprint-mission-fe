@@ -1,14 +1,23 @@
 "use client";
 
-import useListFilters from "@/hooks/useListFilters";
 import Button from "@/components/ui/Button";
 import SearchBar from "@/components/ui/SearchBar";
 import SortDropDown from "@/components/ui/SortDropDown";
+import { useListFilters } from "@/hooks/useListFilters";
+import type { SortOption } from "@/types/sort";
 
-export default function PostSectionHeader({ keyword, orderBy }) {
-  const sortOptions = [
+type PostSectionHeaderProps = {
+  keyword: string;
+  orderBy: string;
+};
+
+export default function PostSectionHeader({
+  keyword,
+  orderBy,
+}: PostSectionHeaderProps) {
+  const sortOptions: SortOption[] = [
     { label: "최신순", value: "recent" },
-    { label: "좋아요순", value: "like" },
+    { label: "좋아요순", value: "favorite" },
   ];
 
   const { inputValue, setInputValue, handleOrderByChange } = useListFilters({

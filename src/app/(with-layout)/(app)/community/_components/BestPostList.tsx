@@ -1,8 +1,9 @@
-import { getArticles } from "@/lib/api/posts";
+import { getArticles } from "@/lib/api/article.api";
+
 import BestPostCard from "./BestPostCard";
 
 export default async function BestPostList() {
-  const { data } = await getArticles({ pageSize: 3 });
+  const { data } = await getArticles({ pageSize: 3, orderBy: "favorite" });
   const [first, second, third] = data;
 
   return (

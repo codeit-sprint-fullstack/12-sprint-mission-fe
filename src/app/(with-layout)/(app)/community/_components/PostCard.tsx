@@ -1,9 +1,15 @@
-import Link from "next/link";
-import Image from "next/image";
 import { format } from "date-fns";
-import FallbackImage from "@/components/ui/FallbackImage";
+import Image from "next/image";
+import Link from "next/link";
 
-export default function PostCard({ post }) {
+import FallbackImage from "@/components/ui/FallbackImage";
+import type { ArticleSummary } from "@/types/article";
+
+type PostCardProps = {
+  post: ArticleSummary;
+};
+
+export default function PostCard({ post }: PostCardProps) {
   const hasImage = Boolean(post?.imageUrl);
   const imageSrc = hasImage ? post.imageUrl : "/images/post-default-image.png";
 
@@ -29,7 +35,7 @@ export default function PostCard({ post }) {
         <div className="flex justify-between items-center w-full">
           <div className="flex items-center gap-2 text-md">
             <Image src="/icons/ic-profile.svg" width={24} height={24} alt="" />
-            <span className="text-gray-600">닉네임</span>
+            <span className="text-gray-600">{post.authorNickname}</span>
             <time dateTime={post.createdAt} className="text-gray-400">
               {format(new Date(post.createdAt), "yyyy. MM. dd")}
             </time>
@@ -43,7 +49,7 @@ export default function PostCard({ post }) {
               alt=""
               aria-hidden="true"
             />
-            <span className="text-gray-500 text-lg">9999+</span>
+            <span className="text-gray-500 text-lg">{post.favoriteCount}</span>
           </div>
         </div>
       </div>

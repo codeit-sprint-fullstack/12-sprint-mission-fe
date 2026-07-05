@@ -1,9 +1,15 @@
-import Link from "next/link";
-import Image from "next/image";
 import { format } from "date-fns";
-import FallbackImage from "@/components/ui/FallbackImage";
+import Image from "next/image";
+import Link from "next/link";
 
-export default function BestPostCard({ post }) {
+import FallbackImage from "@/components/ui/FallbackImage";
+import type { ArticleSummary } from "@/types/article";
+
+type BestPostCardProps = {
+  post: ArticleSummary;
+};
+
+export default function BestPostCard({ post }: BestPostCardProps) {
   const hasImage = Boolean(post?.imageUrl);
   const imageSrc = hasImage ? post.imageUrl : "/images/post-default-image.png";
 
@@ -47,7 +53,7 @@ export default function BestPostCard({ post }) {
         </div>
         <div className="flex justify-between items-center w-full text-md mt-6 xl:mt-0">
           <div className="flex gap-2">
-            <span className="text-gray-600">닉네임</span>
+            <span className="text-gray-600">{post.authorNickname}</span>
             <div className="flex items-center gap-1 text-gray-500">
               <Image
                 src="/icons/ic-heart.svg"
@@ -56,7 +62,7 @@ export default function BestPostCard({ post }) {
                 alt=""
                 aria-hidden="true"
               />
-              <span>9999+</span>
+              <span>{post.favoriteCount}</span>
             </div>
           </div>
           <time dateTime={post.createdAt} className="text-gray-400">

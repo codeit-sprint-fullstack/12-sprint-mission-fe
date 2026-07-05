@@ -1,7 +1,9 @@
 "use client";
 
-import usePostLoadMore from "@/hooks/usePostLoadMore";
 import Button from "@/components/ui/Button";
+import usePostLoadMore from "@/hooks/usePostLoadMore";
+import type { ArticleLoadMoreParams } from "@/types/article";
+
 import PostCard from "./PostCard";
 
 export default function PostLoadMore({
@@ -9,7 +11,7 @@ export default function PostLoadMore({
   orderBy,
   initialPage,
   totalPages,
-}) {
+}: ArticleLoadMoreParams) {
   const { posts, isLoading, hasMore, loadMore } = usePostLoadMore({
     keyword,
     orderBy,
