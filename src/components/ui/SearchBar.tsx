@@ -1,8 +1,18 @@
 "use client";
 
 import Image from "next/image";
+import type { ChangeEvent } from "react";
 
-export default function SearchBar({ value, onChange }) {
+type SearchBarProps = {
+  value: string;
+  onChange: (value: string) => void;
+};
+
+export default function SearchBar({ value, onChange }: SearchBarProps) {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    onChange(e.target.value);
+  };
+
   return (
     <div className="relative flex flex-1 items-center">
       <Image
@@ -18,7 +28,7 @@ export default function SearchBar({ value, onChange }) {
         aria-label="검색"
         name="search"
         value={value}
-        onChange={(e) => onChange(e.target.value)}
+        onChange={handleChange}
         placeholder="검색할 상품을 입력해주세요"
         className="
           flex-1 gap-2.5 w-[20.3125rem] h-[2.625rem] pl-11 pr-5 rounded-xl bg-gray-100 text-lg

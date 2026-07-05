@@ -2,7 +2,19 @@
 
 import Image from "next/image";
 
-export default function SortDropDown({ value, onChange, options }) {
+import type { SortOption } from "@/types/sort";
+
+type SortDropDownProps = {
+  value: string;
+  onChange: (value: string) => void;
+  options: SortOption[];
+};
+
+export default function SortDropDown({
+  value,
+  onChange,
+  options,
+}: SortDropDownProps) {
   return (
     <div className="relative inline-block">
       <select
