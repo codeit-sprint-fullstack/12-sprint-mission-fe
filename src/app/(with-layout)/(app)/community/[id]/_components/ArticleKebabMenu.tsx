@@ -1,20 +1,25 @@
 "use client";
 
-import { useRouter } from "next/navigation";
 import { useMutation } from "@tanstack/react-query";
+import { useRouter } from "next/navigation";
+
+import KebabMenu from "@/components/ui/KebabMenu";
+import Modal from "@/components/ui/Modal";
 import { useDeleteState } from "@/hooks/useDeleteState";
 import { deleteArticle } from "@/lib/api/article.api";
-import Modal from "@/components/ui/Modal";
-import KebabMenu from "@/components/ui/KebabMenu";
 
-export default function ArticleKebabMenu({ id }) {
+type ArticleKebabMenuProps = {
+  articleId: number;
+};
+
+export default function ArticleKebabMenu({ articleId }: ArticleKebabMenuProps) {
   const router = useRouter();
 
   const { modalOpen, openModal, closeModal, handleErrorDelete } =
     useDeleteState();
 
   const { mutate: handleDelete, isPending: isDeleting } = useMutation({
-    mutationFn: () => deleteArticle(id),
+    mutationFn: () => deleteArticle(articleId),
     onSuccess: () => {
       closeModal();
       router.replace("/community");
@@ -25,7 +30,9 @@ export default function ArticleKebabMenu({ id }) {
   return (
     <>
       <KebabMenu>
-        <KebabMenu.Link href={`/community/${id}/edit`}>수정하기</KebabMenu.Link>
+        <KebabMenu.Link href={`/community/${articleId}/edit`}>
+          수정하기
+        </KebabMenu.Link>
         <KebabMenu.Button onClick={openModal}>삭제하기</KebabMenu.Button>
       </KebabMenu>
 
@@ -36,7 +43,6 @@ export default function ArticleKebabMenu({ id }) {
         title="정말로 게시글을 삭제하시겠어요?"
         confirmText="삭제"
         onConfirm={handleDelete}
-        disabled={isDeleting}
         loading={isDeleting}
       />
     </>
