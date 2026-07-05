@@ -2,6 +2,18 @@ import Button from "@/components/ui/Button";
 
 const TITLE_MAX_LENGTH = 100;
 
+type PostFormProps = {
+  heading: string;
+  submitLabel?: string;
+  title: string;
+  onTitleChange: (value: string) => void;
+  content: string;
+  onContentChange: (value: string) => void;
+  onSubmit: () => void;
+  isSubmitting: boolean;
+  isValid: boolean;
+};
+
 export default function PostForm({
   heading,
   submitLabel = "등록",
@@ -12,7 +24,7 @@ export default function PostForm({
   onSubmit,
   isSubmitting,
   isValid,
-}) {
+}: PostFormProps) {
   return (
     <section className="flex flex-col gap-6 md:gap-8">
       <form
