@@ -1,12 +1,18 @@
-import { useQuery } from "@tanstack/react-query";
+import { type QueryKey, useQuery } from "@tanstack/react-query";
 
-export default function useCommentSection({
+type UseCommentSectionParams<T> = {
+  queryKey: QueryKey;
+  fetchComments: () => Promise<{ data: T[] }>;
+  initialComments: T[];
+};
+
+export default function useCommentSection<T>({
   queryKey,
   fetchComments,
   initialComments,
-}) {
+}: UseCommentSectionParams<T>) {
   const { data, isLoading, refetch } = useQuery({
-    queryKey: queryKey,
+    queryKey,
     queryFn: async () => {
       const response = await fetchComments();
       return response.data || [];
