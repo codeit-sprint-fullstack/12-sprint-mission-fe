@@ -1,29 +1,41 @@
+import { format } from "date-fns";
+import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { format } from "date-fns";
-import { getArticle } from "@/lib/api/posts";
+
 import BackToListButton from "@/components/ui/BackToListButton";
-import CommentSection from "./_components/CommentSection";
+import { getArticle } from "@/lib/api/article.api";
+
 import ArticleKebabMenu from "./_components/ArticleKebabMenu";
+import CommentSection from "./_components/CommentSection";
 import LikeCountClient from "./_components/LikeCountClient";
 
-export async function generateMetadata({ params }) {
+type ArticleDetailPageProps = {
+  params: Promise<{ id: string }>;
+};
+
+export async function generateMetadata({
+  params,
+}: ArticleDetailPageProps): Promise<Metadata> {
   const { id } = await params;
 
   try {
-    const { data: article } = await getArticle(id);
+    const { data: article } = await getArticle(Number(id));
     return { title: article.title };
   } catch {
     return { title: "게시글을 찾을 수 없어요" };
   }
 }
 
-export default async function ArticleDetailPage({ params }) {
+export default async function ArticleDetailPage({
+  params,
+}: ArticleDetailPageProps) {
   const { id } = await params;
+  const articleId = Number(id);
 
   let article;
   try {
-    const { data } = await getArticle(id);
+    const { data } = await getArticle(articleId);
     article = data;
   } catch (err) {
     if (err.status === 404) {
@@ -37,7 +49,7 @@ export default async function ArticleDetailPage({ params }) {
       <div className="pb-4 mb-4 md:mb-6 border-b border-gray-200">
         <div className="flex justify-between gap-2 w-full pb-4">
           <h2 className="text-xl font-bold">{article.title}</h2>
-          <ArticleKebabMenu articleId={id} />
+          <ArticleKebabMenu articleId={articleId} />
         </div>
 
         <div className="flex items-center gap-4 md:gap-8">
@@ -49,7 +61,7 @@ export default async function ArticleDetailPage({ params }) {
               alt="프로필 사진"
             />
             <div className="flex gap-1 text-md font-medium md:gap-2">
-              <span className="text-gray-600">닉네임</span>
+              <span className="text-gray-600">{article.authorNickname}</span>
               <time dateTime={article.createdAt} className="text-gray-400">
                 {format(new Date(article.createdAt), "yyyy. MM. dd")}
               </time>
@@ -66,7 +78,7 @@ export default async function ArticleDetailPage({ params }) {
         {article.content}
       </p>
 
-      <CommentSection articleId={id} />
+      <CommentSection articleId={articleId} />
 
       <BackToListButton href="/community" />
     </section>
