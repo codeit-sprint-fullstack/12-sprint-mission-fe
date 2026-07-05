@@ -1,15 +1,28 @@
+import type { Metadata } from "next";
 import { Suspense } from "react";
+
 import BestPostList from "./_components/BestPostList";
 import BestPostListSkeleton from "./_components/BestPostListSkeleton";
-import PostSectionHeader from "./_components/PostSectionHeader";
 import PostList from "./_components/PostList";
 import PostListSkeleton from "./_components/PostListSkeleton";
+import PostSectionHeader from "./_components/PostSectionHeader";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "자유게시판",
 };
 
-export default async function CommunityPage({ searchParams }) {
+type CommunityPageSearchParams = {
+  keyword?: string;
+  orderBy?: string;
+};
+
+type CommunityPageProps = {
+  searchParams: Promise<CommunityPageSearchParams>;
+};
+
+export default async function CommunityPage({
+  searchParams,
+}: CommunityPageProps) {
   const { keyword = "", orderBy = "recent" } = await searchParams;
 
   return (

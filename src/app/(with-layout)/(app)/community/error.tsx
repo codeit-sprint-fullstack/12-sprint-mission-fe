@@ -2,7 +2,12 @@
 
 import Button from "@/components/ui/Button";
 
-export default function Error({ reset }) {
+type ErrorPageProps = {
+  error: Error & { digest?: string };
+  reset: () => void;
+};
+
+export default function Error({ reset }: ErrorPageProps) {
   return (
     <div className="flex flex-col items-center justify-center gap-6 py-40">
       <p className="text-xl font-bold text-gray-800">
