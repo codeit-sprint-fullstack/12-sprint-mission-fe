@@ -1,13 +1,19 @@
 "use client";
 
-import { useState } from "react";
-import { useRouter } from "next/navigation";
 import { useMutation } from "@tanstack/react-query";
-import { showErrorToast } from "@/utils/showErrorToast";
-import { updateArticle } from "@/lib/api/article.api";
-import PostForm from "./_components/PostForm";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
 
-export default function PostEditClient({ post }) {
+import PostForm from "@/app/(with-layout)/(app)/community/_components/PostForm";
+import { updateArticle } from "@/lib/api/article.api";
+import type { Article } from "@/types/article";
+import { showErrorToast } from "@/utils/showErrorToast";
+
+type PostEditClientProps = {
+  post: Article;
+};
+
+export default function PostEditClient({ post }: PostEditClientProps) {
   const router = useRouter();
 
   const [title, setTitle] = useState(post.title);
