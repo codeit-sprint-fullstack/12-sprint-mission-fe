@@ -8,7 +8,6 @@ import {
 import { useState } from "react";
 
 import Button from "@/components/ui/Button";
-import type { Comment } from "@/types/comment";
 import { showErrorToast } from "@/utils/showErrorToast";
 
 import CommentTextarea from "./CommentTextarea";
