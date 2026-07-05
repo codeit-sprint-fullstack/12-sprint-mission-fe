@@ -1,6 +1,4 @@
-export type ApiError = Error & {
-  status?: number;
-};
+import type { ApiError } from "@/types/api";
 
 const BASE_URL = process.env.NEXT_PUBLIC_API_URL;
 
@@ -76,7 +74,7 @@ async function request<T>(
 
       const errorData = await res.json().catch(() => ({}));
       const error: ApiError = new Error(
-        errorData.message || "알 수 없는 오류가 발생했습니다.",
+        errorData.error || "알 수 없는 오류가 발생했습니다.",
       );
       error.status = res.status;
       throw error;
@@ -89,7 +87,8 @@ async function request<T>(
     return (await res.json()) as T;
   } catch (err) {
     if (err instanceof Error && err.message === "Failed to fetch") {
-      throw new Error("네트워크 연결이 원활하지 않습니다.");
+      const error: ApiError = new Error("네트워크 연결이 원활하지 않습니다.");
+      throw error;
     }
 
     throw err;
