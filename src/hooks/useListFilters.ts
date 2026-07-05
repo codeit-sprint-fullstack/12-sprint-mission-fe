@@ -1,8 +1,19 @@
-import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import useDebounce from "@/hooks/useDebounce";
+import { useEffect, useState } from "react";
 
-export default function useListFilters({ pathname, keyword, orderBy }) {
+import { useDebounce } from "@/hooks/useDebounce";
+
+type UseListFiltersParams = {
+  pathname: string;
+  keyword: string;
+  orderBy: string;
+};
+
+export function useListFilters({
+  pathname,
+  keyword,
+  orderBy,
+}: UseListFiltersParams) {
   const router = useRouter();
   const [inputValue, setInputValue] = useState(keyword);
   const debouncedKeyword = useDebounce(inputValue, 300);
@@ -23,9 +34,10 @@ export default function useListFilters({ pathname, keyword, orderBy }) {
     }
 
     router.replace(`${pathname}${params.toString() ? `?${params}` : ""}`);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [debouncedKeyword]);
 
-  const handleOrderByChange = (value) => {
+  const handleOrderByChange = (value: string) => {
     const params = new URLSearchParams();
 
     if (inputValue) {

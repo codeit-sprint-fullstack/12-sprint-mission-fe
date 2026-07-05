@@ -1,14 +1,16 @@
 import { useState } from "react";
 import { toast } from "react-hot-toast";
-import { getArticles } from "@/lib/api/posts";
+
+import { getArticles } from "@/lib/api/article.api";
+import type { ArticleLoadMoreParams, ArticleSummary } from "@/types/article";
 
 export default function usePostLoadMore({
   keyword,
   orderBy,
   initialPage,
   totalPages,
-}) {
-  const [posts, setPosts] = useState([]);
+}: ArticleLoadMoreParams) {
+  const [posts, setPosts] = useState<ArticleSummary[]>([]);
   const [page, setPage] = useState(initialPage);
   const [isLoading, setIsLoading] = useState(false);
   const hasMore = page < totalPages;
@@ -21,7 +23,11 @@ export default function usePostLoadMore({
       setPosts((prev) => [...prev, ...data]);
       setPage(nextPage);
     } catch (err) {
-      toast.error(err.message || "게시글을 불러오는 데 실패했습니다.");
+      const message =
+        err instanceof Error
+          ? err.message
+          : "게시글을 불러오는 데 실패했습니다.";
+      toast.error(message);
     } finally {
       setIsLoading(false);
     }

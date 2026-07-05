@@ -7,8 +7,16 @@ export type ArticleSummary = {
   createdAt: string;
   updatedAt: string;
   authorNickname: string;
+  imageUrl?: string;
 };
 
 export type Article = ArticleSummary & {
   isLiked: boolean;
+};
+
+export type ArticleLoadMoreParams = {
+  keyword: string;
+  orderBy: string;
+  initialPage: number;
+  totalPages: number;
 };
