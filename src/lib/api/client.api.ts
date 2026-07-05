@@ -1,6 +1,30 @@
-import type { ApiError } from "@/types/api";
+export type ApiError = Error & {
+  status?: number;
+};
 
 const BASE_URL = process.env.NEXT_PUBLIC_API_URL;
+
+// 서버(Server Component 등)에서 실행 중이면 브라우저 쿠키가 자동으로 안 실리므로 직접 포워딩
+async function getRequestHeaders(
+  customHeaders?: HeadersInit,
+): Promise<HeadersInit> {
+  const baseHeaders: HeadersInit = {
+    "Content-Type": "application/json",
+    ...customHeaders,
+  };
+
+  if (typeof window === "undefined") {
+    const { cookies } = await import("next/headers");
+    const cookieStore = await cookies();
+    const cookieHeader = cookieStore.toString();
+
+    if (cookieHeader) {
+      return { ...baseHeaders, Cookie: cookieHeader };
+    }
+  }
+
+  return baseHeaders;
+}
 
 async function request<T>(
   endpoint: string,
@@ -10,13 +34,12 @@ async function request<T>(
   const url = `${BASE_URL}${endpoint}`;
 
   try {
+    const headers = await getRequestHeaders(options.headers);
+
     const res = await fetch(url, {
       ...options,
       credentials: "include",
-      headers: {
-        "Content-Type": "application/json",
-        ...options.headers,
-      },
+      headers,
     });
 
     const shouldRefresh =
@@ -26,14 +49,15 @@ async function request<T>(
       !endpoint.startsWith("/auth/signup") &&
       !endpoint.startsWith("/auth/refresh");
 
-    // 1. HTTP 에러 처리 (400, 500 등)
     if (!res.ok) {
-      // 401이고 재시도 가능하며 로그인/회원가입/토큰 재갱신이 아닌 경우 토큰 갱신 후 원래 요청 재시도
       if (shouldRefresh) {
         try {
+          const refreshHeaders = await getRequestHeaders();
+
           await fetch(`${BASE_URL}/auth/refresh`, {
             method: "POST",
             credentials: "include",
+            headers: refreshHeaders,
           }).then((refreshRes) => {
             if (!refreshRes.ok) {
               const error: ApiError = new Error("토큰이 유효하지 않습니다");
@@ -64,8 +88,6 @@ async function request<T>(
 
     return (await res.json()) as T;
   } catch (err) {
-    // 2. 네트워크 에러 처리 (Failed to fetch 등)
-    // err의 타입이 unknown이기 때문에 바로 사용하지 못하고, instanceof로 Error
     if (err instanceof Error && err.message === "Failed to fetch") {
       throw new Error("네트워크 연결이 원활하지 않습니다.");
     }
