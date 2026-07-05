@@ -1,10 +1,16 @@
 const MAX_LENGTH = 200;
 
+type CommentTextareaProps = {
+  value: string;
+  onChange: (value: string) => void;
+  placeholder?: string;
+};
+
 export default function CommentTextarea({
   value,
   onChange,
   placeholder = "댓글을 입력해주세요.",
-}) {
+}: CommentTextareaProps) {
   return (
     <div className="relative">
       <textarea

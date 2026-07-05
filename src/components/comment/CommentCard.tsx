@@ -1,24 +1,27 @@
 "use client";
 
-import Image from "next/image";
-import { useState } from "react";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { formatDistanceToNow } from "date-fns";
 import { ko } from "date-fns/locale";
-import { useQueryClient, useMutation } from "@tanstack/react-query";
-import { showErrorToast } from "@/utils/showErrorToast";
-import { useDeleteState } from "@/hooks/useDeleteState";
-import useUser from "@/hooks/useUser";
+import Image from "next/image";
+import { useState } from "react";
+
 import Button from "@/components/ui/Button";
-import Modal from "@/components/ui/Modal";
 import KebabMenu from "@/components/ui/KebabMenu";
+import Modal from "@/components/ui/Modal";
+import { useDeleteState } from "@/hooks/useDeleteState";
+import { useUser } from "@/hooks/useUser";
+import { showErrorToast } from "@/utils/showErrorToast";
+
 import CommentTextarea from "./CommentTextarea";
+import type { CommentCardProps } from "./types";
 
 export default function CommentCard({
   comment,
   queryKey,
   updateComment,
   deleteComment,
-}) {
+}: CommentCardProps) {
   const queryClient = useQueryClient();
 
   const [content, setContent] = useState(comment.content);
@@ -54,7 +57,7 @@ export default function CommentCard({
     setIsEditing(false);
   };
 
-  const isOwner = user?.id === comment.writer.id;
+  const isOwner = user?.id === comment.authorId;
   const isDisabled = content.trim().length === 0 || isSubmitting;
 
   return (
@@ -85,14 +88,15 @@ export default function CommentCard({
         )}
         <div className="flex justify-between items-center">
           <div className="flex items-start gap-2">
+            {/* TODO: 실제 사용자 이미지로 교체 예정 */}
             <Image
-              src={comment.writer?.image || "/icons/ic-profile.svg"}
+              src="/icons/ic-profile.svg"
               width={32}
               height={32}
-              alt={`${comment.writer.nickname}님의 프로필 사진`}
+              alt={`${comment.authorNickname}님의 프로필 사진`}
             />
             <div className="flex flex-col gap-1 text-xs">
-              <span className="text-gray-600">{comment.writer.nickname}</span>
+              <span className="text-gray-600">{comment.authorNickname}</span>
               <time dateTime={comment.createdAt} className="text-gray-400">
                 {formatDistanceToNow(new Date(comment.createdAt), {
                   addSuffix: true,
@@ -107,7 +111,7 @@ export default function CommentCard({
                 취소
               </Button>
               <Button
-                onClick={handleEdit}
+                onClick={() => handleEdit()}
                 disabled={isDisabled}
                 loading={isSubmitting}
               >
@@ -124,7 +128,6 @@ export default function CommentCard({
         title="정말로 댓글을 삭제하시겠어요?"
         confirmText="삭제"
         onConfirm={handleDelete}
-        disabled={isDeleting}
         loading={isDeleting}
       />
     </>

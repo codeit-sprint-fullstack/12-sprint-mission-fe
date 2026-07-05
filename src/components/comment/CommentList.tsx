@@ -1,5 +1,7 @@
 import Image from "next/image";
+
 import CommentCard from "./CommentCard";
+import type { CommentListProps } from "./types";
 
 export default function CommentList({
   comments,
@@ -10,7 +12,7 @@ export default function CommentList({
   emptyMessage,
   emptySize,
   className,
-}) {
+}: CommentListProps) {
   return (
     <div className="flex flex-col gap-4 md:gap-6 mb-10 md:mb-14 lg:mb-16">
       {comments.length == 0 ? (

@@ -1,21 +1,40 @@
 "use client";
 
+import {
+  type QueryKey,
+  useMutation,
+  useQueryClient,
+} from "@tanstack/react-query";
 import { useState } from "react";
-import { useQueryClient } from "@tanstack/react-query";
-import useCreate from "@/hooks/useCreate";
+
 import Button from "@/components/ui/Button";
+import type { Comment } from "@/types/comment";
+import { showErrorToast } from "@/utils/showErrorToast";
+
 import CommentTextarea from "./CommentTextarea";
 
-export default function CommentForm({ createComment, queryKey, placeholder }) {
-  const [comment, setComment] = useState("");
+type CommentFormProps = {
+  createComment: (content: string) => Promise<unknown>;
+  queryKey: QueryKey;
+  placeholder?: string;
+};
+
+export default function CommentForm({
+  createComment,
+  queryKey,
+  placeholder,
+}: CommentFormProps) {
   const queryClient = useQueryClient();
 
-  const { isSubmitting, handleSubmit } = useCreate({
-    createFn: () => createComment(comment),
+  const [comment, setComment] = useState("");
+
+  const { mutate: handleSubmit, isPending: isSubmitting } = useMutation({
+    mutationFn: () => createComment(comment),
     onSuccess: () => {
       setComment("");
       queryClient.invalidateQueries({ queryKey });
     },
+    onError: (err) => showErrorToast(err, "댓글 등록"),
   });
 
   const isDisabled = comment.trim().length === 0 || isSubmitting;
@@ -31,7 +50,7 @@ export default function CommentForm({ createComment, queryKey, placeholder }) {
 
         <div className="flex justify-end">
           <Button
-            onClick={handleSubmit}
+            onClick={() => handleSubmit()}
             disabled={isDisabled}
             loading={isSubmitting}
           >
