@@ -6,6 +6,7 @@ export type Comment = {
   authorId: number;
   createdAt: string;
   updatedAt: string;
+  authorNickname: string;
 };
 
 export type CommentResponse = {
