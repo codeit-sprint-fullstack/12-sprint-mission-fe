@@ -4,7 +4,6 @@ import type {
   CommentListResponse,
   CommentResponse,
   CreateCommentBody,
-  GetCommentsParams,
 } from "@/types/comment";
 import type { ListQueryParams } from "@/types/list";
 
@@ -30,6 +29,12 @@ type CreateArticleBody = {
 type UpdateArticleBody = {
   title?: string;
   content?: string;
+};
+
+type GetCommentsParams = {
+  articleId: number;
+  cursor?: number;
+  take?: number;
 };
 
 export const getArticles = ({
@@ -61,7 +66,7 @@ export const deleteArticle = (id: number) =>
   api.delete<void>(`/articles/${id}`);
 
 export const getArticleComments = ({
-  id,
+  articleId,
   cursor,
   take = 10,
 }: GetCommentsParams) => {
@@ -71,7 +76,9 @@ export const getArticleComments = ({
     params.append("cursor", String(cursor));
   }
 
-  return api.get<CommentListResponse>(`/articles/${id}/comments?${params}`);
+  return api.get<CommentListResponse>(
+    `/articles/${articleId}/comments?${params}`,
+  );
 };
 
 export const createArticleComment = (articleId: number, content: string) =>

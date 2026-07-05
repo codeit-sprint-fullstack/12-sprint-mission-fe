@@ -23,9 +23,3 @@ export type CommentListResponse = {
 export type CreateCommentBody = {
   content: string;
 };
-
-export type GetCommentsParams = {
-  id: number;
-  cursor?: number;
-  take?: number;
-};
