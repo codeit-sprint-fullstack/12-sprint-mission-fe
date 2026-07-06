@@ -5,17 +5,16 @@ const BASE_URL = process.env.NEXT_PUBLIC_API_URL;
 // 서버(Server Component 등)에서 실행 중이면 브라우저 쿠키가 자동으로 안 실리므로 직접 포워딩
 async function getRequestHeaders(
   customHeaders?: HeadersInit,
+  isFormData = false,
 ): Promise<HeadersInit> {
-  const baseHeaders: HeadersInit = {
-    "Content-Type": "application/json",
-    ...customHeaders,
-  };
+  const baseHeaders: HeadersInit = isFormData
+    ? { ...customHeaders }
+    : { "Content-Type": "application/json", ...customHeaders };
 
   if (typeof window === "undefined") {
     const { cookies } = await import("next/headers");
     const cookieStore = await cookies();
     const cookieHeader = cookieStore.toString();
-
     if (cookieHeader) {
       return { ...baseHeaders, Cookie: cookieHeader };
     }
@@ -30,10 +29,10 @@ async function request<T>(
   retry = true,
 ): Promise<T> {
   const url = `${BASE_URL}${endpoint}`;
+  const isFormData = options.body instanceof FormData;
 
   try {
-    const headers = await getRequestHeaders(options.headers);
-
+    const headers = await getRequestHeaders(options.headers, isFormData);
     const res = await fetch(url, {
       ...options,
       credentials: "include",
@@ -52,17 +51,17 @@ async function request<T>(
         try {
           const refreshHeaders = await getRequestHeaders();
 
-          await fetch(`${BASE_URL}/auth/refresh`, {
+          const refreshRes = await fetch(`${BASE_URL}/auth/refresh`, {
             method: "POST",
             credentials: "include",
             headers: refreshHeaders,
-          }).then((refreshRes) => {
-            if (!refreshRes.ok) {
-              const error: ApiError = new Error("토큰이 유효하지 않습니다");
-              error.status = 401;
-              throw error;
-            }
           });
+
+          if (!refreshRes.ok) {
+            const error: ApiError = new Error("토큰이 유효하지 않습니다");
+            error.status = 401;
+            throw error;
+          }
 
           return request(endpoint, options, false);
         } catch {
@@ -107,7 +106,7 @@ export const api = {
     request<TResponse>(url, {
       ...options,
       method: "POST",
-      body: JSON.stringify(body),
+      body: body instanceof FormData ? body : JSON.stringify(body),
     }),
 
   patch: <TResponse, TBody = unknown>(
@@ -118,7 +117,7 @@ export const api = {
     request<TResponse>(url, {
       ...options,
       method: "PATCH",
-      body: JSON.stringify(body),
+      body: body instanceof FormData ? body : JSON.stringify(body),
     }),
 
   delete: <TResponse>(url: string, options?: RequestInit) =>

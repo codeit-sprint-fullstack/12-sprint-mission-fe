@@ -64,8 +64,20 @@ export const getProducts = ({
 export const getProduct = (id: number) =>
   api.get<ProductResponse>(`/products/${id}`, { cache: `no-store` });
 
-export const createProduct = (data: CreateProductBody) =>
-  api.post<ProductResponse, CreateProductBody>(`/products`, data);
+export const createProduct = (
+  data: CreateProductBody,
+  imageFile?: File | null,
+) => {
+  const formData = new FormData();
+  formData.append("name", data.name);
+  formData.append("description", data.description);
+  formData.append("price", String(data.price));
+  formData.append("tags", JSON.stringify(data.tags));
+  if (imageFile) {
+    formData.append("image", imageFile);
+  }
+  return api.post<ProductResponse>(`/products`, formData);
+};
 
 export const updateProduct = (id: number, fields: UpdateProductBody) =>
   api.patch<ProductResponse, UpdateProductBody>(`/products/${id}`, fields);
