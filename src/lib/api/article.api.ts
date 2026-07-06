@@ -5,6 +5,7 @@ import type {
   CommentResponse,
   CreateCommentBody,
 } from "@/types/comment";
+import type { FavoriteResponse } from "@/types/favorite";
 import type { ListQueryParams } from "@/types/list";
 
 import { api } from "./client.api";
@@ -53,7 +54,7 @@ export const getArticles = ({
 };
 
 export const getArticle = (id: number) => {
-  return api.get<ArticleResponse>(`/articles/${id}`);
+  return api.get<ArticleResponse>(`/articles/${id}`, { cache: "no-store" });
 };
 
 export const createArticle = (data: CreateArticleBody) =>
@@ -86,3 +87,16 @@ export const createArticleComment = (articleId: number, content: string) =>
     `/articles/${articleId}/comments`,
     { content },
   );
+
+export const addArticleFavorite = (articleId: number) =>
+  api.post<FavoriteResponse, undefined>(
+    `/articles/${articleId}/favorite`,
+    undefined,
+  );
+
+export const removeArticleFavorite = (articleId: number) =>
+  api.delete<void>(`/articles/${articleId}/favorite`);
+
+// 추가/삭제가 별도 엔드포인트이므로 nextLiked 값을 기준으로 내부에서 분기
+export const toggleArticleFavorite = (articleId: number, nextLiked: boolean) =>
+  nextLiked ? addArticleFavorite(articleId) : removeArticleFavorite(articleId);
