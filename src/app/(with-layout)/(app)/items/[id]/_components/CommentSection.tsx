@@ -1,7 +1,14 @@
-import { getProductComments } from "@/lib/api/products";
+import { getProductComments } from "@/lib/api/products.api";
+
 import CommentSectionClient from "./CommentSectionClient";
 
-export default async function CommentSection({ productId }) {
+type CommentSectionProps = {
+  productId: number;
+};
+
+export default async function CommentSection({
+  productId,
+}: CommentSectionProps) {
   const { data: initialComments } = await getProductComments({ productId });
 
   return (

@@ -1,14 +1,23 @@
 "use client";
 
-import { useRouter } from "next/navigation";
 import { useMutation } from "@tanstack/react-query";
-import { useDeleteState } from "@/hooks/useDeleteState";
-import { deleteProduct } from "@/lib/api/products.api";
-import useUser from "@/hooks/useUser";
-import Modal from "@/components/ui/Modal";
-import KebabMenu from "@/components/ui/KebabMenu";
+import { useRouter } from "next/navigation";
 
-export default function ProductKebabMenu({ productId, ownerId }) {
+import KebabMenu from "@/components/ui/KebabMenu";
+import Modal from "@/components/ui/Modal";
+import { useDeleteState } from "@/hooks/useDeleteState";
+import { useUser } from "@/hooks/useUser";
+import { deleteProduct } from "@/lib/api/products.api";
+
+type ProductKebabMenuProps = {
+  productId: number;
+  ownerId: number;
+};
+
+export default function ProductKebabMenu({
+  productId,
+  ownerId,
+}: ProductKebabMenuProps) {
   const router = useRouter();
 
   const { data: user } = useUser();
@@ -46,7 +55,6 @@ export default function ProductKebabMenu({ productId, ownerId }) {
         title="정말로 상품을 삭제하시겠어요?"
         confirmText="삭제"
         onConfirm={handleDelete}
-        disabled={isDeleting}
         loading={isDeleting}
       />
     </>
