@@ -2,6 +2,7 @@
 
 import type { ImageUploaderProps } from "@/app/(with-layout)/(app)/_components/ImageUploader";
 import { ImageUploader } from "@/app/(with-layout)/(app)/_components/ImageUploader";
+import { LabeledTextField } from "@/app/(with-layout)/(app)/_components/LabeledTextField";
 import Button from "@/components/ui/Button";
 
 const TITLE_MAX_LENGTH = 100;
@@ -51,51 +52,24 @@ export default function PostForm({
           </Button>
         </div>
 
-        <div className="mb-[0.75rem]">
-          <label
-            htmlFor="title"
-            className="block text-2lg font-bold text-gray-800"
-          >
-            *제목
-          </label>
-        </div>
-        <div className="relative">
-          <input
-            type="text"
-            id="title"
-            placeholder="제목을 입력해주세요."
-            value={title}
-            onChange={(e) => onTitleChange(e.target.value)}
-            maxLength={TITLE_MAX_LENGTH}
-            disabled={isSubmitting}
-            className="
-              w-full h-14 mb-4 md:mb-6 px-6 py-4 rounded-lg bg-gray-100
-              placeholder:text-gray-400 focus:outline-none focus:ring focus:ring-primary focus:ring-2
-            "
-          />
-          <span className="absolute bottom-8 right-6 text-xs text-gray-400">
-            {title.length}/{TITLE_MAX_LENGTH}
-          </span>
-        </div>
+        <LabeledTextField
+          id="title"
+          label="제목"
+          value={title}
+          placeholder="제목을 입력해주세요."
+          onChange={onTitleChange}
+          maxLength={TITLE_MAX_LENGTH}
+          disabled={isSubmitting}
+        />
 
-        <div className="mb-[0.75rem]">
-          <label
-            htmlFor="content"
-            className="block text-2lg font-bold text-gray-800"
-          >
-            *내용
-          </label>
-        </div>
-        <textarea
+        <LabeledTextField
           id="content"
+          label="내용"
           value={content}
           placeholder="내용을 입력해주세요."
-          onChange={(e) => onContentChange(e.target.value)}
+          as="textarea"
+          onChange={onContentChange}
           disabled={isSubmitting}
-          className="
-            w-full h-[17.625rem]  mb-4 md:mb-6  px-6 py-4 rounded-lg bg-gray-100 resize-none
-            placeholder:text-gray-400 focus:outline-none focus:ring focus:ring-primary focus:ring-2
-          "
         />
 
         <ImageUploader

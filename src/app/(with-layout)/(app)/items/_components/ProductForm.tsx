@@ -1,11 +1,10 @@
 "use client";
 
-import Image from "next/image";
-
 import {
   ImageUploader,
   type ImageUploaderProps,
 } from "@/app/(with-layout)/(app)/_components/ImageUploader";
+import { LabeledTextField } from "@/app/(with-layout)/(app)/_components/LabeledTextField";
 import {
   TagInput,
   type TagInputProps,
@@ -84,86 +83,39 @@ export default function ProductForm({
           isSubmitting={isSubmitting}
         />
 
-        <div className="mb-[0.75rem]">
-          <label
-            htmlFor="name"
-            className="block text-2lg font-bold text-gray-800"
-          >
-            상품명
-          </label>
-        </div>
-        <div className="relative">
-          <input
-            type="text"
-            id="name"
-            placeholder="상품명을 입력해주세요."
-            value={name}
-            onChange={(e) => onNameChange(e.target.value)}
-            maxLength={NAME_MAX_LENGTH}
-            disabled={isSubmitting}
-            className="
-              w-full h-14 mb-4 lg:mb-6 px-6 py-4 rounded-lg bg-gray-100
-              placeholder:text-gray-400 focus:outline-none focus:ring focus:ring-primary focus:ring-2
-            "
-          />
-          <span className="absolute bottom-8 right-6 text-xs text-gray-400">
-            {name.length}/{NAME_MAX_LENGTH}
-          </span>
-        </div>
-
-        <div className="mb-[0.75rem]">
-          <label
-            htmlFor="description"
-            className="block text-2lg font-bold text-gray-800"
-          >
-            상품 소개
-          </label>
-        </div>
-        <div className="relative">
-          <textarea
-            id="description"
-            value={description}
-            placeholder="상품 소개를 입력해주세요."
-            onChange={(e) => onDescriptionChange(e.target.value)}
-            disabled={isSubmitting}
-            aria-invalid={isDescriptionTooShort}
-            aria-describedby={
-              isDescriptionTooShort ? "description-error" : undefined
-            }
-            className="
-              w-full h-[17.625rem] mb-4 lg:mb-6 px-6 py-4 rounded-lg bg-gray-100 resize-none
-              placeholder:text-gray-400 focus:outline-none focus:ring focus:ring-2 focus:ring-primary
-            "
-          />
-          <span className="absolute bottom-8 right-6 text-xs text-gray-400">
-            {description.length}/{NAME_MAX_LENGTH}
-          </span>
-        </div>
-        {isDescriptionTooShort && (
-          <p id="description-error" className="mb-4 md:mb-6 text-sm text-error">
-            상품 소개는 {DESCRIPTION_MIN_LENGTH}자 이상 입력해주세요.
-          </p>
-        )}
-
-        <div className="mb-[0.75rem]">
-          <label
-            htmlFor="price"
-            className="block text-2lg font-bold text-gray-800"
-          >
-            판매가격
-          </label>
-        </div>
-        <input
-          type="number"
-          id="price"
-          placeholder="판매 가격을 입력해주세요."
-          value={price}
-          onChange={(e) => onPriceChange(e.target.value)}
+        <LabeledTextField
+          id="name"
+          label="상품명"
+          value={name}
+          placeholder="상품명을 입력해주세요."
+          onChange={onNameChange}
+          maxLength={NAME_MAX_LENGTH}
           disabled={isSubmitting}
-          className="
-              w-full h-14 mb-4 lg:mb-6 px-6 py-4 rounded-lg bg-gray-100
-              placeholder:text-gray-400 focus:outline-none focus:ring focus:ring-primary focus:ring-2
-            "
+        />
+
+        <LabeledTextField
+          id="description"
+          label="상품 소개"
+          value={description}
+          placeholder="상품 소개를 입력해주세요."
+          as="textarea"
+          onChange={onDescriptionChange}
+          disabled={isSubmitting}
+          error={
+            isDescriptionTooShort
+              ? `상품 소개는 ${DESCRIPTION_MIN_LENGTH}자 이상 입력해주세요.`
+              : undefined
+          }
+        />
+
+        <LabeledTextField
+          id="price"
+          label="판매가격"
+          type="number"
+          value={price}
+          onChange={onPriceChange}
+          placeholder="판매 가격을 입력해주세요."
+          disabled={isSubmitting}
         />
 
         <TagInput
