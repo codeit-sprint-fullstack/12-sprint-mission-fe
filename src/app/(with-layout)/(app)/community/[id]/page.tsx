@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 
 import BackToListButton from "@/components/ui/BackToListButton";
 import { getArticle } from "@/lib/api/article.api";
+import type { ApiError } from "@/types/api";
 
 import ArticleKebabMenu from "./_components/ArticleKebabMenu";
 import CommentSection from "./_components/CommentSection";
@@ -38,7 +39,7 @@ export default async function ArticleDetailPage({
     const { data } = await getArticle(articleId);
     article = data;
   } catch (err) {
-    if (err.status === 404) {
+    if (err instanceof Error && (err as ApiError).status === 404) {
       notFound();
     }
     throw err;
@@ -67,10 +68,13 @@ export default async function ArticleDetailPage({
               </time>
             </div>
           </div>
-
           <div className="w-px h-[2.125rem] bg-gray-200" />
-
-          <LikeCountClient initialCount={123} />
+          <LikeCountClient
+            key={articleId}
+            articleId={articleId}
+            initialCount={article.favoriteCount}
+            initialLiked={article.isLiked}
+          />
         </div>
       </div>
 

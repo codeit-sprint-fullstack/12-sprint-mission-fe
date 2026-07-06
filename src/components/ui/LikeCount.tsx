@@ -1,6 +1,16 @@
 import Image from "next/image";
 
-export default function LikeCount({ liked = false, count, onToggle }) {
+type LikeCountProps = {
+  liked?: boolean;
+  count: number;
+  onToggle: () => void;
+};
+
+export default function LikeCount({
+  liked = false,
+  count,
+  onToggle,
+}: LikeCountProps) {
   return (
     <button
       onClick={onToggle}
