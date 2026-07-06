@@ -7,8 +7,8 @@ type usePostFormOptions = {
 };
 
 export function usePostForm({ initialPost }: usePostFormOptions = {}) {
-  const [title, setTitle] = useState(initialPost.title ?? "");
-  const [content, setContent] = useState(initialPost.content ?? "");
+  const [title, setTitle] = useState(initialPost?.title ?? "");
+  const [content, setContent] = useState(initialPost?.content ?? "");
 
   const isValid = title.trim().length > 0 && content.trim().length > 0;
 
