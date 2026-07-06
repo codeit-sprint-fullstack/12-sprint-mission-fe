@@ -38,6 +38,7 @@ type UpdateProductBody = {
   description?: string;
   price?: number;
   tags?: string[];
+  existingImageUrls?: string[]; // 수정 시 유지할 기존 이미지 URL 목록
 };
 
 type GetCommentsParams = {
@@ -66,21 +67,49 @@ export const getProduct = (id: number) =>
 
 export const createProduct = (
   data: CreateProductBody,
-  imageFile?: File | null,
+  imageFiles: File[] = [],
 ) => {
   const formData = new FormData();
   formData.append("name", data.name);
   formData.append("description", data.description);
   formData.append("price", String(data.price));
   formData.append("tags", JSON.stringify(data.tags));
-  if (imageFile) {
-    formData.append("image", imageFile);
-  }
+
+  imageFiles.forEach((file) => formData.append("images", file));
+
   return api.post<ProductResponse>(`/products`, formData);
 };
 
-export const updateProduct = (id: number, fields: UpdateProductBody) =>
-  api.patch<ProductResponse, UpdateProductBody>(`/products/${id}`, fields);
+export const updateProduct = (
+  id: number,
+  fields: UpdateProductBody,
+  newImageFiles: File[] = [],
+) => {
+  const formData = new FormData();
+
+  if (fields.name !== undefined) {
+    formData.append("name", fields.name);
+  }
+  if (fields.description !== undefined) {
+    formData.append("description", fields.description);
+  }
+  if (fields.price !== undefined) {
+    formData.append("price", String(fields.price));
+  }
+  if (fields.tags !== undefined) {
+    formData.append("tags", JSON.stringify(fields.tags));
+  }
+
+  // 수정 화면에서 삭제하지 않은 기존 이미지 URL들 (없으면 빈 배열로 보내서 전부 삭제 처리)
+  formData.append(
+    "existingImageUrls",
+    JSON.stringify(fields.existingImageUrls ?? []),
+  );
+
+  newImageFiles.forEach((file) => formData.append("images", file));
+
+  return api.patch<ProductResponse, FormData>(`/products/${id}`, formData);
+};
 
 export const deleteProduct = (id: number) =>
   api.delete<void>(`/products/${id}`);

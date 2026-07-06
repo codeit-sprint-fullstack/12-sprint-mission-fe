@@ -22,6 +22,14 @@ export function ProductEditClient({ product }: ProductEditClientProps) {
   const [tags, setTags] = useState<string[]>(product.tags);
   const [tagInput, setTagInput] = useState("");
 
+  // 기존에 등록되어 있던 이미지 URL (안 지운 것만 남김)
+  const [existingImageUrls, setExistingImageUrls] = useState<string[]>(
+    product.imageUrls,
+  );
+
+  // 새로 추가한 이미지 파일
+  const [newImages, setNewImages] = useState<File[]>([]);
+
   const handleAddTag = () => {
     const value = tagInput.trim();
     if (!value) return;
@@ -38,14 +46,23 @@ export function ProductEditClient({ product }: ProductEditClientProps) {
     setTags((prev) => prev.filter((t) => t !== tag));
   };
 
+  const handleRemoveExistingImage = (url: string) => {
+    setExistingImageUrls((prev) => prev.filter((u) => u !== url));
+  };
+
   const { mutate: handleSubmit, isPending: isSubmitting } = useMutation({
     mutationFn: () =>
-      updateProduct(product.id, {
-        name,
-        description,
-        price: Number(price),
-        tags,
-      }),
+      updateProduct(
+        product.id,
+        {
+          name,
+          description,
+          price: Number(price),
+          tags,
+          existingImageUrls,
+        },
+        newImages,
+      ),
     onSuccess: () => router.replace(`/items/${product.id}`),
     onError: (err: Error) => showErrorToast(err, "상품 수정"),
   });
@@ -67,6 +84,10 @@ export function ProductEditClient({ product }: ProductEditClientProps) {
       onTagInputChange={setTagInput}
       onAddTag={handleAddTag}
       onRemoveTag={handleRemoveTag}
+      images={newImages}
+      onImagesChange={setNewImages}
+      existingImageUrls={existingImageUrls}
+      onRemoveExistingImage={handleRemoveExistingImage}
       isValid={isValid}
       isSubmitting={isSubmitting}
       onSubmit={() => handleSubmit()}

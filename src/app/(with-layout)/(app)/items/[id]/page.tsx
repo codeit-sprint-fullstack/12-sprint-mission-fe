@@ -6,6 +6,7 @@ import BackToListButton from "@/components/ui/BackToListButton";
 import FallbackImage from "@/components/ui/FallbackImage";
 import { getProduct } from "@/lib/api/products.api";
 import { fetchOr404 } from "@/utils/fetchOr404";
+import { getImageUrl } from "@/utils/getImageUrl";
 
 import CommentSection from "./_components/CommentSection";
 import LikeCountClient from "./_components/LikeCountClient";
@@ -42,10 +43,11 @@ export default async function ProductDetailPage({
         <div className="flex flex-col md:flex-row gap-4 lg:gap-6 w-full">
           <div className="relative w-full aspect-square overflow-hidden rounded-[1.78675rem]">
             <FallbackImage
-              src={product.imageUrl}
+              src={getImageUrl(product.imageUrls[0])}
               fallbackSrc="/images/product-default-img.svg"
               alt={`${product.name} 사진`}
               fill
+              unoptimized
               className="object-cover"
             />
           </div>

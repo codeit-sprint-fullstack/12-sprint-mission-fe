@@ -5,7 +5,7 @@ export type ProductSummary = {
   favoriteCount: number;
   createdAt: string;
   updatedAt: string;
-  imageUrl: string | null;
+  imageUrls: string[];
 };
 
 export type Product = ProductSummary & {

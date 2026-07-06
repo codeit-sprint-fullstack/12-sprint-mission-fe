@@ -16,13 +16,18 @@ export default function NewProductClient() {
   const [price, setPrice] = useState("");
   const [tags, setTags] = useState<string[]>([]);
   const [tagInput, setTagInput] = useState("");
+  const [images, setImages] = useState<File[]>([]);
 
   const handleAddTag = () => {
     const value = tagInput.trim();
-    if (!value) return;
+    if (!value) {
+      return;
+    }
 
     setTags((prev) => {
-      if (prev.includes(value)) return prev;
+      if (prev.includes(value)) {
+        return prev;
+      }
       return [...prev, value];
     });
 
@@ -35,12 +40,11 @@ export default function NewProductClient() {
 
   const { mutate: handleSubmit, isPending: isSubmitting } = useMutation({
     mutationFn: () =>
-      createProduct({ name, description, price: Number(price), tags }),
+      createProduct({ name, description, price: Number(price), tags }, images),
     onSuccess: (response) => router.replace(`/items/${response.data.id}`),
     onError: (err: Error) => showErrorToast(err, "상품 등록"),
   });
 
-  // 설명은 10자 이상이어야 제출 가능 (ProductForm의 에러 메시지 조건과 동일하게 유지)
   const isValid = name.trim().length > 0 && description.trim().length >= 10;
 
   return (
@@ -58,6 +62,8 @@ export default function NewProductClient() {
       onTagInputChange={setTagInput}
       onAddTag={handleAddTag}
       onRemoveTag={handleRemoveTag}
+      images={images}
+      onImagesChange={setImages}
       isValid={isValid}
       isSubmitting={isSubmitting}
       onSubmit={() => handleSubmit()}
