@@ -1,93 +1,97 @@
 "use client";
 
+import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
-import { FormEvent } from "react";
+import { Controller, useForm } from "react-hook-form";
 
 import FormField from "@/app/(auth)/_components/FormField";
 import Button from "@/components/ui/Button";
 import Modal from "@/components/ui/Modal";
 import { userQueryKeys } from "@/constants/queryKeys";
-import { useAuthForm } from "@/hooks/useAuthForm";
 import { login } from "@/lib/api/auth.api";
+import { loginSchema, type LoginValues } from "@/schemas/auth.schema";
 import type { ApiError } from "@/types/api";
-import type { LoginValues } from "@/types/auth";
-import { validateLogin } from "@/utils/validate";
 
 export default function LoginForm() {
   const router = useRouter();
   const queryClient = useQueryClient();
 
   const {
-    values,
-    errors,
-    setFieldErrors,
-    isValid,
-    submitError,
-    setSubmitError,
-    handleChange,
-    getValidatedValues,
-  } = useAuthForm<LoginValues>({ email: "", password: "" }, validateLogin);
+    control,
+    handleSubmit,
+    setError,
+    formState: { errors, isValid },
+  } = useForm<LoginValues>({
+    defaultValues: { email: "", password: "" },
+    resolver: zodResolver(loginSchema),
+    mode: "onChange",
+  });
 
-  const { mutate, isPending } = useMutation({
-    mutationFn: (data: LoginValues) => login(data),
-
+  const {
+    mutate,
+    isPending,
+    error: submitError,
+    reset,
+  } = useMutation<unknown, ApiError, LoginValues>({
+    mutationFn: (data) => login(data),
     onSuccess: (user) => {
       queryClient.setQueryData(userQueryKeys.me(), user);
       router.replace("/items");
     },
-
-    onError: (err: ApiError) => {
+    onError: (err) => {
       if (err.status && err.status >= 400 && err.status < 500) {
-        // 4xx 에러: 인풋 아래 메시지
-        setFieldErrors({
-          password:
+        setError("password", {
+          type: "server",
+          message:
             "이메일 또는 비밀번호가 올바르지 않습니다. 입력한 정보를 확인한 후 다시 시도해 주세요.",
         });
-      } else {
-        // 그 외 에러 (네트워크, 500 등): 모달
-        setSubmitError(err.message);
       }
     },
   });
 
-  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const isServerModalError = !!submitError && submitError.status! >= 500;
 
-    const validData = getValidatedValues();
-
-    // 유효성 검증을 통과한 경우 서버에 전달
-    if (validData) {
-      mutate(validData);
-    }
-  };
+  const onSubmit = (data: LoginValues) => mutate(data);
 
   return (
     <>
       <form
         noValidate
-        onSubmit={onSubmit}
+        onSubmit={handleSubmit(onSubmit)}
         className="flex flex-col gap-4 md:gap-6 w-full mb-6"
       >
-        <FormField
-          id="email"
-          type="email"
-          label="이메일"
-          placeholder="이메일을 입력해주세요"
-          autoComplete="email"
-          value={values.email}
-          onChange={(value) => handleChange("email", value)}
-          error={errors.email}
+        <Controller
+          name="email"
+          control={control}
+          render={({ field }) => (
+            <FormField
+              id="email"
+              type="email"
+              label="이메일"
+              placeholder="이메일을 입력해주세요"
+              autoComplete="email"
+              value={field.value}
+              onChange={field.onChange}
+              error={errors.email?.message}
+            />
+          )}
         />
-        <FormField
-          id="password"
-          type="password"
-          label="비밀번호"
-          placeholder="비밀번호를 입력해주세요"
-          autoComplete="current-password"
-          value={values.password}
-          onChange={(value) => handleChange("password", value)}
-          error={errors.password}
+        <Controller
+          name="password"
+          control={control}
+          render={({ field }) => (
+            <FormField
+              id="password"
+              type="password"
+              label="비밀번호"
+              placeholder="비밀번호를 입력해주세요"
+              autoComplete="current-password"
+              value={field.value}
+              onChange={field.onChange}
+              error={errors.password?.message}
+            />
+          )}
         />
 
         <Button
@@ -103,12 +107,12 @@ export default function LoginForm() {
       </form>
 
       <Modal
-        isOpen={!!submitError}
-        onClose={() => setSubmitError(null)}
+        isOpen={isServerModalError}
+        onClose={reset}
         variant="danger"
-        title={submitError}
+        title={submitError?.message}
         confirmText="확인"
-        onConfirm={() => setSubmitError(null)}
+        onConfirm={reset}
       />
     </>
   );

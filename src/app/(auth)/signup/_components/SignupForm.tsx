@@ -1,45 +1,45 @@
 "use client";
 
+import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
-import { FormEvent } from "react";
+import { Controller, useForm } from "react-hook-form";
 
 import FormField from "@/app/(auth)/_components/FormField";
 import Button from "@/components/ui/Button";
 import Modal from "@/components/ui/Modal";
 import { userQueryKeys } from "@/constants/queryKeys";
-import { useAuthForm } from "@/hooks/useAuthForm";
 import { login, signup } from "@/lib/api/auth.api";
+import { signupSchema, type SignupValues } from "@/schemas/auth.schema";
 import type { ApiError } from "@/types/api";
-import type { SignupValues } from "@/types/auth";
-import { validateSignup } from "@/utils/validate";
 
 export default function SignupForm() {
   const router = useRouter();
   const queryClient = useQueryClient();
 
   const {
-    values,
-    errors,
-    setFieldErrors,
-    isValid,
-    submitError,
-    setSubmitError,
-    handleChange,
-    getValidatedValues,
-  } = useAuthForm<SignupValues>(
-    {
+    control,
+    handleSubmit,
+    setError,
+    formState: { errors, isValid },
+  } = useForm<SignupValues>({
+    defaultValues: {
       email: "",
       nickname: "",
       password: "",
       passwordConfirmation: "",
     },
-    validateSignup,
-  );
+    resolver: zodResolver(signupSchema),
+    mode: "onChange",
+  });
 
-  const { mutate, isPending } = useMutation({
-    mutationFn: async (data: SignupValues) => {
-      // 회원가입은 계정만 만들고 쿠키를 안 심어주므로, 곧바로 로그인까지 이어서 처리
+  const {
+    mutate,
+    isPending,
+    error: submitError,
+    reset,
+  } = useMutation<unknown, ApiError, SignupValues>({
+    mutationFn: async (data) => {
       await signup({
         email: data.email,
         nickname: data.nickname,
@@ -47,78 +47,91 @@ export default function SignupForm() {
       });
       return login({ email: data.email, password: data.password });
     },
-
     onSuccess: (user) => {
       queryClient.setQueryData(userQueryKeys.me(), user);
       router.replace("/items");
     },
-
-    onError: (err: ApiError) => {
+    onError: (err) => {
       if (err.status === 409) {
-        setFieldErrors({ email: err.message });
-      } else {
-        setSubmitError(err.message);
+        setError("email", { type: "server", message: err.message });
       }
     },
   });
 
-  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const isServerModalError = !!submitError && submitError.status !== 409;
 
-    const validData = getValidatedValues();
-
-    // 유효성 검증을 통과한 경우 서버에 전달
-    if (validData) {
-      mutate(validData);
-    }
-  };
+  const onSubmit = (data: SignupValues) => mutate(data);
 
   return (
     <>
       <form
         noValidate
-        onSubmit={onSubmit}
+        onSubmit={handleSubmit(onSubmit)}
         className="flex flex-col gap-4 md:gap-6 w-full mb-6"
       >
-        <FormField
-          id="email"
-          type="email"
-          label="이메일"
-          placeholder="이메일을 입력해주세요"
-          value={values.email}
-          onChange={(value) => handleChange("email", value)}
-          error={errors.email}
-          autoComplete="email"
+        <Controller
+          name="email"
+          control={control}
+          render={({ field }) => (
+            <FormField
+              id="email"
+              type="email"
+              label="이메일"
+              placeholder="이메일을 입력해주세요"
+              value={field.value}
+              onChange={field.onChange}
+              error={errors.email?.message}
+              autoComplete="email"
+            />
+          )}
         />
-        <FormField
-          id="nickname"
-          type="text"
-          label="닉네임"
-          placeholder="닉네임을 입력해주세요"
-          value={values.nickname}
-          onChange={(value) => handleChange("nickname", value)}
-          error={errors.nickname}
-          autoComplete="username"
+        <Controller
+          name="nickname"
+          control={control}
+          render={({ field }) => (
+            <FormField
+              id="nickname"
+              type="text"
+              label="닉네임"
+              placeholder="닉네임을 입력해주세요"
+              value={field.value}
+              onChange={field.onChange}
+              error={errors.nickname?.message}
+              autoComplete="username"
+            />
+          )}
         />
-        <FormField
-          id="password"
-          type="password"
-          label="비밀번호"
-          placeholder="비밀번호를 입력해주세요"
-          value={values.password}
-          onChange={(value) => handleChange("password", value)}
-          error={errors.password}
-          autoComplete="new-password"
+        <Controller
+          name="password"
+          control={control}
+          render={({ field }) => (
+            <FormField
+              id="password"
+              type="password"
+              label="비밀번호"
+              placeholder="비밀번호를 입력해주세요"
+              value={field.value}
+              onChange={field.onChange}
+              error={errors.password?.message}
+              autoComplete="new-password"
+            />
+          )}
         />
-        <FormField
-          id="passwordConfirmation"
-          type="password"
-          label="비밀번호 확인"
-          placeholder="비밀번호를 다시 한 번 입력해주세요"
-          value={values.passwordConfirmation}
-          onChange={(value) => handleChange("passwordConfirmation", value)}
-          error={errors.passwordConfirmation}
-          autoComplete="new-password"
+        <Controller
+          name="passwordConfirmation"
+          control={control}
+          render={({ field }) => (
+            <FormField
+              id="passwordConfirmation"
+              type="password"
+              label="비밀번호 확인"
+              placeholder="비밀번호를 다시 한 번 입력해주세요"
+              value={field.value}
+              onChange={field.onChange}
+              error={errors.passwordConfirmation?.message}
+              autoComplete="new-password"
+            />
+          )}
         />
 
         <Button
@@ -134,12 +147,12 @@ export default function SignupForm() {
       </form>
 
       <Modal
-        isOpen={!!submitError}
-        onClose={() => setSubmitError(null)}
+        isOpen={isServerModalError}
+        onClose={reset}
         variant="danger"
-        title={submitError}
+        title={submitError?.message}
         confirmText="확인"
-        onConfirm={() => setSubmitError(null)}
+        onConfirm={reset}
       />
     </>
   );
