@@ -1,11 +1,10 @@
 import { format } from "date-fns";
 import type { Metadata } from "next";
 import Image from "next/image";
-import { notFound } from "next/navigation";
 
 import BackToListButton from "@/components/ui/BackToListButton";
 import { getArticle } from "@/lib/api/article.api";
-import type { ApiError } from "@/types/api";
+import { fetchOr404 } from "@/utils/fetchOr404";
 
 import ArticleKebabMenu from "./_components/ArticleKebabMenu";
 import CommentSection from "./_components/CommentSection";
@@ -34,16 +33,7 @@ export default async function ArticleDetailPage({
   const { id } = await params;
   const articleId = Number(id);
 
-  let article;
-  try {
-    const { data } = await getArticle(articleId);
-    article = data;
-  } catch (err) {
-    if (err instanceof Error && (err as ApiError).status === 404) {
-      notFound();
-    }
-    throw err;
-  }
+  const article = await fetchOr404(() => getArticle(articleId));
 
   return (
     <section className="flex flex-col w-full">

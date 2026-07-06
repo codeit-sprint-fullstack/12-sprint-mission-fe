@@ -1,12 +1,11 @@
 import { format } from "date-fns";
 import type { Metadata } from "next";
 import Image from "next/image";
-import { notFound } from "next/navigation";
 
 import BackToListButton from "@/components/ui/BackToListButton";
 import FallbackImage from "@/components/ui/FallbackImage";
 import { getProduct } from "@/lib/api/products.api";
-import type { ApiError } from "@/types/api";
+import { fetchOr404 } from "@/utils/fetchOr404";
 
 import CommentSection from "./_components/CommentSection";
 import LikeCountClient from "./_components/LikeCountClient";
@@ -35,17 +34,7 @@ export default async function ProductDetailPage({
   const { id } = await params;
   const productId = Number(id);
 
-  const product = await (async () => {
-    try {
-      const { data } = await getProduct(productId);
-      return data;
-    } catch (err) {
-      if (err instanceof Error && (err as ApiError).status === 404) {
-        notFound();
-      }
-      throw err;
-    }
-  })();
+  const product = await fetchOr404(() => getProduct(productId));
 
   return (
     <section className="flex flex-col w-full">
