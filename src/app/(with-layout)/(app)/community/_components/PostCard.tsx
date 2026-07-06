@@ -4,14 +4,17 @@ import Link from "next/link";
 
 import FallbackImage from "@/components/ui/FallbackImage";
 import type { ArticleSummary } from "@/types/article";
+import { getImageUrl } from "@/utils/getImageUrl";
 
 type PostCardProps = {
   post: ArticleSummary;
 };
 
 export default function PostCard({ post }: PostCardProps) {
-  const hasImage = Boolean(post?.imageUrl);
-  const imageSrc = hasImage ? post.imageUrl : "/images/post-default-image.png";
+  const hasImages = post.imageUrls.length > 0;
+  const imageSrc = hasImages
+    ? getImageUrl(post.imageUrls[0])
+    : "/images/post-default-image.png";
 
   return (
     <Link
@@ -23,12 +26,13 @@ export default function PostCard({ post }: PostCardProps) {
           <h3 className="text-xl font-semibold text-gray-800">{post.title}</h3>
           <div className="flex justify-center items-center w-[72px] h-[72px] px-3 py-[13.7px] rounded-lg border border-gray-100 bg-white">
             <FallbackImage
-              src={imageSrc}
+              src={getImageUrl(post.imageUrls[0])}
               fallbackSrc="/images/post-default-image.png"
               width={48}
               height={45}
-              alt={hasImage ? `${post.title}의 썸네일` : ""}
-              aria-hidden={!hasImage}
+              unoptimized
+              alt={hasImages ? `${post.title}의 썸네일` : ""}
+              aria-hidden={!hasImages}
             />
           </div>
         </div>

@@ -25,11 +25,13 @@ type ArticleResponse = {
 type CreateArticleBody = {
   title: string;
   content: string;
+  imageUrl?: string;
 };
 
 type UpdateArticleBody = {
   title?: string;
   content?: string;
+  existingImageUrls?: string[]; // 수정 시 유지할 기존 이미지 URL 목록
 };
 
 type GetCommentsParams = {
@@ -57,11 +59,43 @@ export const getArticle = (id: number) => {
   return api.get<ArticleResponse>(`/articles/${id}`, { cache: "no-store" });
 };
 
-export const createArticle = (data: CreateArticleBody) =>
-  api.post<ArticleResponse, CreateArticleBody>(`/articles`, data);
+export const createArticle = (
+  data: CreateArticleBody,
+  imageFiles: File[] = [],
+) => {
+  const formData = new FormData();
 
-export const updateArticle = (id: number, fields: UpdateArticleBody) =>
-  api.patch<ArticleResponse, UpdateArticleBody>(`/articles/${id}`, fields);
+  formData.append("title", data.title);
+  formData.append("content", data.content);
+
+  imageFiles.forEach((file) => formData.append("images", file));
+
+  return api.post<ArticleResponse, FormData>(`/articles`, formData);
+};
+
+export const updateArticle = (
+  id: number,
+  fields: UpdateArticleBody,
+  newImageFiles: File[] = [],
+) => {
+  const formData = new FormData();
+
+  if (fields.title !== undefined) {
+    formData.append("title", fields.title);
+  }
+  if (fields.content !== undefined) {
+    formData.append("content", fields.content);
+  }
+
+  formData.append(
+    "existingImageUrls",
+    JSON.stringify(fields.existingImageUrls ?? []),
+  );
+
+  newImageFiles.forEach((file) => formData.append("images", file));
+
+  return api.patch<ArticleResponse, FormData>(`/articles/${id}`, formData);
+};
 
 export const deleteArticle = (id: number) =>
   api.delete<void>(`/articles/${id}`);

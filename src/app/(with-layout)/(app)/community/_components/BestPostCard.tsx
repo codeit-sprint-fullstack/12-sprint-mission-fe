@@ -4,14 +4,17 @@ import Link from "next/link";
 
 import FallbackImage from "@/components/ui/FallbackImage";
 import type { ArticleSummary } from "@/types/article";
+import { getImageUrl } from "@/utils/getImageUrl";
 
 type BestPostCardProps = {
   post: ArticleSummary;
 };
 
 export default function BestPostCard({ post }: BestPostCardProps) {
-  const hasImage = Boolean(post?.imageUrl);
-  const imageSrc = hasImage ? post.imageUrl : "/images/post-default-image.png";
+  const hasImages = post.imageUrls.length > 0;
+  const imageSrc = hasImages
+    ? getImageUrl(post.imageUrls[0])
+    : "/images/post-default-image.png";
 
   return (
     <Link href={`/community/${post.id}`}>
@@ -46,8 +49,9 @@ export default function BestPostCard({ post }: BestPostCardProps) {
               fallbackSrc="/images/post-default-image.png"
               width={48}
               height={45}
-              alt={hasImage ? `${post.title}의 썸네일` : ""}
-              aria-hidden={!hasImage}
+              unoptimized
+              alt={hasImages ? `${post.title}의 썸네일` : ""}
+              aria-hidden={!hasImages}
             />
           </div>
         </div>

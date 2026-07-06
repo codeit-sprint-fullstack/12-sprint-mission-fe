@@ -5,6 +5,7 @@ import Image from "next/image";
 import BackToListButton from "@/components/ui/BackToListButton";
 import { getArticle } from "@/lib/api/article.api";
 import { fetchOr404 } from "@/utils/fetchOr404";
+import { getImageUrl } from "@/utils/getImageUrl";
 
 import ArticleKebabMenu from "./_components/ArticleKebabMenu";
 import CommentSection from "./_components/CommentSection";
@@ -34,6 +35,7 @@ export default async function ArticleDetailPage({
   const articleId = Number(id);
 
   const article = await fetchOr404(() => getArticle(articleId));
+  const hasImages = article.imageUrls.length > 0;
 
   return (
     <section className="flex flex-col w-full">
@@ -67,6 +69,25 @@ export default async function ArticleDetailPage({
           />
         </div>
       </div>
+
+      {hasImages && (
+        <div className="flex flex-wrap gap-3 mb-8 md:mb-10 lg:mb-8">
+          {article.imageUrls.map((url) => (
+            <div
+              key={url}
+              className="relative w-40 h-40 md:w-48 md:h-48 rounded-lg overflow-hidden bg-gray-100"
+            >
+              <Image
+                src={getImageUrl(url)!}
+                alt={`${article.title} 첨부 이미지`}
+                fill
+                unoptimized
+                className="object-cover"
+              />
+            </div>
+          ))}
+        </div>
+      )}
 
       <p className="mb-8 md:mb-10 lg:mb-8 text-lg lg:text-2lg font-normal">
         {article.content}

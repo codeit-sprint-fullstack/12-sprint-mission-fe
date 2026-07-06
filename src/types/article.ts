@@ -7,7 +7,7 @@ export type ArticleSummary = {
   createdAt: string;
   updatedAt: string;
   authorNickname: string;
-  imageUrl?: string;
+  imageUrls: string[];
 };
 
 export type Article = ArticleSummary & {
