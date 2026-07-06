@@ -6,8 +6,10 @@ import {
   useQueryClient,
 } from "@tanstack/react-query";
 import { useState } from "react";
+import { toast } from "react-hot-toast";
 
 import Button from "@/components/ui/Button";
+import { useUser } from "@/hooks/useUser";
 import { showErrorToast } from "@/utils/showErrorToast";
 
 import CommentTextarea from "./CommentTextarea";
@@ -23,6 +25,8 @@ export default function CommentForm({
   queryKey,
   placeholder,
 }: CommentFormProps) {
+  const { data: user } = useUser();
+
   const queryClient = useQueryClient();
 
   const [comment, setComment] = useState("");
@@ -49,7 +53,14 @@ export default function CommentForm({
 
         <div className="flex justify-end">
           <Button
-            onClick={() => handleSubmit()}
+            onClick={() => {
+              if (!user) {
+                toast.error("로그인이 필요한 기능입니다.");
+                return;
+              }
+
+              handleSubmit();
+            }}
             disabled={isDisabled}
             loading={isSubmitting}
           >
