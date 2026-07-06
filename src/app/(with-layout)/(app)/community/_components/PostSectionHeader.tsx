@@ -4,17 +4,12 @@ import Button from "@/components/ui/Button";
 import SearchBar from "@/components/ui/SearchBar";
 import SortDropDown from "@/components/ui/SortDropDown";
 import { useListFilters } from "@/hooks/useListFilters";
-import type { SortOption } from "@/types/sort";
-
-type PostSectionHeaderProps = {
-  keyword: string;
-  orderBy: string;
-};
+import type { SectionHeaderProps, SortOption } from "@/types/sort";
 
 export default function PostSectionHeader({
   keyword,
   orderBy,
-}: PostSectionHeaderProps) {
+}: SectionHeaderProps) {
   const sortOptions: SortOption[] = [
     { label: "최신순", value: "recent" },
     { label: "좋아요순", value: "favorite" },
