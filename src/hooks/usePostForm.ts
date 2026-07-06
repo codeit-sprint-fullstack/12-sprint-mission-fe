@@ -1,44 +1,22 @@
 import { useState } from "react";
-import { toast } from "react-hot-toast";
 
-type PostFormValues = {
-  title: string;
-  content: string;
+import type { Article } from "@/types/article";
+
+type usePostFormOptions = {
+  initialPost?: Article;
 };
 
-type PostFormInitialValues = Partial<PostFormValues>;
-
-export default function usePostForm(initialValues: PostFormInitialValues = {}) {
-  const [title, setTitle] = useState(initialValues.title ?? "");
-  const [content, setContent] = useState(initialValues.content ?? "");
-  const [isSubmitting, setIsSubmitting] = useState(false);
+export function usePostForm({ initialPost }: usePostFormOptions = {}) {
+  const [title, setTitle] = useState(initialPost.title ?? "");
+  const [content, setContent] = useState(initialPost.content ?? "");
 
   const isValid = title.trim().length > 0 && content.trim().length > 0;
 
-  const handleSubmit = async (
-    action: (values: PostFormValues) => Promise<unknown>,
-  ) => {
-    if (!isValid) return;
-    try {
-      setIsSubmitting(true);
-      await action({ title, content });
-    } catch (err) {
-      const message =
-        err instanceof Error ? err.message : "문제가 발생했습니다.";
-      toast.error(message);
-      throw err;
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
   return {
     title,
-    setTitle,
     content,
+    setTitle,
     setContent,
     isValid,
-    isSubmitting,
-    handleSubmit,
   };
 }

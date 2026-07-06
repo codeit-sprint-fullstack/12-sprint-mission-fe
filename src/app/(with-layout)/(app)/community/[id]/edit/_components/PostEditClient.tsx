@@ -2,10 +2,10 @@
 
 import { useMutation } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
 
 import PostForm from "@/app/(with-layout)/(app)/community/_components/PostForm";
 import { useImageUpload } from "@/hooks/useImageUpload";
+import { usePostForm } from "@/hooks/usePostForm";
 import { updateArticle } from "@/lib/api/article.api";
 import type { Article } from "@/types/article";
 import { showErrorToast } from "@/utils/showErrorToast";
@@ -17,8 +17,9 @@ type PostEditClientProps = {
 export default function PostEditClient({ post }: PostEditClientProps) {
   const router = useRouter();
 
-  const [title, setTitle] = useState(post.title);
-  const [content, setContent] = useState(post.content);
+  const { title, content, setTitle, setContent, isValid } = usePostForm({
+    initialPost: post,
+  });
 
   const { images, setImages, existingImageUrls, handleRemoveExistingImage } =
     useImageUpload();
@@ -31,8 +32,6 @@ export default function PostEditClient({ post }: PostEditClientProps) {
 
     onError: (err) => showErrorToast(err, "게시글 수정"),
   });
-
-  const isValid = title.trim().length > 0 && content.trim().length > 0;
 
   return (
     <PostForm
