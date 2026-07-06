@@ -1,6 +1,6 @@
 "use client";
 
-import type { BaseFieldProps } from "@/types/form-field";
+import type { BaseFieldProps } from "@/types/form";
 
 type LabeledTextFieldProps = BaseFieldProps & {
   maxLength?: number;

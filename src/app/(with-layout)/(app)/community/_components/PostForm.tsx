@@ -1,21 +1,17 @@
 "use client";
 
-import type { ImageUploaderProps } from "@/app/(with-layout)/(app)/_components/ImageUploader";
 import { ImageUploader } from "@/app/(with-layout)/(app)/_components/ImageUploader";
 import { LabeledTextField } from "@/app/(with-layout)/(app)/_components/LabeledTextField";
 import Button from "@/components/ui/Button";
+import type { BaseFormWithImagesProps } from "@/types/form";
 
 const TITLE_MAX_LENGTH = 100;
 
-type PostFormProps = Omit<ImageUploaderProps, "label"> & {
-  heading: string;
-  submitLabel?: string;
+type PostFormProps = BaseFormWithImagesProps & {
   title: string;
   onTitleChange: (value: string) => void;
   content: string;
   onContentChange: (value: string) => void;
-  onSubmit: () => void;
-  isValid: boolean;
 };
 
 export default function PostForm({

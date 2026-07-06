@@ -1,32 +1,25 @@
 "use client";
 
-import {
-  ImageUploader,
-  type ImageUploaderProps,
-} from "@/app/(with-layout)/(app)/_components/ImageUploader";
+import { ImageUploader } from "@/app/(with-layout)/(app)/_components/ImageUploader";
 import { LabeledTextField } from "@/app/(with-layout)/(app)/_components/LabeledTextField";
 import {
   TagInput,
   type TagInputProps,
 } from "@/app/(with-layout)/(app)/items/_components/TagInput";
 import Button from "@/components/ui/Button";
+import type { BaseFormWithImagesProps } from "@/types/form";
 
 const NAME_MAX_LENGTH = 100;
 const DESCRIPTION_MIN_LENGTH = 10;
 
-type ProductFormProps = Omit<ImageUploaderProps, "label" | "isSubmitting"> &
+type ProductFormProps = BaseFormWithImagesProps &
   Omit<TagInputProps, "isSubmitting"> & {
-    heading: string;
-    submitLabel?: string;
     name: string;
     onNameChange: (value: string) => void;
     description: string;
     onDescriptionChange: (value: string) => void;
     price: string;
     onPriceChange: (value: string) => void;
-    onSubmit: () => void;
-    isValid: boolean;
-    isSubmitting: boolean;
   };
 
 export default function ProductForm({
