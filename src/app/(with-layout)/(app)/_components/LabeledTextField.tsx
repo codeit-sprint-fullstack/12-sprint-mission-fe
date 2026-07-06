@@ -1,16 +1,12 @@
 "use client";
 
-type LabeledTextFieldProps = {
-  id: string;
-  label: string;
-  value: string;
-  onChange: (value: string) => void;
-  placeholder?: string;
+import type { BaseFieldProps } from "@/types/form-field";
+
+type LabeledTextFieldProps = BaseFieldProps & {
   maxLength?: number;
   disabled?: boolean;
   as?: "input" | "textarea";
   type?: string;
-  error?: string;
   required?: boolean;
 };
 

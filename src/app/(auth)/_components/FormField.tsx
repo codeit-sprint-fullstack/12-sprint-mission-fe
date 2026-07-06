@@ -3,14 +3,10 @@
 import Image from "next/image";
 import { useState } from "react";
 
-type FormFieldProps = {
-  id: string;
-  label: string;
+import type { BaseFieldProps } from "@/types/form-field";
+
+type FormFieldProps = BaseFieldProps & {
   type: string;
-  placeholder?: string;
-  value: string;
-  onChange: (value: string) => void;
-  error?: string;
   autoComplete?: string;
 };
 
