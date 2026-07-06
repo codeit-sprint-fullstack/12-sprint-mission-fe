@@ -1,36 +1,51 @@
+import { format } from "date-fns";
+import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { format } from "date-fns";
-import { getProduct } from "@/lib/api/products";
+
 import BackToListButton from "@/components/ui/BackToListButton";
 import FallbackImage from "@/components/ui/FallbackImage";
+import { getProduct } from "@/lib/api/products.api";
+import type { ApiError } from "@/types/api";
+
+import CommentSection from "./_components/CommentSection";
 import LikeCountClient from "./_components/LikeCountClient";
 import ProductKebabMenu from "./_components/ProductKebabMenu";
-import CommentSection from "./_components/CommentSection";
 
-export async function generateMetadata({ params }) {
+type ProductDetailPageProps = {
+  params: Promise<{ id: string }>;
+};
+
+export async function generateMetadata({
+  params,
+}: ProductDetailPageProps): Promise<Metadata> {
   const { id } = await params;
 
   try {
-    const product = await getProduct(id);
+    const { data: product } = await getProduct(Number(id));
     return { title: product.name };
   } catch {
     return { title: "상품을 찾을 수 없어요" };
   }
 }
 
-export default async function ProductDetailPage({ params }) {
+export default async function ProductDetailPage({
+  params,
+}: ProductDetailPageProps) {
   const { id } = await params;
+  const productId = Number(id);
 
-  let product;
-  try {
-    product = await getProduct(id);
-  } catch (err) {
-    if (err.status === 404) {
-      notFound();
+  const product = await (async () => {
+    try {
+      const { data } = await getProduct(productId);
+      return data;
+    } catch (err) {
+      if (err instanceof Error && (err as ApiError).status === 404) {
+        notFound();
+      }
+      throw err;
     }
-    throw err;
-  }
+  })();
 
   return (
     <section className="flex flex-col w-full">
@@ -38,7 +53,7 @@ export default async function ProductDetailPage({ params }) {
         <div className="flex flex-col md:flex-row gap-4 lg:gap-6 w-full">
           <div className="relative w-full aspect-square overflow-hidden rounded-[1.78675rem]">
             <FallbackImage
-              src={product.images[0]}
+              src={product.imageUrl}
               fallbackSrc="/images/product-default-img.svg"
               alt={`${product.name} 사진`}
               fill
@@ -56,7 +71,10 @@ export default async function ProductDetailPage({ params }) {
                 </strong>
               </div>
 
-              <ProductKebabMenu productId={id} ownerId={product.ownerId} />
+              <ProductKebabMenu
+                productId={productId}
+                ownerId={product.authorId}
+              />
             </div>
 
             <div className="mb-6">
@@ -93,7 +111,9 @@ export default async function ProductDetailPage({ params }) {
                   alt="프로필 사진"
                 />
                 <div className="flex flex-col text-md font-medium">
-                  <span className="text-gray-600">{product.ownerNickname}</span>
+                  <span className="text-gray-600">
+                    {product.authorNickname}
+                  </span>
                   <time dateTime={product.createdAt} className="text-gray-400">
                     {format(new Date(product.createdAt), "yyyy. MM. dd")}
                   </time>
@@ -102,8 +122,10 @@ export default async function ProductDetailPage({ params }) {
 
               <div className="pl-6 border-l border-gray-200">
                 <LikeCountClient
-                  productId={id}
+                  key={productId}
+                  productId={productId}
                   initialCount={product.favoriteCount}
+                  initialLiked={product.isLiked}
                 />
               </div>
             </div>
@@ -111,7 +133,7 @@ export default async function ProductDetailPage({ params }) {
         </div>
       </div>
 
-      <CommentSection productId={id} />
+      <CommentSection productId={productId} />
 
       <BackToListButton href="/items" />
     </section>
