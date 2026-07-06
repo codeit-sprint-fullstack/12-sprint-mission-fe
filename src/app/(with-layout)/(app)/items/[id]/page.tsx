@@ -4,12 +4,14 @@ import Image from "next/image";
 
 import BackToListButton from "@/components/ui/BackToListButton";
 import FallbackImage from "@/components/ui/FallbackImage";
+import LikeCountClient from "@/components/ui/LikeCountClient";
 import { getProduct } from "@/lib/api/products.api";
+import { toggleProductFavorite } from "@/lib/api/products.api";
 import { fetchOr404 } from "@/utils/fetchOr404";
 import { getImageUrl } from "@/utils/getImageUrl";
 
 import CommentSection from "./_components/CommentSection";
-import LikeCountClient from "./_components/LikeCountClient";
+import { ProductikeCount } from "./_components/ProductikeCount";
 import ProductKebabMenu from "./_components/ProductKebabMenu";
 
 type ProductDetailPageProps = {
@@ -112,12 +114,7 @@ export default async function ProductDetailPage({
               </div>
 
               <div className="pl-6 border-l border-gray-200">
-                <LikeCountClient
-                  key={productId}
-                  productId={productId}
-                  initialCount={product.favoriteCount}
-                  initialLiked={product.isLiked}
-                />
+                <ProductikeCount productId={productId} product={product} />
               </div>
             </div>
           </div>

@@ -5,26 +5,24 @@ import { toast } from "react-hot-toast";
 import LikeCount from "@/components/ui/LikeCount";
 import useLikeCount from "@/hooks/useLikeCount";
 import { useUser } from "@/hooks/useUser";
-import { toggleArticleFavorite } from "@/lib/api/article.api";
 
 type LikeCountClientProps = {
-  articleId: number;
   initialCount: number;
   initialLiked?: boolean;
+  mutateFn: (nextLiked: boolean) => Promise<unknown>;
 };
 
 export default function LikeCountClient({
-  articleId,
   initialCount,
   initialLiked = false,
+  mutateFn,
 }: LikeCountClientProps) {
   const { data: user } = useUser();
 
   const { liked, count, handleToggle } = useLikeCount({
     initialCount,
     initialLiked,
-    mutateFn: (nextLiked: boolean) =>
-      toggleArticleFavorite(articleId, nextLiked),
+    mutateFn,
   });
 
   const handleLikeClick = () => {

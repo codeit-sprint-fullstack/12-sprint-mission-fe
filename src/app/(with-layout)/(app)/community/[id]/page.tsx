@@ -8,8 +8,8 @@ import { fetchOr404 } from "@/utils/fetchOr404";
 import { getImageUrl } from "@/utils/getImageUrl";
 
 import ArticleKebabMenu from "./_components/ArticleKebabMenu";
+import { ArticleLikeCount } from "./_components/ArticleLikeCount";
 import CommentSection from "./_components/CommentSection";
-import LikeCountClient from "./_components/LikeCountClient";
 
 type ArticleDetailPageProps = {
   params: Promise<{ id: string }>;
@@ -61,12 +61,7 @@ export default async function ArticleDetailPage({
             </div>
           </div>
           <div className="w-px h-[2.125rem] bg-gray-200" />
-          <LikeCountClient
-            key={articleId}
-            articleId={articleId}
-            initialCount={article.favoriteCount}
-            initialLiked={article.isLiked}
-          />
+          <ArticleLikeCount articleId={articleId} article={article} />
         </div>
       </div>
 
