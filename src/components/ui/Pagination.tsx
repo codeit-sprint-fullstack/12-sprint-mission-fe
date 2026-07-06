@@ -1,9 +1,22 @@
 "use client";
 
 import Image from "next/image";
-import usePagination from "@/hooks/usePagination";
 
-export default function Pagination({ page, totalPages, keyword, orderBy }) {
+import { usePagination } from "@/hooks/usePagination";
+
+type PaginationProps = {
+  page: number;
+  totalPages: number;
+  keyword?: string;
+  orderBy?: string;
+};
+
+export function Pagination({
+  page,
+  totalPages,
+  keyword,
+  orderBy,
+}: PaginationProps) {
   const { getPageGroup, movePage, GROUP_SIZE } = usePagination({
     pathname: "/items",
     keyword,
@@ -23,7 +36,7 @@ export default function Pagination({ page, totalPages, keyword, orderBy }) {
     <nav className="flex items-center justify-center gap-1 mt-10">
       <button
         disabled={page === 1}
-        onClick={() => movePage(page, page - 1)}
+        onClick={() => movePage(page - 1)}
         aria-label="이전 페이지"
         className={baseButtonClass}
       >
@@ -45,7 +58,7 @@ export default function Pagination({ page, totalPages, keyword, orderBy }) {
           return (
             <li key={num}>
               <button
-                onClick={() => movePage(page, num)}
+                onClick={() => movePage(num)}
                 aria-label={`${num}페이지`}
                 aria-current={isCurrent ? "page" : undefined}
                 className={`
@@ -63,7 +76,7 @@ export default function Pagination({ page, totalPages, keyword, orderBy }) {
 
       <button
         disabled={page === totalPages}
-        onClick={() => movePage(page, page + 1)}
+        onClick={() => movePage(page + 1)}
         aria-label="다음 페이지"
         className={baseButtonClass}
       >
