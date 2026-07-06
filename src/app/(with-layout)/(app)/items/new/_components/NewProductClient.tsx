@@ -4,6 +4,7 @@ import { useMutation } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
 
 import ProductForm from "@/app/(with-layout)/(app)/items/_components/ProductForm";
+import { useImageUpload } from "@/hooks/useImageUpload";
 import { useProductForm } from "@/hooks/useProductForm";
 import { createProduct } from "@/lib/api/products.api";
 import { showErrorToast } from "@/utils/showErrorToast";
@@ -11,6 +12,7 @@ import { showErrorToast } from "@/utils/showErrorToast";
 export default function NewProductClient() {
   const router = useRouter();
   const { values, setters, handlers, isValid } = useProductForm();
+  const { images, setImages } = useImageUpload();
 
   const { mutate: handleSubmit, isPending: isSubmitting } = useMutation({
     mutationFn: () =>
@@ -21,7 +23,7 @@ export default function NewProductClient() {
           price: Number(values.price),
           tags: values.tags,
         },
-        values.images,
+        images,
       ),
     onSuccess: (response) => router.replace(`/items/${response.data.id}`),
     onError: (err) => showErrorToast(err, "상품 등록"),
@@ -42,8 +44,8 @@ export default function NewProductClient() {
       onTagInputChange={setters.setTagInput}
       onAddTag={handlers.handleAddTag}
       onRemoveTag={handlers.handleRemoveTag}
-      images={values.images}
-      onImagesChange={setters.setImages}
+      images={images}
+      onImagesChange={setImages}
       isValid={isValid}
       isSubmitting={isSubmitting}
       onSubmit={() => handleSubmit()}

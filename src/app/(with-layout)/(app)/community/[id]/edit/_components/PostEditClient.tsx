@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 import PostForm from "@/app/(with-layout)/(app)/community/_components/PostForm";
+import { useImageUpload } from "@/hooks/useImageUpload";
 import { updateArticle } from "@/lib/api/article.api";
 import type { Article } from "@/types/article";
 import { showErrorToast } from "@/utils/showErrorToast";
@@ -19,21 +20,12 @@ export default function PostEditClient({ post }: PostEditClientProps) {
   const [title, setTitle] = useState(post.title);
   const [content, setContent] = useState(post.content);
 
-  // 기존에 등록되어 있던 이미지 URL (안 지운 것만 남김)
-  const [existingImageUrls, setExistingImageUrls] = useState<string[]>(
-    post.imageUrls,
-  );
-
-  // 새로 추가한 이미지 파일
-  const [newImages, setNewImages] = useState<File[]>([]);
-
-  const handleRemoveExistingImage = (url: string) => {
-    setExistingImageUrls((prev) => prev.filter((u) => u !== url));
-  };
+  const { images, setImages, existingImageUrls, handleRemoveExistingImage } =
+    useImageUpload();
 
   const { mutate: handleEdit, isPending: isSubmitting } = useMutation({
     mutationFn: () =>
-      updateArticle(post.id, { title, content, existingImageUrls }, newImages),
+      updateArticle(post.id, { title, content, existingImageUrls }, images),
 
     onSuccess: () => router.replace(`/community/${post.id}`),
 
@@ -50,8 +42,8 @@ export default function PostEditClient({ post }: PostEditClientProps) {
       onTitleChange={setTitle}
       content={content}
       onContentChange={setContent}
-      images={newImages}
-      onImagesChange={setNewImages}
+      images={images}
+      onImagesChange={setImages}
       existingImageUrls={existingImageUrls}
       onRemoveExistingImage={handleRemoveExistingImage}
       isValid={isValid}

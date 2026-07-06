@@ -4,6 +4,7 @@ import { useMutation } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
 
 import ProductForm from "@/app/(with-layout)/(app)/items/_components/ProductForm";
+import { useImageUpload } from "@/hooks/useImageUpload";
 import { useProductForm } from "@/hooks/useProductForm";
 import { updateProduct } from "@/lib/api/products.api";
 import type { Product } from "@/types/product";
@@ -19,6 +20,8 @@ export function ProductEditClient({ product }: ProductEditClientProps) {
   const { values, setters, handlers, isValid } = useProductForm({
     initialProduct: product,
   });
+  const { images, setImages, existingImageUrls, handleRemoveExistingImage } =
+    useImageUpload();
 
   const { mutate: handleSubmit, isPending: isSubmitting } = useMutation({
     mutationFn: () =>
@@ -29,9 +32,9 @@ export function ProductEditClient({ product }: ProductEditClientProps) {
           description: values.description,
           price: Number(values.price),
           tags: values.tags,
-          existingImageUrls: values.existingImageUrls,
+          existingImageUrls,
         },
-        values.images,
+        images,
       ),
     onSuccess: () => router.replace(`/items/${product.id}`),
     onError: (err) => showErrorToast(err, "상품 수정"),
@@ -52,10 +55,10 @@ export function ProductEditClient({ product }: ProductEditClientProps) {
       onTagInputChange={setters.setTagInput}
       onAddTag={handlers.handleAddTag}
       onRemoveTag={handlers.handleRemoveTag}
-      images={values.images}
-      onImagesChange={setters.setImages}
-      existingImageUrls={values.existingImageUrls}
-      onRemoveExistingImage={handlers.handleRemoveExistingImage}
+      images={images}
+      onImagesChange={setImages}
+      existingImageUrls={existingImageUrls}
+      onRemoveExistingImage={handleRemoveExistingImage}
       isValid={isValid}
       isSubmitting={isSubmitting}
       onSubmit={() => handleSubmit()}

@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 import PostForm from "@/app/(with-layout)/(app)/community/_components/PostForm";
+import { useImageUpload } from "@/hooks/useImageUpload";
 import { createArticle } from "@/lib/api/article.api";
 import { showErrorToast } from "@/utils/showErrorToast";
 
@@ -13,6 +14,7 @@ export default function PostWriteClient() {
 
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
+  const { images, setImages } = useImageUpload();
 
   const { mutate: handleSubmit, isPending: isSubmitting } = useMutation({
     mutationFn: () => createArticle({ title, content }),
@@ -30,6 +32,8 @@ export default function PostWriteClient() {
       onTitleChange={setTitle}
       content={content}
       onContentChange={setContent}
+      images={images}
+      onImagesChange={setImages}
       isValid={isValid}
       isSubmitting={isSubmitting}
       onSubmit={() => handleSubmit()}
