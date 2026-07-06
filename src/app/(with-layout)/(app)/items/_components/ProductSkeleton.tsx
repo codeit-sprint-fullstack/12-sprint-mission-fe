@@ -1,4 +1,4 @@
-function ProductCardSkeleton() {
+export function ProductCardSkeleton() {
   return (
     <div className="flex flex-col gap-[0.62rem] lg:gap-4">
       <div className="relative w-full aspect-square overflow-hidden rounded-[1.03675rem] bg-gray-200 animate-pulse" />
@@ -38,7 +38,7 @@ export function BestProductListSkeleton() {
   );
 }
 
-export function PostListSkeleton() {
+export function ProductListSkeleton() {
   return (
     <ul
       className="

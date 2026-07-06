@@ -1,9 +1,10 @@
-import { getProducts } from "@/lib/api/products";
-import ProductCard from "./ProductCard";
+import { getProducts } from "@/lib/api/products.api";
 
-export default async function BestProductList() {
-  const { list } = await getProducts({ pageSize: 4, orderBy: "favorite" });
-  const [first, second, third, fourth] = list;
+import { ProductCard } from "./ProductCard";
+
+export async function BestProductList() {
+  const { data } = await getProducts({ pageSize: 4, orderBy: "favorite" });
+  const [first, second, third, fourth] = data;
 
   return (
     <ul className="flex gap-4 md:gap-6">

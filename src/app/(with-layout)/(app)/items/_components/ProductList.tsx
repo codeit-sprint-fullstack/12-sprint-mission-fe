@@ -1,23 +1,34 @@
-import { getProducts } from "@/lib/api/products";
-import Pagination from "@/components/ui/Pagination";
-import PostCard from "./ProductCard";
+import { Pagination } from "@/components/ui/Pagination";
+import { getProducts } from "@/lib/api/products.api";
 
-export default async function PostList({ keyword, orderBy, page }) {
+import { ProductCard } from "./ProductCard";
+
+type ProductListProps = {
+  keyword: string;
+  orderBy: string;
+  page: number;
+};
+
+export async function ProductList({
+  keyword,
+  orderBy,
+  page,
+}: ProductListProps) {
   const pageSize = 10;
 
-  const { totalCount, list } = await getProducts({
+  const { data, meta } = await getProducts({
     keyword,
     orderBy,
     page,
     pageSize,
   });
 
-  const totalPages = Math.ceil(totalCount / pageSize);
+  const totalPages = Math.ceil(meta.totalCount / pageSize);
 
-  if (totalCount === 0) {
+  if (meta.totalCount === 0) {
     return (
       <p className="text-center text-gray-500 py-10">
-        {keyword ? "검색 결과가 없습니다." : "게시글이 없습니다."}
+        {keyword ? "검색 결과가 없습니다." : "상품이 없습니다."}
       </p>
     );
   }
@@ -30,7 +41,7 @@ export default async function PostList({ keyword, orderBy, page }) {
           gap-x-2 md:gap-x-4 lg:gap-x-6 gap-y-8 md:gap-y-10
         "
       >
-        {list.map((product, index) => (
+        {data.map((product, index) => (
           <li
             key={product.id}
             className={[
@@ -40,7 +51,7 @@ export default async function PostList({ keyword, orderBy, page }) {
               .filter(Boolean)
               .join(" ")}
           >
-            <PostCard product={product} />
+            <ProductCard product={product} />
           </li>
         ))}
       </ul>

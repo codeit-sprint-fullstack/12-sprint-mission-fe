@@ -1,11 +1,18 @@
-import Link from "next/link";
 import Image from "next/image";
-import FallbackImage from "@/components/ui/FallbackImage";
+import Link from "next/link";
 
-export default function ProductCard({ product }) {
-  const hasImage = Boolean(product?.images[0]);
+import FallbackImage from "@/components/ui/FallbackImage";
+import type { ProductSummary } from "@/types/product";
+
+type ProductCardProps = {
+  product: ProductSummary;
+};
+
+export function ProductCard({ product }: ProductCardProps) {
+  // TODO: 상품 이미지 여러 장 첨부 기능 추가 예정
+  const hasImage = Boolean(product?.imageUrl);
   const imageSrc = hasImage
-    ? product.images[0]
+    ? product.imageUrl
     : "/images/product-default-img.svg";
 
   return (
