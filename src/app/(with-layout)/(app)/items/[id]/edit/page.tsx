@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 import { ProductEditClient } from "@/app/(with-layout)/(app)/items/[id]/edit/_components/ProductEditClient";
 import { getProduct } from "@/features/product/api";
-import { fetchOr404 } from "@/utils/fetchOr404";
+import { fetchOr404 } from "@/common/utils/fetchOr404";
 
 type ProductEditPageProps = {
   params: Promise<{ id: string }>;

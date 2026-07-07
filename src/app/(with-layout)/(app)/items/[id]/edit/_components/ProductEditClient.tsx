@@ -8,7 +8,7 @@ import { useImageUpload } from "@/common/hooks/useImageUpload";
 import { useProductForm } from "@/features/product/hooks/useProductForm";
 import { updateProduct } from "@/features/product/api";
 import type { Product } from "@/features/product/type";
-import { showErrorToast } from "@/utils/showErrorToast";
+import { showErrorToast } from "@/common/utils/showErrorToast";
 
 type ProductEditClientProps = {
   product: Product;

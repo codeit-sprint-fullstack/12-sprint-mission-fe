@@ -3,11 +3,11 @@ import type { Metadata } from "next";
 import Image from "next/image";
 
 import { BackToListButton } from "@/common/components/ui/BackToListButton";
+import { fetchOr404 } from "@/common/utils/fetchOr404";
+import { getImageUrl } from "@/common/utils/getImageUrl";
 import { getArticle } from "@/features/article/api";
 import ArticleKebabMenu from "@/features/article/components/ArticleKebabMenu";
 import { ArticleLikeCount } from "@/features/article/components/ArticleLikeCount";
-import { fetchOr404 } from "@/utils/fetchOr404";
-import { getImageUrl } from "@/utils/getImageUrl";
 
 import CommentSection from "./_components/CommentSection";
 

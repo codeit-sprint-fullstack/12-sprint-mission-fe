@@ -7,7 +7,7 @@ import ProductForm from "@/features/product/components/ProductForm";
 import { useImageUpload } from "@/common/hooks/useImageUpload";
 import { useProductForm } from "@/features/product/hooks/useProductForm";
 import { createProduct } from "@/features/product/api";
-import { showErrorToast } from "@/utils/showErrorToast";
+import { showErrorToast } from "@/common/utils/showErrorToast";
 
 export default function NewProductClient() {
   const router = useRouter();

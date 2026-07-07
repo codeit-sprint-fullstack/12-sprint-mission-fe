@@ -11,7 +11,7 @@ import { KebabMenu } from "@/common/components/ui/KebabMenu";
 import { Modal } from "@/common/components/ui/Modal";
 import { useDeleteState } from "@/common/hooks/useDeleteState";
 import { useUser } from "@/features/user/hooks/useUser";
-import { showErrorToast } from "@/utils/showErrorToast";
+import { showErrorToast } from "@/common/utils/showErrorToast";
 
 import CommentTextarea from "./CommentTextarea";
 import type { CommentCardProps } from "../types";

@@ -4,10 +4,10 @@ import { useMutation } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
 
 import { useImageUpload } from "@/common/hooks/useImageUpload";
+import { showErrorToast } from "@/common/utils/showErrorToast";
 import { createArticle } from "@/features/article/api";
 import PostForm from "@/features/article/components/PostForm";
 import { usePostForm } from "@/features/article/hooks/usePostForm";
-import { showErrorToast } from "@/utils/showErrorToast";
 
 export default function PostWriteClient() {
   const router = useRouter();

@@ -3,7 +3,7 @@ import Link from "next/link";
 
 import { FallbackImage } from "@/common/components/ui/FallbackImage";
 import type { ProductSummary } from "@/features/product/type";
-import { getImageUrl } from "@/utils/getImageUrl";
+import { getImageUrl } from "@/common/utils/getImageUrl";
 
 type ProductCardProps = {
   product: ProductSummary;

@@ -4,7 +4,7 @@ import Link from "next/link";
 
 import { FallbackImage } from "@/common/components/ui/FallbackImage";
 import type { ArticleSummary } from "@/features/article/type";
-import { getImageUrl } from "@/utils/getImageUrl";
+import { getImageUrl } from "@/common/utils/getImageUrl";
 
 type BestPostCardProps = {
   post: ArticleSummary;

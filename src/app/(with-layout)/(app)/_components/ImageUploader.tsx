@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useEffect, useMemo } from "react";
 
-import { getImageUrl } from "@/utils/getImageUrl";
+import { getImageUrl } from "@/common/utils/getImageUrl";
 
 const MAX_IMAGE_COUNT = 3;
 const IMAGE_BOX_MAX = 282;
