@@ -1,8 +1,8 @@
 "use client";
 
 import { Button } from "@/common/components/ui/Button";
+import { ContentField } from "@/common/components/ui/ContentField";
 import { ImageUploader } from "@/common/components/ui/ImageUploader";
-import { LabeledTextField } from "@/common/components/ui/LabeledTextField";
 import type { BaseFormWithImagesProps } from "@/common/types/form";
 
 const TITLE_MAX_LENGTH = 100;
@@ -48,7 +48,7 @@ export default function PostForm({
           </Button>
         </div>
 
-        <LabeledTextField
+        <ContentField
           id="title"
           label="제목"
           value={title}
@@ -58,7 +58,7 @@ export default function PostForm({
           disabled={isSubmitting}
         />
 
-        <LabeledTextField
+        <ContentField
           id="content"
           label="내용"
           value={content}

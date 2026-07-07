@@ -2,7 +2,7 @@
 
 import type { BaseFieldProps } from "@/common/types/form";
 
-type LabeledTextFieldProps = BaseFieldProps & {
+type ContentFieldProps = BaseFieldProps & {
   maxLength?: number;
   disabled?: boolean;
   as?: "input" | "textarea";
@@ -10,7 +10,7 @@ type LabeledTextFieldProps = BaseFieldProps & {
   required?: boolean;
 };
 
-export function LabeledTextField({
+export function ContentField({
   id,
   label,
   value,
@@ -22,7 +22,7 @@ export function LabeledTextField({
   type = "text",
   error,
   required = true,
-}: LabeledTextFieldProps) {
+}: ContentFieldProps) {
   const showCount = maxLength !== undefined;
   const sharedClassName = `
     w-full px-6 py-4 rounded-lg bg-gray-100

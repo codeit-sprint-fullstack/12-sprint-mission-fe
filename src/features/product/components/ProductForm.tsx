@@ -1,8 +1,8 @@
 "use client";
 
 import { Button } from "@/common/components/ui/Button";
+import { ContentField } from "@/common/components/ui/ContentField";
 import { ImageUploader } from "@/common/components/ui/ImageUploader";
-import { LabeledTextField } from "@/common/components/ui/LabeledTextField";
 import type { BaseFormWithImagesProps } from "@/common/types/form";
 import {
   TagInput,
@@ -76,7 +76,7 @@ export default function ProductForm({
           isSubmitting={isSubmitting}
         />
 
-        <LabeledTextField
+        <ContentField
           id="name"
           label="상품명"
           value={name}
@@ -86,7 +86,7 @@ export default function ProductForm({
           disabled={isSubmitting}
         />
 
-        <LabeledTextField
+        <ContentField
           id="description"
           label="상품 소개"
           value={description}
@@ -101,7 +101,7 @@ export default function ProductForm({
           }
         />
 
-        <LabeledTextField
+        <ContentField
           id="price"
           label="판매가격"
           type="number"
