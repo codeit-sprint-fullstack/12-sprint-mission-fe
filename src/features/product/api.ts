@@ -1,3 +1,5 @@
+import type { Product, ProductSummary } from "@/features/product/type";
+import { api } from "@/lib/api/client.api";
 import type {
   CommentListResponse,
   CommentResponse,
@@ -5,9 +7,6 @@ import type {
 } from "@/types/comment";
 import type { FavoriteResponse } from "@/types/favorite";
 import type { ListQueryParams } from "@/types/list";
-import type { Product, ProductSummary } from "@/types/product";
-
-import { api } from "./client.api";
 
 // 목록 응답
 type ProductListResponse = {

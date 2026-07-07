@@ -3,9 +3,9 @@
 import { useMutation } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
 
-import ProductForm from "@/app/(with-layout)/(app)/items/_components/ProductForm";
+import ProductForm from "@/features/product/components/ProductForm";
 import { useImageUpload } from "@/hooks/useImageUpload";
-import { useProductForm } from "@/hooks/useProductForm";
+import { useProductForm } from "@/features/product/hooks/useProductForm";
 import { createProduct } from "@/lib/api/products.api";
 import { showErrorToast } from "@/utils/showErrorToast";
 

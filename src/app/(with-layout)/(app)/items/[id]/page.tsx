@@ -4,15 +4,13 @@ import Image from "next/image";
 
 import BackToListButton from "@/components/ui/BackToListButton";
 import FallbackImage from "@/components/ui/FallbackImage";
-import LikeCountClient from "@/components/ui/LikeCountClient";
-import { getProduct } from "@/lib/api/products.api";
-import { toggleProductFavorite } from "@/lib/api/products.api";
+import { getProduct } from "@/features/product/api";
+import { ProductikeCount } from "@/features/product/components/ProductikeCount";
+import ProductKebabMenu from "@/features/product/components/ProductKebabMenu";
 import { fetchOr404 } from "@/utils/fetchOr404";
 import { getImageUrl } from "@/utils/getImageUrl";
 
 import CommentSection from "./_components/CommentSection";
-import { ProductikeCount } from "./_components/ProductikeCount";
-import ProductKebabMenu from "./_components/ProductKebabMenu";
 
 type ProductDetailPageProps = {
   params: Promise<{ id: string }>;

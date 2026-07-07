@@ -2,11 +2,11 @@
 
 import { ImageUploader } from "@/app/(with-layout)/(app)/_components/ImageUploader";
 import { LabeledTextField } from "@/app/(with-layout)/(app)/_components/LabeledTextField";
+import Button from "@/components/ui/Button";
 import {
   TagInput,
   type TagInputProps,
-} from "@/app/(with-layout)/(app)/items/_components/TagInput";
-import Button from "@/components/ui/Button";
+} from "@/features/product/components/TagInput";
 import type { BaseFormWithImagesProps } from "@/types/form";
 
 const NAME_MAX_LENGTH = 100;

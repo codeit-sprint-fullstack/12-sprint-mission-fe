@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import type { Product } from "@/types/product";
+import type { Product } from "@/features/product/type";
 
 type UseProductFormOptions = {
   initialProduct?: Product;

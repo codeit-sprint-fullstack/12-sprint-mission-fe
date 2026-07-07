@@ -1,6 +1,7 @@
 import { Pagination } from "@/components/ui/Pagination";
 import { getProducts } from "@/features/product/api";
-import { ProductCard } from "@/features/product/components/ProductCard";
+
+import { ProductCard } from "./ProductCard";
 
 type ProductListProps = {
   keyword: string;

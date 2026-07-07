@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
 
-import { BestProductList } from "@/app/(with-layout)/(app)/items/_components/BestProductList";
-import { ProductList } from "@/app/(with-layout)/(app)/items/_components/ProductList";
-import { ProductSectionHeader } from "@/app/(with-layout)/(app)/items/_components/ProductSectionHeader";
+import { BestProductList } from "@/features/product/components/BestProductList";
+import { ProductList } from "@/features/product/components/ProductList";
+import { ProductSectionHeader } from "@/features/product/components/ProductSectionHeader";
 import {
   BestProductListSkeleton,
   ProductCardSkeleton,
-} from "@/app/(with-layout)/(app)/items/_components/ProductSkeleton";
+} from "@/features/product/components/ProductSkeleton";
 
 export const metadata: Metadata = {
   title: "중고마켓",
