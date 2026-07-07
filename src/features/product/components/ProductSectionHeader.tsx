@@ -3,7 +3,7 @@
 import Button from "@/components/ui/Button";
 import SearchBar from "@/components/ui/SearchBar";
 import SortDropDown from "@/components/ui/SortDropDown";
-import { useListFilters } from "@/hooks/useListFilters";
+import { useListFilters } from "@/common/hooks/useListFilters";
 import type { SectionHeaderProps, SortOption } from "@/types/sort";
 
 export function ProductSectionHeader({ keyword, orderBy }: SectionHeaderProps) {

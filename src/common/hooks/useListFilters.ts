@@ -1,7 +1,7 @@
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
-import { useDebounce } from "@/hooks/useDebounce";
+import { useDebounce } from "@/common/hooks/useDebounce";
 
 type UseListFiltersParams = {
   pathname: string;

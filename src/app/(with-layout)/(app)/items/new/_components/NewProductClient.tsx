@@ -4,7 +4,7 @@ import { useMutation } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
 
 import ProductForm from "@/features/product/components/ProductForm";
-import { useImageUpload } from "@/hooks/useImageUpload";
+import { useImageUpload } from "@/common/hooks/useImageUpload";
 import { useProductForm } from "@/features/product/hooks/useProductForm";
 import { createProduct } from "@/features/product/api";
 import { showErrorToast } from "@/utils/showErrorToast";

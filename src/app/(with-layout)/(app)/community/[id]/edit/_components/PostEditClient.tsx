@@ -7,7 +7,7 @@ import { updateArticle } from "@/features/article/api";
 import PostForm from "@/features/article/components/PostForm";
 import { usePostForm } from "@/features/article/hooks/usePostForm";
 import type { Article } from "@/features/article/type";
-import { useImageUpload } from "@/hooks/useImageUpload";
+import { useImageUpload } from "@/common/hooks/useImageUpload";
 import { showErrorToast } from "@/utils/showErrorToast";
 
 type PostEditClientProps = {

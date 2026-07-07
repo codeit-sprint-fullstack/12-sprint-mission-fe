@@ -3,10 +3,10 @@
 import { useMutation } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
 
+import { useDeleteState } from "@/common/hooks/useDeleteState";
 import KebabMenu from "@/components/ui/KebabMenu";
 import Modal from "@/components/ui/Modal";
 import { deleteArticle } from "@/features/article/api";
-import { useDeleteState } from "@/hooks/useDeleteState";
 
 type ArticleKebabMenuProps = {
   articleId: number;

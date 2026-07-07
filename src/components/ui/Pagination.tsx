@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 
-import { usePagination } from "@/hooks/usePagination";
+import { usePagination } from "@/common/hooks/usePagination";
 
 type PaginationProps = {
   page: number;
