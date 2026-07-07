@@ -2,8 +2,8 @@
 
 import { toast } from "react-hot-toast";
 
-import LikeCount from "@/components/ui/LikeCount";
-import useLikeCount from "@/hooks/useLikeCount";
+import LikeCount from "@/features/Like/components/LikeCount";
+import useLikeCount from "@/features/Like/hooks/useLikeCount";
 import { useUser } from "@/features/user/hooks/useUser";
 
 type LikeCountClientProps = {

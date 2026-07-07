@@ -1,6 +1,6 @@
 "use client";
 
-import LikeCountClient from "@/components/ui/LikeCountClient";
+import LikeCountClient from "@/features/Like/components/LikeCountClient";
 import { toggleProductFavorite } from "@/features/product/api";
 import type { Product } from "@/features/product/type";
 
