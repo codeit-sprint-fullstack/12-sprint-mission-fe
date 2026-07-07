@@ -4,8 +4,8 @@ import type {
   CommentResponse,
   CreateCommentBody,
 } from "@/common/types/common";
+import type { FavoriteResponse } from "@/features/Like/type";
 import type { Product, ProductSummary } from "@/features/product/type";
-import type { FavoriteResponse } from "@/types/favorite";
 import type { ListQueryParams } from "@/types/list";
 
 // 목록 응답

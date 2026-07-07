@@ -6,7 +6,7 @@ import type {
   CreateCommentBody,
 } from "@/common/types/common";
 import type { Article, ArticleSummary } from "@/features/article/type";
-import type { FavoriteResponse } from "@/types/favorite";
+import type { FavoriteResponse } from "@/features/Like/type";
 import type { ListQueryParams } from "@/types/list";
 
 type ArticleListResponse = {
