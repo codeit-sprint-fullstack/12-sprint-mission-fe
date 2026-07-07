@@ -1,4 +1,4 @@
-import { POST_LIMIT } from "@/constants/pagination";
+import { POST_LIMIT } from "@/common/constants/pagination";
 
 export default function PostListSkeleton() {
   return (

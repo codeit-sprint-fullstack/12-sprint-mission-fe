@@ -1,10 +1,10 @@
 import { api } from "@/common/api/client";
+import { POST_LIMIT } from "@/common/constants/pagination";
 import type {
   CommentListResponse,
   CommentResponse,
   CreateCommentBody,
 } from "@/common/types/common";
-import { POST_LIMIT } from "@/constants/pagination";
 import type { Article, ArticleSummary } from "@/features/article/type";
 import type { FavoriteResponse } from "@/types/favorite";
 import type { ListQueryParams } from "@/types/list";

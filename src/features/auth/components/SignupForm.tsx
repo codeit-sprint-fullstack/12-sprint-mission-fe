@@ -7,7 +7,7 @@ import { Controller, useForm } from "react-hook-form";
 
 import { Button } from "@/common/components/ui/Button";
 import { Modal } from "@/common/components/ui/Modal";
-import { userQueryKeys } from "@/constants/queryKeys";
+import { userQueryKeys } from "@/common/constants/queryKeys";
 import { login, signup } from "@/features/auth/api";
 import { FormField } from "@/features/auth/components/FormField";
 import { signupSchema, type SignupValues } from "@/features/auth/schema";
