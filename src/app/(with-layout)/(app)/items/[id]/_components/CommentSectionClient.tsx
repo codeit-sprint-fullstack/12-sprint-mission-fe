@@ -1,15 +1,15 @@
 "use client";
 
-import CommentForm from "@/components/comment/CommentForm";
-import CommentList from "@/components/comment/CommentList";
-import CommentListSkeleton from "@/components/comment/CommentListSkeleton";
-import useCommentSection from "@/hooks/useCommentSection";
-import { deleteComment, updateComment } from "@/lib/api/comments.api";
+import type { Comment } from "@/common/types/common";
+import { deleteComment, updateComment } from "@/features/comment/api";
+import CommentForm from "@/features/comment/components/CommentForm";
+import CommentList from "@/features/comment/components/CommentList";
+import CommentListSkeleton from "@/features/comment/components/CommentListSkeleton";
+import useCommentSection from "@/features/comment/hooks/useCommentSection";
 import {
   createProductComment,
   getProductComments,
-} from "@/lib/api/products.api";
-import type { Comment } from "@/types/comment";
+} from "@/features/product/api";
 
 type CommentSectionClientProps = {
   productId: number;

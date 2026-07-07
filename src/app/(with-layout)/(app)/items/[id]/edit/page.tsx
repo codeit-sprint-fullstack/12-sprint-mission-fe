@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 import { ProductEditClient } from "@/app/(with-layout)/(app)/items/[id]/edit/_components/ProductEditClient";
-import { getProduct } from "@/lib/api/products.api";
+import { getProduct } from "@/features/product/api";
 import { fetchOr404 } from "@/utils/fetchOr404";
 
 type ProductEditPageProps = {

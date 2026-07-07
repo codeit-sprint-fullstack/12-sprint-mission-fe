@@ -1,15 +1,15 @@
 "use client";
 
-import CommentForm from "@/components/comment/CommentForm";
-import CommentList from "@/components/comment/CommentList";
-import CommentListSkeleton from "@/components/comment/CommentListSkeleton";
-import useCommentSection from "@/hooks/useCommentSection";
+import type { Comment } from "@/common/types/common";
 import {
   createArticleComment,
   getArticleComments,
-} from "@/lib/api/article.api";
-import { deleteComment, updateComment } from "@/lib/api/comments.api";
-import type { Comment } from "@/types/comment";
+} from "@/features/article/api";
+import { deleteComment, updateComment } from "@/features/comment/api";
+import CommentForm from "@/features/comment/components/CommentForm";
+import CommentList from "@/features/comment/components/CommentList";
+import CommentListSkeleton from "@/features/comment/components/CommentListSkeleton";
+import useCommentSection from "@/features/comment/hooks/useCommentSection";
 
 type CommentSectionClientProps = {
   articleId: number;

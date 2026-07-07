@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 import CommentCard from "./CommentCard";
-import type { CommentListProps } from "./types";
+import type { CommentListProps } from "../types";
 
 export default function CommentList({
   comments,

@@ -1,4 +1,4 @@
-import { getArticleComments } from "@/lib/api/article.api";
+import { getArticleComments } from "@/features/article/api";
 
 import CommentSectionClient from "./CommentSectionClient";
 

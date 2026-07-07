@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import ProductForm from "@/features/product/components/ProductForm";
 import { useImageUpload } from "@/hooks/useImageUpload";
 import { useProductForm } from "@/features/product/hooks/useProductForm";
-import { updateProduct } from "@/lib/api/products.api";
+import { updateProduct } from "@/features/product/api";
 import type { Product } from "@/features/product/type";
 import { showErrorToast } from "@/utils/showErrorToast";
 

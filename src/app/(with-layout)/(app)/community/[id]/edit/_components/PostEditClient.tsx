@@ -3,11 +3,11 @@
 import { useMutation } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
 
+import { updateArticle } from "@/features/article/api";
 import PostForm from "@/features/article/components/PostForm";
-import { useImageUpload } from "@/hooks/useImageUpload";
 import { usePostForm } from "@/features/article/hooks/usePostForm";
-import { updateArticle } from "@/lib/api/article.api";
 import type { Article } from "@/features/article/type";
+import { useImageUpload } from "@/hooks/useImageUpload";
 import { showErrorToast } from "@/utils/showErrorToast";
 
 type PostEditClientProps = {

@@ -1,10 +1,10 @@
-import type { Product, ProductSummary } from "@/features/product/type";
-import { api } from "@/lib/api/client.api";
 import type {
   CommentListResponse,
   CommentResponse,
   CreateCommentBody,
-} from "@/types/comment";
+} from "@/common/types/common";
+import type { Product, ProductSummary } from "@/features/product/type";
+import { api } from "@/lib/api/client.api";
 import type { FavoriteResponse } from "@/types/favorite";
 import type { ListQueryParams } from "@/types/list";
 

@@ -2,8 +2,8 @@ import type { QueryKey } from "@tanstack/react-query";
 import type { StaticImageData } from "next/image";
 import type { ReactNode } from "react";
 
-import type { deleteComment, updateComment } from "@/lib/api/comments.api";
-import type { Comment } from "@/types/comment";
+import type { Comment } from "@/common/types/common";
+import type { deleteComment, updateComment } from "@/features/comment/api";
 
 export type CommentActionProps = {
   queryKey: QueryKey;

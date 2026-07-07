@@ -14,7 +14,7 @@ import { useUser } from "@/hooks/useUser";
 import { showErrorToast } from "@/utils/showErrorToast";
 
 import CommentTextarea from "./CommentTextarea";
-import type { CommentCardProps } from "./types";
+import type { CommentCardProps } from "../types";
 
 export default function CommentCard({
   comment,

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
-import { getArticle } from "@/lib/api/article.api";
+import { getArticle } from "@/features/article/api";
 import type { ApiError } from "@/types/api";
 
 import PostEditClient from "./_components/PostEditClient";
