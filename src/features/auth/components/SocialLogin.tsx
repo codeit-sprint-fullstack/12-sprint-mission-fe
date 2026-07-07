@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-export default function SocialLogin() {
+export function SocialLogin() {
   return (
     <section
       aria-labelledby="social-login"

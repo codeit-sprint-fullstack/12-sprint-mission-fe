@@ -1,5 +1,6 @@
-import { api } from "./client.api";
 import type { User } from "@/types/user";
+
+import { api } from "../../lib/api/client.api";
 
 type SignupBody = {
   email: string;

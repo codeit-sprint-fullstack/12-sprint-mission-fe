@@ -5,15 +5,15 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
 import { Controller, useForm } from "react-hook-form";
 
-import FormField from "@/app/(auth)/_components/FormField";
 import Button from "@/components/ui/Button";
 import Modal from "@/components/ui/Modal";
 import { userQueryKeys } from "@/constants/queryKeys";
-import { login } from "@/lib/api/auth.api";
-import { loginSchema, type LoginValues } from "@/schemas/auth.schema";
+import { login, signup } from "@/features/auth/api";
+import { FormField } from "@/features/auth/components/FormField";
+import { signupSchema, type SignupValues } from "@/features/auth/schema";
 import type { ApiError } from "@/types/api";
 
-export default function LoginForm() {
+export function SignupForm() {
   const router = useRouter();
   const queryClient = useQueryClient();
 
@@ -22,9 +22,14 @@ export default function LoginForm() {
     handleSubmit,
     setError,
     formState: { errors, isValid },
-  } = useForm<LoginValues>({
-    defaultValues: { email: "", password: "" },
-    resolver: zodResolver(loginSchema),
+  } = useForm<SignupValues>({
+    defaultValues: {
+      email: "",
+      nickname: "",
+      password: "",
+      passwordConfirmation: "",
+    },
+    resolver: zodResolver(signupSchema),
     mode: "onChange",
   });
 
@@ -33,26 +38,29 @@ export default function LoginForm() {
     isPending,
     error: submitError,
     reset,
-  } = useMutation<unknown, ApiError, LoginValues>({
-    mutationFn: (data) => login(data),
+  } = useMutation<unknown, ApiError, SignupValues>({
+    mutationFn: async (data) => {
+      await signup({
+        email: data.email,
+        nickname: data.nickname,
+        password: data.password,
+      });
+      return login({ email: data.email, password: data.password });
+    },
     onSuccess: (user) => {
       queryClient.setQueryData(userQueryKeys.me(), user);
       router.replace("/items");
     },
     onError: (err) => {
-      if (err.status && err.status >= 400 && err.status < 500) {
-        setError("password", {
-          type: "server",
-          message:
-            "이메일 또는 비밀번호가 올바르지 않습니다. 입력한 정보를 확인한 후 다시 시도해 주세요.",
-        });
+      if (err.status === 409) {
+        setError("email", { type: "server", message: err.message });
       }
     },
   });
 
-  const isServerModalError = !!submitError && submitError.status! >= 500;
+  const isServerModalError = !!submitError && submitError.status !== 409;
 
-  const onSubmit = (data: LoginValues) => mutate(data);
+  const onSubmit = (data: SignupValues) => mutate(data);
 
   return (
     <>
@@ -70,10 +78,26 @@ export default function LoginForm() {
               type="email"
               label="이메일"
               placeholder="이메일을 입력해주세요"
-              autoComplete="email"
               value={field.value}
               onChange={field.onChange}
               error={errors.email?.message}
+              autoComplete="email"
+            />
+          )}
+        />
+        <Controller
+          name="nickname"
+          control={control}
+          render={({ field }) => (
+            <FormField
+              id="nickname"
+              type="text"
+              label="닉네임"
+              placeholder="닉네임을 입력해주세요"
+              value={field.value}
+              onChange={field.onChange}
+              error={errors.nickname?.message}
+              autoComplete="username"
             />
           )}
         />
@@ -86,10 +110,26 @@ export default function LoginForm() {
               type="password"
               label="비밀번호"
               placeholder="비밀번호를 입력해주세요"
-              autoComplete="current-password"
               value={field.value}
               onChange={field.onChange}
               error={errors.password?.message}
+              autoComplete="new-password"
+            />
+          )}
+        />
+        <Controller
+          name="passwordConfirmation"
+          control={control}
+          render={({ field }) => (
+            <FormField
+              id="passwordConfirmation"
+              type="password"
+              label="비밀번호 확인"
+              placeholder="비밀번호를 다시 한 번 입력해주세요"
+              value={field.value}
+              onChange={field.onChange}
+              error={errors.passwordConfirmation?.message}
+              autoComplete="new-password"
             />
           )}
         />
@@ -102,7 +142,7 @@ export default function LoginForm() {
           disabled={!isValid}
           loading={isPending}
         >
-          로그인
+          회원가입
         </Button>
       </form>
 

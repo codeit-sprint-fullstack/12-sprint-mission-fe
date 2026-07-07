@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 
-import AuthTemplate from "@/app/(auth)/_components/AuthTemplate";
-
-import LoginForm from "./_components/LoginForm";
+import { AuthTemplate } from "@/features/auth/components/AuthTemplate";
+import { LoginForm } from "@/features/auth/components/LoginForm";
 
 export const metadata: Metadata = {
   title: "로그인",

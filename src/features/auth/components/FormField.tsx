@@ -10,7 +10,7 @@ type FormFieldProps = BaseFieldProps & {
   autoComplete?: string;
 };
 
-export default function FormField({
+export function FormField({
   id,
   label,
   type,

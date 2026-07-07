@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
 
-import SocialLogin from "./SocialLogin";
+import { SocialLogin } from "@/features/auth/components/SocialLogin";
 
 type AuthTemplateProps = {
   children: ReactNode;
@@ -12,7 +12,7 @@ type AuthTemplateProps = {
   bottomLinkHref: string;
 };
 
-export default function AuthTemplate({
+export function AuthTemplate({
   children,
   heading,
   bottomText,
