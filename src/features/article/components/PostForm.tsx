@@ -1,8 +1,8 @@
 "use client";
 
-import { ImageUploader } from "@/app/(with-layout)/(app)/_components/ImageUploader";
-import { LabeledTextField } from "@/app/(with-layout)/(app)/_components/LabeledTextField";
 import { Button } from "@/common/components/ui/Button";
+import { ImageUploader } from "@/common/components/ui/ImageUploader";
+import { LabeledTextField } from "@/common/components/ui/LabeledTextField";
 import type { BaseFormWithImagesProps } from "@/common/types/form";
 
 const TITLE_MAX_LENGTH = 100;
