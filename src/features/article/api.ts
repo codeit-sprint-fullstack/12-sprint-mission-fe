@@ -1,5 +1,6 @@
 import { POST_LIMIT } from "@/constants/pagination";
-import type { Article, ArticleSummary } from "@/types/article";
+import type { Article, ArticleSummary } from "@/features/article/type";
+import { api } from "@/lib/api/client.api";
 import type {
   CommentListResponse,
   CommentResponse,
@@ -7,8 +8,6 @@ import type {
 } from "@/types/comment";
 import type { FavoriteResponse } from "@/types/favorite";
 import type { ListQueryParams } from "@/types/list";
-
-import { api } from "./client.api";
 
 type ArticleListResponse = {
   data: ArticleSummary[];

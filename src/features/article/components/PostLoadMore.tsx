@@ -1,8 +1,8 @@
 "use client";
 
 import Button from "@/components/ui/Button";
-import usePostLoadMore from "@/hooks/usePostLoadMore";
-import type { ArticleLoadMoreParams } from "@/types/article";
+import usePostLoadMore from "@/features/article/hooks/usePostLoadMore";
+import type { ArticleLoadMoreParams } from "@/features/article/type";
 
 import PostCard from "./PostCard";
 

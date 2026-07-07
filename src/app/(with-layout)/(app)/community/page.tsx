@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
 
-import BestPostList from "./_components/BestPostList";
-import BestPostListSkeleton from "./_components/BestPostListSkeleton";
-import PostList from "./_components/PostList";
-import PostListSkeleton from "./_components/PostListSkeleton";
-import PostSectionHeader from "./_components/PostSectionHeader";
+import BestPostList from "../../../../features/article/components/BestPostList";
+import BestPostListSkeleton from "../../../../features/article/components/BestPostListSkeleton";
+import PostList from "../../../../features/article/components/PostList";
+import PostListSkeleton from "../../../../features/article/components/PostListSkeleton";
+import PostSectionHeader from "../../../../features/article/components/PostSectionHeader";
 
 export const metadata: Metadata = {
   title: "자유게시판",

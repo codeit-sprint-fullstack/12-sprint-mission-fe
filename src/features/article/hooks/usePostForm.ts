@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import type { Article } from "@/types/article";
+import type { Article } from "@/features/article/type";
 
 type usePostFormOptions = {
   initialPost?: Article;

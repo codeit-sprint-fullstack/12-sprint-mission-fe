@@ -1,4 +1,4 @@
-import { getArticles } from "@/lib/api/article.api";
+import { getArticles } from "@/features/article/api";
 
 import BestPostCard from "./BestPostCard";
 

@@ -1,8 +1,11 @@
 import { useState } from "react";
 import { toast } from "react-hot-toast";
 
-import { getArticles } from "@/lib/api/article.api";
-import type { ArticleLoadMoreParams, ArticleSummary } from "@/types/article";
+import { getArticles } from "@/features/article/api";
+import type {
+  ArticleLoadMoreParams,
+  ArticleSummary,
+} from "@/features/article/type";
 
 export default function usePostLoadMore({
   keyword,

@@ -1,4 +1,4 @@
-import { getArticles } from "@/lib/api/article.api";
+import { getArticles } from "@/features/article/api";
 
 import PostCard from "./PostCard";
 import PostLoadMore from "./PostLoadMore";

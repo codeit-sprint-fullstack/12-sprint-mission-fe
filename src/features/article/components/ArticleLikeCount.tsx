@@ -1,8 +1,8 @@
 "use client";
 
 import LikeCountClient from "@/components/ui/LikeCountClient";
-import { toggleArticleFavorite } from "@/lib/api/article.api";
-import type { Article } from "@/types/article";
+import { toggleArticleFavorite } from "@/features/article/api";
+import type { Article } from "@/features/article/type";
 
 type ArticleLikeCountProps = {
   articleId: number;

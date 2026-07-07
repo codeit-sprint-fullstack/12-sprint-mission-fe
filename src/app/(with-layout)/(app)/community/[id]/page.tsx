@@ -3,12 +3,12 @@ import type { Metadata } from "next";
 import Image from "next/image";
 
 import BackToListButton from "@/components/ui/BackToListButton";
-import { getArticle } from "@/lib/api/article.api";
+import { getArticle } from "@/features/article/api";
+import ArticleKebabMenu from "@/features/article/components/ArticleKebabMenu";
+import { ArticleLikeCount } from "@/features/article/components/ArticleLikeCount";
 import { fetchOr404 } from "@/utils/fetchOr404";
 import { getImageUrl } from "@/utils/getImageUrl";
 
-import ArticleKebabMenu from "./_components/ArticleKebabMenu";
-import { ArticleLikeCount } from "./_components/ArticleLikeCount";
 import CommentSection from "./_components/CommentSection";
 
 type ArticleDetailPageProps = {

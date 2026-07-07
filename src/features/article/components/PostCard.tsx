@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import FallbackImage from "@/components/ui/FallbackImage";
-import type { ArticleSummary } from "@/types/article";
+import type { ArticleSummary } from "@/features/article/type";
 import { getImageUrl } from "@/utils/getImageUrl";
 
 type PostCardProps = {
