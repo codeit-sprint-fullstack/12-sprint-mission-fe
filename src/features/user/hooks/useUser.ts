@@ -1,8 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
 
 import { userQueryKeys } from "@/constants/queryKeys";
-import { getMyInfo } from "@/lib/api/user.api";
-import type { User } from "@/types/user";
+import { getMyInfo } from "@/features/user/api";
+import type { User } from "@/features/user/types";
 
 export function useUser() {
   const query = useQuery<User>({

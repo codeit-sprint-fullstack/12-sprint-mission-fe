@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
-import { useUser } from "@/hooks/useUser";
+import { useUser } from "@/features/user/hooks/useUser";
 
 type AuthLayoutProps = {
   children: React.ReactNode;

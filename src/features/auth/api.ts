@@ -1,4 +1,4 @@
-import type { User } from "@/types/user";
+import type { User } from "@/features/user/types";
 
 import { api } from "../../lib/api/client.api";
 

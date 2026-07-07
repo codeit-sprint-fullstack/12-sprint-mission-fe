@@ -6,8 +6,8 @@ import { useRouter } from "next/navigation";
 import KebabMenu from "@/components/ui/KebabMenu";
 import Modal from "@/components/ui/Modal";
 import { deleteProduct } from "@/features/product/api";
+import { useUser } from "@/features/user/hooks/useUser";
 import { useDeleteState } from "@/hooks/useDeleteState";
-import { useUser } from "@/hooks/useUser";
 
 type ProductKebabMenuProps = {
   productId: number;

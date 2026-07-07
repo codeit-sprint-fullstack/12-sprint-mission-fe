@@ -10,7 +10,7 @@ import Button from "@/components/ui/Button";
 import KebabMenu from "@/components/ui/KebabMenu";
 import Modal from "@/components/ui/Modal";
 import { useDeleteState } from "@/hooks/useDeleteState";
-import { useUser } from "@/hooks/useUser";
+import { useUser } from "@/features/user/hooks/useUser";
 import { showErrorToast } from "@/utils/showErrorToast";
 
 import CommentTextarea from "./CommentTextarea";

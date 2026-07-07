@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 import Button from "@/components/ui/Button";
-import { useUser } from "@/hooks/useUser";
+import { useUser } from "@/features/user/hooks/useUser";
 
 const NAV_TABS = [
   { label: "자유게시판", href: "/community" },
