@@ -1,6 +1,6 @@
 import type { User } from "@/features/user/types";
 
-import { api } from "../../lib/api/client.api";
+import { api } from "../../common/api/client";
 
 type UserResponse = {
   data: User;
