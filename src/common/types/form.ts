@@ -1,5 +1,3 @@
-import type { ImageUploaderProps } from "@/app/(with-layout)/(app)/_components/ImageUploader";
-
 export type BaseFormProps = {
   heading: string;
   submitLabel?: string;
@@ -18,4 +16,13 @@ export type BaseFieldProps = {
   onChange: (value: string) => void;
   placeholder?: string;
   error?: string;
+};
+
+export type ImageUploaderProps = {
+  label?: string;
+  images: File[];
+  onImagesChange: (files: File[]) => void;
+  existingImageUrls?: string[];
+  onRemoveExistingImage?: (url: string) => void;
+  isSubmitting: boolean;
 };

@@ -3,21 +3,11 @@
 import Image from "next/image";
 import { useEffect, useMemo } from "react";
 
+import type { ImageUploaderProps } from "@/common/types/form";
 import { getImageUrl } from "@/common/utils/getImageUrl";
 
 const MAX_IMAGE_COUNT = 3;
 const IMAGE_BOX_MAX = 282;
-
-export type ImageUploaderProps = {
-  label?: string;
-  // 새로 추가할 이미지 파일들
-  images: File[];
-  onImagesChange: (files: File[]) => void;
-  // 수정 시 기존에 업로드돼 있던 이미지 URL들
-  existingImageUrls?: string[];
-  onRemoveExistingImage?: (url: string) => void;
-  isSubmitting: boolean;
-};
 
 export function ImageUploader({
   label = "이미지",
