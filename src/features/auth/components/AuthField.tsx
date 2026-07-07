@@ -27,12 +27,12 @@ export function AuthField({
     <div className="flex flex-col">
       <label
         htmlFor={id}
-        className="text-lg md:text-2lg font-bold text-gray-800"
+        className="text-md md:text-2lg font-bold text-gray-800 mb-2 md:mt-4"
       >
         {label}
       </label>
 
-      <div className="relative w-full mt-2 md:mt-4">
+      <div className="relative w-full">
         <input
           id={id}
           name={id}

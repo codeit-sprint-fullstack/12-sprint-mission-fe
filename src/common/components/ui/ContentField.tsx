@@ -30,8 +30,8 @@ export function ContentField({
   `;
 
   return (
-    <div className="mb-4 lg:mb-6">
-      <div className="mb-[0.75rem]">
+    <div className="mb-6 lg:mb-8">
+      <div className="mb-4">
         <label htmlFor={id} className="block text-2lg font-bold text-gray-800">
           {required && "*"}
           {label}
