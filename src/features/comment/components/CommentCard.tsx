@@ -6,9 +6,9 @@ import { ko } from "date-fns/locale";
 import Image from "next/image";
 import { useState } from "react";
 
-import Button from "@/components/ui/Button";
-import KebabMenu from "@/components/ui/KebabMenu";
-import Modal from "@/components/ui/Modal";
+import { Button } from "@/common/components/ui/Button";
+import { KebabMenu } from "@/common/components/ui/KebabMenu";
+import { Modal } from "@/common/components/ui/Modal";
 import { useDeleteState } from "@/common/hooks/useDeleteState";
 import { useUser } from "@/features/user/hooks/useUser";
 import { showErrorToast } from "@/utils/showErrorToast";

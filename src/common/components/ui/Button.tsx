@@ -67,7 +67,7 @@ type ButtonProps = {
   className?: string;
 };
 
-export default function Button({
+export function Button({
   children,
   href,
   onClick,

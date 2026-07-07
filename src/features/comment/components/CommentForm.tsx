@@ -8,7 +8,7 @@ import {
 import { useState } from "react";
 import { toast } from "react-hot-toast";
 
-import Button from "@/components/ui/Button";
+import { Button } from "@/common/components/ui/Button";
 import { useUser } from "@/features/user/hooks/useUser";
 import { showErrorToast } from "@/utils/showErrorToast";
 

@@ -10,11 +10,7 @@ type SortDropDownProps = {
   options: SortOption[];
 };
 
-export default function SortDropDown({
-  value,
-  onChange,
-  options,
-}: SortDropDownProps) {
+export function SortDropDown({ value, onChange, options }: SortDropDownProps) {
   return (
     <div className="relative inline-block">
       <select

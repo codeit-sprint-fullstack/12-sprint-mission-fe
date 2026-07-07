@@ -1,6 +1,6 @@
 "use client";
 
-import Button from "@/components/ui/Button";
+import { Button } from "@/common/components/ui/Button";
 import type { ErrorPageProps } from "@/types/error";
 
 export default function Error({ reset }: ErrorPageProps) {

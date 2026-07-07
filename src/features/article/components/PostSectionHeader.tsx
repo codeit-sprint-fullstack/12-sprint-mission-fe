@@ -1,8 +1,8 @@
 "use client";
 
-import Button from "@/components/ui/Button";
-import SearchBar from "@/components/ui/SearchBar";
-import SortDropDown from "@/components/ui/SortDropDown";
+import { Button } from "@/common/components/ui/Button";
+import { SearchBar } from "@/common/components/ui/SearchBar";
+import { SortDropDown } from "@/common/components/ui/SortDropDown";
 import { useListFilters } from "@/common/hooks/useListFilters";
 import type { SectionHeaderProps, SortOption } from "@/types/sort";
 

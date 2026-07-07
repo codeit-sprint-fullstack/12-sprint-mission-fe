@@ -2,8 +2,8 @@ import { format } from "date-fns";
 import type { Metadata } from "next";
 import Image from "next/image";
 
-import BackToListButton from "@/components/ui/BackToListButton";
-import FallbackImage from "@/components/ui/FallbackImage";
+import { BackToListButton } from "@/common/components/ui/BackToListButton";
+import { FallbackImage } from "@/common/components/ui/FallbackImage";
 import { getProduct } from "@/features/product/api";
 import { ProductikeCount } from "@/features/product/components/ProductikeCount";
 import ProductKebabMenu from "@/features/product/components/ProductKebabMenu";

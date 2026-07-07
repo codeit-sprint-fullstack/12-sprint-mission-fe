@@ -8,7 +8,7 @@ type SearchBarProps = {
   onChange: (value: string) => void;
 };
 
-export default function SearchBar({ value, onChange }: SearchBarProps) {
+export function SearchBar({ value, onChange }: SearchBarProps) {
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     onChange(e.target.value);
   };

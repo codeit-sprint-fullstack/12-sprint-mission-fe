@@ -2,7 +2,7 @@ import { format } from "date-fns";
 import type { Metadata } from "next";
 import Image from "next/image";
 
-import BackToListButton from "@/components/ui/BackToListButton";
+import { BackToListButton } from "@/common/components/ui/BackToListButton";
 import { getArticle } from "@/features/article/api";
 import ArticleKebabMenu from "@/features/article/components/ArticleKebabMenu";
 import { ArticleLikeCount } from "@/features/article/components/ArticleLikeCount";

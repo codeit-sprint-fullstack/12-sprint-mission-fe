@@ -2,7 +2,7 @@
 
 import { ImageUploader } from "@/app/(with-layout)/(app)/_components/ImageUploader";
 import { LabeledTextField } from "@/app/(with-layout)/(app)/_components/LabeledTextField";
-import Button from "@/components/ui/Button";
+import { Button } from "@/common/components/ui/Button";
 import type { BaseFormWithImagesProps } from "@/types/form";
 
 const TITLE_MAX_LENGTH = 100;

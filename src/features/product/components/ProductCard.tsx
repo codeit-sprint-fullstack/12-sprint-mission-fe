@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import FallbackImage from "@/components/ui/FallbackImage";
+import { FallbackImage } from "@/common/components/ui/FallbackImage";
 import type { ProductSummary } from "@/features/product/type";
 import { getImageUrl } from "@/utils/getImageUrl";
 

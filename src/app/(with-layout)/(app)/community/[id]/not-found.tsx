@@ -1,4 +1,4 @@
-import BackToListButton from "@/components/ui/BackToListButton";
+import { BackToListButton } from "@/common/components/ui/BackToListButton";
 
 export default function NotFound() {
   return (

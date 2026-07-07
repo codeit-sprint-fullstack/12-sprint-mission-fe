@@ -2,7 +2,7 @@ import { format } from "date-fns";
 import Image from "next/image";
 import Link from "next/link";
 
-import FallbackImage from "@/components/ui/FallbackImage";
+import { FallbackImage } from "@/common/components/ui/FallbackImage";
 import type { ArticleSummary } from "@/features/article/type";
 import { getImageUrl } from "@/utils/getImageUrl";
 

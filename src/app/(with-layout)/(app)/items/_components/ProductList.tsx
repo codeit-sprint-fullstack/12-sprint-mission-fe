@@ -1,4 +1,4 @@
-import { Pagination } from "@/components/ui/Pagination";
+import { Pagination } from "@/common/components/ui/Pagination";
 import { getProducts } from "@/features/product/api";
 import { ProductCard } from "@/features/product/components/ProductCard";
 

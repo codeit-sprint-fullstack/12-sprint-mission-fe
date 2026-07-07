@@ -1,6 +1,6 @@
 "use client";
 
-import Button from "@/components/ui/Button";
+import { Button } from "@/common/components/ui/Button";
 import usePostLoadMore from "@/features/article/hooks/usePostLoadMore";
 import type { ArticleLoadMoreParams } from "@/features/article/type";
 

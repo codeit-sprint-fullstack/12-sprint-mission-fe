@@ -3,9 +3,9 @@
 import { useMutation } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
 
+import { KebabMenu } from "@/common/components/ui/KebabMenu";
+import { Modal } from "@/common/components/ui/Modal";
 import { useDeleteState } from "@/common/hooks/useDeleteState";
-import KebabMenu from "@/components/ui/KebabMenu";
-import Modal from "@/components/ui/Modal";
 import { deleteArticle } from "@/features/article/api";
 
 type ArticleKebabMenuProps = {

@@ -1,8 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import Button from "@/components/ui/Button";
-import type { ButtonVariant } from "@/components/ui/Button";
+
+import type { ButtonVariant } from "@/common/components/ui/Button";
+import { Button } from "@/common/components/ui/Button";
 
 type ModalVariant = "confirm" | "danger";
 
@@ -37,7 +38,7 @@ type ModalProps = {
   loading?: boolean;
 };
 
-export default function Modal({
+export function Modal({
   isOpen,
   onClose,
   title,

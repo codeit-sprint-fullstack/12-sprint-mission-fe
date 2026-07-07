@@ -8,7 +8,7 @@ type FallbackImageProps = Omit<ImageProps, "src"> & {
   fallbackSrc: ImageProps["src"];
 };
 
-export default function FallbackImage({
+export function FallbackImage({
   src,
   fallbackSrc,
   alt,

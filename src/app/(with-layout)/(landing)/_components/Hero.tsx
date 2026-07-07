@@ -1,7 +1,7 @@
 import Image from "next/image";
 import type { ReactNode } from "react";
 
-import Button from "@/components/ui/Button";
+import { Button } from "@/common/components/ui/Button";
 
 type HeroProps = {
   type: "top" | "bottom";

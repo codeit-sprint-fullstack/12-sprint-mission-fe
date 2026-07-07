@@ -5,8 +5,8 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
 import { Controller, useForm } from "react-hook-form";
 
-import Button from "@/components/ui/Button";
-import Modal from "@/components/ui/Modal";
+import { Button } from "@/common/components/ui/Button";
+import { Modal } from "@/common/components/ui/Modal";
 import { userQueryKeys } from "@/constants/queryKeys";
 import { login, signup } from "@/features/auth/api";
 import { FormField } from "@/features/auth/components/FormField";

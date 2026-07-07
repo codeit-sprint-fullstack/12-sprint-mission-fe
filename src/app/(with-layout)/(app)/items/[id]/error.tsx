@@ -1,7 +1,7 @@
 "use client";
 
-import BackToListButton from "@/components/ui/BackToListButton";
-import Button from "@/components/ui/Button";
+import { BackToListButton } from "@/common/components/ui/BackToListButton";
+import { Button } from "@/common/components/ui/Button";
 import type { ErrorPageProps } from "@/types/error";
 
 export default function Error({ reset }: ErrorPageProps) {

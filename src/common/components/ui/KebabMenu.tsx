@@ -26,7 +26,7 @@ type KebabMenuComponent = ((props: KebabMenuProps) => React.JSX.Element) & {
   Link: (props: KebabLinkProps) => React.JSX.Element;
 };
 
-const KebabMenu: KebabMenuComponent = ({ children }) => {
+export const KebabMenu: KebabMenuComponent = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -66,5 +66,3 @@ KebabMenu.Link = function KebabLink({ children, href }: KebabLinkProps) {
     </Link>
   );
 };
-
-export default KebabMenu;
