@@ -5,12 +5,12 @@ import { useState } from "react";
 
 import type { BaseFieldProps } from "@/common/types/form";
 
-type FormFieldProps = BaseFieldProps & {
+type AuthFieldProps = BaseFieldProps & {
   type: string;
   autoComplete?: string;
 };
 
-export function FormField({
+export function AuthField({
   id,
   label,
   type,
@@ -19,7 +19,7 @@ export function FormField({
   onChange,
   error,
   autoComplete,
-}: FormFieldProps) {
+}: AuthFieldProps) {
   const [showPassword, setShowPassword] = useState(false);
   const isPassword = type === "password";
 

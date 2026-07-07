@@ -10,7 +10,7 @@ import { Modal } from "@/common/components/ui/Modal";
 import { userQueryKeys } from "@/common/constants/queryKeys";
 import type { ApiError } from "@/common/types/api";
 import { login, signup } from "@/features/auth/api";
-import { FormField } from "@/features/auth/components/FormField";
+import { AuthField } from "@/features/auth/components/AuthField";
 import { signupSchema, type SignupValues } from "@/features/auth/schema";
 
 export function SignupForm() {
@@ -73,7 +73,7 @@ export function SignupForm() {
           name="email"
           control={control}
           render={({ field }) => (
-            <FormField
+            <AuthField
               id="email"
               type="email"
               label="이메일"
@@ -89,7 +89,7 @@ export function SignupForm() {
           name="nickname"
           control={control}
           render={({ field }) => (
-            <FormField
+            <AuthField
               id="nickname"
               type="text"
               label="닉네임"
@@ -105,7 +105,7 @@ export function SignupForm() {
           name="password"
           control={control}
           render={({ field }) => (
-            <FormField
+            <AuthField
               id="password"
               type="password"
               label="비밀번호"
@@ -121,7 +121,7 @@ export function SignupForm() {
           name="passwordConfirmation"
           control={control}
           render={({ field }) => (
-            <FormField
+            <AuthField
               id="passwordConfirmation"
               type="password"
               label="비밀번호 확인"
