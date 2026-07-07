@@ -1,4 +1,4 @@
-import type { CommentResponse } from "@/common/types/common";
+import type { CommentResponse } from "@/common/types/comment";
 
 import { api } from "../../common/api/client";
 

@@ -8,10 +8,10 @@ import { Controller, useForm } from "react-hook-form";
 import { Button } from "@/common/components/ui/Button";
 import { Modal } from "@/common/components/ui/Modal";
 import { userQueryKeys } from "@/common/constants/queryKeys";
+import type { ApiError } from "@/common/types/api";
 import { login } from "@/features/auth/api";
 import { FormField } from "@/features/auth/components/FormField";
 import { loginSchema, type LoginValues } from "@/features/auth/schema";
-import type { ApiError } from "@/types/api";
 
 export function LoginForm() {
   const router = useRouter();

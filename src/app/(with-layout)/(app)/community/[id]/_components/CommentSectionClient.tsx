@@ -1,6 +1,6 @@
 "use client";
 
-import type { Comment } from "@/common/types/common";
+import type { Comment } from "@/common/types/comment";
 import {
   createArticleComment,
   getArticleComments,

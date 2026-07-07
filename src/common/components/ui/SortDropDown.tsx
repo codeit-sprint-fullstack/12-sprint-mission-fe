@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 
-import type { SortOption } from "@/types/sort";
+import type { SortOption } from "@/common/types/list";
 
 type SortDropDownProps = {
   value: string;

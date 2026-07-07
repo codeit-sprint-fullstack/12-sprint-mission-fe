@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useState } from "react";
 
-import type { BaseFieldProps } from "@/types/form";
+import type { BaseFieldProps } from "@/common/types/form";
 
 type FormFieldProps = BaseFieldProps & {
   type: string;

@@ -1,4 +1,4 @@
-import type { ApiError } from "@/types/api";
+import type { ApiError } from "@/common/types/api";
 
 const BASE_URL = process.env.NEXT_PUBLIC_API_URL;
 

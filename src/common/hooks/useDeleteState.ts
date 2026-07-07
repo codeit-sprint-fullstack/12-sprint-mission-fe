@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { toast } from "react-hot-toast";
 
-import type { ApiError } from "@/types/api";
+import type { ApiError } from "@/common/types/api";
 
 export function useDeleteState() {
   const [modalOpen, setModalOpen] = useState(false);

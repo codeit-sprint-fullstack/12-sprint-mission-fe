@@ -4,10 +4,10 @@ import type {
   CommentListResponse,
   CommentResponse,
   CreateCommentBody,
-} from "@/common/types/common";
+} from "@/common/types/comment";
+import type { ListQueryParams } from "@/common/types/list";
 import type { Article, ArticleSummary } from "@/features/article/type";
 import type { FavoriteResponse } from "@/features/Like/type";
-import type { ListQueryParams } from "@/types/list";
 
 type ArticleListResponse = {
   data: ArticleSummary[];

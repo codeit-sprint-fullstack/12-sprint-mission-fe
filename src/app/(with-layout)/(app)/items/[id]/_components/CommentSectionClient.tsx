@@ -1,6 +1,6 @@
 "use client";
 
-import type { Comment } from "@/common/types/common";
+import type { Comment } from "@/common/types/comment";
 import { deleteComment, updateComment } from "@/features/comment/api";
 import CommentForm from "@/features/comment/components/CommentForm";
 import CommentList from "@/features/comment/components/CommentList";

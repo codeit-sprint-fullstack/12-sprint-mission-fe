@@ -3,10 +3,10 @@ import type {
   CommentListResponse,
   CommentResponse,
   CreateCommentBody,
-} from "@/common/types/common";
+} from "@/common/types/comment";
+import type { ListQueryParams } from "@/common/types/list";
 import type { FavoriteResponse } from "@/features/Like/type";
 import type { Product, ProductSummary } from "@/features/product/type";
-import type { ListQueryParams } from "@/types/list";
 
 // 목록 응답
 type ProductListResponse = {

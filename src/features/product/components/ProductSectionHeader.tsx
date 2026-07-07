@@ -4,7 +4,7 @@ import { Button } from "@/common/components/ui/Button";
 import { SearchBar } from "@/common/components/ui/SearchBar";
 import { SortDropDown } from "@/common/components/ui/SortDropDown";
 import { useListFilters } from "@/common/hooks/useListFilters";
-import type { SectionHeaderProps, SortOption } from "@/types/sort";
+import type { SectionHeaderProps, SortOption } from "@/common/types/list";
 
 export function ProductSectionHeader({ keyword, orderBy }: SectionHeaderProps) {
   const sortOptions: SortOption[] = [

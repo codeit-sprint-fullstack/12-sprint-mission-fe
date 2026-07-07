@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 
-import type { ApiError } from "@/types/api";
+import type { ApiError } from "@/common/types/api";
 
 export async function fetchOr404<T>(
   fetcher: () => Promise<{ data: T }>,
