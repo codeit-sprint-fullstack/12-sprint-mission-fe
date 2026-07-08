@@ -1,5 +1,5 @@
-import { Feature } from "./_components/Feature";
-import { Hero } from "./_components/Hero";
+import { Feature } from "@/app/(with-layout)/(landing)/_components/Feature";
+import { Hero } from "@/app/(with-layout)/(landing)/_components/Hero";
 
 export default function LandingPage() {
   return (

@@ -1,8 +1,7 @@
 import { Pagination } from "@/common/components/ui/Pagination";
 import { DEFAULT_PAGE_SIZE } from "@/common/constants/pagination";
 import { getProducts } from "@/features/product/api";
-
-import { ProductCard } from "./ProductCard";
+import { ProductCard } from "@/features/product/components/ProductCard";
 
 type ProductListProps = {
   keyword: string;

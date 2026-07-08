@@ -1,7 +1,6 @@
 import { getArticles } from "@/features/article/api";
 import { PostCard } from "@/features/article/components/PostCard";
-
-import PostLoadMore from "./PostLoadMore";
+import { PostLoadMore } from "@/features/article/components/PostLoadMore";
 
 type PostListProps = {
   keyword: string;

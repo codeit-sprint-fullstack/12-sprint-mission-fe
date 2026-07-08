@@ -5,7 +5,7 @@ import { PostCard } from "@/features/article/components/PostCard";
 import { usePostLoadMore } from "@/features/article/hooks/usePostLoadMore";
 import type { ArticleLoadMoreParams } from "@/features/article/type";
 
-export default function PostLoadMore({
+export function PostLoadMore({
   keyword,
   orderBy,
   initialPage,
