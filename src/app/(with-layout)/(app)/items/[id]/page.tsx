@@ -2,15 +2,14 @@ import { format } from "date-fns";
 import type { Metadata } from "next";
 import Image from "next/image";
 
+import { CommentSection } from "@/app/(with-layout)/(app)/items/[id]//_components/CommentSection";
 import { BackToListButton } from "@/common/components/ui/BackToListButton";
 import { FallbackImage } from "@/common/components/ui/FallbackImage";
 import { fetchOr404 } from "@/common/utils/fetchOr404";
 import { getImageUrl } from "@/common/utils/getImageUrl";
 import { getProduct } from "@/features/product/api";
 import { ProductikeCount } from "@/features/product/components/ProductikeCount";
-import ProductKebabMenu from "@/features/product/components/ProductKebabMenu";
-
-import CommentSection from "./_components/CommentSection";
+import { ProductKebabMenu } from "@/features/product/components/ProductKebabMenu";
 
 type ProductDetailPageProps = {
   params: Promise<{ id: string }>;

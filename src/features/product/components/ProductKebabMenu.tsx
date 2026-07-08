@@ -14,7 +14,7 @@ type ProductKebabMenuProps = {
   ownerId: number;
 };
 
-export default function ProductKebabMenu({
+export function ProductKebabMenu({
   productId,
   ownerId,
 }: ProductKebabMenuProps) {

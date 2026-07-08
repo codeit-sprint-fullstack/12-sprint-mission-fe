@@ -6,10 +6,10 @@ import { useRouter } from "next/navigation";
 import { useImageUpload } from "@/common/hooks/useImageUpload";
 import { showErrorToast } from "@/common/utils/showErrorToast";
 import { createArticle } from "@/features/article/api";
-import PostForm from "@/features/article/components/PostForm";
+import { PostForm } from "@/features/article/components/PostForm";
 import { usePostForm } from "@/features/article/hooks/usePostForm";
 
-export default function PostWriteClient() {
+export function PostWriteClient() {
   const router = useRouter();
 
   const { title, content, setTitle, setContent, isValid } = usePostForm();

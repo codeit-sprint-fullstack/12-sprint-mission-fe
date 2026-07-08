@@ -14,7 +14,7 @@ type PostFormProps = BaseFormWithImagesProps & {
   onContentChange: (value: string) => void;
 };
 
-export default function PostForm({
+export function PostForm({
   heading,
   submitLabel = "등록",
   title,

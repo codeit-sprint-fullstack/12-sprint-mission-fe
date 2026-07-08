@@ -1,6 +1,6 @@
 import { getArticles } from "@/features/article/api";
+import { PostCard } from "@/features/article/components/PostCard";
 
-import PostCard from "./PostCard";
 import PostLoadMore from "./PostLoadMore";
 
 type PostListProps = {
@@ -8,7 +8,7 @@ type PostListProps = {
   orderBy: string;
 };
 
-export default async function PostList({ keyword, orderBy }: PostListProps) {
+export async function PostList({ keyword, orderBy }: PostListProps) {
   const { data, meta } = await getArticles({ keyword, orderBy });
 
   if (data.length === 0) {

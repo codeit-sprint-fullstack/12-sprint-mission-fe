@@ -2,14 +2,13 @@ import { format } from "date-fns";
 import type { Metadata } from "next";
 import Image from "next/image";
 
+import { CommentSection } from "@/app/(with-layout)/(app)/community/[id]/_components/CommentSection";
 import { BackToListButton } from "@/common/components/ui/BackToListButton";
 import { fetchOr404 } from "@/common/utils/fetchOr404";
 import { getImageUrl } from "@/common/utils/getImageUrl";
 import { getArticle } from "@/features/article/api";
-import ArticleKebabMenu from "@/features/article/components/ArticleKebabMenu";
+import { ArticleKebabMenu } from "@/features/article/components/ArticleKebabMenu";
 import { ArticleLikeCount } from "@/features/article/components/ArticleLikeCount";
-
-import CommentSection from "./_components/CommentSection";
 
 type ArticleDetailPageProps = {
   params: Promise<{ id: string }>;

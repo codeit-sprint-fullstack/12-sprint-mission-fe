@@ -2,7 +2,7 @@
 
 import { toggleArticleFavorite } from "@/features/article/api";
 import type { Article } from "@/features/article/type";
-import LikeCountClient from "@/features/Like/LikeCountClient";
+import { LikeCountClient } from "@/features/Like/LikeCountClient";
 
 type ArticleLikeCountProps = {
   articleId: number;

@@ -22,7 +22,7 @@ type ProductFormProps = BaseFormWithImagesProps &
     onPriceChange: (value: string) => void;
   };
 
-export default function ProductForm({
+export function ProductForm({
   heading,
   submitLabel = "등록",
   name,

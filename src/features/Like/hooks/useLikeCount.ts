@@ -14,7 +14,7 @@ type UseLikeCountParams = {
   onSuccess?: () => void;
 };
 
-export default function useLikeCount({
+export function useLikeCount({
   initialCount,
   initialLiked = false,
   mutateFn,

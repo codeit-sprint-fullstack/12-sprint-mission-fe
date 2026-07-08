@@ -2,8 +2,8 @@
 
 import { toast } from "react-hot-toast";
 
-import LikeCount from "@/features/Like/components/LikeCount";
-import useLikeCount from "@/features/Like/hooks/useLikeCount";
+import { LikeCount } from "@/features/Like/components/LikeCount";
+import { useLikeCount } from "@/features/Like/hooks/useLikeCount";
 import { useUser } from "@/features/user/hooks/useUser";
 
 type LikeCountClientProps = {
@@ -12,7 +12,7 @@ type LikeCountClientProps = {
   mutateFn: (nextLiked: boolean) => Promise<unknown>;
 };
 
-export default function LikeCountClient({
+export function LikeCountClient({
   initialCount,
   initialLiked = false,
   mutateFn,

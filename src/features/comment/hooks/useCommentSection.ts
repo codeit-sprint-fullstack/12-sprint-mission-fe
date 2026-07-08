@@ -6,7 +6,7 @@ type UseCommentSectionParams<T> = {
   initialComments: T[];
 };
 
-export default function useCommentSection<T>({
+export function useCommentSection<T>({
   queryKey,
   fetchComments,
   initialComments,

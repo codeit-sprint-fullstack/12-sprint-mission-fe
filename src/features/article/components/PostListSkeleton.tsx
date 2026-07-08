@@ -1,6 +1,6 @@
 import { POST_LIMIT } from "@/common/constants/pagination";
 
-export default function PostListSkeleton() {
+export function PostListSkeleton() {
   return (
     <>
       {Array.from({ length: POST_LIMIT }).map((_, i) => (

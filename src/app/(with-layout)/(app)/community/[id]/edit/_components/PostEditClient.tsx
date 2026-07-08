@@ -3,18 +3,18 @@
 import { useMutation } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
 
-import { updateArticle } from "@/features/article/api";
-import PostForm from "@/features/article/components/PostForm";
-import { usePostForm } from "@/features/article/hooks/usePostForm";
-import type { Article } from "@/features/article/type";
 import { useImageUpload } from "@/common/hooks/useImageUpload";
 import { showErrorToast } from "@/common/utils/showErrorToast";
+import { updateArticle } from "@/features/article/api";
+import { PostForm } from "@/features/article/components/PostForm";
+import { usePostForm } from "@/features/article/hooks/usePostForm";
+import type { Article } from "@/features/article/type";
 
 type PostEditClientProps = {
   post: Article;
 };
 
-export default function PostEditClient({ post }: PostEditClientProps) {
+export function PostEditClient({ post }: PostEditClientProps) {
   const router = useRouter();
 
   const { title, content, setTitle, setContent, isValid } = usePostForm({

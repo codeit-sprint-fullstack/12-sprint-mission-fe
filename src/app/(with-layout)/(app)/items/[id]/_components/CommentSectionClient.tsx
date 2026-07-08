@@ -2,10 +2,10 @@
 
 import type { Comment } from "@/common/types/comment";
 import { deleteComment, updateComment } from "@/features/comment/api";
-import CommentForm from "@/features/comment/components/CommentForm";
-import CommentList from "@/features/comment/components/CommentList";
-import CommentListSkeleton from "@/features/comment/components/CommentListSkeleton";
-import useCommentSection from "@/features/comment/hooks/useCommentSection";
+import { CommentForm } from "@/features/comment/components/CommentForm";
+import { CommentList } from "@/features/comment/components/CommentList";
+import { CommentListSkeleton } from "@/features/comment/components/CommentListSkeleton";
+import { useCommentSection } from "@/features/comment/hooks/useCommentSection";
 import {
   createProductComment,
   getProductComments,
@@ -16,7 +16,7 @@ type CommentSectionClientProps = {
   initialComments: Comment[];
 };
 
-export default function CommentSectionClient({
+export function CommentSectionClient({
   productId,
   initialComments,
 }: CommentSectionClientProps) {

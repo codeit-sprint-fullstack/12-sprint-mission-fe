@@ -6,10 +6,7 @@ import { SortDropDown } from "@/common/components/ui/SortDropDown";
 import { useListFilters } from "@/common/hooks/useListFilters";
 import type { SectionHeaderProps, SortOption } from "@/common/types/list";
 
-export default function PostSectionHeader({
-  keyword,
-  orderBy,
-}: SectionHeaderProps) {
+export function PostSectionHeader({ keyword, orderBy }: SectionHeaderProps) {
   const sortOptions: SortOption[] = [
     { label: "최신순", value: "recent" },
     { label: "좋아요순", value: "favorite" },

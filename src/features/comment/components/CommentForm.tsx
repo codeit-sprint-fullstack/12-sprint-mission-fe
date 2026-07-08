@@ -9,10 +9,9 @@ import { useState } from "react";
 import { toast } from "react-hot-toast";
 
 import { Button } from "@/common/components/ui/Button";
-import { useUser } from "@/features/user/hooks/useUser";
 import { showErrorToast } from "@/common/utils/showErrorToast";
-
-import CommentTextarea from "./CommentTextarea";
+import { CommentTextarea } from "@/features/comment/components/CommentTextarea";
+import { useUser } from "@/features/user/hooks/useUser";
 
 type CommentFormProps = {
   createComment: (content: string) => Promise<unknown>;
@@ -20,7 +19,7 @@ type CommentFormProps = {
   placeholder?: string;
 };
 
-export default function CommentForm({
+export function CommentForm({
   createComment,
   queryKey,
   placeholder,

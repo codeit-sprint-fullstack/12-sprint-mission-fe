@@ -6,11 +6,7 @@ type LikeCountProps = {
   onToggle: () => void;
 };
 
-export default function LikeCount({
-  liked = false,
-  count,
-  onToggle,
-}: LikeCountProps) {
+export function LikeCount({ liked = false, count, onToggle }: LikeCountProps) {
   return (
     <button
       onClick={onToggle}

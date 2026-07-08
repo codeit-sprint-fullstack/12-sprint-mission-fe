@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
-import { getArticle } from "@/features/article/api";
+import { PostEditClient } from "@/app/(with-layout)/(app)/community/[id]/edit/_components/PostEditClient";
 import type { ApiError } from "@/common/types/api";
-
-import PostEditClient from "./_components/PostEditClient";
+import { getArticle } from "@/features/article/api";
 
 type ArticleEditPageProps = {
   params: Promise<{ id: string }>;

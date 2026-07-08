@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
 
-import BestPostList from "../../../../features/article/components/BestPostList";
-import BestPostListSkeleton from "../../../../features/article/components/BestPostListSkeleton";
-import PostList from "../../../../features/article/components/PostList";
-import PostListSkeleton from "../../../../features/article/components/PostListSkeleton";
-import PostSectionHeader from "../../../../features/article/components/PostSectionHeader";
+import { BestPostList } from "@/features/article/components/BestPostList";
+import { BestPostListSkeleton } from "@/features/article/components/BestPostListSkeleton";
+import { PostList } from "@/features/article/components/PostList";
+import { PostListSkeleton } from "@/features/article/components/PostListSkeleton";
+import { PostSectionHeader } from "@/features/article/components/PostSectionHeader";
 
 export const metadata: Metadata = {
   title: "자유게시판",
@@ -38,7 +38,7 @@ export default async function CommunityPage({
         <PostSectionHeader keyword={keyword} orderBy={orderBy} />
         <Suspense fallback={<PostListSkeleton />}>
           <PostList keyword={keyword} orderBy={orderBy} />
-        </Suspense>{" "}
+        </Suspense>
       </section>
     </div>
   );

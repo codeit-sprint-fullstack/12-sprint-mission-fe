@@ -1,10 +1,9 @@
 "use client";
 
 import { Button } from "@/common/components/ui/Button";
-import usePostLoadMore from "@/features/article/hooks/usePostLoadMore";
+import { PostCard } from "@/features/article/components/PostCard";
+import { usePostLoadMore } from "@/features/article/hooks/usePostLoadMore";
 import type { ArticleLoadMoreParams } from "@/features/article/type";
-
-import PostCard from "./PostCard";
 
 export default function PostLoadMore({
   keyword,

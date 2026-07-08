@@ -3,14 +3,14 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { FallbackImage } from "@/common/components/ui/FallbackImage";
-import type { ArticleSummary } from "@/features/article/type";
 import { getImageUrl } from "@/common/utils/getImageUrl";
+import type { ArticleSummary } from "@/features/article/type";
 
 type BestPostCardProps = {
   post: ArticleSummary;
 };
 
-export default function BestPostCard({ post }: BestPostCardProps) {
+export function BestPostCard({ post }: BestPostCardProps) {
   const hasImages = post.imageUrls.length > 0;
   const imageSrc = hasImages
     ? getImageUrl(post.imageUrls[0])

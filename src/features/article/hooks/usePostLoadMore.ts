@@ -7,7 +7,7 @@ import type {
   ArticleSummary,
 } from "@/features/article/type";
 
-export default function usePostLoadMore({
+export function usePostLoadMore({
   keyword,
   orderBy,
   initialPage,

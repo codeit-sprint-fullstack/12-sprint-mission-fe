@@ -1,6 +1,5 @@
+import { api } from "@/common/api/client";
 import type { CommentResponse } from "@/common/types/comment";
-
-import { api } from "../../common/api/client";
 
 type UpdateCommentBody = {
   content: string;

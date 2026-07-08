@@ -3,13 +3,13 @@
 import { useMutation } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
 
-import ProductForm from "@/features/product/components/ProductForm";
 import { useImageUpload } from "@/common/hooks/useImageUpload";
-import { useProductForm } from "@/features/product/hooks/useProductForm";
-import { createProduct } from "@/features/product/api";
 import { showErrorToast } from "@/common/utils/showErrorToast";
+import { createProduct } from "@/features/product/api";
+import { ProductForm } from "@/features/product/components/ProductForm";
+import { useProductForm } from "@/features/product/hooks/useProductForm";
 
-export default function NewProductClient() {
+export function NewProductClient() {
   const router = useRouter();
   const { values, setters, handlers, isValid } = useProductForm();
   const { images, setImages } = useImageUpload();

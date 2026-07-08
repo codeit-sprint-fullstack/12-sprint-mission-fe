@@ -10,13 +10,12 @@ import { Button } from "@/common/components/ui/Button";
 import { KebabMenu } from "@/common/components/ui/KebabMenu";
 import { Modal } from "@/common/components/ui/Modal";
 import { useDeleteState } from "@/common/hooks/useDeleteState";
-import { useUser } from "@/features/user/hooks/useUser";
 import { showErrorToast } from "@/common/utils/showErrorToast";
+import { CommentTextarea } from "@/features/comment/components/CommentTextarea";
+import type { CommentCardProps } from "@/features/comment/types";
+import { useUser } from "@/features/user/hooks/useUser";
 
-import CommentTextarea from "./CommentTextarea";
-import type { CommentCardProps } from "../types";
-
-export default function CommentCard({
+export function CommentCard({
   comment,
   queryKey,
   updateComment,

@@ -12,7 +12,7 @@ type ArticleKebabMenuProps = {
   articleId: number;
 };
 
-export default function ArticleKebabMenu({ articleId }: ArticleKebabMenuProps) {
+export function ArticleKebabMenu({ articleId }: ArticleKebabMenuProps) {
   const router = useRouter();
 
   const { modalOpen, openModal, closeModal, handleErrorDelete } =

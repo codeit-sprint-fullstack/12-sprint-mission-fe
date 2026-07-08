@@ -1,4 +1,4 @@
-export default function BestPostSectionSkeleton() {
+export function BestPostListSkeleton() {
   return (
     <div className="flex gap-4 md:gap-6">
       <BestPostCardSkeleton />

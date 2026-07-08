@@ -1,6 +1,5 @@
 import { getProducts } from "@/features/product/api";
-
-import { ProductCard } from "./ProductCard";
+import { ProductCard } from "@/features/product/components/ProductCard";
 
 export async function BestProductList() {
   const { data } = await getProducts({ pageSize: 4, orderBy: "favorite" });

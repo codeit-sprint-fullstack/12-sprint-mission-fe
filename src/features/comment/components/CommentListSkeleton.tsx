@@ -1,4 +1,4 @@
-export default function CommentListSkeleton() {
+export function CommentListSkeleton() {
   return (
     <div className="flex flex-col gap-4 md:gap-6 mb-10 md:mb-14 lg:mb-16">
       {Array.from({ length: 2 }).map((_, i) => (

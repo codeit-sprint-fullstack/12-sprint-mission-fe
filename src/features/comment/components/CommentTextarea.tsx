@@ -6,7 +6,7 @@ type CommentTextareaProps = {
   placeholder?: string;
 };
 
-export default function CommentTextarea({
+export function CommentTextarea({
   value,
   onChange,
   placeholder = "댓글을 입력해주세요.",

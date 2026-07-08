@@ -3,14 +3,14 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { FallbackImage } from "@/common/components/ui/FallbackImage";
-import type { ArticleSummary } from "@/features/article/type";
 import { getImageUrl } from "@/common/utils/getImageUrl";
+import type { ArticleSummary } from "@/features/article/type";
 
 type PostCardProps = {
   post: ArticleSummary;
 };
 
-export default function PostCard({ post }: PostCardProps) {
+export function PostCard({ post }: PostCardProps) {
   const hasImages = post.imageUrls.length > 0;
   const imageSrc = hasImages
     ? getImageUrl(post.imageUrls[0])
@@ -26,7 +26,7 @@ export default function PostCard({ post }: PostCardProps) {
           <h3 className="text-xl font-semibold text-gray-800">{post.title}</h3>
           <div className="flex justify-center items-center w-[72px] h-[72px] px-3 py-[13.7px] rounded-lg border border-gray-100 bg-white">
             <FallbackImage
-              src={getImageUrl(post.imageUrls[0])}
+              src={imageSrc}
               fallbackSrc="/images/post-default-image.png"
               width={48}
               height={45}

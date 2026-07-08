@@ -1,4 +1,4 @@
-import CommentListSkeleton from "@/features/comment/components/CommentListSkeleton";
+import { CommentListSkeleton } from "@/features/comment/components/CommentListSkeleton";
 
 export default function Loading() {
   return (

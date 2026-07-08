@@ -1,8 +1,7 @@
 import { getArticles } from "@/features/article/api";
+import { BestPostCard } from "@/features/article/components/BestPostCard";
 
-import BestPostCard from "./BestPostCard";
-
-export default async function BestPostList() {
+export async function BestPostList() {
   const { data } = await getArticles({ pageSize: 3, orderBy: "favorite" });
   const [first, second, third] = data;
 

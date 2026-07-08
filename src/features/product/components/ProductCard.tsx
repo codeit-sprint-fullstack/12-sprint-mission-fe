@@ -2,8 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { FallbackImage } from "@/common/components/ui/FallbackImage";
-import type { ProductSummary } from "@/features/product/type";
 import { getImageUrl } from "@/common/utils/getImageUrl";
+import type { ProductSummary } from "@/features/product/type";
 
 type ProductCardProps = {
   product: ProductSummary;

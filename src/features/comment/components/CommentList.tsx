@@ -1,9 +1,9 @@
 import Image from "next/image";
 
-import CommentCard from "./CommentCard";
-import type { CommentListProps } from "../types";
+import { CommentCard } from "@/features/comment/components/CommentCard";
+import type { CommentListProps } from "@/features/comment/types";
 
-export default function CommentList({
+export function CommentList({
   comments,
   queryKey,
   updateComment,
