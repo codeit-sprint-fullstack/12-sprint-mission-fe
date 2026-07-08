@@ -3,14 +3,12 @@
 import { Button } from "@/common/components/ui/Button";
 import { ContentField } from "@/common/components/ui/ContentField";
 import { ImageUploader } from "@/common/components/ui/ImageUploader";
+import { VALIDATION } from "@/common/constants/validation";
 import type { BaseFormWithImagesProps } from "@/common/types/form";
 import {
   TagInput,
   type TagInputProps,
 } from "@/features/product/components/TagInput";
-
-const NAME_MAX_LENGTH = 100;
-const DESCRIPTION_MIN_LENGTH = 10;
 
 type ProductFormProps = BaseFormWithImagesProps &
   Omit<TagInputProps, "isSubmitting"> & {
@@ -46,7 +44,7 @@ export function ProductForm({
 }: ProductFormProps) {
   const isDescriptionTooShort =
     description.length > 0 &&
-    description.trim().length < DESCRIPTION_MIN_LENGTH;
+    description.trim().length < VALIDATION.product.descriptionMinLength;
 
   return (
     <section>
@@ -82,7 +80,7 @@ export function ProductForm({
           value={name}
           placeholder="상품명을 입력해주세요."
           onChange={onNameChange}
-          maxLength={NAME_MAX_LENGTH}
+          maxLength={VALIDATION.product.nameMaxLength}
           disabled={isSubmitting}
         />
 
@@ -96,7 +94,7 @@ export function ProductForm({
           disabled={isSubmitting}
           error={
             isDescriptionTooShort
-              ? `상품 소개는 ${DESCRIPTION_MIN_LENGTH}자 이상 입력해주세요.`
+              ? `상품 소개는 ${VALIDATION.product.descriptionMinLength}자 이상 입력해주세요.`
               : undefined
           }
         />

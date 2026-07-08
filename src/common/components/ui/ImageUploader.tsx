@@ -3,10 +3,10 @@
 import Image from "next/image";
 import { useEffect, useMemo } from "react";
 
+import { VALIDATION } from "@/common/constants/validation";
 import type { ImageUploaderProps } from "@/common/types/form";
 import { getImageUrl } from "@/common/utils/getImageUrl";
 
-const MAX_IMAGE_COUNT = 3;
 const IMAGE_BOX_MAX = 282;
 
 export function ImageUploader({
@@ -18,7 +18,7 @@ export function ImageUploader({
   isSubmitting,
 }: ImageUploaderProps) {
   const totalImageCount = existingImageUrls.length + images.length;
-  const isImageLimitReached = totalImageCount >= MAX_IMAGE_COUNT;
+  const isImageLimitReached = totalImageCount >= VALIDATION.image.maxCount;
 
   // File[]: 미리보기용 objectURL. 이미지가 바뀔 때마다 새로 만들고, 이전 URL은 해제
   const previewUrls = useMemo(
@@ -36,7 +36,7 @@ export function ImageUploader({
     const files = Array.from(e.target.files ?? []);
     if (files.length === 0) return;
 
-    const remainingSlots = MAX_IMAGE_COUNT - totalImageCount;
+    const remainingSlots = VALIDATION.image.maxCount - totalImageCount;
     const filesToAdd = files.slice(0, remainingSlots);
 
     onImagesChange([...images, ...filesToAdd]);
@@ -53,7 +53,7 @@ export function ImageUploader({
     <div>
       <div className="mb-4 lg:mb-6">
         <label className="block text-2lg font-bold text-gray-800">
-          {label} ({totalImageCount}/{MAX_IMAGE_COUNT})
+          {label} ({totalImageCount}/{VALIDATION.image.maxCount})
         </label>
       </div>
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-4  mb-4 lg:mb-6">

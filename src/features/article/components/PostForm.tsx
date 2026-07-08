@@ -3,9 +3,8 @@
 import { Button } from "@/common/components/ui/Button";
 import { ContentField } from "@/common/components/ui/ContentField";
 import { ImageUploader } from "@/common/components/ui/ImageUploader";
+import { VALIDATION } from "@/common/constants/validation";
 import type { BaseFormWithImagesProps } from "@/common/types/form";
-
-const TITLE_MAX_LENGTH = 100;
 
 type PostFormProps = BaseFormWithImagesProps & {
   title: string;
@@ -54,7 +53,7 @@ export function PostForm({
           value={title}
           placeholder="제목을 입력해주세요."
           onChange={onTitleChange}
-          maxLength={TITLE_MAX_LENGTH}
+          maxLength={VALIDATION.post.titleMaxLength}
           disabled={isSubmitting}
         />
 
