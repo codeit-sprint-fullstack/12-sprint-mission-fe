@@ -1,5 +1,6 @@
 import { api } from "@/common/api/client";
 import type {
+  Comment,
   CommentListResponse,
   CommentResponse,
   CreateCommentBody,
@@ -129,11 +130,16 @@ export const getProductComments = ({
   );
 };
 
-export const createProductComment = (productId: number, content: string) =>
-  api.post<CommentResponse, CreateCommentBody>(
+export const createProductComment = async (
+  productId: number,
+  content: string,
+): Promise<Comment> => {
+  const res = await api.post<CommentResponse, CreateCommentBody>(
     `/products/${productId}/comments`,
     { content },
   );
+  return res.data;
+};
 
 export const addProductFavorite = (productId: number) =>
   api.post<FavoriteResponse, undefined>(

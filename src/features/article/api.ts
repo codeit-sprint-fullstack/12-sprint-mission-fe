@@ -1,6 +1,7 @@
 import { api } from "@/common/api/client";
 import { POST_LIMIT } from "@/common/constants/pagination";
 import type {
+  Comment,
   CommentListResponse,
   CommentResponse,
   CreateCommentBody,
@@ -115,11 +116,16 @@ export const getArticleComments = ({
   );
 };
 
-export const createArticleComment = (articleId: number, content: string) =>
-  api.post<CommentResponse, CreateCommentBody>(
+export const createArticleComment = async (
+  articleId: number,
+  content: string,
+): Promise<Comment> => {
+  const res = await api.post<CommentResponse, CreateCommentBody>(
     `/articles/${articleId}/comments`,
     { content },
   );
+  return res.data;
+};
 
 export const addArticleFavorite = (articleId: number) =>
   api.post<FavoriteResponse, undefined>(
