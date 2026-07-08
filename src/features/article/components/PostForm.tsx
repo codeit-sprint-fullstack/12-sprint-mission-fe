@@ -49,7 +49,7 @@ export function PostForm({
 
         <ContentField
           id="title"
-          label="제목"
+          label="* 제목"
           value={title}
           placeholder="제목을 입력해주세요."
           onChange={onTitleChange}
@@ -59,7 +59,7 @@ export function PostForm({
 
         <ContentField
           id="content"
-          label="내용"
+          label="* 내용"
           value={content}
           placeholder="내용을 입력해주세요."
           as="textarea"
