@@ -2,7 +2,7 @@ import { format } from "date-fns";
 import type { Metadata } from "next";
 import Image from "next/image";
 
-import { CommentSection } from "@/app/(with-layout)/(app)/community/[id]/_components/CommentSection";
+import { PostCommentSection } from "@/app/(with-layout)/(app)/community/[id]/_components/PostCommentSection";
 import { BackToListButton } from "@/common/components/ui/BackToListButton";
 import { fetchOr404 } from "@/common/utils/fetchOr404";
 import { getImageUrl } from "@/common/utils/getImageUrl";
@@ -87,7 +87,7 @@ export default async function ArticleDetailPage({
         {article.content}
       </p>
 
-      <CommentSection articleId={articleId} />
+      <PostCommentSection articleId={articleId} />
 
       <BackToListButton href="/community" />
     </section>

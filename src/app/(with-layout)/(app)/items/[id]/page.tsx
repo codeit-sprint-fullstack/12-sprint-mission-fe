@@ -2,7 +2,7 @@ import { format } from "date-fns";
 import type { Metadata } from "next";
 import Image from "next/image";
 
-import { CommentSection } from "@/app/(with-layout)/(app)/items/[id]//_components/CommentSection";
+import { ProductCommentSection } from "@/app/(with-layout)/(app)/items/[id]/_components/ProductCommentSection";
 import { BackToListButton } from "@/common/components/ui/BackToListButton";
 import { FallbackImage } from "@/common/components/ui/FallbackImage";
 import { fetchOr404 } from "@/common/utils/fetchOr404";
@@ -118,7 +118,7 @@ export default async function ProductDetailPage({
         </div>
       </div>
 
-      <CommentSection productId={productId} />
+      <ProductCommentSection productId={productId} />
 
       <BackToListButton href="/items" />
     </section>
