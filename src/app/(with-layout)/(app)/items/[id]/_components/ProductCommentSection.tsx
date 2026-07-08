@@ -1,3 +1,4 @@
+import { productQueryKeys } from "@/common/constants/queryKeys";
 import { CommentSectionClient } from "@/features/comment/components/CommentSectionClient";
 import {
   createProductComment,
@@ -12,7 +13,7 @@ export async function ProductCommentSection({
   productId,
 }: CommentSectionProps) {
   const { data: initialComments } = await getProductComments({ productId });
-  const queryKey = ["productComments", productId] as const;
+  const queryKey = productQueryKeys.comments(productId);
 
   return (
     <CommentSectionClient

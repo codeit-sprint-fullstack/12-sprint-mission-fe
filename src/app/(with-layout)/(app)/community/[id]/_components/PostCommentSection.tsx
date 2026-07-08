@@ -1,3 +1,4 @@
+import { articleQueryKeys } from "@/common/constants/queryKeys";
 import {
   createArticleComment,
   getArticleComments,
@@ -10,7 +11,7 @@ type CommentSectionProps = {
 
 export async function PostCommentSection({ articleId }: CommentSectionProps) {
   const { data: initialComments } = await getArticleComments({ articleId });
-  const queryKey = ["articleComments", articleId] as const;
+  const queryKey = articleQueryKeys.comments(articleId);
 
   return (
     <CommentSectionClient
