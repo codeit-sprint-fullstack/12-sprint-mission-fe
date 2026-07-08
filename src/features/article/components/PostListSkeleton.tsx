@@ -1,9 +1,9 @@
-import { POST_LIMIT } from "@/common/constants/pagination";
+import { DEFAULT_PAGE_SIZE } from "@/common/constants/pagination";
 
 export function PostListSkeleton() {
   return (
     <>
-      {Array.from({ length: POST_LIMIT }).map((_, i) => (
+      {Array.from({ length: DEFAULT_PAGE_SIZE }).map((_, i) => (
         <div
           key={i}
           className="block w-full mt-6 pb-6 border-b border-gray-200"

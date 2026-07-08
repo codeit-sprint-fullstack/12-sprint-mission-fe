@@ -1,4 +1,5 @@
 import { api } from "@/common/api/client";
+import { DEFAULT_PAGE_SIZE } from "@/common/constants/pagination";
 import type {
   Comment,
   CommentListResponse,
@@ -49,7 +50,7 @@ type GetCommentsParams = {
 
 export const getProducts = ({
   page = 1,
-  pageSize = 10,
+  pageSize = DEFAULT_PAGE_SIZE,
   orderBy = "recent",
   keyword = "",
 }: ListQueryParams = {}) => {

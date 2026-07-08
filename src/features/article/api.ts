@@ -1,5 +1,5 @@
 import { api } from "@/common/api/client";
-import { POST_LIMIT } from "@/common/constants/pagination";
+import { DEFAULT_PAGE_SIZE } from "@/common/constants/pagination";
 import type {
   Comment,
   CommentListResponse,
@@ -42,7 +42,7 @@ type GetCommentsParams = {
 
 export const getArticles = ({
   page = 1,
-  pageSize = POST_LIMIT,
+  pageSize = DEFAULT_PAGE_SIZE,
   orderBy = "recent",
   keyword = "",
 }: ListQueryParams = {}) => {

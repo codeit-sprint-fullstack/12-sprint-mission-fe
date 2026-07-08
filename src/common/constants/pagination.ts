@@ -1,1 +1,1 @@
-export const POST_LIMIT = 10;
+export const DEFAULT_PAGE_SIZE = 10;

@@ -1,4 +1,5 @@
 import { Pagination } from "@/common/components/ui/Pagination";
+import { DEFAULT_PAGE_SIZE } from "@/common/constants/pagination";
 import { getProducts } from "@/features/product/api";
 
 import { ProductCard } from "./ProductCard";
@@ -14,16 +15,13 @@ export async function ProductList({
   orderBy,
   page,
 }: ProductListProps) {
-  const pageSize = 10;
-
   const { data, meta } = await getProducts({
     keyword,
     orderBy,
     page,
-    pageSize,
   });
 
-  const totalPages = Math.ceil(meta.totalCount / pageSize);
+  const totalPages = Math.ceil(meta.totalCount / DEFAULT_PAGE_SIZE);
 
   if (meta.totalCount === 0) {
     return (
