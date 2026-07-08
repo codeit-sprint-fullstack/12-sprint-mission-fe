@@ -66,7 +66,6 @@ export function TagInput({
           </div>
         ))}
       </div>
-      )
     </>
   );
 }

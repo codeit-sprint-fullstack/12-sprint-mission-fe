@@ -7,7 +7,6 @@ type ContentFieldProps = BaseFieldProps & {
   disabled?: boolean;
   as?: "input" | "textarea";
   type?: string;
-  required?: boolean;
 };
 
 export function ContentField({
@@ -21,7 +20,6 @@ export function ContentField({
   as = "input",
   type = "text",
   error,
-  required = true,
 }: ContentFieldProps) {
   const showCount = maxLength !== undefined;
   const sharedClassName = `
@@ -33,7 +31,6 @@ export function ContentField({
     <div className="mb-6 lg:mb-8">
       <div className="mb-4">
         <label htmlFor={id} className="block text-2lg font-bold text-gray-800">
-          {required && "*"}
           {label}
         </label>
       </div>
@@ -61,7 +58,7 @@ export function ContentField({
           />
         )}
         {showCount && (
-          <span className="absolute bottom-8 right-6 text-xs text-gray-400">
+          <span className="absolute bottom-2 right-6 text-xs text-gray-400">
             {value.length}/{maxLength}
           </span>
         )}
