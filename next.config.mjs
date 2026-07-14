@@ -22,6 +22,12 @@ const nextConfig = {
         protocol: "https",
         hostname: "cdn-icons-png.flaticon.com",
       },
+      {
+        protocol: "http",
+        hostname: "localhost",
+        port: "8080",
+        pathname: "/uploads/**",
+      },
     ],
   },
 };
